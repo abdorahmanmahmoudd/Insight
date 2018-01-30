@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nKY-am-cXf">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="mH6-FG-Mpi">
+            <objects>
+                <navigationController storyboardIdentifier="HomeNC" id="nKY-am-cXf" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Xp4-qa-yG0">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.027450980392156862" green="0.14117647058823529" blue="0.30980392156862746" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="PwW-LA-6Pe" kind="relationship" relationship="rootViewController" id="Cx7-P7-935"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zf1-MI-d2M" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-884" y="173"/>
+        </scene>
+        <!--Home View Controller-->
+        <scene sceneID="UH7-Uz-d3z">
+            <objects>
+                <viewController storyboardIdentifier="HomeVC" id="PwW-LA-6Pe" customClass="HomeViewController" customModule="Insight" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wi1-Ej-3Oh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="UDI-Pv-zrq">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Zlg-tm-hAq" firstAttribute="bottom" secondItem="UDI-Pv-zrq" secondAttribute="bottom" id="DWZ-iG-IYE"/>
+                            <constraint firstItem="UDI-Pv-zrq" firstAttribute="top" secondItem="wi1-Ej-3Oh" secondAttribute="top" id="JV2-iM-4wl"/>
+                            <constraint firstItem="UDI-Pv-zrq" firstAttribute="leading" secondItem="Zlg-tm-hAq" secondAttribute="leading" id="UmN-s5-Yhg"/>
+                            <constraint firstItem="Zlg-tm-hAq" firstAttribute="trailing" secondItem="UDI-Pv-zrq" secondAttribute="trailing" id="mL7-Or-5pB"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Zlg-tm-hAq"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="vjM-QM-x6N"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7qO-ah-ZfC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-60" y="171.36431784107947"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="background" width="374" height="644"/>
+    </resources>
+</document>

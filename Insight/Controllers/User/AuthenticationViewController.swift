@@ -39,11 +39,11 @@ class AuthenticationViewController: UIViewController {
     @IBAction func btnSignInClicked(_ sender: UIButton) {
         
         initSignInView()
-        
     }
     
     @IBAction func btnSignUpClicked(_ sender: UIButton) {
         
+        initSignUpView()
     }
     
 
@@ -76,6 +76,40 @@ class AuthenticationViewController: UIViewController {
             self.addChildViewController(SignInView)
             
             SignInView.didMove(toParentViewController: self)
+        }
+    }
+    
+    func initSignUpView(){
+        
+        viewBtnSignUpUnderLine.backgroundColor = UIColor.white
+        viewBtnSignInUnderLine.backgroundColor = UIColor.clear
+        
+        // to reload data without adding posts view over each other
+        for view in containerView.subviews{
+            view.removeFromSuperview()
+        }
+        
+        let storyboard = UIStoryboard.init(name: "Authentication", bundle: Bundle.main)
+        if let SignUpView  = storyboard.instantiateViewController(withIdentifier: "SignUpVC") as? SignUpViewController {
+            
+            SignUpView.delegate = self
+            
+            SignUpView.view.translatesAutoresizingMaskIntoConstraints = false
+            
+            SignUpView.willMove(toParentViewController: self)
+            
+            self.containerView.addSubview(SignUpView.view)
+            
+            SignUpView.view.leadingAnchor.constraint(equalTo: self.containerView.leadingAnchor).isActive = true
+            
+            SignUpView.view.trailingAnchor.constraint(equalTo: self.containerView.trailingAnchor).isActive = true
+            
+            SignUpView.view.topAnchor.constraint(equalTo: self.containerView.topAnchor).isActive = true
+            
+            SignUpView.view.bottomAnchor.constraint(equalTo: self.containerView.bottomAnchor).isActive = true
+            self.addChildViewController(SignUpView)
+            
+            SignUpView.didMove(toParentViewController: self)
         }
     }
 }

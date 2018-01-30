@@ -8,6 +8,28 @@
 
 /* Begin PBXBuildFile section */
 		37CF4B43B70845F6FFD7E7DB /* Pods_Insight.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6BB51FC6CCE498E490B9F12 /* Pods_Insight.framework */; };
+		BD1B1EA92020F17E0000D813 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1B1EA82020F17E0000D813 /* SignUpViewController.swift */; };
+		BD1B1EAB2020F5EF0000D813 /* ServerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1B1EAA2020F5EF0000D813 /* ServerManager.swift */; };
+		BD1B1EAD2020F6090000D813 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1B1EAC2020F6090000D813 /* AppConstants.swift */; };
+		BD1B1EAF2020F6120000D813 /* ActivityLoaderHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1B1EAE2020F6120000D813 /* ActivityLoaderHelper.swift */; };
+		BD1B1EB12020F61C0000D813 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1B1EB02020F61C0000D813 /* Extensions.swift */; };
+		BD1B1EB52020F6F80000D813 /* GeneralMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1B1EB42020F6F80000D813 /* GeneralMethods.swift */; };
+		BD1B1EBA2020F7CE0000D813 /* AuthRootClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1B1EB82020F7CE0000D813 /* AuthRootClass.swift */; };
+		BD1B1EBB2020F7CE0000D813 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1B1EB92020F7CE0000D813 /* User.swift */; };
+		BD1B1EBD2020FC280000D813 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1B1EB62020F7180000D813 /* UserModel.swift */; };
+		BD1B1EBF202113A60000D813 /* ForgetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1B1EBE202113A60000D813 /* ForgetPasswordViewController.swift */; };
+		BD1B1EC220212F560000D813 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD1B1EC120212F560000D813 /* Home.storyboard */; };
+		BD1B1ECF202134930000D813 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1B1EC7202131750000D813 /* SideMenuViewController.swift */; };
+		BD1B1ED02021349D0000D813 /* InteractionControlller.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1B1EC9202131750000D813 /* InteractionControlller.swift */; };
+		BD1B1ED12021349D0000D813 /* SideMenuAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1B1EC5202131750000D813 /* SideMenuAnimationController.swift */; };
+		BD1B1ED22021349D0000D813 /* SideMenuDismissalInteractionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1B1ECA202131750000D813 /* SideMenuDismissalInteractionController.swift */; };
+		BD1B1ED32021349D0000D813 /* SideMenuManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1B1ECC202131760000D813 /* SideMenuManager.swift */; };
+		BD1B1ED42021349D0000D813 /* SideMenuPresentationInteractionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1B1ECB202131760000D813 /* SideMenuPresentationInteractionController.swift */; };
+		BD1B1ED52021349D0000D813 /* SideMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1B1EC6202131750000D813 /* SideMenuTableViewCell.swift */; };
+		BD1B1ED62021349D0000D813 /* Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1B1EC8202131750000D813 /* Storyboard.swift */; };
+		BD1B1ED72021349D0000D813 /* StoryboardLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1B1ECD202131760000D813 /* StoryboardLoadable.swift */; };
+		BD1B1EDA202135720000D813 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1B1ED9202135720000D813 /* HomeViewController.swift */; };
+		BD1B1EDB2021389F0000D813 /* SideMenuViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD1B1ECE2021319C0000D813 /* SideMenuViewController.storyboard */; };
 		BD27EEDE201FF02D007872E0 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD27EEDD201FF02D007872E0 /* SignInViewController.swift */; };
 		BD27EEE0201FF353007872E0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD27EEDF201FF353007872E0 /* LaunchScreen.storyboard */; };
 		BDD184C0201F9ABD006EBAB9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD184BF201F9ABD006EBAB9 /* AppDelegate.swift */; };
@@ -22,6 +44,32 @@
 		018E49D3A5B90AA814EA38F8 /* Pods-Insight.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Insight.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Insight/Pods-Insight.debug.xcconfig"; sourceTree = "<group>"; };
 		26A23FCDB9BC4A55412DA1D2 /* Pods-Insight.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Insight.release.xcconfig"; path = "Pods/Target Support Files/Pods-Insight/Pods-Insight.release.xcconfig"; sourceTree = "<group>"; };
 		A6BB51FC6CCE498E490B9F12 /* Pods_Insight.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Insight.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD1B1EA42020ED700000D813 /* MavenPro-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MavenPro-Bold.ttf"; sourceTree = "<group>"; };
+		BD1B1EA52020ED700000D813 /* MavenPro-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MavenPro-Medium.ttf"; sourceTree = "<group>"; };
+		BD1B1EA62020ED710000D813 /* MavenPro-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MavenPro-Black.ttf"; sourceTree = "<group>"; };
+		BD1B1EA72020ED720000D813 /* MavenPro-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MavenPro-Regular.ttf"; sourceTree = "<group>"; };
+		BD1B1EA82020F17E0000D813 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		BD1B1EAA2020F5EF0000D813 /* ServerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerManager.swift; sourceTree = "<group>"; };
+		BD1B1EAC2020F6090000D813 /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
+		BD1B1EAE2020F6120000D813 /* ActivityLoaderHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityLoaderHelper.swift; sourceTree = "<group>"; };
+		BD1B1EB02020F61C0000D813 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		BD1B1EB42020F6F80000D813 /* GeneralMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralMethods.swift; sourceTree = "<group>"; };
+		BD1B1EB62020F7180000D813 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		BD1B1EB82020F7CE0000D813 /* AuthRootClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthRootClass.swift; sourceTree = "<group>"; };
+		BD1B1EB92020F7CE0000D813 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		BD1B1EBE202113A60000D813 /* ForgetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordViewController.swift; sourceTree = "<group>"; };
+		BD1B1EC120212F560000D813 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		BD1B1EC5202131750000D813 /* SideMenuAnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuAnimationController.swift; sourceTree = "<group>"; };
+		BD1B1EC6202131750000D813 /* SideMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuTableViewCell.swift; sourceTree = "<group>"; };
+		BD1B1EC7202131750000D813 /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
+		BD1B1EC8202131750000D813 /* Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboard.swift; sourceTree = "<group>"; };
+		BD1B1EC9202131750000D813 /* InteractionControlller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractionControlller.swift; sourceTree = "<group>"; };
+		BD1B1ECA202131750000D813 /* SideMenuDismissalInteractionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuDismissalInteractionController.swift; sourceTree = "<group>"; };
+		BD1B1ECB202131760000D813 /* SideMenuPresentationInteractionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuPresentationInteractionController.swift; sourceTree = "<group>"; };
+		BD1B1ECC202131760000D813 /* SideMenuManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuManager.swift; sourceTree = "<group>"; };
+		BD1B1ECD202131760000D813 /* StoryboardLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardLoadable.swift; sourceTree = "<group>"; };
+		BD1B1ECE2021319C0000D813 /* SideMenuViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SideMenuViewController.storyboard; sourceTree = "<group>"; };
+		BD1B1ED9202135720000D813 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		BD27EEDD201FF02D007872E0 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		BD27EEDF201FF353007872E0 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BDD184BC201F9ABD006EBAB9 /* Insight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Insight.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -53,6 +101,66 @@
 				26A23FCDB9BC4A55412DA1D2 /* Pods-Insight.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		BD1B1EB72020F7AF0000D813 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				BD1B1EB82020F7CE0000D813 /* AuthRootClass.swift */,
+				BD1B1EB92020F7CE0000D813 /* User.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		BD1B1EBC2020F95A0000D813 /* mavenPro Font */ = {
+			isa = PBXGroup;
+			children = (
+				BD1B1EA62020ED710000D813 /* MavenPro-Black.ttf */,
+				BD1B1EA42020ED700000D813 /* MavenPro-Bold.ttf */,
+				BD1B1EA52020ED700000D813 /* MavenPro-Medium.ttf */,
+				BD1B1EA72020ED720000D813 /* MavenPro-Regular.ttf */,
+			);
+			path = "mavenPro Font";
+			sourceTree = "<group>";
+		};
+		BD1B1EC02021213F0000D813 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				BD1B1EC120212F560000D813 /* Home.storyboard */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		BD1B1EC3202131340000D813 /* SideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				BD1B1ECE2021319C0000D813 /* SideMenuViewController.storyboard */,
+			);
+			path = SideMenu;
+			sourceTree = "<group>";
+		};
+		BD1B1EC42021313C0000D813 /* SideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				BD1B1EC9202131750000D813 /* InteractionControlller.swift */,
+				BD1B1EC5202131750000D813 /* SideMenuAnimationController.swift */,
+				BD1B1ECA202131750000D813 /* SideMenuDismissalInteractionController.swift */,
+				BD1B1ECC202131760000D813 /* SideMenuManager.swift */,
+				BD1B1ECB202131760000D813 /* SideMenuPresentationInteractionController.swift */,
+				BD1B1EC6202131750000D813 /* SideMenuTableViewCell.swift */,
+				BD1B1EC7202131750000D813 /* SideMenuViewController.swift */,
+				BD1B1EC8202131750000D813 /* Storyboard.swift */,
+				BD1B1ECD202131760000D813 /* StoryboardLoadable.swift */,
+			);
+			path = SideMenu;
+			sourceTree = "<group>";
+		};
+		BD1B1ED82021355F0000D813 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				BD1B1ED9202135720000D813 /* HomeViewController.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 		BDD184B3201F9ABD006EBAB9 = {
@@ -88,9 +196,15 @@
 		BDD184D1201F9ACD006EBAB9 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				BD1B1EBC2020F95A0000D813 /* mavenPro Font */,
 				BDD184BF201F9ABD006EBAB9 /* AppDelegate.swift */,
 				BDD184C6201F9ABD006EBAB9 /* Assets.xcassets */,
 				BD27EEDF201FF353007872E0 /* LaunchScreen.storyboard */,
+				BD1B1EAA2020F5EF0000D813 /* ServerManager.swift */,
+				BD1B1EAC2020F6090000D813 /* AppConstants.swift */,
+				BD1B1EAE2020F6120000D813 /* ActivityLoaderHelper.swift */,
+				BD1B1EB02020F61C0000D813 /* Extensions.swift */,
+				BD1B1EB42020F6F80000D813 /* GeneralMethods.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -99,6 +213,7 @@
 			isa = PBXGroup;
 			children = (
 				BDD184DE201F9CEF006EBAB9 /* Contracts */,
+				BD1B1EB62020F7180000D813 /* UserModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -106,6 +221,8 @@
 		BDD184D4201F9AF8006EBAB9 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				BD1B1ED82021355F0000D813 /* Home */,
+				BD1B1EC42021313C0000D813 /* SideMenu */,
 				BDD184DD201F9CE8006EBAB9 /* User */,
 				BDD184D9201F9BB8006EBAB9 /* LandScreen */,
 			);
@@ -115,6 +232,8 @@
 		BDD184D5201F9AFD006EBAB9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				BD1B1EC3202131340000D813 /* SideMenu */,
+				BD1B1EC02021213F0000D813 /* Home */,
 				BDD184DC201F9CD7006EBAB9 /* User */,
 				BDD184D6201F9B8E006EBAB9 /* LandScreen */,
 			);
@@ -150,6 +269,8 @@
 			children = (
 				BDD184E1201FA0E1006EBAB9 /* AuthenticationViewController.swift */,
 				BD27EEDD201FF02D007872E0 /* SignInViewController.swift */,
+				BD1B1EA82020F17E0000D813 /* SignUpViewController.swift */,
+				BD1B1EBE202113A60000D813 /* ForgetPasswordViewController.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -157,6 +278,7 @@
 		BDD184DE201F9CEF006EBAB9 /* Contracts */ = {
 			isa = PBXGroup;
 			children = (
+				BD1B1EB72020F7AF0000D813 /* Auth */,
 			);
 			path = Contracts;
 			sourceTree = "<group>";
@@ -232,7 +354,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				BDD184E0201FA0CE006EBAB9 /* Authentication.storyboard in Resources */,
+				BD1B1EC220212F560000D813 /* Home.storyboard in Resources */,
 				BDD184D8201F9BAE006EBAB9 /* Land.storyboard in Resources */,
+				BD1B1EDB2021389F0000D813 /* SideMenuViewController.storyboard in Resources */,
 				BD27EEE0201FF353007872E0 /* LaunchScreen.storyboard in Resources */,
 				BDD184C7201F9ABD006EBAB9 /* Assets.xcassets in Resources */,
 			);
@@ -249,10 +373,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Insight/Pods-Insight-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SpinKit/SpinKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SpinKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -299,10 +425,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD1B1ED42021349D0000D813 /* SideMenuPresentationInteractionController.swift in Sources */,
+				BD1B1EBB2020F7CE0000D813 /* User.swift in Sources */,
 				BD27EEDE201FF02D007872E0 /* SignInViewController.swift in Sources */,
+				BD1B1ED22021349D0000D813 /* SideMenuDismissalInteractionController.swift in Sources */,
+				BD1B1EB12020F61C0000D813 /* Extensions.swift in Sources */,
+				BD1B1EBA2020F7CE0000D813 /* AuthRootClass.swift in Sources */,
+				BD1B1EBF202113A60000D813 /* ForgetPasswordViewController.swift in Sources */,
+				BD1B1EAF2020F6120000D813 /* ActivityLoaderHelper.swift in Sources */,
+				BD1B1EBD2020FC280000D813 /* UserModel.swift in Sources */,
+				BD1B1ED02021349D0000D813 /* InteractionControlller.swift in Sources */,
 				BDD184DB201F9BE2006EBAB9 /* LandViewController.swift in Sources */,
+				BD1B1EDA202135720000D813 /* HomeViewController.swift in Sources */,
+				BD1B1EB52020F6F80000D813 /* GeneralMethods.swift in Sources */,
+				BD1B1ED62021349D0000D813 /* Storyboard.swift in Sources */,
 				BDD184E2201FA0E1006EBAB9 /* AuthenticationViewController.swift in Sources */,
+				BD1B1ED32021349D0000D813 /* SideMenuManager.swift in Sources */,
+				BD1B1ED72021349D0000D813 /* StoryboardLoadable.swift in Sources */,
 				BDD184C0201F9ABD006EBAB9 /* AppDelegate.swift in Sources */,
+				BD1B1EAD2020F6090000D813 /* AppConstants.swift in Sources */,
+				BD1B1EAB2020F5EF0000D813 /* ServerManager.swift in Sources */,
+				BD1B1ECF202134930000D813 /* SideMenuViewController.swift in Sources */,
+				BD1B1ED52021349D0000D813 /* SideMenuTableViewCell.swift in Sources */,
+				BD1B1EA92020F17E0000D813 /* SignUpViewController.swift in Sources */,
+				BD1B1ED12021349D0000D813 /* SideMenuAnimationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
