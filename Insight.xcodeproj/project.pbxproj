@@ -7,21 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		37CF4B43B70845F6FFD7E7DB /* Pods_Insight.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6BB51FC6CCE498E490B9F12 /* Pods_Insight.framework */; };
+		BD27EEDE201FF02D007872E0 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD27EEDD201FF02D007872E0 /* SignInViewController.swift */; };
+		BD27EEE0201FF353007872E0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD27EEDF201FF353007872E0 /* LaunchScreen.storyboard */; };
 		BDD184C0201F9ABD006EBAB9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD184BF201F9ABD006EBAB9 /* AppDelegate.swift */; };
 		BDD184C7201F9ABD006EBAB9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDD184C6201F9ABD006EBAB9 /* Assets.xcassets */; };
-		BDD184D8201F9BAE006EBAB9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDD184D7201F9BAE006EBAB9 /* LaunchScreen.storyboard */; };
-		BDD184DB201F9BE2006EBAB9 /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD184DA201F9BE2006EBAB9 /* LaunchScreenViewController.swift */; };
+		BDD184D8201F9BAE006EBAB9 /* Land.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDD184D7201F9BAE006EBAB9 /* Land.storyboard */; };
+		BDD184DB201F9BE2006EBAB9 /* LandViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD184DA201F9BE2006EBAB9 /* LandViewController.swift */; };
 		BDD184E0201FA0CE006EBAB9 /* Authentication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDD184DF201FA0CE006EBAB9 /* Authentication.storyboard */; };
 		BDD184E2201FA0E1006EBAB9 /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD184E1201FA0E1006EBAB9 /* AuthenticationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		018E49D3A5B90AA814EA38F8 /* Pods-Insight.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Insight.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Insight/Pods-Insight.debug.xcconfig"; sourceTree = "<group>"; };
+		26A23FCDB9BC4A55412DA1D2 /* Pods-Insight.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Insight.release.xcconfig"; path = "Pods/Target Support Files/Pods-Insight/Pods-Insight.release.xcconfig"; sourceTree = "<group>"; };
+		A6BB51FC6CCE498E490B9F12 /* Pods_Insight.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Insight.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD27EEDD201FF02D007872E0 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		BD27EEDF201FF353007872E0 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BDD184BC201F9ABD006EBAB9 /* Insight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Insight.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDD184BF201F9ABD006EBAB9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BDD184C6201F9ABD006EBAB9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BDD184CB201F9ABD006EBAB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BDD184D7201F9BAE006EBAB9 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
-		BDD184DA201F9BE2006EBAB9 /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
+		BDD184D7201F9BAE006EBAB9 /* Land.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Land.storyboard; sourceTree = "<group>"; };
+		BDD184DA201F9BE2006EBAB9 /* LandViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandViewController.swift; sourceTree = "<group>"; };
 		BDD184DF201FA0CE006EBAB9 /* Authentication.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Authentication.storyboard; sourceTree = "<group>"; };
 		BDD184E1201FA0E1006EBAB9 /* AuthenticationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -31,17 +39,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37CF4B43B70845F6FFD7E7DB /* Pods_Insight.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6E127467F5F5AA8AD44105FD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				018E49D3A5B90AA814EA38F8 /* Pods-Insight.debug.xcconfig */,
+				26A23FCDB9BC4A55412DA1D2 /* Pods-Insight.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		BDD184B3201F9ABD006EBAB9 = {
 			isa = PBXGroup;
 			children = (
 				BDD184BE201F9ABD006EBAB9 /* Insight */,
 				BDD184BD201F9ABD006EBAB9 /* Products */,
+				6E127467F5F5AA8AD44105FD /* Pods */,
+				C29C5D27A43A6BF75CD0E3F4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -70,6 +90,7 @@
 			children = (
 				BDD184BF201F9ABD006EBAB9 /* AppDelegate.swift */,
 				BDD184C6201F9ABD006EBAB9 /* Assets.xcassets */,
+				BD27EEDF201FF353007872E0 /* LaunchScreen.storyboard */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -86,7 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				BDD184DD201F9CE8006EBAB9 /* User */,
-				BDD184D9201F9BB8006EBAB9 /* LaunchScreen */,
+				BDD184D9201F9BB8006EBAB9 /* LandScreen */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -95,25 +116,25 @@
 			isa = PBXGroup;
 			children = (
 				BDD184DC201F9CD7006EBAB9 /* User */,
-				BDD184D6201F9B8E006EBAB9 /* LaunchScreen */,
+				BDD184D6201F9B8E006EBAB9 /* LandScreen */,
 			);
 			path = Views;
 			sourceTree = "<group>";
 		};
-		BDD184D6201F9B8E006EBAB9 /* LaunchScreen */ = {
+		BDD184D6201F9B8E006EBAB9 /* LandScreen */ = {
 			isa = PBXGroup;
 			children = (
-				BDD184D7201F9BAE006EBAB9 /* LaunchScreen.storyboard */,
+				BDD184D7201F9BAE006EBAB9 /* Land.storyboard */,
 			);
-			path = LaunchScreen;
+			path = LandScreen;
 			sourceTree = "<group>";
 		};
-		BDD184D9201F9BB8006EBAB9 /* LaunchScreen */ = {
+		BDD184D9201F9BB8006EBAB9 /* LandScreen */ = {
 			isa = PBXGroup;
 			children = (
-				BDD184DA201F9BE2006EBAB9 /* LaunchScreenViewController.swift */,
+				BDD184DA201F9BE2006EBAB9 /* LandViewController.swift */,
 			);
-			path = LaunchScreen;
+			path = LandScreen;
 			sourceTree = "<group>";
 		};
 		BDD184DC201F9CD7006EBAB9 /* User */ = {
@@ -128,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				BDD184E1201FA0E1006EBAB9 /* AuthenticationViewController.swift */,
+				BD27EEDD201FF02D007872E0 /* SignInViewController.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -139,6 +161,14 @@
 			path = Contracts;
 			sourceTree = "<group>";
 		};
+		C29C5D27A43A6BF75CD0E3F4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A6BB51FC6CCE498E490B9F12 /* Pods_Insight.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -146,9 +176,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BDD184CE201F9ABD006EBAB9 /* Build configuration list for PBXNativeTarget "Insight" */;
 			buildPhases = (
+				E427E62252327947A8255228 /* [CP] Check Pods Manifest.lock */,
 				BDD184B8201F9ABD006EBAB9 /* Sources */,
 				BDD184B9201F9ABD006EBAB9 /* Frameworks */,
 				BDD184BA201F9ABD006EBAB9 /* Resources */,
+				8E301A690CCBD4F88CB39098 /* [CP] Embed Pods Frameworks */,
+				D0E769763D7E033DCE9C0597 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -199,19 +232,75 @@
 			buildActionMask = 2147483647;
 			files = (
 				BDD184E0201FA0CE006EBAB9 /* Authentication.storyboard in Resources */,
-				BDD184D8201F9BAE006EBAB9 /* LaunchScreen.storyboard in Resources */,
+				BDD184D8201F9BAE006EBAB9 /* Land.storyboard in Resources */,
+				BD27EEE0201FF353007872E0 /* LaunchScreen.storyboard in Resources */,
 				BDD184C7201F9ABD006EBAB9 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		8E301A690CCBD4F88CB39098 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Insight/Pods-Insight-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Insight/Pods-Insight-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D0E769763D7E033DCE9C0597 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Insight/Pods-Insight-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E427E62252327947A8255228 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Insight-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		BDD184B8201F9ABD006EBAB9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BDD184DB201F9BE2006EBAB9 /* LaunchScreenViewController.swift in Sources */,
+				BD27EEDE201FF02D007872E0 /* SignInViewController.swift in Sources */,
+				BDD184DB201F9BE2006EBAB9 /* LandViewController.swift in Sources */,
 				BDD184E2201FA0E1006EBAB9 /* AuthenticationViewController.swift in Sources */,
 				BDD184C0201F9ABD006EBAB9 /* AppDelegate.swift in Sources */,
 			);
@@ -329,11 +418,13 @@
 		};
 		BDD184CF201F9ABD006EBAB9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 018E49D3A5B90AA814EA38F8 /* Pods-Insight.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B8L6UA4MUM;
 				INFOPLIST_FILE = Insight/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Insight;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -344,11 +435,13 @@
 		};
 		BDD184D0201F9ABD006EBAB9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 26A23FCDB9BC4A55412DA1D2 /* Pods-Insight.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B8L6UA4MUM;
 				INFOPLIST_FILE = Insight/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Insight;
 				PRODUCT_NAME = "$(TARGET_NAME)";
