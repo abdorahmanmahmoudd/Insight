@@ -8,6 +8,13 @@
 
 import UIKit
 
+
+func getFont(_ size:CGFloat,_ fontName:String)->UIFont
+{
+    return UIFont(name: fontName, size: size)!
+    
+}
+
 func showAlert(title:String, message:String, vc:UIViewController, closure:(()->())?)
 {
     let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)

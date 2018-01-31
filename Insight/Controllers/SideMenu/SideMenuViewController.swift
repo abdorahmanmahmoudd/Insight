@@ -19,7 +19,7 @@ class SideMenuViewController: UIViewController ,UITableViewDelegate, UITableView
 		return (self.presentingViewController as? UINavigationController)
 	}
     
-    var MenuItems = ["HOME", "ACCOUNT" , "SUBSCRIBE" , "FLAGGED" , "NOTE" , "RESULTS", "ABOUT_APP" , "ABOUT_DEV" , "SHARE", "LOGOUT" ]
+    var MenuItems = ["Home", "Account" , "Subscribe" , "Flagged" , "Note" , "Results", "About App" , "About Developers" , "Share", "Log Out" ]
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -108,10 +108,7 @@ class SideMenuViewController: UIViewController ,UITableViewDelegate, UITableView
 		selectedIndex = 0
 		tableView?.selectRow(at: IndexPath(row: selectedIndex, section: 0), animated: false, scrollPosition: .none)
 	}
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
-    }
+
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         

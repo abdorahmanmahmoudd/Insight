@@ -115,6 +115,7 @@ class SignInViewController: UIViewController {
                 if obj.user != nil && obj.token != nil{
                     
                     UserModel.getInstance.saveUser(obj)
+                    self.openHome()
                     
                 }else if let errs = data as? [String:Any] {
                     
@@ -134,5 +135,17 @@ class SignInViewController: UIViewController {
             showAlert(title: "", message: "Failed to sign in", vc: self, closure: nil)
 
         }
+    }
+    
+    func openHome(){
+        
+        let sb = UIStoryboard.init(name: "Home", bundle: Bundle.main)
+        
+        if let vc = sb.instantiateViewController(withIdentifier: "HomeNC") as? UINavigationController{
+            
+            //            self.view.window?.rootViewController = vc
+            self.present(vc, animated: true, completion: nil)
+        }
+        
     }
 }

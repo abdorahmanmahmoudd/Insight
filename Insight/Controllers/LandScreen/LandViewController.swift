@@ -18,7 +18,7 @@ class LandViewController: UIViewController {
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        openHome()
+        checkAuthenticatedUser()
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,6 +31,7 @@ class LandViewController: UIViewController {
         if let userObj = UserModel.getInstance.getUser() {
             
 //            signIn(mobile: userObj.user.mobile, pass: userObj.user.)
+            openHome()
             
         }else {
             

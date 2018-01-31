@@ -27,4 +27,7 @@ let UserCredentials = "UserCredentials"
 
 //MARK: - Constants
 let pageSize = 10
+let MavenProMedium = "mavenPro-Medium"
+let MavenProBold = "mavenPro-Bold"
+
 
