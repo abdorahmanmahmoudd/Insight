@@ -122,11 +122,6 @@ class SignUpViewController: UIViewController {
             isValid = false
             showAlert(title: "", message: "Please enter your governorate", vc: self, closure: nil)
             
-        }else if tfSchool.text != nil && tfSchool.text!.hasNoCharchters(){
-            
-            isValid = false
-            showAlert(title: "", message: "Please enter school name", vc: self, closure: nil)
-            
         }else if tfEmail.text != nil && tfEmail.text!.hasNoCharchters(){
             
             isValid = false

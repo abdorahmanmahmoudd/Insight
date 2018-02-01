@@ -220,9 +220,9 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8sK-U5-FaV">
-                                <rect key="frame" x="154.5" y="173" width="66" height="33"/>
+                                <rect key="frame" x="107.5" y="173" width="160" height="34"/>
                                 <fontDescription key="fontDescription" name="MavenPro-Bold" family="Maven Pro" pointSize="18"/>
-                                <state key="normal" title="SIGN IN">
+                                <state key="normal" title="SIGN IN" backgroundImage="button-blueBG">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -230,7 +230,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Naj-EQ-k8Z">
-                                <rect key="frame" x="128.5" y="214" width="118" height="29"/>
+                                <rect key="frame" x="128.5" y="215" width="118" height="29"/>
                                 <fontDescription key="fontDescription" name="MavenPro-Bold" family="Maven Pro" pointSize="14"/>
                                 <state key="normal" title="Forget password ?">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -360,13 +360,13 @@
                                 <rect key="frame" x="32" y="36" width="311" height="52.5"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="Name*" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VKy-ke-keO">
-                                        <rect key="frame" x="52" y="16.5" width="208" height="21"/>
+                                        <rect key="frame" x="52" y="16" width="208" height="21"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="MavenPro-Medium" family="Maven Pro" pointSize="18"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                     </textField>
                                     <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icName" translatesAutoresizingMaskIntoConstraints="NO" id="nu7-jP-Kpt">
-                                        <rect key="frame" x="16" y="17" width="20" height="20"/>
+                                        <rect key="frame" x="16" y="16.5" width="20" height="20"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -388,13 +388,13 @@
                                 <rect key="frame" x="32" y="104.5" width="311" height="52.5"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="Password*" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UYN-At-EOv">
-                                        <rect key="frame" x="52" y="16.5" width="208.5" height="21"/>
+                                        <rect key="frame" x="52" y="16" width="208.5" height="21"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="MavenPro-Medium" family="Maven Pro" pointSize="18"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                     </textField>
                                     <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icLock" translatesAutoresizingMaskIntoConstraints="NO" id="GjQ-ri-0XH">
-                                        <rect key="frame" x="16" y="17" width="20" height="20"/>
+                                        <rect key="frame" x="16" y="16.5" width="20" height="20"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -413,9 +413,9 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e3W-gW-ce0">
-                                <rect key="frame" x="151" y="560.5" width="73" height="33"/>
+                                <rect key="frame" x="107.5" y="560.5" width="160" height="34"/>
                                 <fontDescription key="fontDescription" name="MavenPro-Bold" family="Maven Pro" pointSize="18"/>
-                                <state key="normal" title="SIGN UP">
+                                <state key="normal" title="SIGN UP" backgroundImage="button-blueBG">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
@@ -426,13 +426,13 @@
                                 <rect key="frame" x="32" y="173" width="311" height="52.5"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="Confirm password*" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6KS-J4-TCd">
-                                        <rect key="frame" x="52" y="16.5" width="208.5" height="21"/>
+                                        <rect key="frame" x="52" y="16" width="208.5" height="21"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="MavenPro-Medium" family="Maven Pro" pointSize="18"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                     </textField>
                                     <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icLock" translatesAutoresizingMaskIntoConstraints="NO" id="XeD-Ne-VzN">
-                                        <rect key="frame" x="16" y="17" width="20" height="20"/>
+                                        <rect key="frame" x="16" y="16.5" width="20" height="20"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -454,13 +454,13 @@
                                 <rect key="frame" x="32" y="241.5" width="311" height="52.5"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="Phone number*" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="irK-hu-20e">
-                                        <rect key="frame" x="46" y="16" width="220.5" height="21"/>
+                                        <rect key="frame" x="46" y="16.5" width="220.5" height="21"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="MavenPro-Medium" family="Maven Pro" pointSize="18"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                     </textField>
                                     <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icPhone" translatesAutoresizingMaskIntoConstraints="NO" id="uKb-Sk-XBO">
-                                        <rect key="frame" x="16" y="20" width="14" height="13"/>
+                                        <rect key="frame" x="16" y="20.5" width="14" height="13"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -481,14 +481,14 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cN5-6n-69P">
                                 <rect key="frame" x="32" y="378.5" width="311" height="52.5"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="School*" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vHK-hj-fJu">
-                                        <rect key="frame" x="58" y="16" width="196.5" height="21"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="School" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vHK-hj-fJu">
+                                        <rect key="frame" x="58" y="16.5" width="196.5" height="21"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="MavenPro-Medium" family="Maven Pro" pointSize="18"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                     </textField>
                                     <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icSchool" translatesAutoresizingMaskIntoConstraints="NO" id="z0s-Zl-YYJ">
-                                        <rect key="frame" x="16" y="14" width="26" height="25"/>
+                                        <rect key="frame" x="16" y="14.5" width="26" height="25"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -510,13 +510,13 @@
                                 <rect key="frame" x="32" y="447" width="311" height="52.5"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="Email*" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4dk-Ml-5UZ">
-                                        <rect key="frame" x="46" y="16" width="220.5" height="21"/>
+                                        <rect key="frame" x="46" y="16.5" width="220.5" height="21"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="MavenPro-Medium" family="Maven Pro" pointSize="18"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                     </textField>
                                     <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icMail" translatesAutoresizingMaskIntoConstraints="NO" id="LiN-hj-saY">
-                                        <rect key="frame" x="16" y="21.5" width="14" height="10"/>
+                                        <rect key="frame" x="16" y="22" width="14" height="10"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -537,14 +537,14 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cys-Y4-YPp">
                                 <rect key="frame" x="32" y="310" width="311" height="52.5"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="Governorate" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hvD-6u-8eI">
-                                        <rect key="frame" x="53" y="16.5" width="206.5" height="21"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="Governorate*" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hvD-6u-8eI">
+                                        <rect key="frame" x="53" y="16" width="206.5" height="21"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="MavenPro-Medium" family="Maven Pro" pointSize="18"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                     </textField>
                                     <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="invalidName" translatesAutoresizingMaskIntoConstraints="NO" id="FgW-6g-ZY0">
-                                        <rect key="frame" x="16" y="14" width="21" height="26"/>
+                                        <rect key="frame" x="16" y="13.5" width="21" height="26"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -622,6 +622,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="button-blueBG" width="160" height="34"/>
         <image name="header" width="374" height="246"/>
         <image name="icLock" width="20" height="20"/>
         <image name="icMail" width="14" height="10"/>

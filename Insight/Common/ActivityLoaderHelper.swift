@@ -17,7 +17,7 @@ let y = UIScreen.main.bounds.midY
 //MAKR: - Loader -
 func showLoaderFor(view:UIView, style:RTSpinKitViewStyle)
 {
-    spinner = RTSpinKitView(style: style, color: ColorMainGreen)
+    spinner = RTSpinKitView(style: style, color: ColorMainBlue)
     view.addSubview(spinner!)
     spinner?.center = CGPoint(x:x, y:y)
 }
@@ -31,7 +31,7 @@ func showLoaderFor(view:UIView, style:RTSpinKitViewStyle, color:UIColor)
 
 func showLoaderFor(view:UIView)
 {
-    let spinner = RTSpinKitView(style: style, color: ColorMainGreen)
+    let spinner = RTSpinKitView(style: style, color: ColorMainBlue)
     view.addSubview(spinner!)
     
     spinner?.center = CGPoint(x:x, y:y)
@@ -39,11 +39,11 @@ func showLoaderFor(view:UIView)
 
 func showLoaderWithBGFor(view:UIView, bgColor:UIColor?)
 {
-    spinner = RTSpinKitView(style: style, color: ColorMainGreen)
+    spinner = RTSpinKitView(style: style, color: ColorMainBlue)
     let screenBounds = UIScreen.main.bounds
     let bgView = UIView(frame: screenBounds)
     bgView.tag = 999
-    bgView.backgroundColor = ((bgColor != nil) ? bgColor! : ColorMainGreen).withAlphaComponent(0.4)
+    bgView.backgroundColor = ((bgColor != nil) ? bgColor! : ColorMainBlue).withAlphaComponent(0.4)
     bgView.addSubview(spinner!)
     spinner?.center = CGPoint(x: x, y: (y - (spinner?.frame.size.height)!));
     view.addSubview(bgView)

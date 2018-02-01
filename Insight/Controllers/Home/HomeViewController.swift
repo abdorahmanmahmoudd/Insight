@@ -16,6 +16,7 @@ class HomeViewController: UIViewController {
         // Do any additional setup after loading the view.
         setStyle()
         configuration()
+        loadContentFile()
     }
 
     override func didReceiveMemoryWarning() {
@@ -24,29 +25,113 @@ class HomeViewController: UIViewController {
     }
     
     func setStyle(){
-        
-//        navigationController?.navigationBar.shadowImage = UIImage()
+        self.title = "Home"
     }
     
     func configuration(){
         
         SideMenuManager.shared.wire(to: self.navigationController!)
-        configureMenuBtn()
+        configureSideMenuBtn()
     }
 
-    func configureMenuBtn(){
+    func configureSideMenuBtn(){
         
         let btn = UIButton.init(type: .custom)
         btn.setImage(#imageLiteral(resourceName: "icDrawer"), for: .normal)
         btn.sizeToFit()
-        btn.addTarget(self, action: #selector(self.openMenu), for: .touchUpInside)
+        btn.addTarget(self, action: #selector(self.openSideMenu), for: .touchUpInside)
         let barBtn = UIBarButtonItem.init(customView: btn)
         self.navigationItem.leftBarButtonItem = barBtn
     }
     
-    @objc func openMenu(){
+    @objc func openSideMenu(){
         
         SideMenuManager.shared.show(from: self.navigationController!)
+    }
+    
+    func fetchContentFile(){
+        
+        if let url = URL.init(string: contentJsonURL){
+            
+            showLoaderFor(view: self.view)
+        
+            URLSession.shared.dataTask(with: url, completionHandler: { (data, urlResponse, error) in
+                
+                if let data = data{
+                    
+                    if let json = try? JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableContainers) as? [Any]{
+                        
+                        self.saveContentFile(jsonData : data)
+                    }
+                    
+                }
+                
+                OperationQueue.main.addOperation {
+                    hideLoaderFor(view: self.view)
+                }
+                
+            }).resume()
+        }
+        
+    }
+    
+    func loadContentFile(){
+        
+        showLoaderFor(view: self.view)
+        
+        if let documentsDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first {
+            
+            let documentsURL = URL(fileURLWithPath: documentsDirectory)
+            
+            //            let fileManager = FileManager()
+            
+            //            if fileManager.fileExists(atPath: documentsURL.absoluteString){
+            
+            //load file
+            
+            let filePath = documentsURL.appendingPathComponent(jsonContentFileDirectory)
+            
+            if let fileData = try? Data.init(contentsOf: filePath, options: .mappedIfSafe){
+                
+                let json = try? JSONSerialization.jsonObject(with: fileData, options: .mutableContainers)
+                
+            }else {
+                
+                //fetch file then save it
+                fetchContentFile()
+            }
+        }
+        hideLoaderFor(view: self.view)
+    }
+    
+    func saveContentFile(jsonData : Data){
+        
+        
+        if let documentsDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first {
+            
+            let documentsURL = URL.init(fileURLWithPath: documentsDirectory)
+            
+            let savingPath = documentsURL.appendingPathComponent(jsonContentFileDirectory)
+            
+            do {
+                
+                try jsonData.write(to: savingPath)
+                
+            }catch let err{
+                
+                print(err.localizedDescription)
+            }
+            
+//            let fm = FileManager.init()
+            
+//            if fm.fileExists(atPath: savingPath.absoluteString){
+//
+//                print("File Saved!")
+//            }else {
+//
+//                print("File Not Saved :(")
+//            }
+        }
     }
 
 }

@@ -28,7 +28,7 @@ class LandViewController: UIViewController {
     
     func checkAuthenticatedUser(){
         
-        if let userObj = UserModel.getInstance.getUser() {
+        if let _ = UserModel.getInstance.getUser() {
             
 //            signIn(mobile: userObj.user.mobile, pass: userObj.user.)
             openHome()
