@@ -11,8 +11,8 @@ let ForgetPassURL = "\(MainIP)auth/password/forget"
 
 //MARK: - Colors
 let ColorMainBlue = UIColor(red: 52/255, green: 152/255, blue: 219/255, alpha: 1)
-let ColorGreenForActiveDot = UIColor(red: 21/255, green: 131/255, blue: 86/255, alpha: 1)
-let ColorDarkGrayForDot = UIColor(red: 44/255, green: 44/255, blue: 44/255, alpha: 0.3)
+let ColorUnlockedSubItemDarkGray = UIColor(red: 103/255, green: 103/255, blue: 103/255, alpha: 1)
+let ColorlockedSubItemGray = UIColor(red: 178/255, green: 178/255, blue: 178/255, alpha: 1)
 let ColorLightGray = UIColor(red: 142/255, green: 142/255, blue: 147/255, alpha: 1)
 let ColorBlack = UIColor(red: 44/255, green: 44/255, blue: 44/255, alpha: 1.0)
 let ColorGrayForPlaceHolders = UIColor(red: 44/255, green: 44/255, blue: 44/255, alpha: 0.5)

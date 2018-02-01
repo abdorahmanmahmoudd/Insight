@@ -10,6 +10,7 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
+    @IBOutlet var viewsHome: [UIView]!
     var insightContent = [InsightContentRootClass]()
 
     override func viewDidLoad() {
@@ -24,6 +25,11 @@ class HomeViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        selectedIndex = 0
     }
     
     func setStyle(){
@@ -64,6 +70,7 @@ class HomeViewController: UIViewController {
                     if let _ = try? JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableContainers) as? [Any]{
                         
                         self.saveContentFile(jsonData : data)
+                        
                     }
                     
                 }
@@ -108,6 +115,7 @@ class HomeViewController: UIViewController {
                     
                     }
                     
+                    self.enableViewsInteraction()
                     
                 }else {
                     
@@ -148,6 +156,8 @@ class HomeViewController: UIViewController {
                     
                 }
                 
+                self.enableViewsInteraction()
+                
             }catch let err{
                 
                 OperationQueue.main.addOperation {
@@ -167,8 +177,30 @@ class HomeViewController: UIViewController {
         }
     }
     
-    func initViews(){
+    func enableViewsInteraction(){
         
+        for view in viewsHome{
+            
+            view.isUserInteractionEnabled = true
+        }
+    }
+    @IBAction func btnItemClicked(_ sender: UIButton) {
         
+        print(sender.tag)
+        performSegue(withIdentifier: "SubCategorySegue", sender: sender)
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "SubCategorySegue"{
+            
+            if let des = segue.destination as? SubCategoryViewController{
+                
+                des.subCategory = insightContent[((sender as? UIButton)?.tag)! - 1 ].subCategory
+                let title = Categories(rawValue: ((sender as? UIButton)?.tag)!)?.desc ?? ""
+                des.titleText = title
+            }
+        }
     }
 }
