@@ -5,7 +5,7 @@
 import Foundation
 
 
-class Data : NSObject, NSCoding{
+class QuestionData : NSObject, NSCoding{
 
 	var id : String!
 	var answer : String!

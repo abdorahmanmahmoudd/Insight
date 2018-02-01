@@ -7,7 +7,7 @@ import Foundation
 
 class Question : NSObject, NSCoding{
 
-	var data : [Data]!
+	var data : [QuestionData]!
 	var id : Int!
 	var title : String!
 	var type : String!
@@ -17,10 +17,10 @@ class Question : NSObject, NSCoding{
 	 * Instantiate the instance using the passed dictionary values to set the properties values
 	 */
 	init(fromDictionary dictionary: [String:Any]){
-		data = [Data]()
+		data = [QuestionData]()
 		if let dataArray = dictionary["data"] as? [[String:Any]]{
 			for dic in dataArray{
-				let value = Data(fromDictionary: dic)
+				let value = QuestionData(fromDictionary: dic)
 				data.append(value)
 			}
 		}
@@ -60,7 +60,7 @@ class Question : NSObject, NSCoding{
     */
     @objc required init(coder aDecoder: NSCoder)
 	{
-         data = aDecoder.decodeObject(forKey :"data") as? [Data]
+         data = aDecoder.decodeObject(forKey :"data") as? [QuestionData]
          id = aDecoder.decodeObject(forKey: "id") as? Int
          title = aDecoder.decodeObject(forKey: "title") as? String
          type = aDecoder.decodeObject(forKey: "type") as? String

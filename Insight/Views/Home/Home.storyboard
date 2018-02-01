@@ -6,9 +6,15 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="MavenPro-Bold.ttf">
+            <string>MavenPro-Bold</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Navigation Controller-->
         <scene sceneID="mH6-FG-Mpi">
@@ -41,13 +47,189 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="UDI-Pv-zrq">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ekc-f1-hIE">
+                                <rect key="frame" x="201" y="257.5" width="150" height="154"/>
+                                <subviews>
+                                    <button opaque="NO" tag="6" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="les-D2-Aio">
+                                        <rect key="frame" x="0.0" y="0.0" width="150" height="139"/>
+                                        <state key="normal" image="Guide" backgroundImage="HomeItemsBG1"/>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Student Evaluation Guide" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2lH-Mb-X0k">
+                                        <rect key="frame" x="0.0" y="118" width="150" height="35.5"/>
+                                        <fontDescription key="fontDescription" name="MavenPro-Bold" family="Maven Pro" pointSize="15"/>
+                                        <color key="textColor" red="0.54117647059999996" green="0.54117647059999996" blue="0.54117647059999996" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="les-D2-Aio" firstAttribute="top" secondItem="ekc-f1-hIE" secondAttribute="top" id="68G-f1-p12"/>
+                                    <constraint firstAttribute="trailing" secondItem="les-D2-Aio" secondAttribute="trailing" id="FEu-bh-qmn"/>
+                                    <constraint firstAttribute="bottom" secondItem="les-D2-Aio" secondAttribute="bottom" constant="15" id="aLH-bD-3rs"/>
+                                    <constraint firstItem="les-D2-Aio" firstAttribute="leading" secondItem="ekc-f1-hIE" secondAttribute="leading" id="fVQ-QI-ahZ"/>
+                                    <constraint firstAttribute="bottom" secondItem="2lH-Mb-X0k" secondAttribute="bottom" id="k4c-Jw-7Q4"/>
+                                    <constraint firstAttribute="trailing" secondItem="2lH-Mb-X0k" secondAttribute="trailing" id="m69-yA-xhR"/>
+                                    <constraint firstItem="2lH-Mb-X0k" firstAttribute="leading" secondItem="ekc-f1-hIE" secondAttribute="leading" id="rRM-2j-ItG"/>
+                                </constraints>
+                            </view>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fOt-KU-jjz">
+                                <rect key="frame" x="24" y="257.5" width="150" height="154"/>
+                                <subviews>
+                                    <button opaque="NO" tag="5" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7sb-qQ-Xrq">
+                                        <rect key="frame" x="0.0" y="0.0" width="150" height="139"/>
+                                        <state key="normal" image="Skills" backgroundImage="HomeItemsBG1"/>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Skills" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v79-yb-xdH">
+                                        <rect key="frame" x="0.0" y="128.5" width="150" height="23.5"/>
+                                        <fontDescription key="fontDescription" name="MavenPro-Bold" family="Maven Pro" pointSize="20"/>
+                                        <color key="textColor" red="0.54117647059999996" green="0.54117647059999996" blue="0.54117647059999996" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="7sb-qQ-Xrq" secondAttribute="bottom" constant="15" id="1Oc-Hc-M54"/>
+                                    <constraint firstAttribute="trailing" secondItem="v79-yb-xdH" secondAttribute="trailing" id="36Y-Up-K3Y"/>
+                                    <constraint firstAttribute="trailing" secondItem="7sb-qQ-Xrq" secondAttribute="trailing" id="Ke8-Kl-9m2"/>
+                                    <constraint firstAttribute="bottom" secondItem="v79-yb-xdH" secondAttribute="bottom" constant="2" id="V3S-fA-BcM"/>
+                                    <constraint firstItem="7sb-qQ-Xrq" firstAttribute="leading" secondItem="fOt-KU-jjz" secondAttribute="leading" id="ebu-sd-Akl"/>
+                                    <constraint firstItem="v79-yb-xdH" firstAttribute="leading" secondItem="fOt-KU-jjz" secondAttribute="leading" id="jhD-x7-86C"/>
+                                    <constraint firstItem="7sb-qQ-Xrq" firstAttribute="top" secondItem="fOt-KU-jjz" secondAttribute="top" id="odH-Dj-Mfa"/>
+                                </constraints>
+                            </view>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S70-3b-ZXt">
+                                <rect key="frame" x="201" y="80" width="150" height="153.5"/>
+                                <subviews>
+                                    <button opaque="NO" tag="2" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uBB-l7-KJ5">
+                                        <rect key="frame" x="0.0" y="0.0" width="150" height="138.5"/>
+                                        <state key="normal" image="Story" backgroundImage="HomeItemsBG1"/>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Story" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fWf-8w-CMJ">
+                                        <rect key="frame" x="0.0" y="128" width="150" height="23.5"/>
+                                        <fontDescription key="fontDescription" name="MavenPro-Bold" family="Maven Pro" pointSize="20"/>
+                                        <color key="textColor" red="0.54117647059999996" green="0.54117647059999996" blue="0.54117647059999996" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="fWf-8w-CMJ" secondAttribute="trailing" id="HCL-rl-v0Q"/>
+                                    <constraint firstItem="fWf-8w-CMJ" firstAttribute="leading" secondItem="S70-3b-ZXt" secondAttribute="leading" id="JjU-ol-pX0"/>
+                                    <constraint firstItem="uBB-l7-KJ5" firstAttribute="leading" secondItem="S70-3b-ZXt" secondAttribute="leading" id="KZS-2j-COL"/>
+                                    <constraint firstAttribute="bottom" secondItem="fWf-8w-CMJ" secondAttribute="bottom" constant="2" id="M5h-WQ-370"/>
+                                    <constraint firstAttribute="trailing" secondItem="uBB-l7-KJ5" secondAttribute="trailing" id="ZQX-Gc-Mxv"/>
+                                    <constraint firstAttribute="bottom" secondItem="uBB-l7-KJ5" secondAttribute="bottom" constant="15" id="eaz-t0-rrr"/>
+                                    <constraint firstItem="uBB-l7-KJ5" firstAttribute="top" secondItem="S70-3b-ZXt" secondAttribute="top" id="wKI-np-7wW"/>
+                                </constraints>
+                            </view>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PPI-L4-gfh">
+                                <rect key="frame" x="24" y="80" width="150" height="153.5"/>
+                                <subviews>
+                                    <button opaque="NO" tag="1" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i3M-te-KvA">
+                                        <rect key="frame" x="0.0" y="0.0" width="150" height="138.5"/>
+                                        <state key="normal" image="Units" backgroundImage="HomeItemsBG1"/>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Units" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bLD-Z9-sPW">
+                                        <rect key="frame" x="0.0" y="128" width="150" height="23.5"/>
+                                        <fontDescription key="fontDescription" name="MavenPro-Bold" family="Maven Pro" pointSize="20"/>
+                                        <color key="textColor" red="0.54117647058823526" green="0.54117647058823526" blue="0.54117647058823526" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="i3M-te-KvA" secondAttribute="bottom" constant="15" id="4k2-u4-TMI"/>
+                                    <constraint firstItem="i3M-te-KvA" firstAttribute="leading" secondItem="PPI-L4-gfh" secondAttribute="leading" id="alY-RB-Trs"/>
+                                    <constraint firstItem="i3M-te-KvA" firstAttribute="top" secondItem="PPI-L4-gfh" secondAttribute="top" id="ctI-K0-ynv"/>
+                                    <constraint firstAttribute="bottom" secondItem="bLD-Z9-sPW" secondAttribute="bottom" constant="2" id="i0b-uY-WpH"/>
+                                    <constraint firstItem="bLD-Z9-sPW" firstAttribute="leading" secondItem="PPI-L4-gfh" secondAttribute="leading" id="joG-b9-oMk"/>
+                                    <constraint firstAttribute="trailing" secondItem="bLD-Z9-sPW" secondAttribute="trailing" id="k3h-WF-LWk"/>
+                                    <constraint firstAttribute="trailing" secondItem="i3M-te-KvA" secondAttribute="trailing" id="vUJ-qo-br7"/>
+                                </constraints>
+                            </view>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oNN-d0-aYe">
+                                <rect key="frame" x="201" y="435.5" width="150" height="153"/>
+                                <subviews>
+                                    <button opaque="NO" tag="3" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gAk-m4-jUI">
+                                        <rect key="frame" x="0.0" y="0.0" width="150" height="138"/>
+                                        <state key="normal" image="Exams" backgroundImage="HomeItemsBG1"/>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Exams" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XnJ-By-Nm2">
+                                        <rect key="frame" x="0.0" y="127.5" width="150" height="23.5"/>
+                                        <fontDescription key="fontDescription" name="MavenPro-Bold" family="Maven Pro" pointSize="20"/>
+                                        <color key="textColor" red="0.54117647059999996" green="0.54117647059999996" blue="0.54117647059999996" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="XnJ-By-Nm2" secondAttribute="trailing" id="28s-t9-TGB"/>
+                                    <constraint firstItem="gAk-m4-jUI" firstAttribute="top" secondItem="oNN-d0-aYe" secondAttribute="top" id="I8W-TX-nFe"/>
+                                    <constraint firstAttribute="trailing" secondItem="gAk-m4-jUI" secondAttribute="trailing" id="YyS-8W-8f1"/>
+                                    <constraint firstAttribute="bottom" secondItem="gAk-m4-jUI" secondAttribute="bottom" constant="15" id="fbU-tp-RcZ"/>
+                                    <constraint firstItem="XnJ-By-Nm2" firstAttribute="leading" secondItem="oNN-d0-aYe" secondAttribute="leading" id="iRM-OH-oIS"/>
+                                    <constraint firstAttribute="bottom" secondItem="XnJ-By-Nm2" secondAttribute="bottom" constant="2" id="pFi-Iz-0g4"/>
+                                    <constraint firstItem="gAk-m4-jUI" firstAttribute="leading" secondItem="oNN-d0-aYe" secondAttribute="leading" id="uLZ-9u-sZD"/>
+                                </constraints>
+                            </view>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t3t-yQ-qGY">
+                                <rect key="frame" x="24" y="435.5" width="150" height="153"/>
+                                <subviews>
+                                    <button opaque="NO" tag="4" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bwn-g5-8Uk">
+                                        <rect key="frame" x="0.0" y="0.0" width="150" height="138"/>
+                                        <state key="normal" image="Revision" backgroundImage="HomeItemsBG1"/>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Final Revision" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0bK-dI-ExP">
+                                        <rect key="frame" x="0.0" y="127.5" width="150" height="23.5"/>
+                                        <fontDescription key="fontDescription" name="MavenPro-Bold" family="Maven Pro" pointSize="20"/>
+                                        <color key="textColor" red="0.54117647059999996" green="0.54117647059999996" blue="0.54117647059999996" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="0bK-dI-ExP" firstAttribute="leading" secondItem="t3t-yQ-qGY" secondAttribute="leading" id="6Gl-fz-FLW"/>
+                                    <constraint firstAttribute="bottom" secondItem="0bK-dI-ExP" secondAttribute="bottom" constant="2" id="Aiv-Qh-gjf"/>
+                                    <constraint firstItem="bwn-g5-8Uk" firstAttribute="leading" secondItem="t3t-yQ-qGY" secondAttribute="leading" id="E1E-wa-i8u"/>
+                                    <constraint firstAttribute="trailing" secondItem="bwn-g5-8Uk" secondAttribute="trailing" id="FMd-Dv-k9j"/>
+                                    <constraint firstAttribute="bottom" secondItem="bwn-g5-8Uk" secondAttribute="bottom" constant="15" id="FTH-Y5-Rnp"/>
+                                    <constraint firstItem="bwn-g5-8Uk" firstAttribute="top" secondItem="t3t-yQ-qGY" secondAttribute="top" id="VbS-DV-MEV"/>
+                                    <constraint firstAttribute="trailing" secondItem="0bK-dI-ExP" secondAttribute="trailing" id="eil-WR-Bfi"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="t3t-yQ-qGY" firstAttribute="width" secondItem="PPI-L4-gfh" secondAttribute="width" id="0vQ-TD-I1S"/>
+                            <constraint firstItem="Zlg-tm-hAq" firstAttribute="trailing" secondItem="ekc-f1-hIE" secondAttribute="trailing" constant="24" id="1tR-oh-QQ5"/>
+                            <constraint firstItem="S70-3b-ZXt" firstAttribute="width" secondItem="PPI-L4-gfh" secondAttribute="width" id="3qf-0p-s4I"/>
+                            <constraint firstItem="oNN-d0-aYe" firstAttribute="top" secondItem="ekc-f1-hIE" secondAttribute="bottom" constant="24" id="7ga-MZ-Zb5"/>
+                            <constraint firstItem="ekc-f1-hIE" firstAttribute="top" secondItem="S70-3b-ZXt" secondAttribute="bottom" constant="24" id="9Ri-G6-Xra"/>
+                            <constraint firstItem="Zlg-tm-hAq" firstAttribute="trailing" secondItem="oNN-d0-aYe" secondAttribute="trailing" constant="24" id="D7X-Dr-0nR"/>
                             <constraint firstItem="Zlg-tm-hAq" firstAttribute="bottom" secondItem="UDI-Pv-zrq" secondAttribute="bottom" id="DWZ-iG-IYE"/>
+                            <constraint firstItem="ekc-f1-hIE" firstAttribute="height" secondItem="PPI-L4-gfh" secondAttribute="height" id="EgF-HC-i59"/>
+                            <constraint firstItem="Zlg-tm-hAq" firstAttribute="trailing" secondItem="S70-3b-ZXt" secondAttribute="trailing" constant="24" id="Frn-yT-aIa"/>
+                            <constraint firstItem="oNN-d0-aYe" firstAttribute="width" secondItem="PPI-L4-gfh" secondAttribute="width" id="GxP-JN-ITD"/>
                             <constraint firstItem="UDI-Pv-zrq" firstAttribute="top" secondItem="wi1-Ej-3Oh" secondAttribute="top" id="JV2-iM-4wl"/>
+                            <constraint firstItem="t3t-yQ-qGY" firstAttribute="leading" secondItem="Zlg-tm-hAq" secondAttribute="leading" constant="24" id="KGd-5l-8JW"/>
+                            <constraint firstItem="S70-3b-ZXt" firstAttribute="top" secondItem="Zlg-tm-hAq" secondAttribute="top" constant="16" id="KsK-wS-JQi"/>
+                            <constraint firstItem="PPI-L4-gfh" firstAttribute="leading" secondItem="Zlg-tm-hAq" secondAttribute="leading" constant="24" id="TxE-Df-CEy"/>
+                            <constraint firstItem="PPI-L4-gfh" firstAttribute="top" secondItem="Zlg-tm-hAq" secondAttribute="top" constant="16" id="U2V-jP-NAe"/>
                             <constraint firstItem="UDI-Pv-zrq" firstAttribute="leading" secondItem="Zlg-tm-hAq" secondAttribute="leading" id="UmN-s5-Yhg"/>
+                            <constraint firstItem="PPI-L4-gfh" firstAttribute="width" secondItem="wi1-Ej-3Oh" secondAttribute="width" multiplier="0.4" id="bRp-X2-Arj"/>
+                            <constraint firstItem="Zlg-tm-hAq" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="t3t-yQ-qGY" secondAttribute="bottom" id="cMR-Z0-ack"/>
+                            <constraint firstItem="fOt-KU-jjz" firstAttribute="leading" secondItem="Zlg-tm-hAq" secondAttribute="leading" constant="24" id="gXd-Vt-2Xw"/>
+                            <constraint firstItem="PPI-L4-gfh" firstAttribute="height" secondItem="wi1-Ej-3Oh" secondAttribute="height" multiplier="0.23" id="hM3-gr-0rB"/>
+                            <constraint firstItem="ekc-f1-hIE" firstAttribute="width" secondItem="PPI-L4-gfh" secondAttribute="width" id="iPG-Th-Ir4"/>
+                            <constraint firstItem="fOt-KU-jjz" firstAttribute="height" secondItem="PPI-L4-gfh" secondAttribute="height" id="lK0-cW-D5b"/>
+                            <constraint firstItem="t3t-yQ-qGY" firstAttribute="top" secondItem="fOt-KU-jjz" secondAttribute="bottom" constant="24" id="mIb-jG-IuI"/>
                             <constraint firstItem="Zlg-tm-hAq" firstAttribute="trailing" secondItem="UDI-Pv-zrq" secondAttribute="trailing" id="mL7-Or-5pB"/>
+                            <constraint firstItem="S70-3b-ZXt" firstAttribute="height" secondItem="PPI-L4-gfh" secondAttribute="height" id="nRM-F7-sr7"/>
+                            <constraint firstItem="oNN-d0-aYe" firstAttribute="height" secondItem="PPI-L4-gfh" secondAttribute="height" id="r03-8q-3JC"/>
+                            <constraint firstItem="t3t-yQ-qGY" firstAttribute="height" secondItem="PPI-L4-gfh" secondAttribute="height" id="uKm-aC-d1A"/>
+                            <constraint firstItem="fOt-KU-jjz" firstAttribute="top" secondItem="PPI-L4-gfh" secondAttribute="bottom" constant="24" id="wco-9L-5DY"/>
+                            <constraint firstItem="Zlg-tm-hAq" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="oNN-d0-aYe" secondAttribute="bottom" id="wdG-ei-SHp"/>
+                            <constraint firstItem="fOt-KU-jjz" firstAttribute="width" secondItem="PPI-L4-gfh" secondAttribute="width" id="xJh-Bj-oj6"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Zlg-tm-hAq"/>
                     </view>
@@ -59,6 +241,13 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Exams" width="71" height="103"/>
+        <image name="Guide" width="108" height="105"/>
+        <image name="HomeItemsBG1" width="165" height="165"/>
+        <image name="Revision" width="106" height="99"/>
+        <image name="Skills" width="92" height="94"/>
+        <image name="Story" width="102" height="108"/>
+        <image name="Units" width="102" height="102"/>
         <image name="background" width="374" height="644"/>
     </resources>
 </document>

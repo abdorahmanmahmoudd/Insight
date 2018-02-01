@@ -9,6 +9,8 @@
 import UIKit
 
 class HomeViewController: UIViewController {
+    
+    var insightContent = [InsightContentRootClass]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,7 +61,7 @@ class HomeViewController: UIViewController {
                 
                 if let data = data{
                     
-                    if let json = try? JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableContainers) as? [Any]{
+                    if let _ = try? JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableContainers) as? [Any]{
                         
                         self.saveContentFile(jsonData : data)
                     }
@@ -91,15 +93,33 @@ class HomeViewController: UIViewController {
             
             let filePath = documentsURL.appendingPathComponent(jsonContentFileDirectory)
             
-            if let fileData = try? Data.init(contentsOf: filePath, options: .mappedIfSafe){
+            do {
                 
-                let json = try? JSONSerialization.jsonObject(with: fileData, options: .mutableContainers)
+                if let fileData = try? Data.init(contentsOf: filePath, options: .mappedIfSafe){
+                    
+                    let json = try JSONSerialization.jsonObject(with: fileData, options: .mutableContainers)
+                    
+                    for item in json as! [Any]{
+                        
+                        if let i = item as? [String: Any]{
+                    
+                            self.insightContent.append(InsightContentRootClass.init(fromDictionary: i))
+                        }
+                    
+                    }
+                    
+                    
+                }else {
+                    
+                    //fetch file then save it
+                    fetchContentFile()
+                }
                 
-            }else {
+            }catch let err {
                 
-                //fetch file then save it
-                fetchContentFile()
+                showAlert(title: "", message: err.localizedDescription, vc: self, closure: nil)
             }
+            
         }
         hideLoaderFor(view: self.view)
     }
@@ -117,9 +137,22 @@ class HomeViewController: UIViewController {
                 
                 try jsonData.write(to: savingPath)
                 
+                let json = try JSONSerialization.jsonObject(with: jsonData, options: .mutableContainers)
+                
+                for item in json as! [Any]{
+                    
+                    if let i = item as? [String: Any]{
+                        
+                        self.insightContent.append(InsightContentRootClass.init(fromDictionary: i))
+                    }
+                    
+                }
+                
             }catch let err{
                 
-                print(err.localizedDescription)
+                OperationQueue.main.addOperation {
+                    showAlert(title: "", message: err.localizedDescription, vc: self, closure: nil)
+                }
             }
             
 //            let fm = FileManager.init()
@@ -133,5 +166,9 @@ class HomeViewController: UIViewController {
 //            }
         }
     }
-
+    
+    func initViews(){
+        
+        
+    }
 }
