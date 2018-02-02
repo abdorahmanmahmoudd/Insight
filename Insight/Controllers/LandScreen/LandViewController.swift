@@ -43,7 +43,7 @@ class LandViewController: UIViewController {
         
         let sb = UIStoryboard.init(name: "Authentication", bundle: Bundle.main)
         
-        if let vc = sb.instantiateViewController(withIdentifier: "AuthNav") as? UINavigationController{
+        if let vc = sb.instantiateViewController(withIdentifier: "AuthVC") as? AuthenticationViewController{
             
 //            self.view.window?.rootViewController = vc
             self.present(vc, animated: true, completion: nil)
