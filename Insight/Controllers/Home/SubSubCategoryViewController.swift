@@ -13,6 +13,7 @@ class SubSubCategoryViewController: UIViewController, UITableViewDelegate, UITab
     @IBOutlet var tableSubSubCategory: UITableView!
     
     var subsubCaterogies = [SubSubCategory]()
+    var selectedSubSubCategory = Int()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +39,19 @@ class SubSubCategoryViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //handle selection
+        
+        selectedSubSubCategory = indexPath.row
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "QuestionsContainerSegue"{
+            
+            if let des = segue.destination as? QuestionsContainerViewController{
+                
+                des.subsubCategory = subsubCaterogies[selectedSubSubCategory]
+            }
+        }
     }
     
 }

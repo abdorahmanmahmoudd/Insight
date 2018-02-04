@@ -38,3 +38,12 @@ enum Categories : Int{
         }
     }
 }
+
+enum QuestionTypes : String {
+    
+    case Antonym = "Antonym"
+    case Complete = "Complete"
+    case Dictation = "Dictation"
+    case Listening = "Listening"
+    
+}

@@ -10,6 +10,8 @@ class QuestionData : NSObject, NSCoding{
 	var id : String!
 	var answer : String!
 	var content : String!
+    var verb : String!
+    var sound : String!
 
 
 	/**
@@ -19,6 +21,8 @@ class QuestionData : NSObject, NSCoding{
 		id = dictionary["_id"] as? String
 		answer = dictionary["answer"] as? String
 		content = dictionary["content"] as? String
+        verb = dictionary["verb"] as? String
+        sound = dictionary["sound"] as? String
 	}
 
 	/**
@@ -36,6 +40,12 @@ class QuestionData : NSObject, NSCoding{
 		if content != nil{
 			dictionary["content"] = content
 		}
+        if verb != nil{
+            dictionary["verb"] = verb
+        }
+        if sound != nil{
+            dictionary["sound"] = sound
+        }
 		return dictionary
 	}
 
@@ -48,6 +58,8 @@ class QuestionData : NSObject, NSCoding{
          id = aDecoder.decodeObject(forKey: "_id") as? String
          answer = aDecoder.decodeObject(forKey: "answer") as? String
          content = aDecoder.decodeObject(forKey: "content") as? String
+         verb = aDecoder.decodeObject(forKey: "verb") as? String
+        sound = aDecoder.decodeObject(forKey: "sound") as? String
 
 	}
 
@@ -66,6 +78,12 @@ class QuestionData : NSObject, NSCoding{
 		if content != nil{
 			aCoder.encode(content, forKey: "content")
 		}
+        if verb != nil{
+            aCoder.encode(content, forKey: "verb")
+        }
+        if sound != nil{
+            aCoder.encode(content, forKey: "sound")
+        }
 
 	}
 
