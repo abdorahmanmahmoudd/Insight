@@ -45,6 +45,8 @@
 		BD39AD4520275A7000DC03B3 /* QuestionAntonymTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD39AD4420275A7000DC03B3 /* QuestionAntonymTableViewCell.swift */; };
 		BD47F1CE202353E900ABEBF5 /* Enumerations.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD47F1CD202353E900ABEBF5 /* Enumerations.swift */; };
 		BD47F1D02023762900ABEBF5 /* SubSubCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD47F1CF2023762900ABEBF5 /* SubSubCategoryViewController.swift */; };
+		BD628E892028A6160007BEE4 /* QuestionMatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD628E882028A6160007BEE4 /* QuestionMatchViewController.swift */; };
+		BD628E8B2028A62B0007BEE4 /* QuestionMatchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD628E8A2028A62B0007BEE4 /* QuestionMatchTableViewCell.swift */; };
 		BD96771D202346950078B0A3 /* SubSubCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD96771C202346950078B0A3 /* SubSubCategoryTableViewCell.swift */; };
 		BD96771F2023478B0078B0A3 /* SubCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD96771E2023478B0078B0A3 /* SubCategoryViewController.swift */; };
 		BD96772120234A5C0078B0A3 /* SubCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD96772020234A5C0078B0A3 /* SubCategoryTableViewCell.swift */; };
@@ -52,6 +54,10 @@
 		BD9A4B5E2027682100DCCAE6 /* QuestionDictationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9A4B5D2027682100DCCAE6 /* QuestionDictationViewController.swift */; };
 		BD9A4B61202775B800DCCAE6 /* QuestionListeningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9A4B60202775B800DCCAE6 /* QuestionListeningViewController.swift */; };
 		BD9A4B63202775D200DCCAE6 /* QuestionListeningTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9A4B62202775D200DCCAE6 /* QuestionListeningTableViewCell.swift */; };
+		BDB6248C2028C2C20007B261 /* Choice.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB6248B2028C2C20007B261 /* Choice.swift */; };
+		BDB6248F2028CA220007B261 /* QuestionMcqViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB6248E2028CA220007B261 /* QuestionMcqViewController.swift */; };
+		BDB624912028CA410007B261 /* QuestionMcqTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB624902028CA410007B261 /* QuestionMcqTableViewCell.swift */; };
+		BDB624932028CB0E0007B261 /* McqChoiceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB624922028CB0E0007B261 /* McqChoiceTableViewCell.swift */; };
 		BDD184C0201F9ABD006EBAB9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD184BF201F9ABD006EBAB9 /* AppDelegate.swift */; };
 		BDD184C7201F9ABD006EBAB9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDD184C6201F9ABD006EBAB9 /* Assets.xcassets */; };
 		BDD184D8201F9BAE006EBAB9 /* Land.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDD184D7201F9BAE006EBAB9 /* Land.storyboard */; };
@@ -105,6 +111,8 @@
 		BD39AD4420275A7000DC03B3 /* QuestionAntonymTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionAntonymTableViewCell.swift; sourceTree = "<group>"; };
 		BD47F1CD202353E900ABEBF5 /* Enumerations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enumerations.swift; sourceTree = "<group>"; };
 		BD47F1CF2023762900ABEBF5 /* SubSubCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubSubCategoryViewController.swift; sourceTree = "<group>"; };
+		BD628E882028A6160007BEE4 /* QuestionMatchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionMatchViewController.swift; sourceTree = "<group>"; };
+		BD628E8A2028A62B0007BEE4 /* QuestionMatchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionMatchTableViewCell.swift; sourceTree = "<group>"; };
 		BD96771C202346950078B0A3 /* SubSubCategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubSubCategoryTableViewCell.swift; sourceTree = "<group>"; };
 		BD96771E2023478B0078B0A3 /* SubCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubCategoryViewController.swift; sourceTree = "<group>"; };
 		BD96772020234A5C0078B0A3 /* SubCategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubCategoryTableViewCell.swift; sourceTree = "<group>"; };
@@ -112,6 +120,10 @@
 		BD9A4B5D2027682100DCCAE6 /* QuestionDictationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionDictationViewController.swift; sourceTree = "<group>"; };
 		BD9A4B60202775B800DCCAE6 /* QuestionListeningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionListeningViewController.swift; sourceTree = "<group>"; };
 		BD9A4B62202775D200DCCAE6 /* QuestionListeningTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionListeningTableViewCell.swift; sourceTree = "<group>"; };
+		BDB6248B2028C2C20007B261 /* Choice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Choice.swift; sourceTree = "<group>"; };
+		BDB6248E2028CA220007B261 /* QuestionMcqViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionMcqViewController.swift; sourceTree = "<group>"; };
+		BDB624902028CA410007B261 /* QuestionMcqTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionMcqTableViewCell.swift; sourceTree = "<group>"; };
+		BDB624922028CB0E0007B261 /* McqChoiceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = McqChoiceTableViewCell.swift; sourceTree = "<group>"; };
 		BDD184BC201F9ABD006EBAB9 /* Insight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Insight.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDD184BF201F9ABD006EBAB9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BDD184C6201F9ABD006EBAB9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -146,6 +158,8 @@
 		BD1891672027C78200B3AE5A /* Match */ = {
 			isa = PBXGroup;
 			children = (
+				BD628E882028A6160007BEE4 /* QuestionMatchViewController.swift */,
+				BD628E8A2028A62B0007BEE4 /* QuestionMatchTableViewCell.swift */,
 			);
 			path = Match;
 			sourceTree = "<group>";
@@ -153,6 +167,7 @@
 		BD1A0C702022DA850019B3CB /* InsightContent */ = {
 			isa = PBXGroup;
 			children = (
+				BDB6248B2028C2C20007B261 /* Choice.swift */,
 				BD1478B3202330DF0090A481 /* QuestionData.swift */,
 				BD1478B7202330E00090A481 /* InsightContentRootClass.swift */,
 				BD1478B4202330E00090A481 /* Question.swift */,
@@ -231,6 +246,7 @@
 		BD1FF8422023CF9700FC74C2 /* Questions */ = {
 			isa = PBXGroup;
 			children = (
+				BDB6248D2028C3260007B261 /* MCQ */,
 				BD1891672027C78200B3AE5A /* Match */,
 				BD9A4B5F202775A000DCCAE6 /* Listening */,
 				BD9A4B5C2027680700DCCAE6 /* Dictation */,
@@ -274,6 +290,16 @@
 				BD9A4B62202775D200DCCAE6 /* QuestionListeningTableViewCell.swift */,
 			);
 			path = Listening;
+			sourceTree = "<group>";
+		};
+		BDB6248D2028C3260007B261 /* MCQ */ = {
+			isa = PBXGroup;
+			children = (
+				BDB6248E2028CA220007B261 /* QuestionMcqViewController.swift */,
+				BDB624902028CA410007B261 /* QuestionMcqTableViewCell.swift */,
+				BDB624922028CB0E0007B261 /* McqChoiceTableViewCell.swift */,
+			);
+			path = MCQ;
 			sourceTree = "<group>";
 		};
 		BDD184B3201F9ABD006EBAB9 = {
@@ -549,6 +575,7 @@
 				BD1B1ED22021349D0000D813 /* SideMenuDismissalInteractionController.swift in Sources */,
 				BD1B1EB12020F61C0000D813 /* Extensions.swift in Sources */,
 				BD39AD432027449A00DC03B3 /* QuestionCompleteTableViewCell.swift in Sources */,
+				BD628E892028A6160007BEE4 /* QuestionMatchViewController.swift in Sources */,
 				BD47F1D02023762900ABEBF5 /* SubSubCategoryViewController.swift in Sources */,
 				BD39AD412027447F00DC03B3 /* QuestionCompleteViewController.swift in Sources */,
 				BD1B1EBA2020F7CE0000D813 /* AuthRootClass.swift in Sources */,
@@ -558,11 +585,14 @@
 				BD1B1EBD2020FC280000D813 /* UserModel.swift in Sources */,
 				BD9A4B5E2027682100DCCAE6 /* QuestionDictationViewController.swift in Sources */,
 				BD9A4B61202775B800DCCAE6 /* QuestionListeningViewController.swift in Sources */,
+				BDB6248F2028CA220007B261 /* QuestionMcqViewController.swift in Sources */,
 				BD1B1ED02021349D0000D813 /* InteractionControlller.swift in Sources */,
 				BD1478BC202330E00090A481 /* InsightContentRootClass.swift in Sources */,
 				BD9A4B5B202767F200DCCAE6 /* QuestionDictationTableViewCell.swift in Sources */,
+				BDB624932028CB0E0007B261 /* McqChoiceTableViewCell.swift in Sources */,
 				BDD184DB201F9BE2006EBAB9 /* LandViewController.swift in Sources */,
 				BD1FF8462023EBC900FC74C2 /* QuestionsContainerViewController.swift in Sources */,
+				BDB6248C2028C2C20007B261 /* Choice.swift in Sources */,
 				BD1FF8412023CB4E00FC74C2 /* SubClass.swift in Sources */,
 				BD1B1EDA202135720000D813 /* HomeViewController.swift in Sources */,
 				BD1478BB202330E00090A481 /* SubSubCategory.swift in Sources */,
@@ -572,8 +602,10 @@
 				BD1FF8442023CFBA00FC74C2 /* AntonymQViewController.swift in Sources */,
 				BD1B1ED32021349D0000D813 /* SideMenuManager.swift in Sources */,
 				BD1B1ED72021349D0000D813 /* StoryboardLoadable.swift in Sources */,
+				BD628E8B2028A62B0007BEE4 /* QuestionMatchTableViewCell.swift in Sources */,
 				BD96771F2023478B0078B0A3 /* SubCategoryViewController.swift in Sources */,
 				BDD184C0201F9ABD006EBAB9 /* AppDelegate.swift in Sources */,
+				BDB624912028CA410007B261 /* QuestionMcqTableViewCell.swift in Sources */,
 				BD1478BA202330E00090A481 /* SubCategory.swift in Sources */,
 				BD39AD4520275A7000DC03B3 /* QuestionAntonymTableViewCell.swift in Sources */,
 				BD1B1EAD2020F6090000D813 /* AppConstants.swift in Sources */,

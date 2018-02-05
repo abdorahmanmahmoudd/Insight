@@ -12,6 +12,7 @@ class QuestionData : NSObject, NSCoding{
 	var content : String!
     var verb : String!
     var sound : String!
+    var choices : [Choice]!
 
 
 	/**
@@ -23,6 +24,13 @@ class QuestionData : NSObject, NSCoding{
 		content = dictionary["content"] as? String
         verb = dictionary["verb"] as? String
         sound = dictionary["sound"] as? String
+        choices = [Choice]()
+        if let choicesArray = dictionary["choices"] as? [[String:Any]]{
+            for dic in choicesArray{
+                let value = Choice(fromDictionary: dic)
+                choices.append(value)
+            }
+        }
 	}
 
 	/**
@@ -46,6 +54,13 @@ class QuestionData : NSObject, NSCoding{
         if sound != nil{
             dictionary["sound"] = sound
         }
+        if choices != nil{
+            var dictionaryElements = [[String:Any]]()
+            for choicesElement in choices {
+                dictionaryElements.append(choicesElement.toDictionary())
+            }
+            dictionary["choices"] = dictionaryElements
+        }
 		return dictionary
 	}
 
@@ -60,6 +75,7 @@ class QuestionData : NSObject, NSCoding{
          content = aDecoder.decodeObject(forKey: "content") as? String
          verb = aDecoder.decodeObject(forKey: "verb") as? String
         sound = aDecoder.decodeObject(forKey: "sound") as? String
+        choices = aDecoder.decodeObject(forKey :"choices") as? [Choice]
 
 	}
 
@@ -83,6 +99,9 @@ class QuestionData : NSObject, NSCoding{
         }
         if sound != nil{
             aCoder.encode(content, forKey: "sound")
+        }
+        if choices != nil{
+            aCoder.encode(choices, forKey: "choices")
         }
 
 	}
