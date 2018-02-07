@@ -45,5 +45,9 @@ enum QuestionTypes : String {
     case Complete = "Complete"
     case Dictation = "Dictation"
     case Listening = "Listening"
+    case Match = "Match"
+    case MCQ = "MCQ"
+    case MiniDialog = "MiniDialogues"
+    case Mistakes = "Mistakes"
     
 }

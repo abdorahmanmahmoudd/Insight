@@ -53,6 +53,7 @@ class QuestionsContainerViewController: UIViewController {
                 break
                 
             case QuestionTypes.Dictation.rawValue?:
+                self.lblTitle.text = subsubCategory?.questions[currentQuestion].title
                 
                 break
                 
@@ -60,6 +61,20 @@ class QuestionsContainerViewController: UIViewController {
                 //push
                 break
                 
+            case QuestionTypes.Match.rawValue?:
+                self.lblTitle.text = subsubCategory?.questions[currentQuestion].title
+                break
+                
+            case QuestionTypes.MCQ.rawValue?:
+                self.lblTitle.text = subsubCategory?.questions[currentQuestion].title
+                
+                break
+                
+            case QuestionTypes.MiniDialog.rawValue?:
+                break
+                
+            case QuestionTypes.Mistakes.rawValue?:
+                break
                 
             default:
                 break

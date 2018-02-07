@@ -43,6 +43,9 @@
 		BD39AD412027447F00DC03B3 /* QuestionCompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD39AD402027447F00DC03B3 /* QuestionCompleteViewController.swift */; };
 		BD39AD432027449A00DC03B3 /* QuestionCompleteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD39AD422027449A00DC03B3 /* QuestionCompleteTableViewCell.swift */; };
 		BD39AD4520275A7000DC03B3 /* QuestionAntonymTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD39AD4420275A7000DC03B3 /* QuestionAntonymTableViewCell.swift */; };
+		BD3DA3FD202AF66A00CCB7B0 /* MiniDialogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3DA3FC202AF66A00CCB7B0 /* MiniDialogViewController.swift */; };
+		BD3DA3FF202AFBEE00CCB7B0 /* MiniDialogTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3DA3FE202AFBEE00CCB7B0 /* MiniDialogTableViewCell.swift */; };
+		BD3DA401202B009500CCB7B0 /* Mistake.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3DA400202B009500CCB7B0 /* Mistake.swift */; };
 		BD47F1CE202353E900ABEBF5 /* Enumerations.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD47F1CD202353E900ABEBF5 /* Enumerations.swift */; };
 		BD47F1D02023762900ABEBF5 /* SubSubCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD47F1CF2023762900ABEBF5 /* SubSubCategoryViewController.swift */; };
 		BD628E892028A6160007BEE4 /* QuestionMatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD628E882028A6160007BEE4 /* QuestionMatchViewController.swift */; };
@@ -109,6 +112,9 @@
 		BD39AD402027447F00DC03B3 /* QuestionCompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionCompleteViewController.swift; sourceTree = "<group>"; };
 		BD39AD422027449A00DC03B3 /* QuestionCompleteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionCompleteTableViewCell.swift; sourceTree = "<group>"; };
 		BD39AD4420275A7000DC03B3 /* QuestionAntonymTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionAntonymTableViewCell.swift; sourceTree = "<group>"; };
+		BD3DA3FC202AF66A00CCB7B0 /* MiniDialogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniDialogViewController.swift; sourceTree = "<group>"; };
+		BD3DA3FE202AFBEE00CCB7B0 /* MiniDialogTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniDialogTableViewCell.swift; sourceTree = "<group>"; };
+		BD3DA400202B009500CCB7B0 /* Mistake.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mistake.swift; sourceTree = "<group>"; };
 		BD47F1CD202353E900ABEBF5 /* Enumerations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enumerations.swift; sourceTree = "<group>"; };
 		BD47F1CF2023762900ABEBF5 /* SubSubCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubSubCategoryViewController.swift; sourceTree = "<group>"; };
 		BD628E882028A6160007BEE4 /* QuestionMatchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionMatchViewController.swift; sourceTree = "<group>"; };
@@ -167,6 +173,7 @@
 		BD1A0C702022DA850019B3CB /* InsightContent */ = {
 			isa = PBXGroup;
 			children = (
+				BD3DA400202B009500CCB7B0 /* Mistake.swift */,
 				BDB6248B2028C2C20007B261 /* Choice.swift */,
 				BD1478B3202330DF0090A481 /* QuestionData.swift */,
 				BD1478B7202330E00090A481 /* InsightContentRootClass.swift */,
@@ -246,6 +253,7 @@
 		BD1FF8422023CF9700FC74C2 /* Questions */ = {
 			isa = PBXGroup;
 			children = (
+				BD3DA3FA202AF64600CCB7B0 /* MiniDialog */,
 				BDB6248D2028C3260007B261 /* MCQ */,
 				BD1891672027C78200B3AE5A /* Match */,
 				BD9A4B5F202775A000DCCAE6 /* Listening */,
@@ -272,6 +280,15 @@
 				BD39AD4420275A7000DC03B3 /* QuestionAntonymTableViewCell.swift */,
 			);
 			path = Antonym;
+			sourceTree = "<group>";
+		};
+		BD3DA3FA202AF64600CCB7B0 /* MiniDialog */ = {
+			isa = PBXGroup;
+			children = (
+				BD3DA3FC202AF66A00CCB7B0 /* MiniDialogViewController.swift */,
+				BD3DA3FE202AFBEE00CCB7B0 /* MiniDialogTableViewCell.swift */,
+			);
+			path = MiniDialog;
 			sourceTree = "<group>";
 		};
 		BD9A4B5C2027680700DCCAE6 /* Dictation */ = {
@@ -584,6 +601,7 @@
 				BD1B1EAF2020F6120000D813 /* ActivityLoaderHelper.swift in Sources */,
 				BD1B1EBD2020FC280000D813 /* UserModel.swift in Sources */,
 				BD9A4B5E2027682100DCCAE6 /* QuestionDictationViewController.swift in Sources */,
+				BD3DA3FD202AF66A00CCB7B0 /* MiniDialogViewController.swift in Sources */,
 				BD9A4B61202775B800DCCAE6 /* QuestionListeningViewController.swift in Sources */,
 				BDB6248F2028CA220007B261 /* QuestionMcqViewController.swift in Sources */,
 				BD1B1ED02021349D0000D813 /* InteractionControlller.swift in Sources */,
@@ -607,9 +625,11 @@
 				BDD184C0201F9ABD006EBAB9 /* AppDelegate.swift in Sources */,
 				BDB624912028CA410007B261 /* QuestionMcqTableViewCell.swift in Sources */,
 				BD1478BA202330E00090A481 /* SubCategory.swift in Sources */,
+				BD3DA401202B009500CCB7B0 /* Mistake.swift in Sources */,
 				BD39AD4520275A7000DC03B3 /* QuestionAntonymTableViewCell.swift in Sources */,
 				BD1B1EAD2020F6090000D813 /* AppConstants.swift in Sources */,
 				BD1B1EAB2020F5EF0000D813 /* ServerManager.swift in Sources */,
+				BD3DA3FF202AFBEE00CCB7B0 /* MiniDialogTableViewCell.swift in Sources */,
 				BD1478B9202330E00090A481 /* Question.swift in Sources */,
 				BD1B1ECF202134930000D813 /* SideMenuViewController.swift in Sources */,
 				BD1B1ED52021349D0000D813 /* SideMenuTableViewCell.swift in Sources */,

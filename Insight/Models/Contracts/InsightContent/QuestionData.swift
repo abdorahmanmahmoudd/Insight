@@ -11,8 +11,18 @@ class QuestionData : NSObject, NSCoding{
 	var answer : String!
 	var content : String!
     var verb : String!
+    
     var sound : String!
+    
     var choices : [Choice]!
+    
+    var place : String!
+    var speakera : String!
+    var speakerb : String!
+    var functiona : String!
+    var functionb : String!
+    
+    var mistakes : [Mistake]!
 
 
 	/**
@@ -29,6 +39,18 @@ class QuestionData : NSObject, NSCoding{
             for dic in choicesArray{
                 let value = Choice(fromDictionary: dic)
                 choices.append(value)
+            }
+        }
+        place = dictionary["place"] as? String
+        speakera = dictionary["speakera"] as? String
+        speakerb = dictionary["speakerb"] as? String
+        functiona = dictionary["functiona"] as? String
+        functionb = dictionary["functionb"] as? String
+        mistakes = [Mistake]()
+        if let mistakesArray = dictionary["mistakes"] as? [[String:Any]]{
+            for dic in mistakesArray{
+                let value = Mistake(fromDictionary: dic)
+                mistakes.append(value)
             }
         }
 	}
@@ -61,6 +83,28 @@ class QuestionData : NSObject, NSCoding{
             }
             dictionary["choices"] = dictionaryElements
         }
+        if place != nil{
+            dictionary["place"] = place
+        }
+        if speakera != nil{
+            dictionary["speakera"] = speakera
+        }
+        if speakerb != nil{
+            dictionary["speakerb"] = speakerb
+        }
+        if functiona != nil{
+            dictionary["functiona"] = functiona
+        }
+        if functionb != nil{
+            dictionary["functionb"] = functionb
+        }
+        if mistakes != nil{
+            var dictionaryElements = [[String:Any]]()
+            for mistakesElement in mistakes {
+                dictionaryElements.append(mistakesElement.toDictionary())
+            }
+            dictionary["mistakes"] = dictionaryElements
+        }
 		return dictionary
 	}
 
@@ -76,6 +120,12 @@ class QuestionData : NSObject, NSCoding{
          verb = aDecoder.decodeObject(forKey: "verb") as? String
         sound = aDecoder.decodeObject(forKey: "sound") as? String
         choices = aDecoder.decodeObject(forKey :"choices") as? [Choice]
+        place = aDecoder.decodeObject(forKey: "place") as? String
+        speakera = aDecoder.decodeObject(forKey: "speakera") as? String
+        speakerb = aDecoder.decodeObject(forKey: "speakerb") as? String
+        functiona = aDecoder.decodeObject(forKey: "functiona") as? String
+        functionb = aDecoder.decodeObject(forKey: "functionb") as? String
+        mistakes = aDecoder.decodeObject(forKey :"mistakes") as? [Mistake]
 
 	}
 
@@ -95,13 +145,31 @@ class QuestionData : NSObject, NSCoding{
 			aCoder.encode(content, forKey: "content")
 		}
         if verb != nil{
-            aCoder.encode(content, forKey: "verb")
+            aCoder.encode(verb, forKey: "verb")
         }
         if sound != nil{
-            aCoder.encode(content, forKey: "sound")
+            aCoder.encode(sound, forKey: "sound")
         }
         if choices != nil{
             aCoder.encode(choices, forKey: "choices")
+        }
+        if place != nil{
+            aCoder.encode(place, forKey: "place")
+        }
+        if speakera != nil{
+            aCoder.encode(speakera, forKey: "speakera")
+        }
+        if speakerb != nil{
+            aCoder.encode(speakerb, forKey: "speakerb")
+        }
+        if functiona != nil{
+            aCoder.encode(functiona, forKey: "functiona")
+        }
+        if functionb != nil{
+            aCoder.encode(functionb, forKey: "functionb")
+        }
+        if mistakes != nil{
+            aCoder.encode(mistakes, forKey: "mistakes")
         }
 
 	}
