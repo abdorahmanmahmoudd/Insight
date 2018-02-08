@@ -41,8 +41,6 @@ class QuestionsContainerViewController: UIViewController {
                 
             case QuestionTypes.Antonym.rawValue?:
                 
-                
-                
                 break
                 
             case QuestionTypes.Complete.rawValue?:
@@ -76,8 +74,35 @@ class QuestionsContainerViewController: UIViewController {
             case QuestionTypes.Mistakes.rawValue?:
                 break
                 
-            default:
+            case QuestionTypes.Rewrite.rawValue?:
+                //general question
                 break
+                
+            case QuestionTypes.Situations.rawValue?:
+                //general question
+                break
+                
+            case QuestionTypes.Translation.rawValue?:
+                //general question
+                break
+                
+            case QuestionTypes.Writing.rawValue?:
+                
+                break
+                
+            case QuestionTypes.Prereading.rawValue?:
+                //general question
+                break
+                
+            case QuestionTypes.Quotations.rawValue?:
+                
+                break
+                
+            case QuestionTypes.TrueFalse.rawValue?:
+                
+                break
+                
+            default: break
                 
             }
         }

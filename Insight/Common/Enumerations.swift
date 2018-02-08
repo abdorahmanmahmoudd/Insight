@@ -49,5 +49,11 @@ enum QuestionTypes : String {
     case MCQ = "MCQ"
     case MiniDialog = "MiniDialogues"
     case Mistakes = "Mistakes"
-    
+    case Rewrite = "Rewrite"
+    case Situations = "Situations"
+    case Translation = "Translation"
+    case Writing = "Writing"
+    case Prereading = "Prereading"
+    case Quotations = "Quotations"
+    case TrueFalse = "TrueFalse"
 }

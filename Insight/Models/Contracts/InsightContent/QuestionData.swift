@@ -23,6 +23,10 @@ class QuestionData : NSObject, NSCoding{
     var functionb : String!
     
     var mistakes : [Mistake]!
+    
+    var questions : [SubQuestion]!
+    
+    var answerContent : String!
 
 
 	/**
@@ -53,6 +57,17 @@ class QuestionData : NSObject, NSCoding{
                 mistakes.append(value)
             }
         }
+        
+        questions = [SubQuestion]()
+        if let questionsArray = dictionary["questions"] as? [[String:Any]]{
+            for dic in questionsArray{
+                let value = SubQuestion(fromDictionary: dic)
+                questions.append(value)
+            }
+        }
+        
+        answerContent = dictionary["answerContent"] as? String
+        
 	}
 
 	/**
@@ -105,6 +120,19 @@ class QuestionData : NSObject, NSCoding{
             }
             dictionary["mistakes"] = dictionaryElements
         }
+        
+        if questions != nil{
+            var dictionaryElements = [[String:Any]]()
+            for questionsElement in questions {
+                dictionaryElements.append(questionsElement.toDictionary())
+            }
+            dictionary["questions"] = dictionaryElements
+        }
+        
+        if answerContent != nil{
+            dictionary["answerContent"] = answerContent
+        }
+        
 		return dictionary
 	}
 
@@ -126,6 +154,9 @@ class QuestionData : NSObject, NSCoding{
         functiona = aDecoder.decodeObject(forKey: "functiona") as? String
         functionb = aDecoder.decodeObject(forKey: "functionb") as? String
         mistakes = aDecoder.decodeObject(forKey :"mistakes") as? [Mistake]
+        questions = aDecoder.decodeObject(forKey :"questions") as? [SubQuestion]
+        answerContent = aDecoder.decodeObject(forKey :"answerContent") as? String
+
 
 	}
 
@@ -171,6 +202,13 @@ class QuestionData : NSObject, NSCoding{
         if mistakes != nil{
             aCoder.encode(mistakes, forKey: "mistakes")
         }
+        if questions != nil{
+            aCoder.encode(questions, forKey: "questions")
+        }
+        if answerContent != nil{
+            aCoder.encode(answerContent, forKey: "answerContent")
+        }
+        
 
 	}
 

@@ -57,6 +57,17 @@
 		BD9A4B5E2027682100DCCAE6 /* QuestionDictationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9A4B5D2027682100DCCAE6 /* QuestionDictationViewController.swift */; };
 		BD9A4B61202775B800DCCAE6 /* QuestionListeningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9A4B60202775B800DCCAE6 /* QuestionListeningViewController.swift */; };
 		BD9A4B63202775D200DCCAE6 /* QuestionListeningTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9A4B62202775D200DCCAE6 /* QuestionListeningTableViewCell.swift */; };
+		BDAA57F8202CEF9900C32AA9 /* MistakesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDAA57F7202CEF9900C32AA9 /* MistakesViewController.swift */; };
+		BDAA57FA202CEFAF00C32AA9 /* MistakesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDAA57F9202CEFAF00C32AA9 /* MistakesTableViewCell.swift */; };
+		BDAA5807202CFA9600C32AA9 /* GeneralQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDAA5806202CFA9600C32AA9 /* GeneralQuestionViewController.swift */; };
+		BDAA5809202CFAAF00C32AA9 /* GeneralQuestionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDAA5808202CFAAF00C32AA9 /* GeneralQuestionTableViewCell.swift */; };
+		BDAA580C202D117200C32AA9 /* WritingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDAA580B202D117200C32AA9 /* WritingTableViewCell.swift */; };
+		BDAA580E202D118400C32AA9 /* WritingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDAA580D202D118400C32AA9 /* WritingViewController.swift */; };
+		BDAA5810202D12EE00C32AA9 /* SubQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDAA580F202D12EE00C32AA9 /* SubQuestion.swift */; };
+		BDAA5813202D14A500C32AA9 /* QuotationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDAA5812202D14A500C32AA9 /* QuotationViewController.swift */; };
+		BDAA5815202D14BB00C32AA9 /* QuotationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDAA5814202D14BB00C32AA9 /* QuotationTableViewCell.swift */; };
+		BDAA5818202D18C600C32AA9 /* TrueFalseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDAA5817202D18C600C32AA9 /* TrueFalseTableViewCell.swift */; };
+		BDAA581A202D18DC00C32AA9 /* TrueFalseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDAA5819202D18DC00C32AA9 /* TrueFalseViewController.swift */; };
 		BDB6248C2028C2C20007B261 /* Choice.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB6248B2028C2C20007B261 /* Choice.swift */; };
 		BDB6248F2028CA220007B261 /* QuestionMcqViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB6248E2028CA220007B261 /* QuestionMcqViewController.swift */; };
 		BDB624912028CA410007B261 /* QuestionMcqTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB624902028CA410007B261 /* QuestionMcqTableViewCell.swift */; };
@@ -126,6 +137,17 @@
 		BD9A4B5D2027682100DCCAE6 /* QuestionDictationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionDictationViewController.swift; sourceTree = "<group>"; };
 		BD9A4B60202775B800DCCAE6 /* QuestionListeningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionListeningViewController.swift; sourceTree = "<group>"; };
 		BD9A4B62202775D200DCCAE6 /* QuestionListeningTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionListeningTableViewCell.swift; sourceTree = "<group>"; };
+		BDAA57F7202CEF9900C32AA9 /* MistakesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MistakesViewController.swift; sourceTree = "<group>"; };
+		BDAA57F9202CEFAF00C32AA9 /* MistakesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MistakesTableViewCell.swift; sourceTree = "<group>"; };
+		BDAA5806202CFA9600C32AA9 /* GeneralQuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralQuestionViewController.swift; sourceTree = "<group>"; };
+		BDAA5808202CFAAF00C32AA9 /* GeneralQuestionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralQuestionTableViewCell.swift; sourceTree = "<group>"; };
+		BDAA580B202D117200C32AA9 /* WritingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingTableViewCell.swift; sourceTree = "<group>"; };
+		BDAA580D202D118400C32AA9 /* WritingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingViewController.swift; sourceTree = "<group>"; };
+		BDAA580F202D12EE00C32AA9 /* SubQuestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubQuestion.swift; sourceTree = "<group>"; };
+		BDAA5812202D14A500C32AA9 /* QuotationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotationViewController.swift; sourceTree = "<group>"; };
+		BDAA5814202D14BB00C32AA9 /* QuotationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotationTableViewCell.swift; sourceTree = "<group>"; };
+		BDAA5817202D18C600C32AA9 /* TrueFalseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrueFalseTableViewCell.swift; sourceTree = "<group>"; };
+		BDAA5819202D18DC00C32AA9 /* TrueFalseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrueFalseViewController.swift; sourceTree = "<group>"; };
 		BDB6248B2028C2C20007B261 /* Choice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Choice.swift; sourceTree = "<group>"; };
 		BDB6248E2028CA220007B261 /* QuestionMcqViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionMcqViewController.swift; sourceTree = "<group>"; };
 		BDB624902028CA410007B261 /* QuestionMcqTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionMcqTableViewCell.swift; sourceTree = "<group>"; };
@@ -173,6 +195,7 @@
 		BD1A0C702022DA850019B3CB /* InsightContent */ = {
 			isa = PBXGroup;
 			children = (
+				BDAA580F202D12EE00C32AA9 /* SubQuestion.swift */,
 				BD3DA400202B009500CCB7B0 /* Mistake.swift */,
 				BDB6248B2028C2C20007B261 /* Choice.swift */,
 				BD1478B3202330DF0090A481 /* QuestionData.swift */,
@@ -253,6 +276,11 @@
 		BD1FF8422023CF9700FC74C2 /* Questions */ = {
 			isa = PBXGroup;
 			children = (
+				BDAA5816202D155000C32AA9 /* TrueFalse */,
+				BDAA5811202D134800C32AA9 /* Quotations */,
+				BDAA580A202D113500C32AA9 /* Writing */,
+				BDAA5805202CFA8200C32AA9 /* GeneralQuestion */,
+				BDAA57F6202CEE9F00C32AA9 /* Mistakes */,
 				BD3DA3FA202AF64600CCB7B0 /* MiniDialog */,
 				BDB6248D2028C3260007B261 /* MCQ */,
 				BD1891672027C78200B3AE5A /* Match */,
@@ -307,6 +335,51 @@
 				BD9A4B62202775D200DCCAE6 /* QuestionListeningTableViewCell.swift */,
 			);
 			path = Listening;
+			sourceTree = "<group>";
+		};
+		BDAA57F6202CEE9F00C32AA9 /* Mistakes */ = {
+			isa = PBXGroup;
+			children = (
+				BDAA57F7202CEF9900C32AA9 /* MistakesViewController.swift */,
+				BDAA57F9202CEFAF00C32AA9 /* MistakesTableViewCell.swift */,
+			);
+			path = Mistakes;
+			sourceTree = "<group>";
+		};
+		BDAA5805202CFA8200C32AA9 /* GeneralQuestion */ = {
+			isa = PBXGroup;
+			children = (
+				BDAA5806202CFA9600C32AA9 /* GeneralQuestionViewController.swift */,
+				BDAA5808202CFAAF00C32AA9 /* GeneralQuestionTableViewCell.swift */,
+			);
+			path = GeneralQuestion;
+			sourceTree = "<group>";
+		};
+		BDAA580A202D113500C32AA9 /* Writing */ = {
+			isa = PBXGroup;
+			children = (
+				BDAA580D202D118400C32AA9 /* WritingViewController.swift */,
+				BDAA580B202D117200C32AA9 /* WritingTableViewCell.swift */,
+			);
+			path = Writing;
+			sourceTree = "<group>";
+		};
+		BDAA5811202D134800C32AA9 /* Quotations */ = {
+			isa = PBXGroup;
+			children = (
+				BDAA5812202D14A500C32AA9 /* QuotationViewController.swift */,
+				BDAA5814202D14BB00C32AA9 /* QuotationTableViewCell.swift */,
+			);
+			path = Quotations;
+			sourceTree = "<group>";
+		};
+		BDAA5816202D155000C32AA9 /* TrueFalse */ = {
+			isa = PBXGroup;
+			children = (
+				BDAA5819202D18DC00C32AA9 /* TrueFalseViewController.swift */,
+				BDAA5817202D18C600C32AA9 /* TrueFalseTableViewCell.swift */,
+			);
+			path = TrueFalse;
 			sourceTree = "<group>";
 		};
 		BDB6248D2028C3260007B261 /* MCQ */ = {
@@ -584,10 +657,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BDAA57FA202CEFAF00C32AA9 /* MistakesTableViewCell.swift in Sources */,
 				BD1B1ED42021349D0000D813 /* SideMenuPresentationInteractionController.swift in Sources */,
+				BDAA581A202D18DC00C32AA9 /* TrueFalseViewController.swift in Sources */,
 				BD1B1EBB2020F7CE0000D813 /* User.swift in Sources */,
 				BD96771D202346950078B0A3 /* SubSubCategoryTableViewCell.swift in Sources */,
 				BD9A4B63202775D200DCCAE6 /* QuestionListeningTableViewCell.swift in Sources */,
+				BDAA5818202D18C600C32AA9 /* TrueFalseTableViewCell.swift in Sources */,
 				BD27EEDE201FF02D007872E0 /* SignInViewController.swift in Sources */,
 				BD1B1ED22021349D0000D813 /* SideMenuDismissalInteractionController.swift in Sources */,
 				BD1B1EB12020F61C0000D813 /* Extensions.swift in Sources */,
@@ -602,27 +678,34 @@
 				BD1B1EBD2020FC280000D813 /* UserModel.swift in Sources */,
 				BD9A4B5E2027682100DCCAE6 /* QuestionDictationViewController.swift in Sources */,
 				BD3DA3FD202AF66A00CCB7B0 /* MiniDialogViewController.swift in Sources */,
+				BDAA5807202CFA9600C32AA9 /* GeneralQuestionViewController.swift in Sources */,
 				BD9A4B61202775B800DCCAE6 /* QuestionListeningViewController.swift in Sources */,
 				BDB6248F2028CA220007B261 /* QuestionMcqViewController.swift in Sources */,
 				BD1B1ED02021349D0000D813 /* InteractionControlller.swift in Sources */,
 				BD1478BC202330E00090A481 /* InsightContentRootClass.swift in Sources */,
+				BDAA580E202D118400C32AA9 /* WritingViewController.swift in Sources */,
 				BD9A4B5B202767F200DCCAE6 /* QuestionDictationTableViewCell.swift in Sources */,
 				BDB624932028CB0E0007B261 /* McqChoiceTableViewCell.swift in Sources */,
 				BDD184DB201F9BE2006EBAB9 /* LandViewController.swift in Sources */,
 				BD1FF8462023EBC900FC74C2 /* QuestionsContainerViewController.swift in Sources */,
 				BDB6248C2028C2C20007B261 /* Choice.swift in Sources */,
 				BD1FF8412023CB4E00FC74C2 /* SubClass.swift in Sources */,
+				BDAA5813202D14A500C32AA9 /* QuotationViewController.swift in Sources */,
 				BD1B1EDA202135720000D813 /* HomeViewController.swift in Sources */,
 				BD1478BB202330E00090A481 /* SubSubCategory.swift in Sources */,
 				BD1B1EB52020F6F80000D813 /* GeneralMethods.swift in Sources */,
+				BDAA57F8202CEF9900C32AA9 /* MistakesViewController.swift in Sources */,
 				BD1B1ED62021349D0000D813 /* Storyboard.swift in Sources */,
 				BDD184E2201FA0E1006EBAB9 /* AuthenticationViewController.swift in Sources */,
+				BDAA5809202CFAAF00C32AA9 /* GeneralQuestionTableViewCell.swift in Sources */,
 				BD1FF8442023CFBA00FC74C2 /* AntonymQViewController.swift in Sources */,
 				BD1B1ED32021349D0000D813 /* SideMenuManager.swift in Sources */,
 				BD1B1ED72021349D0000D813 /* StoryboardLoadable.swift in Sources */,
+				BDAA580C202D117200C32AA9 /* WritingTableViewCell.swift in Sources */,
 				BD628E8B2028A62B0007BEE4 /* QuestionMatchTableViewCell.swift in Sources */,
 				BD96771F2023478B0078B0A3 /* SubCategoryViewController.swift in Sources */,
 				BDD184C0201F9ABD006EBAB9 /* AppDelegate.swift in Sources */,
+				BDAA5815202D14BB00C32AA9 /* QuotationTableViewCell.swift in Sources */,
 				BDB624912028CA410007B261 /* QuestionMcqTableViewCell.swift in Sources */,
 				BD1478BA202330E00090A481 /* SubCategory.swift in Sources */,
 				BD3DA401202B009500CCB7B0 /* Mistake.swift in Sources */,
@@ -636,6 +719,7 @@
 				BD1B1EA92020F17E0000D813 /* SignUpViewController.swift in Sources */,
 				BD96772120234A5C0078B0A3 /* SubCategoryTableViewCell.swift in Sources */,
 				BD1B1ED12021349D0000D813 /* SideMenuAnimationController.swift in Sources */,
+				BDAA5810202D12EE00C32AA9 /* SubQuestion.swift in Sources */,
 				BD47F1CE202353E900ABEBF5 /* Enumerations.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
