@@ -48,6 +48,8 @@
 		BD3DA401202B009500CCB7B0 /* Mistake.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3DA400202B009500CCB7B0 /* Mistake.swift */; };
 		BD47F1CE202353E900ABEBF5 /* Enumerations.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD47F1CD202353E900ABEBF5 /* Enumerations.swift */; };
 		BD47F1D02023762900ABEBF5 /* SubSubCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD47F1CF2023762900ABEBF5 /* SubSubCategoryViewController.swift */; };
+		BD5378E8202FA5B7005BDE85 /* QuestionGeneralHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD5378E7202FA5B7005BDE85 /* QuestionGeneralHeader.xib */; };
+		BD5378EA202FA6C0005BDE85 /* GeneralTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5378E9202FA6C0005BDE85 /* GeneralTableViewHeader.swift */; };
 		BD628E892028A6160007BEE4 /* QuestionMatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD628E882028A6160007BEE4 /* QuestionMatchViewController.swift */; };
 		BD628E8B2028A62B0007BEE4 /* QuestionMatchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD628E8A2028A62B0007BEE4 /* QuestionMatchTableViewCell.swift */; };
 		BD96771D202346950078B0A3 /* SubSubCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD96771C202346950078B0A3 /* SubSubCategoryTableViewCell.swift */; };
@@ -128,6 +130,8 @@
 		BD3DA400202B009500CCB7B0 /* Mistake.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mistake.swift; sourceTree = "<group>"; };
 		BD47F1CD202353E900ABEBF5 /* Enumerations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enumerations.swift; sourceTree = "<group>"; };
 		BD47F1CF2023762900ABEBF5 /* SubSubCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubSubCategoryViewController.swift; sourceTree = "<group>"; };
+		BD5378E7202FA5B7005BDE85 /* QuestionGeneralHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuestionGeneralHeader.xib; sourceTree = "<group>"; };
+		BD5378E9202FA6C0005BDE85 /* GeneralTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralTableViewHeader.swift; sourceTree = "<group>"; };
 		BD628E882028A6160007BEE4 /* QuestionMatchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionMatchViewController.swift; sourceTree = "<group>"; };
 		BD628E8A2028A62B0007BEE4 /* QuestionMatchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionMatchTableViewCell.swift; sourceTree = "<group>"; };
 		BD96771C202346950078B0A3 /* SubSubCategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubSubCategoryTableViewCell.swift; sourceTree = "<group>"; };
@@ -231,6 +235,7 @@
 			isa = PBXGroup;
 			children = (
 				BD1B1EC120212F560000D813 /* Home.storyboard */,
+				BD5378E7202FA5B7005BDE85 /* QuestionGeneralHeader.xib */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -269,6 +274,7 @@
 				BD47F1CF2023762900ABEBF5 /* SubSubCategoryViewController.swift */,
 				BD96771C202346950078B0A3 /* SubSubCategoryTableViewCell.swift */,
 				BD1FF8452023EBC900FC74C2 /* QuestionsContainerViewController.swift */,
+				BD5378E9202FA6C0005BDE85 /* GeneralTableViewHeader.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -591,6 +597,7 @@
 				BD1B1EDB2021389F0000D813 /* SideMenuViewController.storyboard in Resources */,
 				BD27EEE0201FF353007872E0 /* LaunchScreen.storyboard in Resources */,
 				BDD184C7201F9ABD006EBAB9 /* Assets.xcassets in Resources */,
+				BD5378E8202FA5B7005BDE85 /* QuestionGeneralHeader.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -720,6 +727,7 @@
 				BD96772120234A5C0078B0A3 /* SubCategoryTableViewCell.swift in Sources */,
 				BD1B1ED12021349D0000D813 /* SideMenuAnimationController.swift in Sources */,
 				BDAA5810202D12EE00C32AA9 /* SubQuestion.swift in Sources */,
+				BD5378EA202FA6C0005BDE85 /* GeneralTableViewHeader.swift in Sources */,
 				BD47F1CE202353E900ABEBF5 /* Enumerations.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

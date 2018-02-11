@@ -616,7 +616,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GB5-qa-ysN" userLabel="containerView">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="697.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="698"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TDi-e8-3Oy">
                                                 <rect key="frame" x="0.0" y="16" width="375" height="66.5"/>
@@ -657,7 +657,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <containerView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="577" translatesAutoresizingMaskIntoConstraints="NO" id="6qd-dP-Yyk" userLabel="QuestionContainerView">
-                                                <rect key="frame" x="0.0" y="120.5" width="375" height="577"/>
+                                                <rect key="frame" x="0.0" y="121" width="375" height="577"/>
                                             </containerView>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -667,9 +667,9 @@
                                             <constraint firstAttribute="trailing" secondItem="TDi-e8-3Oy" secondAttribute="trailing" id="E4t-0Y-roE"/>
                                             <constraint firstItem="VjN-YT-yG6" firstAttribute="top" secondItem="TDi-e8-3Oy" secondAttribute="bottom" constant="8" id="Ocg-uW-QNT"/>
                                             <constraint firstItem="VjN-YT-yG6" firstAttribute="leading" secondItem="GB5-qa-ysN" secondAttribute="leading" constant="16" id="Qq4-4A-Cfx"/>
+                                            <constraint firstAttribute="bottom" secondItem="6qd-dP-Yyk" secondAttribute="bottom" id="XBv-Mp-28x"/>
                                             <constraint firstItem="6qd-dP-Yyk" firstAttribute="leading" secondItem="GB5-qa-ysN" secondAttribute="leading" id="ZxN-1A-TbT"/>
                                             <constraint firstItem="6qd-dP-Yyk" firstAttribute="top" secondItem="VjN-YT-yG6" secondAttribute="bottom" constant="8" id="be0-kr-Yts"/>
-                                            <constraint firstAttribute="bottom" secondItem="6qd-dP-Yyk" secondAttribute="bottom" id="vX2-bs-cWy"/>
                                             <constraint firstAttribute="trailing" secondItem="VjN-YT-yG6" secondAttribute="trailing" constant="16" id="wOk-9l-z3s"/>
                                             <constraint firstItem="TDi-e8-3Oy" firstAttribute="leading" secondItem="GB5-qa-ysN" secondAttribute="leading" id="yMt-4s-KLj"/>
                                         </constraints>
@@ -678,7 +678,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="GB5-qa-ysN" firstAttribute="leading" secondItem="f3e-Ql-SwZ" secondAttribute="leading" id="3Zn-Xh-jir"/>
-                                    <constraint firstAttribute="bottom" secondItem="GB5-qa-ysN" secondAttribute="bottom" id="LZE-A7-Jdy"/>
+                                    <constraint firstAttribute="bottom" secondItem="GB5-qa-ysN" secondAttribute="bottom" id="9mP-ve-nDO"/>
                                     <constraint firstItem="GB5-qa-ysN" firstAttribute="top" secondItem="f3e-Ql-SwZ" secondAttribute="top" id="pxK-6S-hh1"/>
                                     <constraint firstAttribute="trailing" secondItem="GB5-qa-ysN" secondAttribute="trailing" id="zmP-Sf-WnE"/>
                                 </constraints>
@@ -697,7 +697,7 @@
                             <constraint firstAttribute="bottom" secondItem="f3e-Ql-SwZ" secondAttribute="bottom" id="qh7-Rb-6sM"/>
                             <constraint firstItem="f3e-Ql-SwZ" firstAttribute="top" secondItem="MH9-so-pqY" secondAttribute="top" id="vYj-jo-geu"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="ef1-Wg-g10"/>
+                        <viewLayoutGuide key="safeArea" id="aEr-lR-tjp"/>
                     </view>
                     <connections>
                         <outlet property="btnNextOrSubmit" destination="nlI-CS-ghs" id="QAQ-ow-fg0"/>
@@ -1354,7 +1354,7 @@
         <!--Question Mcq View Controller-->
         <scene sceneID="i2I-NR-Ep7">
             <objects>
-                <viewController storyboardIdentifier="QuestionMcqVC" id="wV4-IQ-GMi" customClass="QuestionMcqViewController" customModule="Insight" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="QuestionMCQVC" id="wV4-IQ-GMi" customClass="QuestionMcqViewController" customModule="Insight" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ZjG-Xc-Eki">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1368,26 +1368,26 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kOC-eG-EP1" userLabel="containerView">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="382"/>
                                         <subviews>
-                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="300" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WbY-Uf-2Lq" customClass="IntinsicTableView" customModule="Insight" customModuleProvider="target">
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="300" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WbY-Uf-2Lq" customClass="IntinsicTableView" customModule="Insight" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="16" width="375" height="300"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <prototypes>
-                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="QuestionMcqCell" rowHeight="200" id="1um-gM-boz" customClass="QuestionMcqTableViewCell" customModule="Insight" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="28" width="375" height="200"/>
+                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="QuestionMcqCell" rowHeight="100" id="1um-gM-boz" customClass="QuestionMcqTableViewCell" customModule="Insight" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1um-gM-boz" id="tgb-Hz-Vtt">
-                                                            <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
-                                                                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1UO-U6-EY6">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
-                                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1UO-U6-EY6" customClass="IntinsicTableView" customModule="Insight" customModuleProvider="target">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+                                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                     <prototypes>
                                                                         <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="McqChoiceCell" id="UNw-Ua-68d" customClass="McqChoiceTableViewCell" customModule="Insight" customModuleProvider="target">
                                                                             <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                                                             <autoresizingMask key="autoresizingMask"/>
                                                                             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="UNw-Ua-68d" id="HGe-is-ytK">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                                 <subviews>
                                                                                     <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="whiteCircle" translatesAutoresizingMaskIntoConstraints="NO" id="B3M-iQ-4vE">
@@ -1400,10 +1400,11 @@
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ShK-LO-eU5">
                                                                                         <rect key="frame" x="46" y="8" width="313" height="27.5"/>
                                                                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
-                                                                                        <color key="textColor" red="0.027450980392156862" green="0.14117647058823529" blue="0.30980392156862746" alpha="1" colorSpace="calibratedRGB"/>
+                                                                                        <color key="textColor" red="0.027450980390000001" green="0.14117647059999999" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
                                                                                 </subviews>
+                                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                                 <constraints>
                                                                                     <constraint firstItem="ShK-LO-eU5" firstAttribute="centerY" secondItem="HGe-is-ytK" secondAttribute="centerY" id="2iK-CT-8GY"/>
                                                                                     <constraint firstItem="B3M-iQ-4vE" firstAttribute="leading" secondItem="HGe-is-ytK" secondAttribute="leading" constant="8" id="7um-gr-frh"/>
@@ -1414,6 +1415,7 @@
                                                                                     <constraint firstItem="ShK-LO-eU5" firstAttribute="leading" secondItem="B3M-iQ-4vE" secondAttribute="trailing" constant="8" id="t0G-ev-mDZ"/>
                                                                                 </constraints>
                                                                             </tableViewCellContentView>
+                                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                             <connections>
                                                                                 <outlet property="imgStatus" destination="B3M-iQ-4vE" id="SWg-ah-kxN"/>
                                                                                 <outlet property="lblContent" destination="ShK-LO-eU5" id="tGL-Zd-J1J"/>
@@ -1433,6 +1435,11 @@
                                                                 <constraint firstItem="1UO-U6-EY6" firstAttribute="leading" secondItem="tgb-Hz-Vtt" secondAttribute="leading" id="juo-OD-xL7"/>
                                                                 <constraint firstAttribute="bottom" secondItem="1UO-U6-EY6" secondAttribute="bottom" id="vIY-Qz-5Pw"/>
                                                             </constraints>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                    <integer key="value" value="6"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
                                                         </tableViewCellContentView>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <connections>

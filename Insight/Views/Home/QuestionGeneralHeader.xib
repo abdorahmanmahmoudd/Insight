@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="GeneralTableViewHeader" customModule="Insight" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="451" height="86"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jJR-1u-Gce">
+                    <rect key="frame" x="8" y="8" width="405" height="70"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <attributedString key="attributedText">
+                        <fragment content="content">
+                            <attributes>
+                                <color key="NSColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <font key="NSFont" size="17" name="HelveticaNeue"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                            </attributes>
+                        </fragment>
+                    </attributedString>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES"/>
+                </textView>
+                <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u23-ec-0L8">
+                    <rect key="frame" x="421" y="8" width="22" height="22"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="22" id="SId-zZ-Iq6"/>
+                        <constraint firstAttribute="height" constant="22" id="mxC-h1-DOF"/>
+                    </constraints>
+                    <state key="normal" image="flag-noBG"/>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="u23-ec-0L8" secondAttribute="trailing" constant="8" id="9bC-yg-1G6"/>
+                <constraint firstItem="jJR-1u-Gce" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="8" id="9sL-Tp-lwY"/>
+                <constraint firstItem="u23-ec-0L8" firstAttribute="leading" secondItem="jJR-1u-Gce" secondAttribute="trailing" constant="8" id="G1O-4I-WFJ"/>
+                <constraint firstItem="jJR-1u-Gce" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="8" id="l9y-QR-5dR"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="jJR-1u-Gce" secondAttribute="bottom" constant="8" id="lcs-UQ-dCg"/>
+                <constraint firstItem="u23-ec-0L8" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="8" id="zCA-hA-Ox2"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="btnFlag" destination="u23-ec-0L8" id="kih-Vg-2a3"/>
+                <outlet property="tvContent" destination="jJR-1u-Gce" id="NYU-v4-Qb0"/>
+            </connections>
+            <point key="canvasLocation" x="72.5" y="166"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="flag-noBG" width="12" height="17"/>
+    </resources>
+</document>

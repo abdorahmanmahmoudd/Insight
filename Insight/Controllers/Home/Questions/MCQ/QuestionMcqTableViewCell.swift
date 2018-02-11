@@ -13,17 +13,24 @@ class QuestionMcqTableViewCell: UITableViewCell, UITableViewDelegate, UITableVie
 
     @IBOutlet var tableChoices: UITableView!
     
-    var choices = [Choice]()
+    var choices = [String]()
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        configuration()
+
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func configuration(){
+    
+        tableChoices.tableFooterView = UIView()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -33,11 +40,14 @@ class QuestionMcqTableViewCell: UITableViewCell, UITableViewDelegate, UITableVie
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "McqChoiceCell", for: indexPath) as! McqChoiceTableViewCell
         
+        cell.lblContent.text = choices[indexPath.row]
+        
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //handle selection
+        
     }
 
 }

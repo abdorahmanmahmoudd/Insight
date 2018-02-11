@@ -22,6 +22,17 @@ class McqChoiceTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+        if selected {
+            
+            imgStatus.image = #imageLiteral(resourceName: "orangeCircle")
+            lblContent.textColor = #colorLiteral(red: 1, green: 0.7244103551, blue: 0.2923497558, alpha: 1)
+            
+        }else {
+            
+            imgStatus.image = #imageLiteral(resourceName: "whiteCircle")
+            lblContent.textColor = #colorLiteral(red: 0.0146472808, green: 0.1962190568, blue: 0.3836125135, alpha: 1)
+        }
     }
+    
 
 }
