@@ -18,7 +18,6 @@ class QuestionMcqTableViewCell: UITableViewCell, UITableViewDelegate, UITableVie
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        configuration()
 
     }
 
@@ -26,11 +25,6 @@ class QuestionMcqTableViewCell: UITableViewCell, UITableViewDelegate, UITableVie
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
-    }
-    
-    func configuration(){
-    
-        tableChoices.tableFooterView = UIView()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

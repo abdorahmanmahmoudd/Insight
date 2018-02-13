@@ -10,6 +10,9 @@ import UIKit
 
 class GeneralQuestionTableViewCell: UITableViewCell {
 
+    @IBOutlet var tvAnswer: UnderLinedTextView!
+    @IBOutlet var tvContent: UITextView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -21,4 +24,7 @@ class GeneralQuestionTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    @IBAction func btnShowAnswerClicked(_ sender: UIButton) {
+        print("show answer")
+    }
 }

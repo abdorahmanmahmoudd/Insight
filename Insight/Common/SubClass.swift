@@ -45,14 +45,13 @@ class UnderLinedTextView :  UITextView {
     override func draw(_ rect: CGRect) {
         // Drawing code
         
-        self.layer.backgroundColor = UIColor.clear.cgColor
-        
+        self.backgroundColor = UIColor.clear
+    
         self.layer.masksToBounds = false
         self.layer.shadowColor = UIColor.white.cgColor
         self.layer.shadowOffset = CGSize(width: 0.0, height: 1.0)
         self.layer.shadowOpacity = 1.0
         self.layer.shadowRadius = 0.0
-        
     }
     
 }
@@ -90,3 +89,4 @@ class IntinsicTableView : UITableView {
     
     
 }
+

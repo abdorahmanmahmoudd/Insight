@@ -66,11 +66,11 @@ class SignInViewController: UIViewController {
     }
     
     @IBAction func btnSignInClicked(_ sender: UIButton) {
-        
-        if dataIsValid(){
-            
-            signIn()
-        }
+        self.openHome()
+//        if dataIsValid(){
+//
+//            signIn()
+//        }
     }
 
     func dataIsValid() -> Bool{

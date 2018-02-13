@@ -16,7 +16,7 @@ class QuestionsContainerViewController: UIViewController {
     @IBOutlet var btnPrevious: UIButton!
     
     var subsubCategory : SubSubCategory?
-    var currentQuestion = 0
+    var currentQuestionIndex = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,13 +24,37 @@ class QuestionsContainerViewController: UIViewController {
         // Do any additional setup after loading the view.
         if subsubCategory != nil {
             
-            presentQuestions(currentQuestion: currentQuestion)
+            presentQuestions(currentQuestion: currentQuestionIndex)
         }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func btnNextSubmitClicked(_ sender: UIButton) {
+        
+        if currentQuestionIndex < subsubCategory!.questions.count - 1{
+            
+            currentQuestionIndex += 1
+            presentQuestions(currentQuestion: currentQuestionIndex)
+        }
+        
+    }
+    @IBAction func btnPreviousClicked(_ sender: UIButton) {
+        
+        if currentQuestionIndex > 0{
+            
+            currentQuestionIndex -= 1
+            presentQuestions(currentQuestion: currentQuestionIndex)
+            
+        }else{
+            
+            self.dismiss(animated: true, completion: nil)
+        }
+        
+        
     }
     
     func presentQuestions(currentQuestion : Int){
@@ -132,7 +156,7 @@ class QuestionsContainerViewController: UIViewController {
         let storyboard = UIStoryboard.init(name: "Home", bundle: Bundle.main)
         if let vc  = storyboard.instantiateViewController(withIdentifier: "QuestionCompleteVC") as? QuestionCompleteViewController {
             
-            vc.questions = subsubCategory!.questions[currentQuestion].data
+            vc.questions = subsubCategory!.questions[currentQuestionIndex].data
             vc.view.translatesAutoresizingMaskIntoConstraints = false
             vc.willMove(toParentViewController: self)
             self.containerViewQuestion.addSubview(vc.view)
@@ -155,7 +179,7 @@ class QuestionsContainerViewController: UIViewController {
         let storyboard = UIStoryboard.init(name: "Home", bundle: Bundle.main)
         if let vc  = storyboard.instantiateViewController(withIdentifier: "QuestionAntonymVC") as? AntonymQViewController {
             
-            vc.questions = subsubCategory!.questions[currentQuestion].data
+            vc.questions = subsubCategory!.questions[currentQuestionIndex].data
             vc.view.translatesAutoresizingMaskIntoConstraints = false
             vc.willMove(toParentViewController: self)
             self.containerViewQuestion.addSubview(vc.view)
@@ -177,7 +201,7 @@ class QuestionsContainerViewController: UIViewController {
         let storyboard = UIStoryboard.init(name: "Home", bundle: Bundle.main)
         if let vc  = storyboard.instantiateViewController(withIdentifier: "QuestionDictationVC") as? QuestionDictationViewController {
             
-            vc.questions = subsubCategory!.questions[currentQuestion].data
+            vc.questions = subsubCategory!.questions[currentQuestionIndex].data
             vc.view.translatesAutoresizingMaskIntoConstraints = false
             vc.willMove(toParentViewController: self)
             self.containerViewQuestion.addSubview(vc.view)
@@ -199,7 +223,7 @@ class QuestionsContainerViewController: UIViewController {
         let storyboard = UIStoryboard.init(name: "Home", bundle: Bundle.main)
         if let vc  = storyboard.instantiateViewController(withIdentifier: "QuestionListeningVC") as? QuestionListeningViewController {
             
-            vc.questions = subsubCategory!.questions[currentQuestion].data
+            vc.questions = subsubCategory!.questions[currentQuestionIndex].data
             vc.view.translatesAutoresizingMaskIntoConstraints = false
             vc.willMove(toParentViewController: self)
             self.containerViewQuestion.addSubview(vc.view)
@@ -221,7 +245,7 @@ class QuestionsContainerViewController: UIViewController {
         let storyboard = UIStoryboard.init(name: "Home", bundle: Bundle.main)
         if let vc  = storyboard.instantiateViewController(withIdentifier: "QuestionMatchVC") as? QuestionMatchViewController {
             
-            vc.questions = subsubCategory!.questions[currentQuestion].data
+            vc.questions = subsubCategory!.questions[currentQuestionIndex].data
             vc.view.translatesAutoresizingMaskIntoConstraints = false
             vc.willMove(toParentViewController: self)
             self.containerViewQuestion.addSubview(vc.view)
@@ -243,7 +267,7 @@ class QuestionsContainerViewController: UIViewController {
         let storyboard = UIStoryboard.init(name: "Home", bundle: Bundle.main)
         if let vc  = storyboard.instantiateViewController(withIdentifier: "QuestionMCQVC") as? QuestionMcqViewController {
             
-            vc.questions = subsubCategory!.questions[currentQuestion].data
+            vc.questions = subsubCategory!.questions[currentQuestionIndex].data
             vc.view.translatesAutoresizingMaskIntoConstraints = false
             vc.willMove(toParentViewController: self)
             self.containerViewQuestion.addSubview(vc.view)
@@ -265,7 +289,7 @@ class QuestionsContainerViewController: UIViewController {
         let storyboard = UIStoryboard.init(name: "Home", bundle: Bundle.main)
         if let vc  = storyboard.instantiateViewController(withIdentifier: "QuestionMiniDialogVC") as? MiniDialogViewController {
             
-            vc.questions = subsubCategory!.questions[currentQuestion].data
+            vc.questions = subsubCategory!.questions[currentQuestionIndex].data
             vc.view.translatesAutoresizingMaskIntoConstraints = false
             vc.willMove(toParentViewController: self)
             self.containerViewQuestion.addSubview(vc.view)
@@ -309,7 +333,7 @@ class QuestionsContainerViewController: UIViewController {
         let storyboard = UIStoryboard.init(name: "Home", bundle: Bundle.main)
         if let vc  = storyboard.instantiateViewController(withIdentifier: "GeneralQuestionVC") as? GeneralQuestionViewController {
             
-//            vc.questions = subsubCategory!.questions[currentQuestion].data
+            vc.questions = subsubCategory!.questions[currentQuestionIndex].data
             vc.view.translatesAutoresizingMaskIntoConstraints = false
             vc.willMove(toParentViewController: self)
             self.containerViewQuestion.addSubview(vc.view)
@@ -351,7 +375,7 @@ class QuestionsContainerViewController: UIViewController {
         }
         
         let storyboard = UIStoryboard.init(name: "Home", bundle: Bundle.main)
-        if let vc  = storyboard.instantiateViewController(withIdentifier: "QuestionQuotationsVC") as? QuotationViewController {
+        if let vc  = storyboard.instantiateViewController(withIdentifier: "QuestionQuotationVC") as? QuotationViewController {
             
 //            vc.questions = subsubCategory!.questions[currentQuestion].data
             vc.view.translatesAutoresizingMaskIntoConstraints = false
