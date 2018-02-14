@@ -9,6 +9,8 @@
 import UIKit
 
 class WritingViewController: UIViewController {
+    
+    var questions = [QuestionData]()
 
     override func viewDidLoad() {
         super.viewDidLoad()

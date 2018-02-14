@@ -114,12 +114,12 @@ class QuestionsContainerViewController: UIViewController {
                 initGeneralQuestionView()
                 break
                 
-            case QuestionTypes.Translation.rawValue?:
+            case QuestionTypes.Translation.rawValue?://presentation
                 self.lblTitle.text = subsubCategory?.questions[currentQuestion].title
                 initGeneralQuestionView()
                 break
                 
-            case QuestionTypes.Writing.rawValue?:
+            case QuestionTypes.Writing.rawValue?://
                 self.lblTitle.text = subsubCategory?.questions[currentQuestion].title
                 initWritingQuestionView()
                 break
@@ -356,7 +356,7 @@ class QuestionsContainerViewController: UIViewController {
         let storyboard = UIStoryboard.init(name: "Home", bundle: Bundle.main)
         if let vc  = storyboard.instantiateViewController(withIdentifier: "QuestionWritingVC") as? WritingViewController {
             
-//            vc.questions = subsubCategory!.questions[currentQuestion].data
+            vc.questions = subsubCategory!.questions[currentQuestionIndex].data
             vc.view.translatesAutoresizingMaskIntoConstraints = false
             vc.willMove(toParentViewController: self)
             self.containerViewQuestion.addSubview(vc.view)
