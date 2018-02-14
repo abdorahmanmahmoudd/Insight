@@ -89,17 +89,17 @@ class QuestionsContainerViewController: UIViewController {
                 initMatchQuestionView()
                 break
                 
-            case QuestionTypes.MCQ.rawValue?:
+            case QuestionTypes.MCQ.rawValue?://presentation
                 self.lblTitle.text = subsubCategory?.questions[currentQuestion].title
                 initMCQQuestionView()
                 break
                 
-            case QuestionTypes.MiniDialog.rawValue?:
+            case QuestionTypes.MiniDialog.rawValue?://presentation  
                 self.lblTitle.text = subsubCategory?.questions[currentQuestion].title
                 initMiniDialogQuestionView()
                 break
                 
-            case QuestionTypes.Mistakes.rawValue?:
+            case QuestionTypes.Mistakes.rawValue?://presentation
                 self.lblTitle.text = subsubCategory?.questions[currentQuestion].title
                 initMistakesQuestionView()
                 break
@@ -129,7 +129,7 @@ class QuestionsContainerViewController: UIViewController {
                 initGeneralQuestionView()
                 break
                 
-            case QuestionTypes.Quotations.rawValue?:
+            case QuestionTypes.Quotations.rawValue?://presentation
                 self.lblTitle.text = subsubCategory?.questions[currentQuestion].title
                 initQuotationsQuestionView()
                 break
@@ -311,7 +311,7 @@ class QuestionsContainerViewController: UIViewController {
         let storyboard = UIStoryboard.init(name: "Home", bundle: Bundle.main)
         if let vc  = storyboard.instantiateViewController(withIdentifier: "QuestionMistakesVC") as? MistakesViewController {
             
-//            vc.questions = subsubCategory!.questions[currentQuestion].data
+            vc.questions = subsubCategory!.questions[currentQuestionIndex].data
             vc.view.translatesAutoresizingMaskIntoConstraints = false
             vc.willMove(toParentViewController: self)
             self.containerViewQuestion.addSubview(vc.view)
@@ -323,6 +323,7 @@ class QuestionsContainerViewController: UIViewController {
             vc.didMove(toParentViewController: self)
         }
     }
+    
     func initGeneralQuestionView(){
         
         // to reload data without adding posts view over each other

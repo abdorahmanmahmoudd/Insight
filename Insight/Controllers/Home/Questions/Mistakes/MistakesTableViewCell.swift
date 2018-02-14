@@ -9,7 +9,10 @@
 import UIKit
 
 class MistakesTableViewCell: UITableViewCell {
-
+    @IBOutlet var tvMistake: BorderedTV!
+    
+    @IBOutlet var btnFlag: UIButton!
+    @IBOutlet var tvAnswer: BorderedTV!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
