@@ -10,6 +10,8 @@ import UIKit
 
 class WritingTableViewCell: UITableViewCell {
 
+    @IBOutlet var btnFlag: UIButton!
+    @IBOutlet var tvContent: UITextView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

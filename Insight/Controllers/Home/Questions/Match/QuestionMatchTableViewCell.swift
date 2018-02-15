@@ -39,6 +39,7 @@ class QuestionMatchTableViewCell: UITableViewCell {
     func fillData(question : QuestionData){
         
         tvContent.text = question.content
+        tvAnswer.text = question.answer
     }
 
 }

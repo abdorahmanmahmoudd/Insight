@@ -21,7 +21,6 @@ class QuestionMatchViewController: UIViewController, UITableViewDelegate, UITabl
 
         // Do any additional setup after loading the view.
         configuration()
-        tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,7 +30,7 @@ class QuestionMatchViewController: UIViewController, UITableViewDelegate, UITabl
     
     func configuration(){
         
-        tableView.estimatedRowHeight = 100
+        tableView.estimatedRowHeight = 300
         tableView.rowHeight = UITableViewAutomaticDimension
         
         if showAnswer{

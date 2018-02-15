@@ -17,6 +17,7 @@ class QuestionsContainerViewController: UIViewController {
     
     var subsubCategory : SubSubCategory?
     var currentQuestionIndex = 0
+    var isNext = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +37,7 @@ class QuestionsContainerViewController: UIViewController {
     @IBAction func btnNextSubmitClicked(_ sender: UIButton) {
         
         if currentQuestionIndex < subsubCategory!.questions.count - 1{
-            
+            isNext = true
             currentQuestionIndex += 1
             presentQuestions(currentQuestion: currentQuestionIndex)
         }
@@ -45,7 +46,7 @@ class QuestionsContainerViewController: UIViewController {
     @IBAction func btnPreviousClicked(_ sender: UIButton) {
         
         if currentQuestionIndex > 0{
-            
+            isNext = false
             currentQuestionIndex -= 1
             presentQuestions(currentQuestion: currentQuestionIndex)
             
@@ -84,7 +85,7 @@ class QuestionsContainerViewController: UIViewController {
                 //push
                 break
                 
-            case QuestionTypes.Match.rawValue?:
+            case QuestionTypes.Match.rawValue?://presentation
                 self.lblTitle.text = subsubCategory?.questions[currentQuestion].title
                 initMatchQuestionView()
                 break
@@ -109,7 +110,7 @@ class QuestionsContainerViewController: UIViewController {
                 initGeneralQuestionView()
                 break
                 
-            case QuestionTypes.Situations.rawValue?:
+            case QuestionTypes.Situations.rawValue?://presentation
                 self.lblTitle.text = subsubCategory?.questions[currentQuestion].title
                 initGeneralQuestionView()
                 break
@@ -119,7 +120,7 @@ class QuestionsContainerViewController: UIViewController {
                 initGeneralQuestionView()
                 break
                 
-            case QuestionTypes.Writing.rawValue?://
+            case QuestionTypes.Writing.rawValue?://presentation
                 self.lblTitle.text = subsubCategory?.questions[currentQuestion].title
                 initWritingQuestionView()
                 break
@@ -139,7 +140,17 @@ class QuestionsContainerViewController: UIViewController {
                 initTrueFalseQuestionView()
                 break
                 
-            default: break
+            default:
+                showAlert(title: "Warning", message: "Unexpected question type!", vc: self, closure: {
+                    if self.isNext {
+                        
+                        self.btnNextSubmitClicked(self.btnNextOrSubmit)
+                    }else{
+                        
+                        self.btnPreviousClicked(self.btnPrevious)
+                    }
+                })
+                break
                 
             }
         }

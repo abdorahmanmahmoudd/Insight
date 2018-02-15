@@ -41,6 +41,7 @@ class SubSubCategoryViewController: UIViewController, UITableViewDelegate, UITab
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         selectedSubSubCategory = indexPath.row
+        performSegue(withIdentifier: "QuestionsContainerSegue", sender: nil)
         
     }
     
