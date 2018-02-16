@@ -10,6 +10,9 @@ import UIKit
 
 class QuotationTableViewCell: UITableViewCell {
 
+    @IBOutlet var tvAnswer: UITextView!
+    @IBOutlet var tvContent: UITextView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

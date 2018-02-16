@@ -37,6 +37,7 @@ class AntonymQViewController: UIViewController, UITableViewDelegate, UITableView
         if showAnswers{
             
             btnShowAnswer.isHidden = true
+            self.navigationController?.isNavigationBarHidden = false
         }
     }
     
@@ -47,29 +48,18 @@ class AntonymQViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "AntonymQuestionCell", for: indexPath) as! QuestionAntonymTableViewCell
         
-        cell.tvContent.text = questions[indexPath.row].content
+        cell.tvContent.text = questions[indexPath.row].content.html2String
+        cell.tvAnswer.isEditable = true
         
         if showAnswers{
             
-            cell.tvAnswer.text = questions[indexPath.row].answer
+            cell.tvAnswer.text = questions[indexPath.row].answer.html2String
+            cell.tvAnswer.isEditable = false
         }
         
         return cell
     }
 
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if segue.identifier == "AntonymAnswersSegue" {
-            
-            if let des = segue.destination as? AntonymQViewController{
-                
-                des.showAnswers = true
-                des.questions = self.questions
-            }
-            
-        }
-    }
     
     func textViewDidChange(_ textView: UITextView) {
         tableView.beginUpdates()
@@ -80,5 +70,17 @@ class AntonymQViewController: UIViewController, UITableViewDelegate, UITableView
         textView.text.removeAll()
     }
     
-
+    @IBAction func btnShowAnswerClicked(_ sender: UIButton) {
+        
+        if let nav = self.parent?.navigationController {
+            
+            if let selfVC = storyboard?.instantiateViewController(withIdentifier: "QuestionAntonymVC") as? AntonymQViewController{
+                
+                selfVC.showAnswers = true
+                selfVC.questions = self.questions
+                nav.pushViewController(selfVC, animated: true)
+            }
+        }
+    }
+    
 }

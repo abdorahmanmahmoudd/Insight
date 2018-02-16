@@ -35,6 +35,7 @@ class QuestionDictationViewController: UIViewController, UITableViewDelegate, UI
         if showAnswers{
             
             btnShowAnswer.isHidden = true
+            self.navigationController?.isNavigationBarHidden = false
         }
     }
     
@@ -45,27 +46,30 @@ class QuestionDictationViewController: UIViewController, UITableViewDelegate, UI
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "QuestionDictationCell", for: indexPath) as! QuestionDictationTableViewCell
         
-        cell.tvContent.text = questions[indexPath.row].content
+        cell.tvContent.text = questions[indexPath.row].content.html2String
+        cell.tvAnswer.isEditable = true
         
         if showAnswers{
             
-            cell.tvAnswer.text = questions[indexPath.row].answer
+            cell.tvAnswer.text = questions[indexPath.row].answer.html2String
+            cell.tvAnswer.isEditable = false
         }
         
         return cell
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    
+    @IBAction func btnShowAnswerClicked(_ sender: UIButton) {
         
-        if segue.identifier == "DictationAnswerSegue"{
+        if let nav = self.parent?.navigationController {
             
-            if let des = segue.destination as? QuestionDictationViewController{
+            if let selfVC = storyboard?.instantiateViewController(withIdentifier: "QuestionDictationVC") as? QuestionDictationViewController{
                 
-                des.showAnswers = true
-                des.questions = self.questions
+                selfVC.showAnswers = true
+                selfVC.questions = self.questions
+                nav.pushViewController(selfVC, animated: true)
             }
         }
     }
-    
 
 }

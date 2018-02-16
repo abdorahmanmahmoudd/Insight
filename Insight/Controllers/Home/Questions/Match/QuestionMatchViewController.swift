@@ -14,7 +14,7 @@ class QuestionMatchViewController: UIViewController, UITableViewDelegate, UITabl
     @IBOutlet var tableView: IntinsicTableView!
     
     var questions = [QuestionData]()
-    var showAnswer = false
+    var showAnswers = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,9 +33,10 @@ class QuestionMatchViewController: UIViewController, UITableViewDelegate, UITabl
         tableView.estimatedRowHeight = 300
         tableView.rowHeight = UITableViewAutomaticDimension
         
-        if showAnswer{
+        if showAnswers{
             
             btnShowAnswer.isHidden = true
+            self.navigationController?.isNavigationBarHidden = false
         }
     }
     
@@ -48,29 +49,27 @@ class QuestionMatchViewController: UIViewController, UITableViewDelegate, UITabl
         
         cell.fillData(question: questions[indexPath.row])
         
+        cell.tfAnswerNumber.isEnabled = true
+        
+        if showAnswers {
+            
+            cell.tfAnswerNumber.isEnabled = false
+        }
+        
         return cell
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    @IBAction func btnShowAnswerClicked(_ sender: UIButton) {
         
-        if segue.identifier == "MatchAnswerSegue"{
+        if let nav = self.parent?.navigationController {
             
-            if let des = segue.destination as? QuestionMatchViewController{
+            if let selfVC = storyboard?.instantiateViewController(withIdentifier: "QuestionMatchVC") as? QuestionMatchViewController{
                 
-                des.showAnswer = true
-                des.questions = self.questions
+                selfVC.showAnswers = true
+                selfVC.questions = self.questions
+                nav.pushViewController(selfVC, animated: true)
             }
         }
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

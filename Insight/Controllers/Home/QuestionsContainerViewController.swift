@@ -34,6 +34,12 @@ class QuestionsContainerViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.isNavigationBarHidden = true
+    }
+    
     @IBAction func btnNextSubmitClicked(_ sender: UIButton) {
         
         if currentQuestionIndex < subsubCategory!.questions.count - 1{
@@ -64,12 +70,12 @@ class QuestionsContainerViewController: UIViewController {
             
             switch subsubCategory?.questions[currentQuestion].type {
                 
-            case QuestionTypes.Antonym.rawValue?:
+            case QuestionTypes.Antonym.rawValue?://presentation
                 self.lblTitle.text = subsubCategory?.questions[currentQuestion].title
                 initAntonymQuestionView()
                 break
                 
-            case QuestionTypes.Complete.rawValue?:
+            case QuestionTypes.Complete.rawValue?://presentation
                 
                 self.lblTitle.text = subsubCategory?.questions[currentQuestion].title
                 initCompleteQuestionsView()
@@ -389,7 +395,7 @@ class QuestionsContainerViewController: UIViewController {
         let storyboard = UIStoryboard.init(name: "Home", bundle: Bundle.main)
         if let vc  = storyboard.instantiateViewController(withIdentifier: "QuestionQuotationVC") as? QuotationViewController {
             
-//            vc.questions = subsubCategory!.questions[currentQuestion].data
+            vc.questions = subsubCategory!.questions[currentQuestionIndex].data
             vc.view.translatesAutoresizingMaskIntoConstraints = false
             vc.willMove(toParentViewController: self)
             self.containerViewQuestion.addSubview(vc.view)
@@ -411,7 +417,7 @@ class QuestionsContainerViewController: UIViewController {
         let storyboard = UIStoryboard.init(name: "Home", bundle: Bundle.main)
         if let vc  = storyboard.instantiateViewController(withIdentifier: "QuestionTrueFalseVC") as? TrueFalseViewController {
             
-//            vc.questions = subsubCategory!.questions[currentQuestion].data
+            vc.questions = subsubCategory!.questions[currentQuestionIndex].data
             vc.view.translatesAutoresizingMaskIntoConstraints = false
             vc.willMove(toParentViewController: self)
             self.containerViewQuestion.addSubview(vc.view)

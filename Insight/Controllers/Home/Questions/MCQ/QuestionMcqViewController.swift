@@ -14,6 +14,7 @@ class QuestionMcqViewController: UIViewController, UITableViewDelegate, UITableV
     @IBOutlet var btnShowAnswer: UIButton!
     
     var questions = [QuestionData]()
+    var showAnswers = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +37,12 @@ class QuestionMcqViewController: UIViewController, UITableViewDelegate, UITableV
         tableQuestions.estimatedRowHeight = 500
         
         tableQuestions.register(UINib.init(nibName: "QuestionGeneralHeader", bundle: Bundle.main), forHeaderFooterViewReuseIdentifier: "QuestionGeneralHeader")
+        
+        if showAnswers{
+            
+            btnShowAnswer.isHidden = true
+            self.navigationController?.isNavigationBarHidden = false
+        }
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -60,19 +67,30 @@ class QuestionMcqViewController: UIViewController, UITableViewDelegate, UITableV
         let cell = tableView.dequeueReusableCell(withIdentifier: "QuestionMcqCell", for: indexPath) as! QuestionMcqTableViewCell
         
         cell.choices = questions[indexPath.section].choices[indexPath.row].choices
+        cell.tableChoices.allowsSelection = true
+        
+        if showAnswers {
+            
+            cell.tableChoices.allowsSelection = false
+            let ip = IndexPath.init(row: 0, section: indexPath.section)
+            cell.tableChoices.selectRow(at: ip, animated: false, scrollPosition: UITableViewScrollPosition.none)
+        }
         
         return cell
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func btnShowAnswerClicked(_ sender: UIButton) {
+        
+        if let nav = self.parent?.navigationController {
+            
+            if let selfVC = storyboard?.instantiateViewController(withIdentifier: "QuestionMatchVC") as? QuestionMatchViewController{
+                
+                selfVC.showAnswers = true
+                selfVC.questions = self.questions
+                nav.pushViewController(selfVC, animated: true)
+            }
+        }
     }
-    */
 
 }

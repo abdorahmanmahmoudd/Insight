@@ -8,12 +8,17 @@
 
 import UIKit
 
-class QuotationViewController: UIViewController {
+class QuotationViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextViewDelegate {
+    
+    
+    @IBOutlet var tableView: IntinsicTableView!
+    var questions = [QuestionData]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        configuration()
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,15 +26,51 @@ class QuotationViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    func configuration(){
+        
+        tableView.sectionHeaderHeight = UITableViewAutomaticDimension
+        tableView.estimatedSectionHeaderHeight = 300
+        
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 500
+        
+        tableView.register(UINib.init(nibName: "QuestionGeneralHeader", bundle: Bundle.main), forHeaderFooterViewReuseIdentifier: "QuestionGeneralHeader")
     }
-    */
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return questions.count
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "QuestionGeneralHeader")
+        
+        (headerView as? GeneralTableViewHeader)?.tvContent.text = questions[section].content
+        
+        return headerView
+        
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return questions[section].questions.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "QuestionQuotationCell", for: indexPath) as! QuotationTableViewCell
+        
+        cell.tvContent.text = questions[indexPath.section].questions[indexPath.row].content
+        
+        return cell
+    }
 
+    func textViewDidChange(_ textView: UITextView) {
+        tableView.beginUpdates()
+        tableView.endUpdates()
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        textView.text.removeAll()
+    }
+    
 }

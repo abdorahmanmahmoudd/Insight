@@ -38,6 +38,7 @@ class QuestionCompleteViewController: UIViewController, UITableViewDelegate, UIT
         if showAnswers {
             
             btnShowAnswer.isHidden = true
+            self.navigationController?.isNavigationBarHidden = false
         }
     }
     
@@ -48,35 +49,30 @@ class QuestionCompleteViewController: UIViewController, UITableViewDelegate, UIT
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "QuestionCompleteCell", for: indexPath) as! QuestionCompleteTableViewCell
         
-        cell.tvContent.text = questions[indexPath.row].content
-        cell.tvVerb.text = questions[indexPath.row].verb
+        cell.tvContent.text = questions[indexPath.row].content.html2String
+        cell.tvVerb.text = questions[indexPath.row].verb.html2String
+        cell.tvAnswer.isEditable = true
+        
         if showAnswers {
             
-            cell.tvAnswer.text = questions[indexPath.row].answer
+            cell.tvAnswer.text = questions[indexPath.row].answer.html2String
+            cell.tvAnswer.isEditable = false
         }
         
         return cell
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
+    @IBAction func btnShowAnswer(_ sender: UIButton) {
         
-        if segue.identifier == "CompleteAnswerSegue" {
+        if let nav = self.parent?.navigationController {
             
-            if let des = segue.destination as? QuestionCompleteViewController{
-             
-                des.showAnswers = true
-                des.questions = self.questions
+            if let selfVC = storyboard?.instantiateViewController(withIdentifier: "QuestionCompleteVC") as? QuestionCompleteViewController{
+                
+                selfVC.showAnswers = true
+                selfVC.questions = self.questions
+                nav.pushViewController(selfVC, animated: true)
             }
         }
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

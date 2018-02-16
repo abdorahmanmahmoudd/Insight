@@ -8,7 +8,12 @@
 
 import UIKit
 
-class TrueFalseViewController: UIViewController {
+class TrueFalseViewController: UIViewController, UITableViewDelegate, UITableViewDataSource , UITextViewDelegate{
+    
+    @IBOutlet var btnShowAnswer: UIButton!
+    @IBOutlet var tableView: IntinsicTableView!
+    
+    var questions = [QuestionData]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,15 +26,30 @@ class TrueFalseViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func configuration(){
+    
+        tableView.rowHeight = 112
+        tableView.estimatedRowHeight = UITableViewAutomaticDimension
     }
-    */
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return questions.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "QuestionTrueFlaseCell", for: indexPath) as! TrueFalseTableViewCell
+        
+        cell.tvContent.text = questions[indexPath.row].content
+        
+        return cell
+    }
+    
+    func textViewDidChange(_ textView: UITextView) {
+        tableView.beginUpdates()
+        tableView.endUpdates()
+    }
 
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        textView.text.removeAll()
+    }
 }

@@ -26,6 +26,12 @@ class SubSubCategoryViewController: UIViewController, UITableViewDelegate, UITab
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.isNavigationBarHidden = false
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return subsubCaterogies.count
     }

@@ -80,6 +80,7 @@
 		BDD184DB201F9BE2006EBAB9 /* LandViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD184DA201F9BE2006EBAB9 /* LandViewController.swift */; };
 		BDD184E0201FA0CE006EBAB9 /* Authentication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDD184DF201FA0CE006EBAB9 /* Authentication.storyboard */; };
 		BDD184E2201FA0E1006EBAB9 /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD184E1201FA0E1006EBAB9 /* AuthenticationViewController.swift */; };
+		BDE45FEE2037A1810078C557 /* MiniDialogAnswersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE45FED2037A1810078C557 /* MiniDialogAnswersViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -164,6 +165,7 @@
 		BDD184DA201F9BE2006EBAB9 /* LandViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandViewController.swift; sourceTree = "<group>"; };
 		BDD184DF201FA0CE006EBAB9 /* Authentication.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Authentication.storyboard; sourceTree = "<group>"; };
 		BDD184E1201FA0E1006EBAB9 /* AuthenticationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
+		BDE45FED2037A1810078C557 /* MiniDialogAnswersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniDialogAnswersViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -321,6 +323,7 @@
 			children = (
 				BD3DA3FC202AF66A00CCB7B0 /* MiniDialogViewController.swift */,
 				BD3DA3FE202AFBEE00CCB7B0 /* MiniDialogTableViewCell.swift */,
+				BDE45FED2037A1810078C557 /* MiniDialogAnswersViewController.swift */,
 			);
 			path = MiniDialog;
 			sourceTree = "<group>";
@@ -680,6 +683,7 @@
 				BD39AD412027447F00DC03B3 /* QuestionCompleteViewController.swift in Sources */,
 				BD1B1EBA2020F7CE0000D813 /* AuthRootClass.swift in Sources */,
 				BD1478B8202330E00090A481 /* QuestionData.swift in Sources */,
+				BDE45FEE2037A1810078C557 /* MiniDialogAnswersViewController.swift in Sources */,
 				BD1B1EBF202113A60000D813 /* ForgetPasswordViewController.swift in Sources */,
 				BD1B1EAF2020F6120000D813 /* ActivityLoaderHelper.swift in Sources */,
 				BD1B1EBD2020FC280000D813 /* UserModel.swift in Sources */,

@@ -57,7 +57,5 @@ class MiniDialogViewController: UIViewController , UITableViewDelegate, UITableV
         textView.text.removeAll()
         return true
     }
-
-    @IBAction func BtnShowAnswerClicked(_ sender: UIButton) {
-    }
+    
 }

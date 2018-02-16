@@ -9,6 +9,25 @@
 import UIKit
 
 extension String {
+    
+    
+    var html2AttributedString: NSAttributedString? {
+        guard
+            let data = data(using: String.Encoding.utf8, allowLossyConversion: true)
+            else { return nil }
+        do {
+            
+            let str = try NSAttributedString(data: data, options: [.documentType: NSAttributedString.DocumentType.html, .characterEncoding: String.Encoding.utf8.rawValue], documentAttributes: nil)
+            return str
+        } catch let error as NSError {
+            print(error.localizedDescription)
+            return  nil
+        }
+    }
+    var html2String: String {
+        return html2AttributedString?.string ?? self
+    }
+    
     func trimmedText()->String
     {
         return trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
