@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AntonymQViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class AntonymQViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextViewDelegate {
 
     @IBOutlet var tableView: IntinsicTableView!
     @IBOutlet var btnShowAnswer: UIButton!
@@ -30,6 +30,9 @@ class AntonymQViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func configuration(){
+        
+        tableView.estimatedRowHeight = 200
+        tableView.rowHeight = UITableViewAutomaticDimension
         
         if showAnswers{
             
@@ -66,6 +69,15 @@ class AntonymQViewController: UIViewController, UITableViewDelegate, UITableView
             }
             
         }
+    }
+    
+    func textViewDidChange(_ textView: UITextView) {
+        tableView.beginUpdates()
+        tableView.endUpdates()
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        textView.text.removeAll()
     }
     
 

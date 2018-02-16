@@ -32,7 +32,7 @@ class QuestionCompleteViewController: UIViewController, UITableViewDelegate, UIT
     
     func configuration(){
         
-        tableView.estimatedRowHeight = 100
+        tableView.estimatedRowHeight = 200
         tableView.rowHeight = UITableViewAutomaticDimension
         
         if showAnswers {
