@@ -39,11 +39,17 @@ class MiniDialogViewController: UIViewController , UITableViewDelegate, UITableV
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "QuestionMiniDialogCell", for: indexPath) as! MiniDialogTableViewCell
         
-        cell.tvContent.text = questions[indexPath.row].content
+        cell.tvContent.text = questions[indexPath.row].content.html2String
+        cell.cellIndex = indexPath.row
+        cell.tvPlaceAnswer.delegate = self
         cell.tvSpeakerAA.delegate = self
         cell.tvSpeakerBA.delegate = self
         cell.tvFunctionAA.delegate = self
         cell.tvFunctionBA.delegate = self
+        cell.showAnswerHandler = { [weak self] in
+            
+            self?.showAnswerHandler(cell: $0)
+        }
         
         return cell
     }
@@ -53,9 +59,23 @@ class MiniDialogViewController: UIViewController , UITableViewDelegate, UITableV
         tableView.endUpdates()
     }
     
-    func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
+    func textViewDidBeginEditing(_ textView: UITextView) {
         textView.text.removeAll()
-        return true
+    }
+    
+    func showAnswerHandler(cell: MiniDialogTableViewCell){
+        
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "MiniDialogAnswersVC") as? MiniDialogAnswersViewController{
+            
+            vc.spaceText = questions[cell.cellIndex].content
+            vc.speakerAText = questions[cell.cellIndex].speakera
+            vc.speakerBText = questions[cell.cellIndex].speakerb
+            vc.functionAText = questions[cell.cellIndex].functiona
+            vc.functionBText = questions[cell.cellIndex].functionb
+            vc.modalPresentationStyle = .overCurrentContext
+            vc.modalTransitionStyle = .crossDissolve
+            self.present(vc, animated: true, completion: nil)
+        }
     }
     
 }

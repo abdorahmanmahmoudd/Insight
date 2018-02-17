@@ -17,6 +17,10 @@ class MiniDialogTableViewCell: UITableViewCell {
     @IBOutlet var tvPlaceAnswer: UITextView!
     @IBOutlet var tvContent: UITextView!
     
+    var cellIndex = Int()
+    
+    var showAnswerHandler : ((MiniDialogTableViewCell) -> ())?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -28,4 +32,8 @@ class MiniDialogTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    @IBAction func btnShowAnswerClicked(_ sender: UIButton) {
+    
+        showAnswerHandler!(self)
+    }
 }
