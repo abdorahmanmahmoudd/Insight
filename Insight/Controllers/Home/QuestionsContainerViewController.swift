@@ -8,8 +8,14 @@
 
 import UIKit
 
+protocol CorrectedQuestion: class {
+    
+    func submitAnswers()
+}
+
 class QuestionsContainerViewController: UIViewController {
 
+    @IBOutlet var lblTimer: UILabel!
     @IBOutlet var lblTitle: UILabel!
     @IBOutlet var containerViewQuestion: UIView!
     @IBOutlet var btnNextOrSubmit: UIButton!
@@ -18,6 +24,9 @@ class QuestionsContainerViewController: UIViewController {
     var subsubCategory : SubSubCategory?
     var currentQuestionIndex = 0
     var isNext = true
+    weak var delegate : CorrectedQuestion?
+    var questionTimer = Timer()
+    var timerCounter = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +49,7 @@ class QuestionsContainerViewController: UIViewController {
         navigationController?.isNavigationBarHidden = true
     }
     
-    @IBAction func btnNextSubmitClicked(_ sender: UIButton) {
+    @objc func nextQuestion() {
         
         if currentQuestionIndex < subsubCategory!.questions.count - 1{
             isNext = true
@@ -49,6 +58,27 @@ class QuestionsContainerViewController: UIViewController {
         }
         
     }
+    
+    @objc func submitQuestion(){
+        
+        if delegate != nil{
+            
+            delegate!.submitAnswers()
+            
+            btnNextOrSubmit.setTitle("Next", for: .normal)
+            
+            btnNextOrSubmit.removeTarget(nil, action: #selector(self.submitQuestion), for: .touchUpInside)
+            
+            btnNextOrSubmit.addTarget(nil, action: #selector(self.nextQuestion), for: .touchUpInside)
+            
+        }else {
+            
+            nextQuestion()
+        }
+        
+        
+    }
+    
     @IBAction func btnPreviousClicked(_ sender: UIButton) {
         
         if currentQuestionIndex > 0{
@@ -58,7 +88,7 @@ class QuestionsContainerViewController: UIViewController {
             
         }else{
             
-            self.dismiss(animated: true, completion: nil)
+            self.navigationController?.popViewController(animated: true)
         }
         
         
@@ -70,13 +100,12 @@ class QuestionsContainerViewController: UIViewController {
             
             switch subsubCategory?.questions[currentQuestion].type {
                 
-            case QuestionTypes.Antonym.rawValue?://presentation
+            case QuestionTypes.Antonym.rawValue?:
                 self.lblTitle.text = subsubCategory?.questions[currentQuestion].title
                 initAntonymQuestionView()
                 break
                 
-            case QuestionTypes.Complete.rawValue?://presentation
-                
+            case QuestionTypes.Complete.rawValue?:
                 self.lblTitle.text = subsubCategory?.questions[currentQuestion].title
                 initCompleteQuestionsView()
                 
@@ -87,9 +116,10 @@ class QuestionsContainerViewController: UIViewController {
                 initDictationQuestionView()
                 break
                 
-            case QuestionTypes.Listening.rawValue?:
-                //push
-                break
+//            case QuestionTypes.Listening.rawValue?:
+//                self.lblTitle.text = subsubCategory?.questions[currentQuestion].title
+//                initListeningQuestionView()
+//                break
                 
             case QuestionTypes.Match.rawValue?://presentation
                 self.lblTitle.text = subsubCategory?.questions[currentQuestion].title
@@ -111,7 +141,7 @@ class QuestionsContainerViewController: UIViewController {
                 initMistakesQuestionView()
                 break
                 
-            case QuestionTypes.Rewrite.rawValue?:
+            case QuestionTypes.Rewrite.rawValue?://presentation
                 self.lblTitle.text = subsubCategory?.questions[currentQuestion].title
                 initGeneralQuestionView()
                 break
@@ -150,7 +180,7 @@ class QuestionsContainerViewController: UIViewController {
                 showAlert(title: "Warning", message: "Unexpected question type!", vc: self, closure: {
                     if self.isNext {
                         
-                        self.btnNextSubmitClicked(self.btnNextOrSubmit)
+                        self.nextQuestion()
                     }else{
                         
                         self.btnPreviousClicked(self.btnPrevious)
@@ -165,6 +195,7 @@ class QuestionsContainerViewController: UIViewController {
     
     func initCompleteQuestionsView(){
         
+        lblTimer.isHidden = true
         // to reload data without adding posts view over each other
         for view in containerViewQuestion.subviews{
             view.removeFromSuperview()
@@ -174,6 +205,7 @@ class QuestionsContainerViewController: UIViewController {
         if let vc  = storyboard.instantiateViewController(withIdentifier: "QuestionCompleteVC") as? QuestionCompleteViewController {
             
             vc.questions = subsubCategory!.questions[currentQuestionIndex].data
+            self.delegate = vc
             vc.view.translatesAutoresizingMaskIntoConstraints = false
             vc.willMove(toParentViewController: self)
             self.containerViewQuestion.addSubview(vc.view)
@@ -183,11 +215,16 @@ class QuestionsContainerViewController: UIViewController {
             vc.view.bottomAnchor.constraint(equalTo: self.containerViewQuestion.bottomAnchor).isActive = true
             self.addChildViewController(vc)
             vc.didMove(toParentViewController: self)
+            
+            btnNextOrSubmit.setTitle("Submit", for: .normal)
+            btnNextOrSubmit.removeTarget(nil, action: #selector(self.nextQuestion), for: .touchUpInside)
+            btnNextOrSubmit.addTarget(nil, action: #selector(self.submitQuestion), for: .touchUpInside)
         }
     }
     
     func initAntonymQuestionView(){
         
+        lblTimer.isHidden = true
         // to reload data without adding posts view over each other
         for view in containerViewQuestion.subviews{
             view.removeFromSuperview()
@@ -197,6 +234,7 @@ class QuestionsContainerViewController: UIViewController {
         if let vc  = storyboard.instantiateViewController(withIdentifier: "QuestionAntonymVC") as? AntonymQViewController {
             
             vc.questions = subsubCategory!.questions[currentQuestionIndex].data
+            self.delegate = vc
             vc.view.translatesAutoresizingMaskIntoConstraints = false
             vc.willMove(toParentViewController: self)
             self.containerViewQuestion.addSubview(vc.view)
@@ -206,8 +244,15 @@ class QuestionsContainerViewController: UIViewController {
             vc.view.bottomAnchor.constraint(equalTo: self.containerViewQuestion.bottomAnchor).isActive = true
             self.addChildViewController(vc)
             vc.didMove(toParentViewController: self)
+            
+            btnNextOrSubmit.setTitle("Submit", for: .normal)
+            btnNextOrSubmit.removeTarget(nil, action: #selector(self.nextQuestion), for: .touchUpInside)
+            btnNextOrSubmit.addTarget(nil, action: #selector(self.submitQuestion), for: .touchUpInside)
         }
     }
+    
+    
+    
     func initDictationQuestionView(){
         
         // to reload data without adding posts view over each other
@@ -219,6 +264,7 @@ class QuestionsContainerViewController: UIViewController {
         if let vc  = storyboard.instantiateViewController(withIdentifier: "QuestionDictationVC") as? QuestionDictationViewController {
             
             vc.questions = subsubCategory!.questions[currentQuestionIndex].data
+            self.delegate = vc
             vc.view.translatesAutoresizingMaskIntoConstraints = false
             vc.willMove(toParentViewController: self)
             self.containerViewQuestion.addSubview(vc.view)
@@ -228,6 +274,11 @@ class QuestionsContainerViewController: UIViewController {
             vc.view.bottomAnchor.constraint(equalTo: self.containerViewQuestion.bottomAnchor).isActive = true
             self.addChildViewController(vc)
             vc.didMove(toParentViewController: self)
+            
+            startTimer(numberOfQuestions: subsubCategory!.questions[currentQuestionIndex].data.count)
+            btnNextOrSubmit.setTitle("Submit", for: .normal)
+            btnNextOrSubmit.removeTarget(nil, action: #selector(self.nextQuestion), for: .touchUpInside)
+            btnNextOrSubmit.addTarget(nil, action: #selector(self.submitQuestion), for: .touchUpInside)
         }
     }
     func initListeningQuestionView(){
@@ -272,6 +323,10 @@ class QuestionsContainerViewController: UIViewController {
             vc.view.bottomAnchor.constraint(equalTo: self.containerViewQuestion.bottomAnchor).isActive = true
             self.addChildViewController(vc)
             vc.didMove(toParentViewController: self)
+            
+            btnNextOrSubmit.setTitle("Submit", for: .normal)
+            btnNextOrSubmit.removeTarget(nil, action: #selector(self.nextQuestion), for: .touchUpInside)
+            btnNextOrSubmit.addTarget(nil, action: #selector(self.submitQuestion), for: .touchUpInside)
         }
     }
     func initMCQQuestionView(){
@@ -294,6 +349,10 @@ class QuestionsContainerViewController: UIViewController {
             vc.view.bottomAnchor.constraint(equalTo: self.containerViewQuestion.bottomAnchor).isActive = true
             self.addChildViewController(vc)
             vc.didMove(toParentViewController: self)
+            
+            btnNextOrSubmit.setTitle("Submit", for: .normal)
+            btnNextOrSubmit.removeTarget(nil, action: #selector(self.nextQuestion), for: .touchUpInside)
+            btnNextOrSubmit.addTarget(nil, action: #selector(self.submitQuestion), for: .touchUpInside)
         }
     }
     func initMiniDialogQuestionView(){
@@ -316,6 +375,10 @@ class QuestionsContainerViewController: UIViewController {
             vc.view.bottomAnchor.constraint(equalTo: self.containerViewQuestion.bottomAnchor).isActive = true
             self.addChildViewController(vc)
             vc.didMove(toParentViewController: self)
+            
+            btnNextOrSubmit.setTitle("Next", for: .normal)
+            btnNextOrSubmit.removeTarget(nil, action: #selector(self.submitQuestion), for: .touchUpInside)
+            btnNextOrSubmit.addTarget(nil, action: #selector(self.nextQuestion), for: .touchUpInside)
         }
     }
     func initMistakesQuestionView(){
@@ -338,6 +401,10 @@ class QuestionsContainerViewController: UIViewController {
             vc.view.bottomAnchor.constraint(equalTo: self.containerViewQuestion.bottomAnchor).isActive = true
             self.addChildViewController(vc)
             vc.didMove(toParentViewController: self)
+            
+            btnNextOrSubmit.setTitle("Submit", for: .normal)
+            btnNextOrSubmit.removeTarget(nil, action: #selector(self.nextQuestion), for: .touchUpInside)
+            btnNextOrSubmit.addTarget(nil, action: #selector(self.submitQuestion), for: .touchUpInside)
         }
     }
     
@@ -361,6 +428,10 @@ class QuestionsContainerViewController: UIViewController {
             vc.view.bottomAnchor.constraint(equalTo: self.containerViewQuestion.bottomAnchor).isActive = true
             self.addChildViewController(vc)
             vc.didMove(toParentViewController: self)
+            
+            btnNextOrSubmit.setTitle("Next", for: .normal)
+            btnNextOrSubmit.removeTarget(nil, action: #selector(self.submitQuestion), for: .touchUpInside)
+            btnNextOrSubmit.addTarget(nil, action: #selector(self.nextQuestion), for: .touchUpInside)
         }
     }
     func initWritingQuestionView(){
@@ -383,6 +454,10 @@ class QuestionsContainerViewController: UIViewController {
             vc.view.bottomAnchor.constraint(equalTo: self.containerViewQuestion.bottomAnchor).isActive = true
             self.addChildViewController(vc)
             vc.didMove(toParentViewController: self)
+            
+            btnNextOrSubmit.setTitle("Next", for: .normal)
+            btnNextOrSubmit.removeTarget(nil, action: #selector(self.submitQuestion), for: .touchUpInside)
+            btnNextOrSubmit.addTarget(nil, action: #selector(self.nextQuestion), for: .touchUpInside)
         }
     }
     func initQuotationsQuestionView(){
@@ -405,6 +480,10 @@ class QuestionsContainerViewController: UIViewController {
             vc.view.bottomAnchor.constraint(equalTo: self.containerViewQuestion.bottomAnchor).isActive = true
             self.addChildViewController(vc)
             vc.didMove(toParentViewController: self)
+            
+            btnNextOrSubmit.setTitle("Next", for: .normal)
+            btnNextOrSubmit.removeTarget(nil, action: #selector(self.submitQuestion), for: .touchUpInside)
+            btnNextOrSubmit.addTarget(nil, action: #selector(self.nextQuestion), for: .touchUpInside)
         }
     }
     func initTrueFalseQuestionView(){
@@ -427,7 +506,40 @@ class QuestionsContainerViewController: UIViewController {
             vc.view.bottomAnchor.constraint(equalTo: self.containerViewQuestion.bottomAnchor).isActive = true
             self.addChildViewController(vc)
             vc.didMove(toParentViewController: self)
+            
+            btnNextOrSubmit.setTitle("Submit", for: .normal)
+            btnNextOrSubmit.removeTarget(nil, action: #selector(self.nextQuestion), for: .touchUpInside)
+            btnNextOrSubmit.addTarget(nil, action: #selector(self.submitQuestion), for: .touchUpInside)
         }
+    }
+    
+    func startTimer(numberOfQuestions: Int){
+
+        
+        timerCounter = questionTimerUnit * numberOfQuestions
+        lblTimer.text = timeString(time: TimeInterval.init(questionTimerUnit * numberOfQuestions))
+        lblTimer.isHidden = false
+        questionTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.updateTimer), userInfo: nil, repeats: true)
+    }
+    
+    @objc func updateTimer(){
+        
+        if timerCounter == 0{
+            
+            questionTimer.invalidate()
+            self.submitQuestion()
+            
+        }else{
+            timerCounter -= 1
+            lblTimer.text = timeString(time: TimeInterval.init(timerCounter))
+        }
+    }
+    
+    func timeString(time:TimeInterval) -> String {
+        let hours = Int(time) / 3600
+        let minutes = Int(time) / 60 % 60
+        let seconds = Int(time) % 60
+        return String.init(format: "%02i:%02i:%02i", arguments: [hours,minutes,seconds])
     }
     
 }

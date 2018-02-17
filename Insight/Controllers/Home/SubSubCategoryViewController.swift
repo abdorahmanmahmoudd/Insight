@@ -47,7 +47,15 @@ class SubSubCategoryViewController: UIViewController, UITableViewDelegate, UITab
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         selectedSubSubCategory = indexPath.row
-        performSegue(withIdentifier: "QuestionsContainerSegue", sender: nil)
+        
+        if subsubCaterogies[selectedSubSubCategory].questions != nil && subsubCaterogies[selectedSubSubCategory].questions.count > 0 && subsubCaterogies[selectedSubSubCategory].questions[0].type ?? "" == QuestionTypes.Listening.rawValue{
+            
+            performSegue(withIdentifier: "QuestionListeningSegue", sender: nil)
+            
+        }else  {
+            
+            performSegue(withIdentifier: "QuestionsContainerSegue", sender: nil)
+        }
         
     }
     
@@ -57,6 +65,12 @@ class SubSubCategoryViewController: UIViewController, UITableViewDelegate, UITab
             if let des = segue.destination as? QuestionsContainerViewController{
                 
                 des.subsubCategory = subsubCaterogies[selectedSubSubCategory]
+            }
+        }else if segue.identifier == "QuestionListeningSegue"{
+            
+            if let des = segue.destination as? QuestionListeningViewController{
+                
+                des.questions = subsubCaterogies[selectedSubSubCategory].questions[0].data
             }
         }
     }

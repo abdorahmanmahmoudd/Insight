@@ -33,4 +33,6 @@ let MavenProBold = "mavenPro-Bold"
 
 let jsonContentFileDirectory = "InsightContentFile.json"
 
+let questionTimerUnit = 30
+
 

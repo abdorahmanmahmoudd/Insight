@@ -13,6 +13,10 @@ class GeneralQuestionTableViewCell: UITableViewCell {
     @IBOutlet var tvAnswer: UnderLinedTextView!
     @IBOutlet var tvContent: UITextView!
     
+    var cellIndex = Int()
+    
+    var showAnswerHandler : ((GeneralQuestionTableViewCell) -> ())?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -25,6 +29,6 @@ class GeneralQuestionTableViewCell: UITableViewCell {
     }
 
     @IBAction func btnShowAnswerClicked(_ sender: UIButton) {
-        print("show answer")
+        showAnswerHandler!(self)
     }
 }

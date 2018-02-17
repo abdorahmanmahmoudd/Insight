@@ -8,13 +8,14 @@
 
 import UIKit
 
-class AntonymQViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextViewDelegate {
+class AntonymQViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextViewDelegate, CorrectedQuestion {
 
     @IBOutlet var tableView: IntinsicTableView!
     @IBOutlet var btnShowAnswer: UIButton!
     
     var questions = [QuestionData]()
     var showAnswers = false
+    var isSubmit = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,6 +56,7 @@ class AntonymQViewController: UIViewController, UITableViewDelegate, UITableView
             
             cell.tvAnswer.text = questions[indexPath.row].answer.html2String
             cell.tvAnswer.isEditable = false
+            
         }
         
         return cell
@@ -81,6 +83,32 @@ class AntonymQViewController: UIViewController, UITableViewDelegate, UITableView
                 nav.pushViewController(selfVC, animated: true)
             }
         }
+    }
+    
+    func submitAnswers() {
+        
+        for section in 0..<tableView.numberOfSections {
+            
+            for row in 0..<tableView.numberOfRows(inSection: section){
+                
+                if let cell = tableView.cellForRow(at: IndexPath.init(row: row, section: section)) as? QuestionAntonymTableViewCell{
+                    
+                    cell.tvAnswer.isEditable = false
+                    
+                    if cell.tvAnswer.text.trimmedText().lowercased() == questions[row].answer.html2String.lowercased(){
+                        
+                        cell.tvAnswer.textColor = UIColor.green
+                        cell.tvContent.textColor = UIColor.green
+                        
+                    }else {
+                        
+                        cell.tvAnswer.textColor = UIColor.red
+                        cell.tvContent.textColor = UIColor.red
+                    }
+                }
+            }
+        }
+        
     }
     
 }

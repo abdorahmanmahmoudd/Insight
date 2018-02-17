@@ -35,7 +35,6 @@ class QuestionListeningTableViewCell: UITableViewCell {
         
         slider.setValue(0.0, animated: false)
         
-        player.stop()
         
     }
     
@@ -66,13 +65,15 @@ class QuestionListeningTableViewCell: UITableViewCell {
     
     func fillData(question : QuestionData){
         
-        lblContent.text = question.content
+        lblContent.text = question.content.html2String
         
         if let url = URL.init(string: question.sound ?? ""){
             
             do  {
                 
-                player = try AVAudioPlayer.init(contentsOf: url)
+                let data = try Data.init(contentsOf: url)
+                
+                player = try AVAudioPlayer(data: data, fileTypeHint: AVFileType.mp3.rawValue)
                 
                 isPlaying = false
                 
@@ -91,7 +92,7 @@ class QuestionListeningTableViewCell: UITableViewCell {
             }catch let err {
                 
                 btnPlay.isEnabled = false
-                
+                slider.isEnabled = false
                 print("sound corrupted url : " , err.localizedDescription)
             }
         }

@@ -62,7 +62,7 @@ class BlackUnderLinedTextView :  UITextView {
     override func draw(_ rect: CGRect) {
         // Drawing code
         
-        self.layer.backgroundColor = UIColor.clear.cgColor
+        self.layer.backgroundColor = UIColor.white.cgColor
         
         self.layer.masksToBounds = false
         self.layer.shadowColor = UIColor.black.cgColor

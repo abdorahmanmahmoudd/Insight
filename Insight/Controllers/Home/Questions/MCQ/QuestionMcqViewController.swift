@@ -53,7 +53,7 @@ class QuestionMcqViewController: UIViewController, UITableViewDelegate, UITableV
         
         let headerView = tableQuestions.dequeueReusableHeaderFooterView(withIdentifier: "QuestionGeneralHeader")
         
-        (headerView as? GeneralTableViewHeader)?.tvContent.text = questions[section].content
+        (headerView as? GeneralTableViewHeader)?.tvContent.text = questions[section].content.html2String
         
         return headerView
         
@@ -84,7 +84,7 @@ class QuestionMcqViewController: UIViewController, UITableViewDelegate, UITableV
         
         if let nav = self.parent?.navigationController {
             
-            if let selfVC = storyboard?.instantiateViewController(withIdentifier: "QuestionMatchVC") as? QuestionMatchViewController{
+            if let selfVC = storyboard?.instantiateViewController(withIdentifier: "QuestionMCQVC") as? QuestionMcqViewController{
                 
                 selfVC.showAnswers = true
                 selfVC.questions = self.questions

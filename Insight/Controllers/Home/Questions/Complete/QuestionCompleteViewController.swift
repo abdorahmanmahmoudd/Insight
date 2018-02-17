@@ -8,7 +8,7 @@
 
 import UIKit
 
-class QuestionCompleteViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class QuestionCompleteViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, CorrectedQuestion, UITextViewDelegate {
 
     @IBOutlet var btnShowAnswer: UIButton!
     @IBOutlet var tableView: IntinsicTableView!
@@ -61,6 +61,15 @@ class QuestionCompleteViewController: UIViewController, UITableViewDelegate, UIT
         
         return cell
     }
+    
+    func textViewDidChange(_ textView: UITextView) {
+        tableView.beginUpdates()
+        tableView.endUpdates()
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        textView.text.removeAll()
+    }
 
     @IBAction func btnShowAnswer(_ sender: UIButton) {
         
@@ -73,6 +82,30 @@ class QuestionCompleteViewController: UIViewController, UITableViewDelegate, UIT
                 nav.pushViewController(selfVC, animated: true)
             }
         }
+    }
+    
+    func submitAnswers() {
+        
+        for section in 0..<tableView.numberOfSections {
+            
+            for row in 0..<tableView.numberOfRows(inSection: section){
+                
+                if let cell = tableView.cellForRow(at: IndexPath.init(row: row, section: section)) as? QuestionCompleteTableViewCell{
+                    
+                    cell.tvAnswer.isEditable = false
+                    
+                    if cell.tvAnswer.text.trimmedText().lowercased() == questions[row].answer.html2String.lowercased(){
+                        
+                        cell.tvAnswer.textColor = UIColor.green
+                        
+                    }else {
+                        
+                        cell.tvAnswer.textColor = UIColor.red
+                    }
+                }
+            }
+        }
+        
     }
 
 }

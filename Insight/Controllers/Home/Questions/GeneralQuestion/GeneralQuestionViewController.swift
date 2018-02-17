@@ -40,9 +40,13 @@ class GeneralQuestionViewController: UIViewController , UITableViewDelegate, UIT
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "GeneralQuestionCell", for: indexPath) as! GeneralQuestionTableViewCell
         
-        cell.tvContent.text = questions[indexPath.row].content
-        cell.tvContent.delegate = self
-        
+        cell.tvContent.text = questions[indexPath.row].content.html2String
+        cell.tvAnswer.delegate = self
+        cell.cellIndex = indexPath.row
+        cell.showAnswerHandler = { [weak self] in
+                
+                self?.showAnswerHandler(cell: $0)
+        }
         return cell
     }
 
@@ -50,14 +54,20 @@ class GeneralQuestionViewController: UIViewController , UITableViewDelegate, UIT
         tableView.beginUpdates()
         tableView.endUpdates()
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        textView.text.removeAll()
     }
-    */
+    
+    func showAnswerHandler(cell: GeneralQuestionTableViewCell){
+        
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "GeneralQuestionAnswersVC") as? GeneralQuestionAnswersViewController{
+            
+            vc.answerText = questions[cell.cellIndex].answer.html2String
+            vc.modalPresentationStyle = .overCurrentContext
+            vc.modalTransitionStyle = .crossDissolve
+            self.present(vc, animated: true, completion: nil)
+        }
+    }
 
 }

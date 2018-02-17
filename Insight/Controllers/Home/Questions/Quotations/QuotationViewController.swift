@@ -46,7 +46,7 @@ class QuotationViewController: UIViewController, UITableViewDelegate, UITableVie
         
         let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "QuestionGeneralHeader")
         
-        (headerView as? GeneralTableViewHeader)?.tvContent.text = questions[section].content
+        (headerView as? GeneralTableViewHeader)?.tvContent.text = questions[section].content.html2String
         
         return headerView
         
@@ -59,7 +59,7 @@ class QuotationViewController: UIViewController, UITableViewDelegate, UITableVie
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "QuestionQuotationCell", for: indexPath) as! QuotationTableViewCell
         
-        cell.tvContent.text = questions[indexPath.section].questions[indexPath.row].content
+        cell.tvContent.text = questions[indexPath.section].questions[indexPath.row].content.html2String
         
         return cell
     }

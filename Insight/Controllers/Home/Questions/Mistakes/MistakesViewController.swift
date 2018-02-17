@@ -11,8 +11,10 @@ import UIKit
 class MistakesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextViewDelegate {
     
     @IBOutlet var tableView: IntinsicTableView!
+    @IBOutlet var btnShowAnswer : UIButton!
     
     var questions = [QuestionData]()
+    var showAnswers = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +37,11 @@ class MistakesViewController: UIViewController, UITableViewDelegate, UITableView
         tableView.estimatedRowHeight = 300
         
         tableView.register(UINib.init(nibName: "QuestionGeneralHeader", bundle: Bundle.main), forHeaderFooterViewReuseIdentifier: "QuestionGeneralHeader")
+        
+        if showAnswers {
+            btnShowAnswer.isHidden = true
+            self.navigationController?.isNavigationBarHidden = false
+        }
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -45,7 +52,7 @@ class MistakesViewController: UIViewController, UITableViewDelegate, UITableView
         
         let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "QuestionGeneralHeader")
         
-        (headerView as? GeneralTableViewHeader)?.tvContent.text = questions[section].content
+        (headerView as? GeneralTableViewHeader)?.tvContent.text = questions[section].content.html2String
         
         return headerView
         
@@ -59,7 +66,18 @@ class MistakesViewController: UIViewController, UITableViewDelegate, UITableView
         let cell = tableView.dequeueReusableCell(withIdentifier: "QuestionMistakeCell", for: indexPath) as! MistakesTableViewCell
         
         cell.tvAnswer.delegate = self
-        cell.tvMistake.text = questions[indexPath.section].mistakes[indexPath.row].content
+        cell.tvMistake.delegate = self
+        
+        
+        if showAnswers {
+        
+            cell.tvMistake.text = questions[indexPath.section].mistakes[indexPath.row].content.html2String
+            cell.tvAnswer.text = questions[indexPath.section].mistakes[indexPath.row].answer.html2String
+            
+            cell.tvAnswer.isEditable = false
+            cell.tvMistake.isEditable = false
+            
+        }
         
         return cell
     }
@@ -67,6 +85,23 @@ class MistakesViewController: UIViewController, UITableViewDelegate, UITableView
     func textViewDidChange(_ textView: UITextView) {
         tableView.beginUpdates()
         tableView.endUpdates()
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        textView.text.removeAll()
+    }
+    
+    @IBAction func btnShowAnswerClicked(_ sender: UIButton) {
+        
+        if let nav = self.parent?.navigationController {
+            
+            if let selfVC = storyboard?.instantiateViewController(withIdentifier: "QuestionMistakesVC") as? MistakesViewController{
+                
+                selfVC.showAnswers = true
+                selfVC.questions = self.questions
+                nav.pushViewController(selfVC, animated: true)
+            }
+        }
     }
 
 }

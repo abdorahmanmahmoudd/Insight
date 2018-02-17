@@ -25,7 +25,7 @@ extension String {
         }
     }
     var html2String: String {
-        return html2AttributedString?.string ?? self
+        return html2AttributedString?.string.trimmedText() ?? self
     }
     
     func trimmedText()->String

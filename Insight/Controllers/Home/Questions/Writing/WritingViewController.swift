@@ -34,7 +34,7 @@ class WritingViewController: UIViewController,UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "QuestionWritingCell", for: indexPath) as! WritingTableViewCell
         
-        cell.tvContent.text = questions[indexPath.row].content
+        cell.tvContent.text = questions[indexPath.row].content.html2String
         
         return cell
     }

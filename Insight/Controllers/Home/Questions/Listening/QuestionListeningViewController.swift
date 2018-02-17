@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class QuestionListeningViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -18,6 +19,7 @@ class QuestionListeningViewController: UIViewController, UITableViewDelegate, UI
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        configuration()
     }
 
     override func didReceiveMemoryWarning() {
@@ -25,9 +27,10 @@ class QuestionListeningViewController: UIViewController, UITableViewDelegate, UI
         // Dispose of any resources that can be recreated.
     }
     
+    
     func configuration(){
         
-        
+        self.title = "Listening"
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

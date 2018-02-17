@@ -8,7 +8,7 @@
 
 import UIKit
 
-class QuestionDictationViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class QuestionDictationViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, CorrectedQuestion, UITextViewDelegate {
 
     @IBOutlet var btnShowAnswer: UIButton!
     @IBOutlet var tableView: IntinsicTableView!
@@ -31,6 +31,9 @@ class QuestionDictationViewController: UIViewController, UITableViewDelegate, UI
     
 
     func configuration(){
+        
+        tableView.estimatedRowHeight = 200
+        tableView.rowHeight = UITableViewAutomaticDimension
         
         if showAnswers{
             
@@ -58,6 +61,14 @@ class QuestionDictationViewController: UIViewController, UITableViewDelegate, UI
         return cell
     }
     
+    func textViewDidChange(_ textView: UITextView) {
+        tableView.beginUpdates()
+        tableView.endUpdates()
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        textView.text.removeAll()
+    }
     
     @IBAction func btnShowAnswerClicked(_ sender: UIButton) {
         
@@ -70,6 +81,30 @@ class QuestionDictationViewController: UIViewController, UITableViewDelegate, UI
                 nav.pushViewController(selfVC, animated: true)
             }
         }
+    }
+    
+    func submitAnswers() {
+        
+        for section in 0..<tableView.numberOfSections {
+            
+            for row in 0..<tableView.numberOfRows(inSection: section){
+                
+                if let cell = tableView.cellForRow(at: IndexPath.init(row: row, section: section)) as? QuestionDictationTableViewCell{
+                    
+                    cell.tvAnswer.isEditable = false
+                    
+                    if cell.tvAnswer.text.trimmedText().lowercased() == questions[row].answer.html2String.lowercased(){
+                        
+                        cell.tvAnswer.textColor = UIColor.green
+                        
+                    }else {
+                        
+                        cell.tvAnswer.textColor = UIColor.red
+                    }
+                }
+            }
+        }
+        
     }
 
 }
