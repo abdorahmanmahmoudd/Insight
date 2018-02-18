@@ -203,4 +203,62 @@ class HomeViewController: ParentViewController {
             }
         }
     }
+    
+    func decode(data: String){
+        
+        
+//        public static String decrypt(String data) {
+//            try {
+//
+//            String[] parts = data.split(":");
+//
+//            IvParameterSpec iv = new IvParameterSpec(Base64.decode(parts[1], Base64.DEFAULT));
+//            SecretKeySpec skeySpec = new SecretKeySpec(ENCRYPTION_KEY.getBytes("UTF-8"), "AES");
+//
+//            Cipher cipher = Cipher.getInstance(CIPHER_NAME);
+//            cipher.init(Cipher.DECRYPT_MODE, skeySpec, iv);
+//
+//            byte[] decodedEncryptedData = Base64.decode(parts[0], Base64.DEFAULT);
+//
+//            byte[] original = cipher.doFinal(decodedEncryptedData);
+//
+//            return new String(original);
+//            } catch (Exception ex) {
+//            ex.printStackTrace();
+//            }
+//
+//            return "";
+//        }
+        do {
+            
+            var parts = data.split(separator: ":")
+            
+            
+            
+        }catch let err {
+            
+            print(err.localizedDescription)
+        }
+        
+    }
+    
+//    public static SecretKey secretKey ;
+//    static String PLAIN_TEXT = "Java Code Geeks Rock!\0\0\0\0\0\0\0\0\0\0\0";
+//    
+//    
+//    
+//    private static String CIPHER_NAME = "AES/CBC/PKCS5PADDING";
+//    private static int CIPHER_KEY_LEN = 16; //128 bits
+//    
+//    static String ENCRYPTION_KEY = "0123456789abcdef";
+//    
+//    public static void generateKey()  {
+//    try {
+//    byte[] key = ENCRYPTION_KEY.getBytes();
+//    secretKey = new SecretKeySpec(key, "AES");
+//    }catch (Exception e){
+//    e.printStackTrace();
+//    }
+//    
+//    }
 }
