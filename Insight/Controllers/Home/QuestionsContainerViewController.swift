@@ -13,7 +13,7 @@ protocol CorrectedQuestion: class {
     func submitAnswers()
 }
 
-class QuestionsContainerViewController: UIViewController {
+class QuestionsContainerViewController: ParentViewController {
 
     @IBOutlet var lblTimer: UILabel!
     @IBOutlet var lblTitle: UILabel!
@@ -36,6 +36,10 @@ class QuestionsContainerViewController: UIViewController {
             
             presentQuestions(currentQuestion: currentQuestionIndex)
         }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
     }
 
     override func didReceiveMemoryWarning() {
@@ -62,6 +66,10 @@ class QuestionsContainerViewController: UIViewController {
     @objc func submitQuestion(){
         
         if delegate != nil{
+            
+            questionTimer.invalidate()
+            
+            lblTimer.isHidden = true
             
             delegate!.submitAnswers()
             
@@ -121,42 +129,42 @@ class QuestionsContainerViewController: UIViewController {
 //                initListeningQuestionView()
 //                break
                 
-            case QuestionTypes.Match.rawValue?://presentation
+            case QuestionTypes.Match.rawValue?:
                 self.lblTitle.text = subsubCategory?.questions[currentQuestion].title
                 initMatchQuestionView()
                 break
                 
-            case QuestionTypes.MCQ.rawValue?://presentation
+            case QuestionTypes.MCQ.rawValue?:
                 self.lblTitle.text = subsubCategory?.questions[currentQuestion].title
                 initMCQQuestionView()
                 break
                 
-            case QuestionTypes.MiniDialog.rawValue?://presentation  
+            case QuestionTypes.MiniDialog.rawValue?:
                 self.lblTitle.text = subsubCategory?.questions[currentQuestion].title
                 initMiniDialogQuestionView()
                 break
                 
-            case QuestionTypes.Mistakes.rawValue?://presentation
+            case QuestionTypes.Mistakes.rawValue?:
                 self.lblTitle.text = subsubCategory?.questions[currentQuestion].title
                 initMistakesQuestionView()
                 break
                 
-            case QuestionTypes.Rewrite.rawValue?://presentation
+            case QuestionTypes.Rewrite.rawValue?:
                 self.lblTitle.text = subsubCategory?.questions[currentQuestion].title
                 initGeneralQuestionView()
                 break
                 
-            case QuestionTypes.Situations.rawValue?://presentation
+            case QuestionTypes.Situations.rawValue?:
                 self.lblTitle.text = subsubCategory?.questions[currentQuestion].title
                 initGeneralQuestionView()
                 break
                 
-            case QuestionTypes.Translation.rawValue?://presentation
+            case QuestionTypes.Translation.rawValue?:
                 self.lblTitle.text = subsubCategory?.questions[currentQuestion].title
                 initGeneralQuestionView()
                 break
                 
-            case QuestionTypes.Writing.rawValue?://presentation
+            case QuestionTypes.Writing.rawValue?:
                 self.lblTitle.text = subsubCategory?.questions[currentQuestion].title
                 initWritingQuestionView()
                 break
@@ -166,7 +174,7 @@ class QuestionsContainerViewController: UIViewController {
                 initGeneralQuestionView()
                 break
                 
-            case QuestionTypes.Quotations.rawValue?://presentation
+            case QuestionTypes.Quotations.rawValue?:
                 self.lblTitle.text = subsubCategory?.questions[currentQuestion].title
                 initQuotationsQuestionView()
                 break
@@ -314,6 +322,7 @@ class QuestionsContainerViewController: UIViewController {
         if let vc  = storyboard.instantiateViewController(withIdentifier: "QuestionMatchVC") as? QuestionMatchViewController {
             
             vc.questions = subsubCategory!.questions[currentQuestionIndex].data
+            self.delegate = vc
             vc.view.translatesAutoresizingMaskIntoConstraints = false
             vc.willMove(toParentViewController: self)
             self.containerViewQuestion.addSubview(vc.view)
@@ -340,6 +349,7 @@ class QuestionsContainerViewController: UIViewController {
         if let vc  = storyboard.instantiateViewController(withIdentifier: "QuestionMCQVC") as? QuestionMcqViewController {
             
             vc.questions = subsubCategory!.questions[currentQuestionIndex].data
+            self.delegate = vc
             vc.view.translatesAutoresizingMaskIntoConstraints = false
             vc.willMove(toParentViewController: self)
             self.containerViewQuestion.addSubview(vc.view)
@@ -350,6 +360,14 @@ class QuestionsContainerViewController: UIViewController {
             self.addChildViewController(vc)
             vc.didMove(toParentViewController: self)
             
+            var mcqCounter = 0
+            for question in 0..<subsubCategory!.questions[currentQuestionIndex].data.count{
+                for _ in 0..<subsubCategory!.questions[currentQuestionIndex].data[question].choices.count{
+                    
+                    mcqCounter += 1
+                }
+            }
+            startTimer(numberOfQuestions: mcqCounter)
             btnNextOrSubmit.setTitle("Submit", for: .normal)
             btnNextOrSubmit.removeTarget(nil, action: #selector(self.nextQuestion), for: .touchUpInside)
             btnNextOrSubmit.addTarget(nil, action: #selector(self.submitQuestion), for: .touchUpInside)
@@ -392,6 +410,7 @@ class QuestionsContainerViewController: UIViewController {
         if let vc  = storyboard.instantiateViewController(withIdentifier: "QuestionMistakesVC") as? MistakesViewController {
             
             vc.questions = subsubCategory!.questions[currentQuestionIndex].data
+            self.delegate = vc
             vc.view.translatesAutoresizingMaskIntoConstraints = false
             vc.willMove(toParentViewController: self)
             self.containerViewQuestion.addSubview(vc.view)
@@ -402,6 +421,14 @@ class QuestionsContainerViewController: UIViewController {
             self.addChildViewController(vc)
             vc.didMove(toParentViewController: self)
             
+            var mistakesCounter = 0
+            for question in 0..<subsubCategory!.questions[currentQuestionIndex].data.count{
+                for _ in 0..<subsubCategory!.questions[currentQuestionIndex].data[question].mistakes.count{
+                    
+                    mistakesCounter += 1
+                }
+            }
+            startTimer(numberOfQuestions: mistakesCounter)
             btnNextOrSubmit.setTitle("Submit", for: .normal)
             btnNextOrSubmit.removeTarget(nil, action: #selector(self.nextQuestion), for: .touchUpInside)
             btnNextOrSubmit.addTarget(nil, action: #selector(self.submitQuestion), for: .touchUpInside)
@@ -497,6 +524,7 @@ class QuestionsContainerViewController: UIViewController {
         if let vc  = storyboard.instantiateViewController(withIdentifier: "QuestionTrueFalseVC") as? TrueFalseViewController {
             
             vc.questions = subsubCategory!.questions[currentQuestionIndex].data
+            self.delegate = vc
             vc.view.translatesAutoresizingMaskIntoConstraints = false
             vc.willMove(toParentViewController: self)
             self.containerViewQuestion.addSubview(vc.view)

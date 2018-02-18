@@ -8,7 +8,7 @@
 
 import UIKit
 
-class QuestionDictationViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, CorrectedQuestion, UITextViewDelegate {
+class QuestionDictationViewController: ParentViewController, UITableViewDelegate, UITableViewDataSource, CorrectedQuestion, UITextViewDelegate {
 
     @IBOutlet var btnShowAnswer: UIButton!
     @IBOutlet var tableView: IntinsicTableView!

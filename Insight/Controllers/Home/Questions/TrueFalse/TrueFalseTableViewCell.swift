@@ -16,6 +16,8 @@ class TrueFalseTableViewCell: UITableViewCell {
     @IBOutlet var tvContent: UITextView!
     @IBOutlet var btnFlag: UIButton!
     
+    var selectedAnswer = -1
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -30,10 +32,12 @@ class TrueFalseTableViewCell: UITableViewCell {
     @IBAction func btnTrueClicked(_ sender: UIButton) {
         btnTrue.backgroundColor = UIColor.green
         btnFalse.backgroundColor = UIColor.clear
+        selectedAnswer = 1
     }
     
     @IBAction func btnFalseClicked(_ sender: UIButton) {
         btnFalse.backgroundColor = UIColor.red
         btnTrue.backgroundColor = UIColor.clear
+        selectedAnswer = 0
     }
 }

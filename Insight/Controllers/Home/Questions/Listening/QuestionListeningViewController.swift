@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-class QuestionListeningViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class QuestionListeningViewController: ParentViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet var tableView: IntinsicTableView!
     

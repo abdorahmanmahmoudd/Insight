@@ -38,6 +38,8 @@
 		BD1FF8412023CB4E00FC74C2 /* SubClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1FF8402023CB4E00FC74C2 /* SubClass.swift */; };
 		BD1FF8442023CFBA00FC74C2 /* AntonymQViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1FF8432023CFBA00FC74C2 /* AntonymQViewController.swift */; };
 		BD1FF8462023EBC900FC74C2 /* QuestionsContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1FF8452023EBC900FC74C2 /* QuestionsContainerViewController.swift */; };
+		BD2141CC2039D1230083B242 /* ParentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2141CB2039D1230083B242 /* ParentViewController.swift */; };
+		BD2141D12039D4980083B242 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = BD2141D02039D4980083B242 /* MBProgressHUD.m */; };
 		BD27EEDE201FF02D007872E0 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD27EEDD201FF02D007872E0 /* SignInViewController.swift */; };
 		BD27EEE0201FF353007872E0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD27EEDF201FF353007872E0 /* LaunchScreen.storyboard */; };
 		BD39AD412027447F00DC03B3 /* QuestionCompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD39AD402027447F00DC03B3 /* QuestionCompleteViewController.swift */; };
@@ -122,6 +124,10 @@
 		BD1FF8402023CB4E00FC74C2 /* SubClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubClass.swift; sourceTree = "<group>"; };
 		BD1FF8432023CFBA00FC74C2 /* AntonymQViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AntonymQViewController.swift; sourceTree = "<group>"; };
 		BD1FF8452023EBC900FC74C2 /* QuestionsContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsContainerViewController.swift; sourceTree = "<group>"; };
+		BD2141CB2039D1230083B242 /* ParentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentViewController.swift; sourceTree = "<group>"; };
+		BD2141CE2039D4970083B242 /* Insight-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Insight-Bridging-Header.h"; sourceTree = "<group>"; };
+		BD2141CF2039D4980083B242 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		BD2141D02039D4980083B242 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		BD27EEDD201FF02D007872E0 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		BD27EEDF201FF353007872E0 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BD39AD402027447F00DC03B3 /* QuestionCompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionCompleteViewController.swift; sourceTree = "<group>"; };
@@ -302,6 +308,15 @@
 			path = Questions;
 			sourceTree = "<group>";
 		};
+		BD2141CD2039D4550083B242 /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				BD2141CF2039D4980083B242 /* MBProgressHUD.h */,
+				BD2141D02039D4980083B242 /* MBProgressHUD.m */,
+			);
+			name = MBProgressHUD;
+			sourceTree = "<group>";
+		};
 		BD39AD3E20273ED100DC03B3 /* Complete */ = {
 			isa = PBXGroup;
 			children = (
@@ -437,6 +452,8 @@
 		BDD184D1201F9ACD006EBAB9 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				BD2141CE2039D4970083B242 /* Insight-Bridging-Header.h */,
+				BD2141CD2039D4550083B242 /* MBProgressHUD */,
 				BD1B1EBC2020F95A0000D813 /* mavenPro Font */,
 				BDD184BF201F9ABD006EBAB9 /* AppDelegate.swift */,
 				BDD184C6201F9ABD006EBAB9 /* Assets.xcassets */,
@@ -468,6 +485,7 @@
 				BD1B1EC42021313C0000D813 /* SideMenu */,
 				BDD184DD201F9CE8006EBAB9 /* User */,
 				BDD184D9201F9BB8006EBAB9 /* LandScreen */,
+				BD2141CB2039D1230083B242 /* ParentViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -570,6 +588,7 @@
 				TargetAttributes = {
 					BDD184BB201F9ABD006EBAB9 = {
 						CreatedOnToolsVersion = 9.0;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -688,12 +707,14 @@
 				BD1478B8202330E00090A481 /* QuestionData.swift in Sources */,
 				BD1B1EBF202113A60000D813 /* ForgetPasswordViewController.swift in Sources */,
 				BD1B1EAF2020F6120000D813 /* ActivityLoaderHelper.swift in Sources */,
+				BD2141CC2039D1230083B242 /* ParentViewController.swift in Sources */,
 				BD1B1EBD2020FC280000D813 /* UserModel.swift in Sources */,
 				BD9A4B5E2027682100DCCAE6 /* QuestionDictationViewController.swift in Sources */,
 				BD3DA3FD202AF66A00CCB7B0 /* MiniDialogViewController.swift in Sources */,
 				BDAA5807202CFA9600C32AA9 /* GeneralQuestionViewController.swift in Sources */,
 				BD9A4B61202775B800DCCAE6 /* QuestionListeningViewController.swift in Sources */,
 				BDB6248F2028CA220007B261 /* QuestionMcqViewController.swift in Sources */,
+				BD2141D12039D4980083B242 /* MBProgressHUD.m in Sources */,
 				BD1B1ED02021349D0000D813 /* InteractionControlller.swift in Sources */,
 				BD3DB17920384894002A632D /* GeneralQuestionAnswersViewController.swift in Sources */,
 				BD1478BC202330E00090A481 /* InsightContentRootClass.swift in Sources */,
@@ -855,6 +876,7 @@
 			baseConfigurationReference = 018E49D3A5B90AA814EA38F8 /* Pods-Insight.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B8L6UA4MUM;
 				INFOPLIST_FILE = Insight/Info.plist;
@@ -862,6 +884,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Insight;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Insight/Common/Insight-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -872,6 +896,7 @@
 			baseConfigurationReference = 26A23FCDB9BC4A55412DA1D2 /* Pods-Insight.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B8L6UA4MUM;
 				INFOPLIST_FILE = Insight/Info.plist;
@@ -879,6 +904,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Insight;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Insight/Common/Insight-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

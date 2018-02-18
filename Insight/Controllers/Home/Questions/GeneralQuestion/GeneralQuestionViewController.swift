@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GeneralQuestionViewController: UIViewController , UITableViewDelegate, UITableViewDataSource, UITextViewDelegate{
+class GeneralQuestionViewController: ParentViewController , UITableViewDelegate, UITableViewDataSource, UITextViewDelegate{
 
     @IBOutlet var tableView: IntinsicTableView!
     

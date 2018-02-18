@@ -8,7 +8,7 @@
 
 import UIKit
 
-class WritingViewController: UIViewController,UITableViewDelegate, UITableViewDataSource {
+class WritingViewController: ParentViewController,UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet var tableView: IntinsicTableView!
     

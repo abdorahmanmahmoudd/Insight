@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TrueFalseViewController: UIViewController, UITableViewDelegate, UITableViewDataSource , UITextViewDelegate{
+class TrueFalseViewController: ParentViewController, UITableViewDelegate, UITableViewDataSource , UITextViewDelegate, CorrectedQuestion{
     
     @IBOutlet var btnShowAnswer: UIButton!
     @IBOutlet var tableView: IntinsicTableView!
@@ -84,5 +84,30 @@ class TrueFalseViewController: UIViewController, UITableViewDelegate, UITableVie
                 nav.pushViewController(selfVC, animated: true)
             }
         }
+    }
+    
+    func submitAnswers() {
+        
+        for section in 0..<tableView.numberOfSections {
+            
+            for row in 0..<tableView.numberOfRows(inSection: section){
+                
+                if let cell = tableView.cellForRow(at: IndexPath.init(row: row, section: section)) as? TrueFalseTableViewCell{
+                    
+                    cell.btnTrue.isUserInteractionEnabled = false
+                    cell.btnFalse.isUserInteractionEnabled = false
+                    
+                    if cell.selectedAnswer == Int(questions[row].answer){
+                        
+                        cell.tvContent.textColor = UIColor.green
+                        
+                    }else {
+                        
+                        cell.tvContent.textColor = UIColor.red
+                    }
+                }
+            }
+        }
+        
     }
 }

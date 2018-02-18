@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MiniDialogViewController: UIViewController , UITableViewDelegate, UITableViewDataSource, UITextViewDelegate{
+class MiniDialogViewController: ParentViewController , UITableViewDelegate, UITableViewDataSource, UITextViewDelegate{
 
     @IBOutlet var tableView: IntinsicTableView!
     

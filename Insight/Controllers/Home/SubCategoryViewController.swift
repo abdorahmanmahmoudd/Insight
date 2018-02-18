@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SubCategoryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class SubCategoryViewController: ParentViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet var tableSubCategory: UITableView!
     

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class QuotationViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextViewDelegate {
+class QuotationViewController: ParentViewController, UITableViewDelegate, UITableViewDataSource, UITextViewDelegate {
     
     
     @IBOutlet var tableView: IntinsicTableView!

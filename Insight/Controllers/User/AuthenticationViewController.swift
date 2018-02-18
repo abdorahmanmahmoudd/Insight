@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AuthenticationViewController: UIViewController {
+class AuthenticationViewController: ParentViewController {
 
     @IBOutlet var containerView: UIView!
     @IBOutlet var viewBtnSignUpUnderLine: UIView!

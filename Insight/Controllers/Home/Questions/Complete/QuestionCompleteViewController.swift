@@ -8,7 +8,7 @@
 
 import UIKit
 
-class QuestionCompleteViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, CorrectedQuestion, UITextViewDelegate {
+class QuestionCompleteViewController: ParentViewController, UITableViewDelegate, UITableViewDataSource, CorrectedQuestion, UITextViewDelegate {
 
     @IBOutlet var btnShowAnswer: UIButton!
     @IBOutlet var tableView: IntinsicTableView!

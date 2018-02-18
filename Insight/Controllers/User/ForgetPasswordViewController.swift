@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ForgetPasswordViewController: UIViewController {
+class ForgetPasswordViewController: ParentViewController {
 
     @IBOutlet var viewDismissing: UIView!
     @IBOutlet var btnSend: UIButton!

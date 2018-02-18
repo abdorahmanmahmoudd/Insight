@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SubSubCategoryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class SubSubCategoryViewController: ParentViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet var tableSubSubCategory: UITableView!
     
@@ -47,7 +47,6 @@ class SubSubCategoryViewController: UIViewController, UITableViewDelegate, UITab
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         selectedSubSubCategory = indexPath.row
-        
         if subsubCaterogies[selectedSubSubCategory].questions != nil && subsubCaterogies[selectedSubSubCategory].questions.count > 0 && subsubCaterogies[selectedSubSubCategory].questions[0].type ?? "" == QuestionTypes.Listening.rawValue{
             
             performSegue(withIdentifier: "QuestionListeningSegue", sender: nil)

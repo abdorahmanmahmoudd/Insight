@@ -8,7 +8,7 @@
 
 import UIKit
 
-class QuestionMcqViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class QuestionMcqViewController: ParentViewController, UITableViewDelegate, UITableViewDataSource, CorrectedQuestion {
     
     @IBOutlet var tableQuestions: IntinsicTableView!
     @IBOutlet var btnShowAnswer: UIButton!
@@ -23,6 +23,9 @@ class QuestionMcqViewController: UIViewController, UITableViewDelegate, UITableV
         configuration()
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -67,6 +70,7 @@ class QuestionMcqViewController: UIViewController, UITableViewDelegate, UITableV
         let cell = tableView.dequeueReusableCell(withIdentifier: "QuestionMcqCell", for: indexPath) as! QuestionMcqTableViewCell
         
         cell.choices = questions[indexPath.section].choices[indexPath.row].choices
+        cell.correctAnswer = questions[indexPath.section].choices[indexPath.row].answer
         cell.tableChoices.allowsSelection = true
         
         if showAnswers {
@@ -91,6 +95,34 @@ class QuestionMcqViewController: UIViewController, UITableViewDelegate, UITableV
                 nav.pushViewController(selfVC, animated: true)
             }
         }
+    }
+    
+    
+    func submitAnswers() {
+        
+        var correctAnswersCounter = 0
+        
+        for section in 0..<tableQuestions.numberOfSections{
+            
+            for row in 0..<tableQuestions.numberOfRows(inSection: section){
+                
+                if let cell = tableQuestions.cellForRow(at: IndexPath.init(row: row, section: section)) as? QuestionMcqTableViewCell{
+                    
+                    cell.tableChoices.allowsSelection = false
+                    
+                    if let indexOfSelectedAnswer = cell.tableChoices.indexPathForSelectedRow{
+                        
+                        if indexOfSelectedAnswer.row == Int(cell.correctAnswer){
+                            
+                            correctAnswersCounter += 1
+                        }
+                    }
+                }
+            }
+        }
+        
+        print("number of correct asnwers: \(correctAnswersCounter)")
+        
     }
 
 }

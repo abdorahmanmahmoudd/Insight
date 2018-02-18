@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SignUpViewController: UIViewController {
+class SignUpViewController: ParentViewController {
 
     @IBOutlet var btnHaveAccount: UIButton!
     @IBOutlet var btnSignUp: UIButton!

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MistakesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextViewDelegate {
+class MistakesViewController: ParentViewController, UITableViewDelegate, UITableViewDataSource, UITextViewDelegate, CorrectedQuestion {
     
     @IBOutlet var tableView: IntinsicTableView!
     @IBOutlet var btnShowAnswer : UIButton!
@@ -102,6 +102,31 @@ class MistakesViewController: UIViewController, UITableViewDelegate, UITableView
                 nav.pushViewController(selfVC, animated: true)
             }
         }
+    }
+    
+    func submitAnswers() {
+        
+        for section in 0..<tableView.numberOfSections {
+            
+            for row in 0..<tableView.numberOfRows(inSection: section){
+                
+                if let cell = tableView.cellForRow(at: IndexPath.init(row: row, section: section)) as? MistakesTableViewCell{
+                    
+                    cell.tvAnswer.isEditable = false
+                    cell.tvMistake.isEditable = false
+                    
+                    if cell.tvAnswer.text.trimmedText().lowercased() == questions[row].mistakes[0].answer.html2String.lowercased() && cell.tvMistake.text.trimmedText().lowercased() == questions[row].mistakes[0].content.html2String.lowercased(){
+                        
+                        cell.tvAnswer.textColor = UIColor.green
+                        
+                    }else {
+                        
+                        cell.tvAnswer.textColor = UIColor.red
+                    }
+                }
+            }
+        }
+        
     }
 
 }

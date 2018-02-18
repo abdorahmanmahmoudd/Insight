@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SignInViewController: UIViewController {
+class SignInViewController: ParentViewController {
 
     @IBOutlet var btnForgetPass: UIButton!
     @IBOutlet var btnSignIn: UIButton!

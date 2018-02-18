@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AntonymQViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextViewDelegate, CorrectedQuestion {
+class AntonymQViewController: ParentViewController, UITableViewDelegate, UITableViewDataSource, UITextViewDelegate, CorrectedQuestion {
 
     @IBOutlet var tableView: IntinsicTableView!
     @IBOutlet var btnShowAnswer: UIButton!

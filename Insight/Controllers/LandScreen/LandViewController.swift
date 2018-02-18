@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LandViewController: UIViewController {
+class LandViewController: ParentViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

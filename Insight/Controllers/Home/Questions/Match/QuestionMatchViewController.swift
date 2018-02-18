@@ -8,7 +8,7 @@
 
 import UIKit
 
-class QuestionMatchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class QuestionMatchViewController: ParentViewController, UITableViewDelegate, UITableViewDataSource, CorrectedQuestion {
 
     @IBOutlet var btnShowAnswer: UIButton!
     @IBOutlet var tableView: IntinsicTableView!
@@ -70,6 +70,30 @@ class QuestionMatchViewController: UIViewController, UITableViewDelegate, UITabl
                 nav.pushViewController(selfVC, animated: true)
             }
         }
+    }
+    
+    func submitAnswers() {
+        
+        for section in 0..<tableView.numberOfSections {
+            
+            for row in 0..<tableView.numberOfRows(inSection: section){
+                
+                if let cell = tableView.cellForRow(at: IndexPath.init(row: row, section: section)) as? QuestionMatchTableViewCell{
+                    
+                    cell.tvAnswer.isEditable = false
+                    
+                    if cell.tvAnswer.text.trimmedText().lowercased() == questions[row].answer.html2String.lowercased(){
+                        
+                        cell.tvAnswer.textColor = UIColor.green
+                        
+                    }else {
+                        
+                        cell.tvAnswer.textColor = UIColor.red
+                    }
+                }
+            }
+        }
+        
     }
 
 }

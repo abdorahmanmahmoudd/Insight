@@ -14,6 +14,7 @@ class QuestionMcqTableViewCell: UITableViewCell, UITableViewDelegate, UITableVie
     @IBOutlet var tableChoices: UITableView!
     
     var choices = [String]()
+    var correctAnswer = String()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -38,10 +39,7 @@ class QuestionMcqTableViewCell: UITableViewCell, UITableViewDelegate, UITableVie
         
         return cell
     }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //handle selection
-        
-    }
+
+
 
 }
