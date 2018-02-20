@@ -14,11 +14,14 @@ class AuthenticationViewController: ParentViewController {
     @IBOutlet var viewBtnSignUpUnderLine: UIView!
     @IBOutlet var viewBtnSignInUnderLine: UIView!
     
+    var isKeyboard = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         initSignInView()
+        configuration()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -34,6 +37,38 @@ class AuthenticationViewController: ParentViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    
+    func configuration(){
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name:NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard (_:)))
+        self.view.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            if !isKeyboard {
+                self.view.frame.size.height -= keyboardSize.height
+                isKeyboard = !isKeyboard
+            }
+        }
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            if isKeyboard{
+                self.view.frame.size.height += keyboardSize.height
+                isKeyboard = !isKeyboard
+            }
+        }
+    }
+    
+    @objc func dismissKeyboard (_ sender: UITapGestureRecognizer) {
+        view.endEditing(true)
     }
     
     @IBAction func btnSignInClicked(_ sender: UIButton) {

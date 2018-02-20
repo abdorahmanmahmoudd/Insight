@@ -8,7 +8,7 @@
 
 import UIKit
 
-var selectedIndex: Int = 0
+var selectedIndex: Int = 0 //refere to the selected side menu item 
 
 class SideMenuViewController: UIViewController ,UITableViewDelegate, UITableViewDataSource{
     
@@ -52,12 +52,16 @@ class SideMenuViewController: UIViewController ,UITableViewDelegate, UITableView
 
         var viewController = UIViewController()
 
-//        if index == 0{ // search
-//
-//            let sb = UIStoryboard.init(name: "SearchingHome", bundle: Bundle.main)
-//            viewController = sb.instantiateViewController(withIdentifier: "SearchVC")
-//
-//        }
+        if index == 0{ // search
+
+            let sb = UIStoryboard.init(name: "Home", bundle: Bundle.main)
+            viewController = sb.instantiateViewController(withIdentifier: "HomeVC")
+
+        }else if index == 1{
+            
+            let sb = UIStoryboard.init(name: "Account", bundle: Bundle.main)
+            viewController = sb.instantiateViewController(withIdentifier: "UserAccountVC")
+        }
         
         
         
@@ -74,8 +78,8 @@ class SideMenuViewController: UIViewController ,UITableViewDelegate, UITableView
         }
         DispatchQueue.main.async {
             self.dismiss(animated: true) {
-//                delegate.setViewControllers([viewController], animated: true)
-                delegate.pushViewController(viewController, animated: true)
+                delegate.setViewControllers([viewController], animated: true)
+//                delegate.pushViewController(viewController, animated: true)
             }
         }
     }

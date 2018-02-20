@@ -32,7 +32,7 @@ class ServerManager: NSObject
 {
     var request:DataRequest?
     //Authentication
-    private var headers = ["Content-Type": "application/json", "Accept": "application/json"]
+    private var headers = ["Content-Type": "application/json"]//, "Accept": "application/json"
     //MARK: - HTTPHandling -
     func httpConnect<A>(resource:Resource<A>, paramters:[String:Any]?, authentication:String?,AdditionalHeaders : [String:String]? = [:] , complation: @escaping (A?, Any?) -> (), errorHandler: @escaping (ErrorCode, Any?) -> ()  )
     {
@@ -58,9 +58,10 @@ class ServerManager: NSObject
                     //print(value!)
                     let parse = resource.parse
                     let result = value.flatMap(parse)
+                    let statusCode = response.response?.statusCode
                     DispatchQueue.main.async
                         {
-                            complation(result, value)
+                            complation(result, statusCode)
                     }
                 case .failure(let error):
                     //print(error._code)

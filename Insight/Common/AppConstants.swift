@@ -7,6 +7,8 @@ let MainIP = "http://www.insight-academy.site/api/v1/"
 let SignUpURL = "\(MainIP)auth/signup"
 let SignInURL = "\(MainIP)auth/login"
 let ForgetPassURL = "\(MainIP)auth/password/forget"
+let EditProfileURL = "\(MainIP)users"
+let ChangePasswordURL = "\(MainIP)password"
 
 
 //MARK: - Colors
@@ -27,6 +29,7 @@ let UserCredentials = "UserCredentials"
 
 
 //MARK: - Constants
+let appVersion = "1"
 let pageSize = 10
 let MavenProMedium = "mavenPro-Medium"
 let MavenProBold = "mavenPro-Bold"

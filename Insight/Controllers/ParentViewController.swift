@@ -27,6 +27,7 @@ class ParentViewController: UIViewController {
     
     func configurations(){
         
+        
 //        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard (_:)))
 //        self.view.addGestureRecognizer(tapGesture)
     }
@@ -34,6 +35,21 @@ class ParentViewController: UIViewController {
 //    @objc func dismissKeyboard (_ sender: UITapGestureRecognizer) {
 //        view.endEditing(true)
 //    }
+    
+    func addSideMenuBtn(){
+        
+        let btn = UIButton.init(type: .custom)
+        btn.setImage(#imageLiteral(resourceName: "icDrawer"), for: .normal)
+        btn.sizeToFit()
+        btn.addTarget(self, action: #selector(self.openSideMenu), for: .touchUpInside)
+        let barBtn = UIBarButtonItem.init(customView: btn)
+        self.navigationItem.leftBarButtonItem = barBtn
+    }
+    
+    @objc func openSideMenu(){
+        
+        SideMenuManager.shared.show(from: self.navigationController!)
+    }
 
     //MARK: - progress hud
     func showLoading()

@@ -30,11 +30,11 @@ class QuestionsContainerViewController: ParentViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
         if subsubCategory != nil {
             
-            presentQuestions(currentQuestion: currentQuestionIndex)
+            self.presentQuestions(currentQuestion: self.currentQuestionIndex)
+            
         }
     }
     
@@ -68,9 +68,7 @@ class QuestionsContainerViewController: ParentViewController {
         if delegate != nil{
             
             questionTimer.invalidate()
-            
-            lblTimer.isHidden = true
-            
+                        
             delegate!.submitAnswers()
             
             btnNextOrSubmit.setTitle("Next", for: .normal)
@@ -104,109 +102,103 @@ class QuestionsContainerViewController: ParentViewController {
     
     func presentQuestions(currentQuestion : Int){
         
+        showLoaderFor(view: self.view)
+        
         if subsubCategory!.questions != nil && subsubCategory!.questions!.count > currentQuestion{
+            self.lblTitle.text = self.subsubCategory?.questions[currentQuestion].title
             
-            switch subsubCategory?.questions[currentQuestion].type {
-                
-            case QuestionTypes.Antonym.rawValue?:
-                self.lblTitle.text = subsubCategory?.questions[currentQuestion].title
-                initAntonymQuestionView()
-                break
-                
-            case QuestionTypes.Complete.rawValue?:
-                self.lblTitle.text = subsubCategory?.questions[currentQuestion].title
-                initCompleteQuestionsView()
-                
-                break
-                
-            case QuestionTypes.Dictation.rawValue?:
-                self.lblTitle.text = subsubCategory?.questions[currentQuestion].title
-                initDictationQuestionView()
-                break
-                
-//            case QuestionTypes.Listening.rawValue?:
-//                self.lblTitle.text = subsubCategory?.questions[currentQuestion].title
-//                initListeningQuestionView()
-//                break
-                
-            case QuestionTypes.Match.rawValue?:
-                self.lblTitle.text = subsubCategory?.questions[currentQuestion].title
-                initMatchQuestionView()
-                break
-                
-            case QuestionTypes.MCQ.rawValue?:
-                self.lblTitle.text = subsubCategory?.questions[currentQuestion].title
-                initMCQQuestionView()
-                break
-                
-            case QuestionTypes.MiniDialog.rawValue?:
-                self.lblTitle.text = subsubCategory?.questions[currentQuestion].title
-                initMiniDialogQuestionView()
-                break
-                
-            case QuestionTypes.Mistakes.rawValue?:
-                self.lblTitle.text = subsubCategory?.questions[currentQuestion].title
-                initMistakesQuestionView()
-                break
-                
-            case QuestionTypes.Rewrite.rawValue?:
-                self.lblTitle.text = subsubCategory?.questions[currentQuestion].title
-                initGeneralQuestionView()
-                break
-                
-            case QuestionTypes.Situations.rawValue?:
-                self.lblTitle.text = subsubCategory?.questions[currentQuestion].title
-                initGeneralQuestionView()
-                break
-                
-            case QuestionTypes.Translation.rawValue?:
-                self.lblTitle.text = subsubCategory?.questions[currentQuestion].title
-                initGeneralQuestionView()
-                break
-                
-            case QuestionTypes.Writing.rawValue?:
-                self.lblTitle.text = subsubCategory?.questions[currentQuestion].title
-                initWritingQuestionView()
-                break
-                
-            case QuestionTypes.Prereading.rawValue?:
-                self.lblTitle.text = subsubCategory?.questions[currentQuestion].title
-                initGeneralQuestionView()
-                break
-                
-            case QuestionTypes.Quotations.rawValue?:
-                self.lblTitle.text = subsubCategory?.questions[currentQuestion].title
-                initQuotationsQuestionView()
-                break
-                
-            case QuestionTypes.TrueFalse.rawValue?:
-                self.lblTitle.text = subsubCategory?.questions[currentQuestion].title
-                initTrueFalseQuestionView()
-                break
-                
-            default:
-                showAlert(title: "Warning", message: "Unexpected question type!", vc: self, closure: {
-                    if self.isNext {
-                        
-                        self.nextQuestion()
-                    }else{
-                        
-                        self.btnPreviousClicked(self.btnPrevious)
-                    }
-                })
-                break
-                
+            // to reload data without adding posts view over each other
+            for view in self.containerViewQuestion.subviews{
+                view.removeFromSuperview()
             }
+            
+            DispatchQueue.global(qos: .userInitiated).async {
+            
+                //
+                print("This is run on the background queue")
+                
+                switch self.subsubCategory?.questions[currentQuestion].type {
+                    
+                case QuestionTypes.Antonym.rawValue?:
+                    self.initAntonymQuestionView()
+                    break
+                    
+                case QuestionTypes.Complete.rawValue?:
+                    self.initCompleteQuestionsView()
+                    break
+                    
+                case QuestionTypes.Dictation.rawValue?:
+                    self.initDictationQuestionView()
+                    break
+                    
+                case QuestionTypes.Match.rawValue?:
+                    self.initMatchQuestionView()
+                    break
+                    
+                case QuestionTypes.MCQ.rawValue?:
+                    self.initMCQQuestionView()
+                    break
+                    
+                case QuestionTypes.MiniDialog.rawValue?:
+                    self.initMiniDialogQuestionView()
+                    break
+                    
+                case QuestionTypes.Mistakes.rawValue?:
+                    self.initMistakesQuestionView()
+                    break
+                    
+                case QuestionTypes.Rewrite.rawValue?:
+                    self.initGeneralQuestionView()
+                    break
+                    
+                case QuestionTypes.Situations.rawValue?:
+                    self.initGeneralQuestionView()
+                    break
+                    
+                case QuestionTypes.Translation.rawValue?:
+                    self.initGeneralQuestionView()
+                    break
+                    
+                case QuestionTypes.Writing.rawValue?:
+                    self.initWritingQuestionView()
+                    break
+                    
+                case QuestionTypes.Prereading.rawValue?:
+                    self.initGeneralQuestionView()
+                    break
+                    
+                case QuestionTypes.Quotations.rawValue?:
+                    self.initQuotationsQuestionView()
+                    break
+                    
+                case QuestionTypes.TrueFalse.rawValue?:
+                    self.initTrueFalseQuestionView()
+                    break
+                    
+                default:
+                    showAlert(title: "Warning", message: "Unexpected question type!", vc: self, closure: {
+                        if self.isNext {
+                            
+                            self.nextQuestion()
+                        }else{
+                            
+                            self.btnPreviousClicked(self.btnPrevious)
+                        }
+                    })
+                    break
+                    
+                }
+                //
+            }
+        
         }
         
     }
     
     func initCompleteQuestionsView(){
         
-        lblTimer.isHidden = true
-        // to reload data without adding posts view over each other
-        for view in containerViewQuestion.subviews{
-            view.removeFromSuperview()
+        DispatchQueue.main.async {
+            self.lblTimer.isHidden = true
         }
         
         let storyboard = UIStoryboard.init(name: "Home", bundle: Bundle.main)
@@ -214,28 +206,33 @@ class QuestionsContainerViewController: ParentViewController {
             
             vc.questions = subsubCategory!.questions[currentQuestionIndex].data
             self.delegate = vc
-            vc.view.translatesAutoresizingMaskIntoConstraints = false
             vc.willMove(toParentViewController: self)
-            self.containerViewQuestion.addSubview(vc.view)
-            vc.view.leadingAnchor.constraint(equalTo: self.containerViewQuestion.leadingAnchor).isActive = true
-            vc.view.trailingAnchor.constraint(equalTo: self.containerViewQuestion.trailingAnchor).isActive = true
-            vc.view.topAnchor.constraint(equalTo: self.containerViewQuestion.topAnchor).isActive = true
-            vc.view.bottomAnchor.constraint(equalTo: self.containerViewQuestion.bottomAnchor).isActive = true
+            
+            DispatchQueue.main.async {
+                vc.view.translatesAutoresizingMaskIntoConstraints = false
+
+                self.containerViewQuestion.addSubview(vc.view)
+                vc.view.leadingAnchor.constraint(equalTo: self.containerViewQuestion.leadingAnchor).isActive = true
+                vc.view.trailingAnchor.constraint(equalTo: self.containerViewQuestion.trailingAnchor).isActive = true
+                vc.view.topAnchor.constraint(equalTo: self.containerViewQuestion.topAnchor).isActive = true
+                vc.view.bottomAnchor.constraint(equalTo: self.containerViewQuestion.bottomAnchor).isActive = true
+                self.btnNextOrSubmit.setTitle("Submit", for: .normal)
+                self.btnNextOrSubmit.removeTarget(nil, action: #selector(self.nextQuestion), for: .touchUpInside)
+                self.btnNextOrSubmit.addTarget(nil, action: #selector(self.submitQuestion), for: .touchUpInside)
+                hideLoaderFor(view: self.view)
+            }
+            
             self.addChildViewController(vc)
             vc.didMove(toParentViewController: self)
             
-            btnNextOrSubmit.setTitle("Submit", for: .normal)
-            btnNextOrSubmit.removeTarget(nil, action: #selector(self.nextQuestion), for: .touchUpInside)
-            btnNextOrSubmit.addTarget(nil, action: #selector(self.submitQuestion), for: .touchUpInside)
+            
         }
     }
     
     func initAntonymQuestionView(){
         
-        lblTimer.isHidden = true
-        // to reload data without adding posts view over each other
-        for view in containerViewQuestion.subviews{
-            view.removeFromSuperview()
+        DispatchQueue.main.async {
+            self.lblTimer.isHidden = true
         }
         
         let storyboard = UIStoryboard.init(name: "Home", bundle: Bundle.main)
@@ -243,19 +240,27 @@ class QuestionsContainerViewController: ParentViewController {
             
             vc.questions = subsubCategory!.questions[currentQuestionIndex].data
             self.delegate = vc
-            vc.view.translatesAutoresizingMaskIntoConstraints = false
             vc.willMove(toParentViewController: self)
-            self.containerViewQuestion.addSubview(vc.view)
-            vc.view.leadingAnchor.constraint(equalTo: self.containerViewQuestion.leadingAnchor).isActive = true
-            vc.view.trailingAnchor.constraint(equalTo: self.containerViewQuestion.trailingAnchor).isActive = true
-            vc.view.topAnchor.constraint(equalTo: self.containerViewQuestion.topAnchor).isActive = true
-            vc.view.bottomAnchor.constraint(equalTo: self.containerViewQuestion.bottomAnchor).isActive = true
+            
+            DispatchQueue.main.async{
+                vc.view.translatesAutoresizingMaskIntoConstraints = false
+
+                self.containerViewQuestion.addSubview(vc.view)
+                vc.view.leadingAnchor.constraint(equalTo: self.containerViewQuestion.leadingAnchor).isActive = true
+                vc.view.trailingAnchor.constraint(equalTo: self.containerViewQuestion.trailingAnchor).isActive = true
+                vc.view.topAnchor.constraint(equalTo: self.containerViewQuestion.topAnchor).isActive = true
+                vc.view.bottomAnchor.constraint(equalTo: self.containerViewQuestion.bottomAnchor).isActive = true
+                self.btnNextOrSubmit.setTitle("Submit", for: .normal)
+                self.btnNextOrSubmit.removeTarget(nil, action: #selector(self.nextQuestion), for: .touchUpInside)
+                self.btnNextOrSubmit.addTarget(nil, action: #selector(self.submitQuestion), for: .touchUpInside)
+                
+                hideLoaderFor(view: self.view)
+            }
+            
             self.addChildViewController(vc)
             vc.didMove(toParentViewController: self)
             
-            btnNextOrSubmit.setTitle("Submit", for: .normal)
-            btnNextOrSubmit.removeTarget(nil, action: #selector(self.nextQuestion), for: .touchUpInside)
-            btnNextOrSubmit.addTarget(nil, action: #selector(self.submitQuestion), for: .touchUpInside)
+            
         }
     }
     
@@ -263,102 +268,78 @@ class QuestionsContainerViewController: ParentViewController {
     
     func initDictationQuestionView(){
         
-        // to reload data without adding posts view over each other
-        for view in containerViewQuestion.subviews{
-            view.removeFromSuperview()
-        }
         
         let storyboard = UIStoryboard.init(name: "Home", bundle: Bundle.main)
         if let vc  = storyboard.instantiateViewController(withIdentifier: "QuestionDictationVC") as? QuestionDictationViewController {
             
             vc.questions = subsubCategory!.questions[currentQuestionIndex].data
             self.delegate = vc
-            vc.view.translatesAutoresizingMaskIntoConstraints = false
             vc.willMove(toParentViewController: self)
-            self.containerViewQuestion.addSubview(vc.view)
-            vc.view.leadingAnchor.constraint(equalTo: self.containerViewQuestion.leadingAnchor).isActive = true
-            vc.view.trailingAnchor.constraint(equalTo: self.containerViewQuestion.trailingAnchor).isActive = true
-            vc.view.topAnchor.constraint(equalTo: self.containerViewQuestion.topAnchor).isActive = true
-            vc.view.bottomAnchor.constraint(equalTo: self.containerViewQuestion.bottomAnchor).isActive = true
+            
+            DispatchQueue.main.async{
+                vc.view.translatesAutoresizingMaskIntoConstraints = false
+
+                self.containerViewQuestion.addSubview(vc.view)
+                vc.view.leadingAnchor.constraint(equalTo: self.containerViewQuestion.leadingAnchor).isActive = true
+                vc.view.trailingAnchor.constraint(equalTo: self.containerViewQuestion.trailingAnchor).isActive = true
+                vc.view.topAnchor.constraint(equalTo: self.containerViewQuestion.topAnchor).isActive = true
+                vc.view.bottomAnchor.constraint(equalTo: self.containerViewQuestion.bottomAnchor).isActive = true
+                
+                self.startTimer(numberOfQuestions: self.subsubCategory!.questions[self.currentQuestionIndex].data.count)
+                self.btnNextOrSubmit.setTitle("Submit", for: .normal)
+                self.btnNextOrSubmit.removeTarget(nil, action: #selector(self.nextQuestion), for: .touchUpInside)
+                self.btnNextOrSubmit.addTarget(nil, action: #selector(self.submitQuestion), for: .touchUpInside)
+                
+                hideLoaderFor(view: self.view)
+            }
+    
             self.addChildViewController(vc)
             vc.didMove(toParentViewController: self)
             
-            startTimer(numberOfQuestions: subsubCategory!.questions[currentQuestionIndex].data.count)
-            btnNextOrSubmit.setTitle("Submit", for: .normal)
-            btnNextOrSubmit.removeTarget(nil, action: #selector(self.nextQuestion), for: .touchUpInside)
-            btnNextOrSubmit.addTarget(nil, action: #selector(self.submitQuestion), for: .touchUpInside)
-        }
-    }
-    func initListeningQuestionView(){
-        
-        // to reload data without adding posts view over each other
-        for view in containerViewQuestion.subviews{
-            view.removeFromSuperview()
-        }
-        
-        let storyboard = UIStoryboard.init(name: "Home", bundle: Bundle.main)
-        if let vc  = storyboard.instantiateViewController(withIdentifier: "QuestionListeningVC") as? QuestionListeningViewController {
             
-            vc.questions = subsubCategory!.questions[currentQuestionIndex].data
-            vc.view.translatesAutoresizingMaskIntoConstraints = false
-            vc.willMove(toParentViewController: self)
-            self.containerViewQuestion.addSubview(vc.view)
-            vc.view.leadingAnchor.constraint(equalTo: self.containerViewQuestion.leadingAnchor).isActive = true
-            vc.view.trailingAnchor.constraint(equalTo: self.containerViewQuestion.trailingAnchor).isActive = true
-            vc.view.topAnchor.constraint(equalTo: self.containerViewQuestion.topAnchor).isActive = true
-            vc.view.bottomAnchor.constraint(equalTo: self.containerViewQuestion.bottomAnchor).isActive = true
-            self.addChildViewController(vc)
-            vc.didMove(toParentViewController: self)
         }
     }
+
     func initMatchQuestionView(){
-        
-        // to reload data without adding posts view over each other
-        for view in containerViewQuestion.subviews{
-            view.removeFromSuperview()
-        }
         
         let storyboard = UIStoryboard.init(name: "Home", bundle: Bundle.main)
         if let vc  = storyboard.instantiateViewController(withIdentifier: "QuestionMatchVC") as? QuestionMatchViewController {
             
             vc.questions = subsubCategory!.questions[currentQuestionIndex].data
             self.delegate = vc
-            vc.view.translatesAutoresizingMaskIntoConstraints = false
             vc.willMove(toParentViewController: self)
-            self.containerViewQuestion.addSubview(vc.view)
-            vc.view.leadingAnchor.constraint(equalTo: self.containerViewQuestion.leadingAnchor).isActive = true
-            vc.view.trailingAnchor.constraint(equalTo: self.containerViewQuestion.trailingAnchor).isActive = true
-            vc.view.topAnchor.constraint(equalTo: self.containerViewQuestion.topAnchor).isActive = true
-            vc.view.bottomAnchor.constraint(equalTo: self.containerViewQuestion.bottomAnchor).isActive = true
+            
+            DispatchQueue.main.async{
+                vc.view.translatesAutoresizingMaskIntoConstraints = false
+
+                self.containerViewQuestion.addSubview(vc.view)
+                vc.view.leadingAnchor.constraint(equalTo: self.containerViewQuestion.leadingAnchor).isActive = true
+                vc.view.trailingAnchor.constraint(equalTo: self.containerViewQuestion.trailingAnchor).isActive = true
+                vc.view.topAnchor.constraint(equalTo: self.containerViewQuestion.topAnchor).isActive = true
+                vc.view.bottomAnchor.constraint(equalTo: self.containerViewQuestion.bottomAnchor).isActive = true
+                
+                self.btnNextOrSubmit.setTitle("Submit", for: .normal)
+                self.btnNextOrSubmit.removeTarget(nil, action: #selector(self.nextQuestion), for: .touchUpInside)
+                self.btnNextOrSubmit.addTarget(nil, action: #selector(self.submitQuestion), for: .touchUpInside)
+                
+                hideLoaderFor(view: self.view)
+            }
+            
             self.addChildViewController(vc)
             vc.didMove(toParentViewController: self)
             
-            btnNextOrSubmit.setTitle("Submit", for: .normal)
-            btnNextOrSubmit.removeTarget(nil, action: #selector(self.nextQuestion), for: .touchUpInside)
-            btnNextOrSubmit.addTarget(nil, action: #selector(self.submitQuestion), for: .touchUpInside)
+            
         }
     }
     func initMCQQuestionView(){
-        
-        // to reload data without adding posts view over each other
-        for view in containerViewQuestion.subviews{
-            view.removeFromSuperview()
-        }
+    
         
         let storyboard = UIStoryboard.init(name: "Home", bundle: Bundle.main)
         if let vc  = storyboard.instantiateViewController(withIdentifier: "QuestionMCQVC") as? QuestionMcqViewController {
             
             vc.questions = subsubCategory!.questions[currentQuestionIndex].data
             self.delegate = vc
-            vc.view.translatesAutoresizingMaskIntoConstraints = false
             vc.willMove(toParentViewController: self)
-            self.containerViewQuestion.addSubview(vc.view)
-            vc.view.leadingAnchor.constraint(equalTo: self.containerViewQuestion.leadingAnchor).isActive = true
-            vc.view.trailingAnchor.constraint(equalTo: self.containerViewQuestion.trailingAnchor).isActive = true
-            vc.view.topAnchor.constraint(equalTo: self.containerViewQuestion.topAnchor).isActive = true
-            vc.view.bottomAnchor.constraint(equalTo: self.containerViewQuestion.bottomAnchor).isActive = true
-            self.addChildViewController(vc)
-            vc.didMove(toParentViewController: self)
             
             var mcqCounter = 0
             for question in 0..<subsubCategory!.questions[currentQuestionIndex].data.count{
@@ -367,59 +348,68 @@ class QuestionsContainerViewController: ParentViewController {
                     mcqCounter += 1
                 }
             }
-            startTimer(numberOfQuestions: mcqCounter)
-            btnNextOrSubmit.setTitle("Submit", for: .normal)
-            btnNextOrSubmit.removeTarget(nil, action: #selector(self.nextQuestion), for: .touchUpInside)
-            btnNextOrSubmit.addTarget(nil, action: #selector(self.submitQuestion), for: .touchUpInside)
+            
+            DispatchQueue.main.async {
+                vc.view.translatesAutoresizingMaskIntoConstraints = false
+            
+                self.containerViewQuestion.addSubview(vc.view)
+                
+                vc.view.leadingAnchor.constraint(equalTo: self.containerViewQuestion.leadingAnchor).isActive = true
+                vc.view.trailingAnchor.constraint(equalTo: self.containerViewQuestion.trailingAnchor).isActive = true
+                vc.view.topAnchor.constraint(equalTo: self.containerViewQuestion.topAnchor).isActive = true
+                vc.view.bottomAnchor.constraint(equalTo: self.containerViewQuestion.bottomAnchor).isActive = true
+                
+                self.startTimer(numberOfQuestions: mcqCounter)
+                self.btnNextOrSubmit.setTitle("Submit", for: .normal)
+                self.btnNextOrSubmit.removeTarget(nil, action: #selector(self.nextQuestion), for: .touchUpInside)
+                self.btnNextOrSubmit.addTarget(nil, action: #selector(self.submitQuestion), for: .touchUpInside)
+                
+                hideLoaderFor(view: self.view)
+            }
+            
+            self.addChildViewController(vc)
+            vc.didMove(toParentViewController: self)
+            
+            
         }
     }
     func initMiniDialogQuestionView(){
-        
-        // to reload data without adding posts view over each other
-        for view in containerViewQuestion.subviews{
-            view.removeFromSuperview()
-        }
         
         let storyboard = UIStoryboard.init(name: "Home", bundle: Bundle.main)
         if let vc  = storyboard.instantiateViewController(withIdentifier: "QuestionMiniDialogVC") as? MiniDialogViewController {
             
             vc.questions = subsubCategory!.questions[currentQuestionIndex].data
-            vc.view.translatesAutoresizingMaskIntoConstraints = false
             vc.willMove(toParentViewController: self)
-            self.containerViewQuestion.addSubview(vc.view)
-            vc.view.leadingAnchor.constraint(equalTo: self.containerViewQuestion.leadingAnchor).isActive = true
-            vc.view.trailingAnchor.constraint(equalTo: self.containerViewQuestion.trailingAnchor).isActive = true
-            vc.view.topAnchor.constraint(equalTo: self.containerViewQuestion.topAnchor).isActive = true
-            vc.view.bottomAnchor.constraint(equalTo: self.containerViewQuestion.bottomAnchor).isActive = true
+            
+            DispatchQueue.main.async {
+                vc.view.translatesAutoresizingMaskIntoConstraints = false
+
+                self.containerViewQuestion.addSubview(vc.view)
+                vc.view.leadingAnchor.constraint(equalTo: self.containerViewQuestion.leadingAnchor).isActive = true
+                vc.view.trailingAnchor.constraint(equalTo: self.containerViewQuestion.trailingAnchor).isActive = true
+                vc.view.topAnchor.constraint(equalTo: self.containerViewQuestion.topAnchor).isActive = true
+                vc.view.bottomAnchor.constraint(equalTo: self.containerViewQuestion.bottomAnchor).isActive = true
+                self.btnNextOrSubmit.setTitle("Next", for: .normal)
+                self.btnNextOrSubmit.removeTarget(nil, action: #selector(self.submitQuestion), for: .touchUpInside)
+                self.btnNextOrSubmit.addTarget(nil, action: #selector(self.nextQuestion), for: .touchUpInside)
+                
+                hideLoaderFor(view: self.view)
+            }
+        
             self.addChildViewController(vc)
             vc.didMove(toParentViewController: self)
             
-            btnNextOrSubmit.setTitle("Next", for: .normal)
-            btnNextOrSubmit.removeTarget(nil, action: #selector(self.submitQuestion), for: .touchUpInside)
-            btnNextOrSubmit.addTarget(nil, action: #selector(self.nextQuestion), for: .touchUpInside)
+            
         }
     }
     func initMistakesQuestionView(){
-        
-        // to reload data without adding posts view over each other
-        for view in containerViewQuestion.subviews{
-            view.removeFromSuperview()
-        }
         
         let storyboard = UIStoryboard.init(name: "Home", bundle: Bundle.main)
         if let vc  = storyboard.instantiateViewController(withIdentifier: "QuestionMistakesVC") as? MistakesViewController {
             
             vc.questions = subsubCategory!.questions[currentQuestionIndex].data
             self.delegate = vc
-            vc.view.translatesAutoresizingMaskIntoConstraints = false
             vc.willMove(toParentViewController: self)
-            self.containerViewQuestion.addSubview(vc.view)
-            vc.view.leadingAnchor.constraint(equalTo: self.containerViewQuestion.leadingAnchor).isActive = true
-            vc.view.trailingAnchor.constraint(equalTo: self.containerViewQuestion.trailingAnchor).isActive = true
-            vc.view.topAnchor.constraint(equalTo: self.containerViewQuestion.topAnchor).isActive = true
-            vc.view.bottomAnchor.constraint(equalTo: self.containerViewQuestion.bottomAnchor).isActive = true
-            self.addChildViewController(vc)
-            vc.didMove(toParentViewController: self)
             
             var mistakesCounter = 0
             for question in 0..<subsubCategory!.questions[currentQuestionIndex].data.count{
@@ -428,126 +418,164 @@ class QuestionsContainerViewController: ParentViewController {
                     mistakesCounter += 1
                 }
             }
-            startTimer(numberOfQuestions: mistakesCounter)
-            btnNextOrSubmit.setTitle("Submit", for: .normal)
-            btnNextOrSubmit.removeTarget(nil, action: #selector(self.nextQuestion), for: .touchUpInside)
-            btnNextOrSubmit.addTarget(nil, action: #selector(self.submitQuestion), for: .touchUpInside)
+            
+            DispatchQueue.main.async{
+                vc.view.translatesAutoresizingMaskIntoConstraints = false
+
+                self.containerViewQuestion.addSubview(vc.view)
+                vc.view.leadingAnchor.constraint(equalTo: self.containerViewQuestion.leadingAnchor).isActive = true
+                vc.view.trailingAnchor.constraint(equalTo: self.containerViewQuestion.trailingAnchor).isActive = true
+                vc.view.topAnchor.constraint(equalTo: self.containerViewQuestion.topAnchor).isActive = true
+                vc.view.bottomAnchor.constraint(equalTo: self.containerViewQuestion.bottomAnchor).isActive = true
+                
+                self.startTimer(numberOfQuestions: mistakesCounter)
+                self.btnNextOrSubmit.setTitle("Submit", for: .normal)
+                self.btnNextOrSubmit.removeTarget(nil, action: #selector(self.nextQuestion), for: .touchUpInside)
+                self.btnNextOrSubmit.addTarget(nil, action: #selector(self.submitQuestion), for: .touchUpInside)
+                
+                hideLoaderFor(view: self.view)
+                
+            }
+    
+            self.addChildViewController(vc)
+            vc.didMove(toParentViewController: self)
+            
         }
     }
     
     func initGeneralQuestionView(){
         
-        // to reload data without adding posts view over each other
-        for view in containerViewQuestion.subviews{
-            view.removeFromSuperview()
-        }
-        
+
         let storyboard = UIStoryboard.init(name: "Home", bundle: Bundle.main)
         if let vc  = storyboard.instantiateViewController(withIdentifier: "GeneralQuestionVC") as? GeneralQuestionViewController {
             
             vc.questions = subsubCategory!.questions[currentQuestionIndex].data
-            vc.view.translatesAutoresizingMaskIntoConstraints = false
             vc.willMove(toParentViewController: self)
-            self.containerViewQuestion.addSubview(vc.view)
-            vc.view.leadingAnchor.constraint(equalTo: self.containerViewQuestion.leadingAnchor).isActive = true
-            vc.view.trailingAnchor.constraint(equalTo: self.containerViewQuestion.trailingAnchor).isActive = true
-            vc.view.topAnchor.constraint(equalTo: self.containerViewQuestion.topAnchor).isActive = true
-            vc.view.bottomAnchor.constraint(equalTo: self.containerViewQuestion.bottomAnchor).isActive = true
+            
+            DispatchQueue.main.async{
+                vc.view.translatesAutoresizingMaskIntoConstraints = false
+                self.containerViewQuestion.addSubview(vc.view)
+                vc.view.leadingAnchor.constraint(equalTo: self.containerViewQuestion.leadingAnchor).isActive = true
+                vc.view.trailingAnchor.constraint(equalTo: self.containerViewQuestion.trailingAnchor).isActive = true
+                vc.view.topAnchor.constraint(equalTo: self.containerViewQuestion.topAnchor).isActive = true
+                vc.view.bottomAnchor.constraint(equalTo: self.containerViewQuestion.bottomAnchor).isActive = true
+             
+                self.btnNextOrSubmit.setTitle("Next", for: .normal)
+                self.btnNextOrSubmit.removeTarget(nil, action: #selector(self.submitQuestion), for: .touchUpInside)
+                self.btnNextOrSubmit.addTarget(nil, action: #selector(self.nextQuestion), for: .touchUpInside)
+                
+                hideLoaderFor(view: self.view)
+            }
+            
             self.addChildViewController(vc)
             vc.didMove(toParentViewController: self)
             
-            btnNextOrSubmit.setTitle("Next", for: .normal)
-            btnNextOrSubmit.removeTarget(nil, action: #selector(self.submitQuestion), for: .touchUpInside)
-            btnNextOrSubmit.addTarget(nil, action: #selector(self.nextQuestion), for: .touchUpInside)
+            
         }
     }
     func initWritingQuestionView(){
         
-        // to reload data without adding posts view over each other
-        for view in containerViewQuestion.subviews{
-            view.removeFromSuperview()
-        }
         
         let storyboard = UIStoryboard.init(name: "Home", bundle: Bundle.main)
         if let vc  = storyboard.instantiateViewController(withIdentifier: "QuestionWritingVC") as? WritingViewController {
             
             vc.questions = subsubCategory!.questions[currentQuestionIndex].data
-            vc.view.translatesAutoresizingMaskIntoConstraints = false
             vc.willMove(toParentViewController: self)
-            self.containerViewQuestion.addSubview(vc.view)
-            vc.view.leadingAnchor.constraint(equalTo: self.containerViewQuestion.leadingAnchor).isActive = true
-            vc.view.trailingAnchor.constraint(equalTo: self.containerViewQuestion.trailingAnchor).isActive = true
-            vc.view.topAnchor.constraint(equalTo: self.containerViewQuestion.topAnchor).isActive = true
-            vc.view.bottomAnchor.constraint(equalTo: self.containerViewQuestion.bottomAnchor).isActive = true
+            
+            DispatchQueue.main.async{
+                vc.view.translatesAutoresizingMaskIntoConstraints = false
+
+                self.containerViewQuestion.addSubview(vc.view)
+                vc.view.leadingAnchor.constraint(equalTo: self.containerViewQuestion.leadingAnchor).isActive = true
+                vc.view.trailingAnchor.constraint(equalTo: self.containerViewQuestion.trailingAnchor).isActive = true
+                vc.view.topAnchor.constraint(equalTo: self.containerViewQuestion.topAnchor).isActive = true
+                vc.view.bottomAnchor.constraint(equalTo: self.containerViewQuestion.bottomAnchor).isActive = true
+                
+                self.btnNextOrSubmit.setTitle("Next", for: .normal)
+                self.btnNextOrSubmit.removeTarget(nil, action: #selector(self.submitQuestion), for: .touchUpInside)
+                self.btnNextOrSubmit.addTarget(nil, action: #selector(self.nextQuestion), for: .touchUpInside)
+                
+                hideLoaderFor(view: self.view)
+                
+            }
+            
             self.addChildViewController(vc)
             vc.didMove(toParentViewController: self)
             
-            btnNextOrSubmit.setTitle("Next", for: .normal)
-            btnNextOrSubmit.removeTarget(nil, action: #selector(self.submitQuestion), for: .touchUpInside)
-            btnNextOrSubmit.addTarget(nil, action: #selector(self.nextQuestion), for: .touchUpInside)
+            
         }
     }
     func initQuotationsQuestionView(){
         
-        // to reload data without adding posts view over each other
-        for view in containerViewQuestion.subviews{
-            view.removeFromSuperview()
-        }
         
         let storyboard = UIStoryboard.init(name: "Home", bundle: Bundle.main)
         if let vc  = storyboard.instantiateViewController(withIdentifier: "QuestionQuotationVC") as? QuotationViewController {
             
             vc.questions = subsubCategory!.questions[currentQuestionIndex].data
-            vc.view.translatesAutoresizingMaskIntoConstraints = false
             vc.willMove(toParentViewController: self)
-            self.containerViewQuestion.addSubview(vc.view)
-            vc.view.leadingAnchor.constraint(equalTo: self.containerViewQuestion.leadingAnchor).isActive = true
-            vc.view.trailingAnchor.constraint(equalTo: self.containerViewQuestion.trailingAnchor).isActive = true
-            vc.view.topAnchor.constraint(equalTo: self.containerViewQuestion.topAnchor).isActive = true
-            vc.view.bottomAnchor.constraint(equalTo: self.containerViewQuestion.bottomAnchor).isActive = true
+            
+            DispatchQueue.main.async{
+                vc.view.translatesAutoresizingMaskIntoConstraints = false
+
+                self.containerViewQuestion.addSubview(vc.view)
+                vc.view.leadingAnchor.constraint(equalTo: self.containerViewQuestion.leadingAnchor).isActive = true
+                vc.view.trailingAnchor.constraint(equalTo: self.containerViewQuestion.trailingAnchor).isActive = true
+                vc.view.topAnchor.constraint(equalTo: self.containerViewQuestion.topAnchor).isActive = true
+                vc.view.bottomAnchor.constraint(equalTo: self.containerViewQuestion.bottomAnchor).isActive = true
+                
+                self.btnNextOrSubmit.setTitle("Next", for: .normal)
+                self.btnNextOrSubmit.removeTarget(nil, action: #selector(self.submitQuestion), for: .touchUpInside)
+                self.btnNextOrSubmit.addTarget(nil, action: #selector(self.nextQuestion), for: .touchUpInside)
+                
+                hideLoaderFor(view: self.view)
+            }
+            
             self.addChildViewController(vc)
             vc.didMove(toParentViewController: self)
             
-            btnNextOrSubmit.setTitle("Next", for: .normal)
-            btnNextOrSubmit.removeTarget(nil, action: #selector(self.submitQuestion), for: .touchUpInside)
-            btnNextOrSubmit.addTarget(nil, action: #selector(self.nextQuestion), for: .touchUpInside)
         }
     }
     func initTrueFalseQuestionView(){
         
-        // to reload data without adding posts view over each other
-        for view in containerViewQuestion.subviews{
-            view.removeFromSuperview()
-        }
         
         let storyboard = UIStoryboard.init(name: "Home", bundle: Bundle.main)
         if let vc  = storyboard.instantiateViewController(withIdentifier: "QuestionTrueFalseVC") as? TrueFalseViewController {
             
             vc.questions = subsubCategory!.questions[currentQuestionIndex].data
             self.delegate = vc
-            vc.view.translatesAutoresizingMaskIntoConstraints = false
             vc.willMove(toParentViewController: self)
-            self.containerViewQuestion.addSubview(vc.view)
-            vc.view.leadingAnchor.constraint(equalTo: self.containerViewQuestion.leadingAnchor).isActive = true
-            vc.view.trailingAnchor.constraint(equalTo: self.containerViewQuestion.trailingAnchor).isActive = true
-            vc.view.topAnchor.constraint(equalTo: self.containerViewQuestion.topAnchor).isActive = true
-            vc.view.bottomAnchor.constraint(equalTo: self.containerViewQuestion.bottomAnchor).isActive = true
+            
+            DispatchQueue.main.async{
+                vc.view.translatesAutoresizingMaskIntoConstraints = false
+
+                self.containerViewQuestion.addSubview(vc.view)
+                vc.view.leadingAnchor.constraint(equalTo: self.containerViewQuestion.leadingAnchor).isActive = true
+                vc.view.trailingAnchor.constraint(equalTo: self.containerViewQuestion.trailingAnchor).isActive = true
+                vc.view.topAnchor.constraint(equalTo: self.containerViewQuestion.topAnchor).isActive = true
+                vc.view.bottomAnchor.constraint(equalTo: self.containerViewQuestion.bottomAnchor).isActive = true
+                
+                self.btnNextOrSubmit.setTitle("Submit", for: .normal)
+                self.btnNextOrSubmit.removeTarget(nil, action: #selector(self.nextQuestion), for: .touchUpInside)
+                self.btnNextOrSubmit.addTarget(nil, action: #selector(self.submitQuestion), for: .touchUpInside)
+                
+                hideLoaderFor(view: self.view)
+            }
+            
             self.addChildViewController(vc)
             vc.didMove(toParentViewController: self)
             
-            btnNextOrSubmit.setTitle("Submit", for: .normal)
-            btnNextOrSubmit.removeTarget(nil, action: #selector(self.nextQuestion), for: .touchUpInside)
-            btnNextOrSubmit.addTarget(nil, action: #selector(self.submitQuestion), for: .touchUpInside)
+            
         }
     }
     
     func startTimer(numberOfQuestions: Int){
 
-        
         timerCounter = questionTimerUnit * numberOfQuestions
         lblTimer.text = timeString(time: TimeInterval.init(questionTimerUnit * numberOfQuestions))
         lblTimer.isHidden = false
-        questionTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.updateTimer), userInfo: nil, repeats: true)
+        self.questionTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.updateTimer), userInfo: nil, repeats: true)
+
+
     }
     
     @objc func updateTimer(){
@@ -558,8 +586,9 @@ class QuestionsContainerViewController: ParentViewController {
             self.submitQuestion()
             
         }else{
-            timerCounter -= 1
-            lblTimer.text = timeString(time: TimeInterval.init(timerCounter))
+            
+            self.timerCounter -= 1
+            self.lblTimer.text = self.timeString(time: TimeInterval.init(self.timerCounter))
         }
     }
     

@@ -39,23 +39,10 @@ class HomeViewController: ParentViewController {
     func configuration(){
         
         SideMenuManager.shared.wire(to: self.navigationController!)
-        configureSideMenuBtn()
+        addSideMenuBtn()
     }
 
-    func configureSideMenuBtn(){
-        
-        let btn = UIButton.init(type: .custom)
-        btn.setImage(#imageLiteral(resourceName: "icDrawer"), for: .normal)
-        btn.sizeToFit()
-        btn.addTarget(self, action: #selector(self.openSideMenu), for: .touchUpInside)
-        let barBtn = UIBarButtonItem.init(customView: btn)
-        self.navigationItem.leftBarButtonItem = barBtn
-    }
     
-    @objc func openSideMenu(){
-        
-        SideMenuManager.shared.show(from: self.navigationController!)
-    }
     
     func fetchContentFile(){
         

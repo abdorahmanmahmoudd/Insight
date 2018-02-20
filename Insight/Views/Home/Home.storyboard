@@ -637,7 +637,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="66.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vw4-99-GhV">
-                                        <rect key="frame" x="57" y="16.5" width="112.5" height="33.5"/>
+                                        <rect key="frame" x="56.5" y="16.5" width="112.5" height="33.5"/>
                                         <fontDescription key="fontDescription" name="MavenPro-Regular" family="Maven Pro" pointSize="18"/>
                                         <state key="normal" title="Previous" backgroundImage="button-noBG-left">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -647,14 +647,14 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zwh-0y-bta">
-                                        <rect key="frame" x="177.5" y="16.5" width="112.5" height="34"/>
+                                        <rect key="frame" x="177" y="16.5" width="112.5" height="34"/>
                                         <fontDescription key="fontDescription" name="MavenPro-Regular" family="Maven Pro" pointSize="18"/>
                                         <state key="normal" title="Submit" backgroundImage="button-noBG-left">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                     </button>
                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OcJ-z6-9FS">
-                                        <rect key="frame" x="331.5" y="25.5" width="35.5" height="16.5"/>
+                                        <rect key="frame" x="331.5" y="26" width="35.5" height="16.5"/>
                                         <fontDescription key="fontDescription" name="MavenPro-Regular" family="Maven Pro" pointSize="14"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -1564,10 +1564,10 @@
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ITI-Ee-5yZ">
-                                <rect key="frame" x="37" y="183.5" width="300" height="300.5"/>
+                                <rect key="frame" x="37.5" y="183.5" width="300" height="300"/>
                                 <subviews>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WSU-s7-KrM">
-                                        <rect key="frame" x="0.0" y="0.0" width="300" height="256"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="255.5"/>
                                         <subviews>
                                             <view clipsSubviews="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="256" translatesAutoresizingMaskIntoConstraints="NO" id="7j1-K9-QsM">
                                                 <rect key="frame" x="0.0" y="0.0" width="300" height="256"/>
@@ -1737,7 +1737,7 @@
                                         </constraints>
                                     </scrollView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M1g-Uk-hR6">
-                                        <rect key="frame" x="0.0" y="256" width="300" height="45"/>
+                                        <rect key="frame" x="0.0" y="255.5" width="300" height="45"/>
                                         <color key="backgroundColor" red="1" green="0.6705882353" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="V8f-rf-Pmc"/>
@@ -2010,7 +2010,7 @@
                                                                     </userDefinedRuntimeAttributes>
                                                                 </view>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q0c-2I-6Aq">
-                                                                    <rect key="frame" x="107" y="288" width="160" height="34"/>
+                                                                    <rect key="frame" x="107.5" y="288" width="160" height="34"/>
                                                                     <fontDescription key="fontDescription" name="MavenPro-Regular" family="Maven Pro" pointSize="18"/>
                                                                     <state key="normal" title="SHOW ANSWER" backgroundImage="button-blueBG">
                                                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2571,7 +2571,7 @@
                                                                     </connections>
                                                                 </textView>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9hy-FX-Urk">
-                                                                    <rect key="frame" x="107" y="104" width="160" height="34"/>
+                                                                    <rect key="frame" x="107.5" y="104" width="160" height="34"/>
                                                                     <fontDescription key="fontDescription" name="MavenPro-Regular" family="Maven Pro" pointSize="18"/>
                                                                     <state key="normal" title="SHOW ANSWER" backgroundImage="button-blueBG">
                                                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2850,13 +2850,13 @@
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uvN-Lm-i8u">
-                                <rect key="frame" x="37" y="183.5" width="300" height="300.5"/>
+                                <rect key="frame" x="37.5" y="183.5" width="300" height="300"/>
                                 <subviews>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AU6-4g-6OG">
-                                        <rect key="frame" x="0.0" y="0.0" width="300" height="256"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="255.5"/>
                                         <subviews>
                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9bZ-II-Sr4">
-                                                <rect key="frame" x="0.0" y="0.0" width="300" height="256"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="300" height="255.5"/>
                                                 <subviews>
                                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6bV-ke-wmw">
                                                         <rect key="frame" x="8" y="111" width="284" height="34.5"/>
@@ -2898,7 +2898,7 @@
                                         </constraints>
                                     </scrollView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9ZN-8P-U1m">
-                                        <rect key="frame" x="0.0" y="256" width="300" height="45"/>
+                                        <rect key="frame" x="0.0" y="255.5" width="300" height="45"/>
                                         <color key="backgroundColor" red="1" green="0.6705882353" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="IAc-uB-2ge"/>

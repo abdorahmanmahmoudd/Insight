@@ -78,7 +78,7 @@ class IntinsicTableView : UITableView {
     
     override var contentSize: CGSize{
         didSet{
-            self.invalidateIntrinsicContentSize()
+                self.invalidateIntrinsicContentSize()
         }
     }
     

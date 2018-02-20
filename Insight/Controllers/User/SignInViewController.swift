@@ -21,7 +21,6 @@ class SignInViewController: ParentViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        configuration()
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,36 +28,6 @@ class SignInViewController: ParentViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func configuration(){
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name:NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
-        
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard (_:)))
-        self.view.addGestureRecognizer(tapGesture)
-    }
-    
-    @objc func keyboardWillShow(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-            if !isKeyboard {
-                self.view.frame.size.height -= keyboardSize.height
-                isKeyboard = !isKeyboard
-            }
-        }
-    }
-    
-    @objc func keyboardWillHide(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-            if isKeyboard{
-                self.view.frame.size.height += keyboardSize.height
-                isKeyboard = !isKeyboard
-            }
-        }
-    }
-    
-    @objc func dismissKeyboard (_ sender: UITapGestureRecognizer) {
-        view.endEditing(true)
-    }
     
     @IBAction func btnForgetClicked(_ sender: UIButton) {
         
@@ -66,11 +35,10 @@ class SignInViewController: ParentViewController {
     }
     
     @IBAction func btnSignInClicked(_ sender: UIButton) {
-        self.openHome()
-//        if dataIsValid(){
-//
-//            signIn()
-//        }
+        if dataIsValid(){
+
+            signIn()
+        }
     }
 
     func dataIsValid() -> Bool{
@@ -104,35 +72,37 @@ class SignInViewController: ParentViewController {
         showLoaderFor(view: self.view)
         
         let um = UserModel()
-        um.SignIn(phone: txtFieldPhone.text!, pass: txtFieldPass.text!, complation: { (json, data) in
+        um.SignIn(phone: txtFieldPhone.text!, pass: txtFieldPass.text!, complation: { (json, code) in
             
             hideLoaderFor(view: self.view)
             self.btnSignIn.isEnabled = true
             self.btnForgetPass.isEnabled = true
             
-            if let obj = json {
+            if let statusCode = code as? Int{
                 
-                if obj.user != nil && obj.token != nil{
+                if statusCode == 200{
                     
-                    UserModel.getInstance.saveUser(obj)
-                    self.openHome()
-                    
-                }else if let errs = data as? [String:Any] {
-                    
-                    if let err =  errs["error"] {
-                        
-                        showAlert(title: "", message: "\(err)"  , vc: self, closure: nil)
+                    if let user = json as? AuthRootClass{
+                     
+                        UserModel.getInstance.saveUser(user)
+                        self.openHome()
                     }
+                }else if statusCode == 401{ //unauthorized
+                    
+                    showAlert(title: "", message: "Invalid username or password", vc: self, closure: nil)
+                }else{
+                    
+                    showAlert(title: "", message: "Error code \(statusCode)"  , vc: self, closure: nil)
                 }
-                
             }
+            
             
         }) { (error, msg) in
             
             self.btnSignIn.isEnabled = true
             self.btnForgetPass.isEnabled = true
             hideLoaderFor(view: self.view)
-            showAlert(title: "", message: "Failed to sign in", vc: self, closure: nil)
+            showAlert(title: "", message: "Failed to sign in \n Please check your internet connection", vc: self, closure: nil)
 
         }
     }

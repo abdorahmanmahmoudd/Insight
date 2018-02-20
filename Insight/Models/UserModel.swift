@@ -68,7 +68,7 @@ class UserModel {
         
         let sm = ServerManager()
         UserModel.AuthResource.url = SignInURL
-        sm.httpConnect(resource: UserModel.AuthResource, paramters: ["mobile" : phone , "password" : pass ], authentication: nil, complation:
+        sm.httpConnect(resource: UserModel.AuthResource, paramters: ["mobile" : phone , "password" : pass,"device_id": UIDevice.current.identifierForVendor?.uuidString, "platform": "ios" ], authentication: nil, AdditionalHeaders: ["version":appVersion], complation:
             { (json, data) in
                 if let obj = json
                 {
@@ -85,7 +85,7 @@ class UserModel {
         
         let sm = ServerManager()
         UserModel.AuthResource.url = SignUpURL
-        sm.httpConnect(resource: UserModel.AuthResource, paramters: ["name" : name , "mobile" : mobile , "password" : pass , "governorate" : governorate, "school" : school ,"email" : email ], authentication: nil, complation:
+        sm.httpConnect(resource: UserModel.AuthResource, paramters: ["name" : name , "mobile" : mobile , "password" : pass , "governorate" : governorate, "school" : school ,"email" : email, "device_id": UIDevice.current.identifierForVendor?.uuidString, "platform": "ios" ], authentication: nil, AdditionalHeaders: ["version":appVersion], complation:
             { (json, data) in
                 if let obj = json
                 {
@@ -102,6 +102,59 @@ class UserModel {
         
         let sm = ServerManager()
         sm.httpConnect(resource: UserModel.AuthResource, paramters: ["email" : email], authentication: nil, complation:
+            { (json, data) in
+                if let obj = json
+                {
+                    complation(obj, data)
+                }
+        })
+        { (error, msg) in
+            
+            errorHandler(error, msg)
+        }
+    }
+    
+    func editProfile(name: String, phone: String, govern: String, email: String, school: String, complation: @escaping (GeneralResponse?, Any?) -> (), errorHandler: @escaping (ErrorCode, Any?) -> ()){
+        
+        let sm = ServerManager()
+        let editProfileResource = Resource<GeneralResponse>.init(url: EditProfileURL, httpmethod: .put) { (json) -> GeneralResponse? in
+            
+            if let jsonObj = json as? [String : Any]
+            {
+                let content = GeneralResponse(fromDictionary: jsonObj)
+                return content
+            }
+            return nil
+        }
+        sm.httpConnect(resource: editProfileResource, paramters: ["name": name,
+            "mobile": phone,"governorate": govern,"email": email,
+            "school": school ], authentication: UserModel.getInstance.getUser()?.token,AdditionalHeaders: ["version": appVersion], complation:
+            { (json, data) in
+                if let obj = json
+                {
+                    complation(obj, data)
+                }
+        })
+        { (error, msg) in
+            
+            errorHandler(error, msg)
+        }
+    }
+    
+    
+    func changePassword(current: String, new: String,  complation: @escaping (GeneralResponse?, Any?) -> (), errorHandler: @escaping (ErrorCode, Any?) -> ()){
+        
+        let sm = ServerManager()
+        let changePassResource = Resource<GeneralResponse>.init(url: ChangePasswordURL, httpmethod: .put) { (json) -> GeneralResponse? in
+            
+            if let jsonObj = json as? [String : Any]
+            {
+                let content = GeneralResponse(fromDictionary: jsonObj)
+                return content
+            }
+            return nil
+        }
+        sm.httpConnect(resource: changePassResource, paramters: ["oldPassword": current,"newPassword": new ], authentication: UserModel.getInstance.getUser()?.token,AdditionalHeaders: ["version": appVersion], complation:
             { (json, data) in
                 if let obj = json
                 {

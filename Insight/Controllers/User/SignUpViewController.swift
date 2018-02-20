@@ -28,43 +28,11 @@ class SignUpViewController: ParentViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        configuration()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    func configuration(){
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name:NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
-        
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard (_:)))
-        self.view.addGestureRecognizer(tapGesture)
-    }
-    
-    @objc func keyboardWillShow(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-            if !isKeyboard {
-                self.view.frame.size.height -= keyboardSize.height
-                isKeyboard = !isKeyboard
-            }
-        }
-    }
-    
-    @objc func keyboardWillHide(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-            if isKeyboard{
-                self.view.frame.size.height += keyboardSize.height
-                isKeyboard = !isKeyboard
-            }
-        }
-    }
-    
-    @objc func dismissKeyboard (_ sender: UITapGestureRecognizer) {
-        view.endEditing(true)
     }
     
     @IBAction func btnSignUpClicked(_ sender: UIButton) {
@@ -144,26 +112,36 @@ class SignUpViewController: ParentViewController {
         showLoaderFor(view: self.view)
         
         let um = UserModel()
-        um.SignUp(name: tfName.text!, mobile: tfPhone.text!, pass: tfPass.text!, governorate: tfGovern.text!, school: tfSchool.text!, email: tfEmail.text!, complation: { (json, data) in
+        um.SignUp(name: tfName.text!, mobile: tfPhone.text!, pass: tfPass.text!, governorate: tfGovern.text!, school: tfSchool.text!, email: tfEmail.text!, complation: { (json, code) in
             
             hideLoaderFor(view: self.view)
             self.btnSignUp.isEnabled = true
             self.btnHaveAccount.isEnabled = true
             
-            if let obj = json {
+            if let statusCode = code as? Int {
                 
-                if obj.user != nil && obj.token != nil{
+                if statusCode == 201 { // registered successfully
                     
-                    print("registered successfully")
-                    
-                }else if let errs = data as? [String:Any] {
-                    
-                    if let err =  errs["error"] as? [String:Any], errs.count > 0{
+                    if let user = json{
                         
-                        showAlert(title: "", message: "\(err)"  , vc: self, closure: nil)
+                        UserModel.getInstance.saveUser(user)
+                        showAlert(title: "", message: "User registered successfully", vc: self, closure: {
+                            
+                            if self.delegate != nil {
+                                
+                                self.delegate?.initSignInView()
+                            }
+                        })
                     }
+                    
+                }else if statusCode == 400{ // bad request
+                    
+                    showAlert(title: "Bad request", message: "\(json)"  , vc: self, closure: nil)
+                    
+                }else { // unknown error
+                    
+                    showAlert(title: "", message: "Error code \(statusCode)"  , vc: self, closure: nil)
                 }
-                
             }
             
             
@@ -172,7 +150,7 @@ class SignUpViewController: ParentViewController {
             self.btnSignUp.isEnabled = true
             self.btnHaveAccount.isEnabled = true
             hideLoaderFor(view: self.view)
-            showAlert(title: "", message: "Failed to sign up", vc: self, closure: nil)
+            showAlert(title: "", message: "Failed to sign up \n please check your internet connection", vc: self, closure: nil)
             
         }
     }

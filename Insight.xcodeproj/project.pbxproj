@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		37CF4B43B70845F6FFD7E7DB /* Pods_Insight.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6BB51FC6CCE498E490B9F12 /* Pods_Insight.framework */; };
+		BD0E781A203AE289001003B5 /* Account.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD0E7819203AE289001003B5 /* Account.storyboard */; };
+		BD0E781C203AE344001003B5 /* UserAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0E781B203AE344001003B5 /* UserAccountViewController.swift */; };
+		BD0E781E203B95F6001003B5 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0E781D203B95F6001003B5 /* ChangePasswordViewController.swift */; };
 		BD1478B8202330E00090A481 /* QuestionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1478B3202330DF0090A481 /* QuestionData.swift */; };
 		BD1478B9202330E00090A481 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1478B4202330E00090A481 /* Question.swift */; };
 		BD1478BA202330E00090A481 /* SubCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1478B5202330E00090A481 /* SubCategory.swift */; };
@@ -62,6 +65,7 @@
 		BD9A4B5E2027682100DCCAE6 /* QuestionDictationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9A4B5D2027682100DCCAE6 /* QuestionDictationViewController.swift */; };
 		BD9A4B61202775B800DCCAE6 /* QuestionListeningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9A4B60202775B800DCCAE6 /* QuestionListeningViewController.swift */; };
 		BD9A4B63202775D200DCCAE6 /* QuestionListeningTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9A4B62202775D200DCCAE6 /* QuestionListeningTableViewCell.swift */; };
+		BDA5B8B1203BA5070009DD31 /* ChangePasswordResponse .swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA5B8B0203BA5070009DD31 /* ChangePasswordResponse .swift */; };
 		BDAA57F8202CEF9900C32AA9 /* MistakesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDAA57F7202CEF9900C32AA9 /* MistakesViewController.swift */; };
 		BDAA57FA202CEFAF00C32AA9 /* MistakesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDAA57F9202CEFAF00C32AA9 /* MistakesTableViewCell.swift */; };
 		BDAA5807202CFA9600C32AA9 /* GeneralQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDAA5806202CFA9600C32AA9 /* GeneralQuestionViewController.swift */; };
@@ -90,6 +94,9 @@
 		018E49D3A5B90AA814EA38F8 /* Pods-Insight.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Insight.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Insight/Pods-Insight.debug.xcconfig"; sourceTree = "<group>"; };
 		26A23FCDB9BC4A55412DA1D2 /* Pods-Insight.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Insight.release.xcconfig"; path = "Pods/Target Support Files/Pods-Insight/Pods-Insight.release.xcconfig"; sourceTree = "<group>"; };
 		A6BB51FC6CCE498E490B9F12 /* Pods_Insight.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Insight.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD0E7819203AE289001003B5 /* Account.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Account.storyboard; sourceTree = "<group>"; };
+		BD0E781B203AE344001003B5 /* UserAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccountViewController.swift; sourceTree = "<group>"; };
+		BD0E781D203B95F6001003B5 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
 		BD1478B3202330DF0090A481 /* QuestionData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionData.swift; sourceTree = "<group>"; };
 		BD1478B4202330E00090A481 /* Question.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		BD1478B5202330E00090A481 /* SubCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubCategory.swift; sourceTree = "<group>"; };
@@ -150,6 +157,7 @@
 		BD9A4B5D2027682100DCCAE6 /* QuestionDictationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionDictationViewController.swift; sourceTree = "<group>"; };
 		BD9A4B60202775B800DCCAE6 /* QuestionListeningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionListeningViewController.swift; sourceTree = "<group>"; };
 		BD9A4B62202775D200DCCAE6 /* QuestionListeningTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionListeningTableViewCell.swift; sourceTree = "<group>"; };
+		BDA5B8B0203BA5070009DD31 /* ChangePasswordResponse .swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ChangePasswordResponse .swift"; sourceTree = "<group>"; };
 		BDAA57F7202CEF9900C32AA9 /* MistakesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MistakesViewController.swift; sourceTree = "<group>"; };
 		BDAA57F9202CEFAF00C32AA9 /* MistakesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MistakesTableViewCell.swift; sourceTree = "<group>"; };
 		BDAA5806202CFA9600C32AA9 /* GeneralQuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralQuestionViewController.swift; sourceTree = "<group>"; };
@@ -521,6 +529,7 @@
 			isa = PBXGroup;
 			children = (
 				BDD184DF201FA0CE006EBAB9 /* Authentication.storyboard */,
+				BD0E7819203AE289001003B5 /* Account.storyboard */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -532,6 +541,8 @@
 				BD27EEDD201FF02D007872E0 /* SignInViewController.swift */,
 				BD1B1EA82020F17E0000D813 /* SignUpViewController.swift */,
 				BD1B1EBE202113A60000D813 /* ForgetPasswordViewController.swift */,
+				BD0E781B203AE344001003B5 /* UserAccountViewController.swift */,
+				BD0E781D203B95F6001003B5 /* ChangePasswordViewController.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -539,6 +550,7 @@
 		BDD184DE201F9CEF006EBAB9 /* Contracts */ = {
 			isa = PBXGroup;
 			children = (
+				BDA5B8B0203BA5070009DD31 /* ChangePasswordResponse .swift */,
 				BD1A0C702022DA850019B3CB /* InsightContent */,
 				BD1B1EB72020F7AF0000D813 /* Auth */,
 			);
@@ -622,6 +634,7 @@
 				BD1B1EDB2021389F0000D813 /* SideMenuViewController.storyboard in Resources */,
 				BD27EEE0201FF353007872E0 /* LaunchScreen.storyboard in Resources */,
 				BDD184C7201F9ABD006EBAB9 /* Assets.xcassets in Resources */,
+				BD0E781A203AE289001003B5 /* Account.storyboard in Resources */,
 				BD5378E8202FA5B7005BDE85 /* QuestionGeneralHeader.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -721,11 +734,13 @@
 				BDAA580E202D118400C32AA9 /* WritingViewController.swift in Sources */,
 				BDE45FF22037A69A0078C557 /* MiniDialogAnswersViewController.swift in Sources */,
 				BD9A4B5B202767F200DCCAE6 /* QuestionDictationTableViewCell.swift in Sources */,
+				BDA5B8B1203BA5070009DD31 /* ChangePasswordResponse .swift in Sources */,
 				BDB624932028CB0E0007B261 /* McqChoiceTableViewCell.swift in Sources */,
 				BDD184DB201F9BE2006EBAB9 /* LandViewController.swift in Sources */,
 				BD1FF8462023EBC900FC74C2 /* QuestionsContainerViewController.swift in Sources */,
 				BDB6248C2028C2C20007B261 /* Choice.swift in Sources */,
 				BD1FF8412023CB4E00FC74C2 /* SubClass.swift in Sources */,
+				BD0E781E203B95F6001003B5 /* ChangePasswordViewController.swift in Sources */,
 				BDAA5813202D14A500C32AA9 /* QuotationViewController.swift in Sources */,
 				BD1B1EDA202135720000D813 /* HomeViewController.swift in Sources */,
 				BD1478BB202330E00090A481 /* SubSubCategory.swift in Sources */,
@@ -744,6 +759,7 @@
 				BDAA5815202D14BB00C32AA9 /* QuotationTableViewCell.swift in Sources */,
 				BDB624912028CA410007B261 /* QuestionMcqTableViewCell.swift in Sources */,
 				BD1478BA202330E00090A481 /* SubCategory.swift in Sources */,
+				BD0E781C203AE344001003B5 /* UserAccountViewController.swift in Sources */,
 				BD3DA401202B009500CCB7B0 /* Mistake.swift in Sources */,
 				BD39AD4520275A7000DC03B3 /* QuestionAntonymTableViewCell.swift in Sources */,
 				BD1B1EAD2020F6090000D813 /* AppConstants.swift in Sources */,

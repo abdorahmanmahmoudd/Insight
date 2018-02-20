@@ -19,5 +19,10 @@ class GeneralTableViewHeader: UITableViewHeaderFooterView {
         // Drawing code
     }
     */
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        self.tintColor = UIColor.clear
+    }
 
 }

@@ -40,7 +40,6 @@
                     <state key="normal" image="flag-noBG"/>
                 </button>
             </subviews>
-            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="u23-ec-0L8" secondAttribute="trailing" constant="8" id="9bC-yg-1G6"/>
                 <constraint firstItem="jJR-1u-Gce" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="8" id="9sL-Tp-lwY"/>
