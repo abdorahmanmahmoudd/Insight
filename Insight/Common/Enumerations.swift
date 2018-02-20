@@ -57,3 +57,25 @@ enum QuestionTypes : String {
     case Quotations = "Quotations"
     case TrueFalse = "TrueFalse"
 }
+
+enum Flag : Int{
+
+    case Critical = 1
+    case Essential = 2
+    case Important = 3
+    
+    static let names: [Flag : String] = [
+    
+        .Important : "Important",
+        .Essential : "Essential",
+        .Critical : "Critical"
+    ]
+    
+    var string : String{
+        return Flag.names[self] ?? ""
+    }
+    
+}
+
+
+
