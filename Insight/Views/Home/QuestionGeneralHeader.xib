@@ -31,7 +31,7 @@
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                     <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES"/>
                 </textView>
-                <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u23-ec-0L8">
+                <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u23-ec-0L8" customClass="flagBtn" customModule="Insight" customModuleProvider="target">
                     <rect key="frame" x="421" y="8" width="22" height="22"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="22" id="SId-zZ-Iq6"/>

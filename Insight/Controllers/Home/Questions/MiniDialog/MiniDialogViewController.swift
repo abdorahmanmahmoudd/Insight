@@ -30,6 +30,8 @@ class MiniDialogViewController: ParentViewController , UITableViewDelegate, UITa
         
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 300
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.updateRow(_:)), name: NSNotification.Name("MiniDialogUpdateFlag"), object: nil)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -49,6 +51,20 @@ class MiniDialogViewController: ParentViewController , UITableViewDelegate, UITa
         cell.showAnswerHandler = { [weak self] in
             
             self?.showAnswerHandler(cell: $0)
+        }
+        
+        cell.btnFlag.notificationName = "MiniDialogUpdateFlag"
+        cell.btnFlag.indexPath = indexPath
+        cell.btnFlag.defaultImage = #imageLiteral(resourceName: "flag-noBG")
+        cell.btnFlag.questionId = questions[indexPath.row].id
+        let predicateQuery = NSPredicate.init(format: "Id == %@", questions[indexPath.row].id)
+        if let fv = realm?.objects(FlaggedQuestion.self).filter(predicateQuery).first?.flagValue {
+            
+            cell.btnFlag.flagValue = fv
+        }
+        if cell.btnFlag.allTargets.count == 0{
+            
+            cell.btnFlag.addTarget(self, action: #selector(self.openEditFlagVC(_:)), for: .touchUpInside)
         }
         
         return cell
@@ -75,6 +91,23 @@ class MiniDialogViewController: ParentViewController , UITableViewDelegate, UITa
             vc.modalPresentationStyle = .overCurrentContext
             vc.modalTransitionStyle = .crossDissolve
             self.present(vc, animated: true, completion: nil)
+        }
+    }
+    
+    @objc func updateRow(_ notification: NSNotification){
+        
+        if let index = notification.userInfo?["indexPath"] as? IndexPath{
+            
+            print("\(index)")
+            
+            let btn = (tableView.cellForRow(at: index) as? MiniDialogTableViewCell)?.btnFlag
+            
+            let predicateQuery = NSPredicate.init(format: "Id == %@", btn?.questionId ?? "")
+            
+            if let fq = realm?.objects(FlaggedQuestion.self).filter(predicateQuery).first {
+                print("\(fq)")
+                btn?.flagValue = fq.flagValue
+            }
         }
     }
     

@@ -10,6 +10,7 @@ import UIKit
 
 class QuestionMatchTableViewCell: UITableViewCell {
     
+    @IBOutlet var btnFlag: UIButton!
     @IBOutlet var tfAnswerNumber: UITextField!
     @IBOutlet var viewContent: UIView!
     @IBOutlet var viewAnswer: UIView!

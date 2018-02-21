@@ -1257,8 +1257,8 @@
                                                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                                             <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES"/>
                                                                         </textView>
-                                                                        <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kmw-gk-LbJ">
-                                                                            <rect key="frame" x="150.5" y="8" width="22" height="22"/>
+                                                                        <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kmw-gk-LbJ" customClass="flagBtn" customModule="Insight" customModuleProvider="target">
+                                                                            <rect key="frame" x="142.5" y="8" width="22" height="22"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" constant="22" id="PEE-B7-tgU"/>
                                                                                 <constraint firstAttribute="height" constant="22" id="ePq-hH-Ie4"/>
@@ -1282,7 +1282,7 @@
                                                                     </subviews>
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="trailing" secondItem="kmw-gk-LbJ" secondAttribute="trailing" id="9ZT-4S-D9n"/>
+                                                                        <constraint firstAttribute="trailing" secondItem="kmw-gk-LbJ" secondAttribute="trailing" constant="8" id="9ZT-4S-D9n"/>
                                                                         <constraint firstItem="bsC-Z0-ojc" firstAttribute="centerY" secondItem="nFz-AZ-glz" secondAttribute="centerY" id="IsP-Qv-AzV"/>
                                                                         <constraint firstItem="kuG-xe-9tg" firstAttribute="leading" secondItem="nFz-AZ-glz" secondAttribute="trailing" id="L8J-Uk-aEu"/>
                                                                         <constraint firstItem="kmw-gk-LbJ" firstAttribute="top" secondItem="1qq-MD-h92" secondAttribute="top" constant="8" id="Qf7-jL-8PN"/>
@@ -1310,6 +1310,7 @@
                                                         </tableViewCellContentView>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <connections>
+                                                            <outlet property="btnFlag" destination="kmw-gk-LbJ" id="Ikh-WB-uEx"/>
                                                             <outlet property="tfAnswerNumber" destination="bsC-Z0-ojc" id="vfm-XR-biY"/>
                                                             <outlet property="tvAnswer" destination="kuG-xe-9tg" id="crF-Z9-9Sv"/>
                                                             <outlet property="tvContent" destination="73k-FG-pKK" id="Dvv-gc-6UF"/>
@@ -1840,7 +1841,7 @@
                                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                                     <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES"/>
                                                                 </textView>
-                                                                <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Shr-AL-qAa">
+                                                                <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Shr-AL-qAa" customClass="flagBtn" customModule="Insight" customModuleProvider="target">
                                                                     <rect key="frame" x="337" y="16" width="22" height="22"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="22" id="ZG1-TX-RQz"/>
@@ -2035,6 +2036,7 @@
                                                         </tableViewCellContentView>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <connections>
+                                                            <outlet property="btnFlag" destination="Shr-AL-qAa" id="dAh-wi-zIm"/>
                                                             <outlet property="tvContent" destination="HtP-T5-AGl" id="UeQ-MS-cw9"/>
                                                             <outlet property="tvFunctionAA" destination="8On-fn-TxC" id="hYr-tm-15h"/>
                                                             <outlet property="tvFunctionBA" destination="i1F-am-jMh" id="t18-1u-G84"/>
@@ -2152,12 +2154,13 @@
                                                                         <outlet property="delegate" destination="doh-h0-jwM" id="1XF-3o-pD5"/>
                                                                     </connections>
                                                                 </textView>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZYU-Je-zhq">
-                                                                    <rect key="frame" x="301.5" y="17.5" width="30" height="30"/>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZYU-Je-zhq">
+                                                                    <rect key="frame" x="301.5" y="18" width="30" height="30"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="30" id="0M5-jw-azs"/>
                                                                         <constraint firstAttribute="height" constant="30" id="Rkm-g4-1wM"/>
                                                                     </constraints>
+                                                                    <state key="normal" image="Revision"/>
                                                                 </button>
                                                             </subviews>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -2178,7 +2181,7 @@
                                                         </tableViewCellContentView>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <connections>
-                                                            <outlet property="btnFlag" destination="ZYU-Je-zhq" id="S2Z-Vq-OOJ"/>
+                                                            <outlet property="btnAddMistake" destination="ZYU-Je-zhq" id="S2Z-Vq-OOJ"/>
                                                             <outlet property="tvAnswer" destination="tGl-lE-qs5" id="S3d-Zw-SH7"/>
                                                             <outlet property="tvMistake" destination="Orc-Is-NZO" id="377-X5-mct"/>
                                                         </connections>
@@ -2285,7 +2288,7 @@
                                                                     </attributedString>
                                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                                 </textView>
-                                                                <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rIf-gw-O0S">
+                                                                <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rIf-gw-O0S" customClass="flagBtn" customModule="Insight" customModuleProvider="target">
                                                                     <rect key="frame" x="337" y="16" width="22" height="22"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="22" id="E0g-et-n0d"/>
@@ -2347,6 +2350,7 @@
                                                         </tableViewCellContentView>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <connections>
+                                                            <outlet property="btnFlag" destination="rIf-gw-O0S" id="SoZ-Wq-ggm"/>
                                                             <outlet property="tvAnswer" destination="Wex-Hk-45x" id="9Cm-5C-zEa"/>
                                                             <outlet property="tvContent" destination="w7r-vM-IR3" id="suu-wJ-Slp"/>
                                                         </connections>
@@ -2439,7 +2443,7 @@
                                                                     </attributedString>
                                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                                 </textView>
-                                                                <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zgZ-xW-k1H">
+                                                                <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zgZ-xW-k1H" customClass="flagBtn" customModule="Insight" customModuleProvider="target">
                                                                     <rect key="frame" x="337" y="16" width="22" height="22"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="22" id="iY6-HR-lz9"/>
@@ -2694,7 +2698,7 @@
                                                                     </attributedString>
                                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                                 </textView>
-                                                                <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sgu-sX-1eR">
+                                                                <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sgu-sX-1eR" customClass="flagBtn" customModule="Insight" customModuleProvider="target">
                                                                     <rect key="frame" x="345" y="20" width="22" height="22"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="22" id="cRr-3Z-1hz"/>

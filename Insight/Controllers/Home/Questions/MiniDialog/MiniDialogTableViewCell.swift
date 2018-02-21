@@ -10,6 +10,7 @@ import UIKit
 
 class MiniDialogTableViewCell: UITableViewCell {
 
+    @IBOutlet var btnFlag: flagBtn!
     @IBOutlet var tvFunctionBA: UITextView!
     @IBOutlet var tvFunctionAA: UITextView!
     @IBOutlet var tvSpeakerBA: UITextView!

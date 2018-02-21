@@ -36,6 +36,8 @@ class QuotationViewController: ParentViewController, UITableViewDelegate, UITabl
         tableView.estimatedRowHeight = 500
         
         tableView.register(UINib.init(nibName: "QuestionGeneralHeader", bundle: Bundle.main), forHeaderFooterViewReuseIdentifier: "QuestionGeneralHeader")
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.updateRow(_:)), name: NSNotification.Name("QuotationUpdateFlag"), object: nil)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -44,9 +46,23 @@ class QuotationViewController: ParentViewController, UITableViewDelegate, UITabl
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
-        let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "QuestionGeneralHeader")
+        let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "QuestionGeneralHeader") as! GeneralTableViewHeader
         
-        (headerView as? GeneralTableViewHeader)?.tvContent.text = questions[section].content.html2String
+        headerView.tvContent.text = questions[section].content.html2String
+        
+        (headerView.btnFlag as! flagBtn).notificationName = "QuotationUpdateFlag"
+        (headerView.btnFlag as! flagBtn).indexPath = IndexPath.init(row: 0, section: section)
+        (headerView.btnFlag as! flagBtn).defaultImage = #imageLiteral(resourceName: "flag-noBG")
+        (headerView.btnFlag as! flagBtn).questionId = questions[section].id
+        let predicateQuery = NSPredicate.init(format: "Id == %@", questions[section].id)
+        if let fv = realm?.objects(FlaggedQuestion.self).filter(predicateQuery).first?.flagValue {
+            
+            (headerView.btnFlag as! flagBtn).flagValue = fv
+        }
+        if headerView.btnFlag.allTargets.count == 0{
+            
+            headerView.btnFlag.addTarget(self, action: #selector(self.openEditFlagVC(_:)), for: .touchUpInside)
+        }
         
         return headerView
         
@@ -73,4 +89,21 @@ class QuotationViewController: ParentViewController, UITableViewDelegate, UITabl
         textView.text.removeAll()
     }
     
+    @objc func updateRow(_ notification: NSNotification){
+        
+        if let index = notification.userInfo?["indexPath"] as? IndexPath{
+            
+            print("\(index)")
+            
+            let btn = (tableView.headerView(forSection: index.section) as? GeneralTableViewHeader)?.btnFlag as? flagBtn
+            
+            let predicateQuery = NSPredicate.init(format: "Id == %@", btn?.questionId ?? "")
+            
+            if let fq = realm?.objects(FlaggedQuestion.self).filter(predicateQuery).first {
+                print("\(fq)")
+                btn?.flagValue = fq.flagValue
+            }
+        }
+    }
+
 }

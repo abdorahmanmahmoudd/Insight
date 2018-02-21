@@ -93,7 +93,24 @@ class IntinsicTableView : UITableView {
 class flagBtn : UIButton {
     
     var questionId = String()
-    var flagValue = 0
-    
+    var flagValue : Int = 0{
+        
+        willSet(newValue){
+            
+            switch newValue {
+            case 1:
+                self.setImage(#imageLiteral(resourceName: "flag-red"), for: .normal)
+            case 2:
+                self.setImage(#imageLiteral(resourceName: "flag-orange"), for: .normal)
+            case 3:
+                self.setImage(#imageLiteral(resourceName: "flag-yellow"), for: .normal)
+            default:
+                self.setImage(#imageLiteral(resourceName: "flag-blacked"), for: .normal)
+            }
+        }
+    }
+    var indexPath = IndexPath()
+    var notificationName = String()
+    var defaultImage = #imageLiteral(resourceName: "flag-blacked")
 }
 

@@ -38,6 +38,8 @@ class TrueFalseViewController: ParentViewController, UITableViewDelegate, UITabl
             btnShowAnswer.isHidden = true
             self.navigationController?.isNavigationBarHidden = false
         }
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.updateRow(_:)), name: NSNotification.Name("TrueFalseUpdateFlag"), object: nil)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -49,6 +51,20 @@ class TrueFalseViewController: ParentViewController, UITableViewDelegate, UITabl
         
         cell.tvContent.text = questions[indexPath.row].content.html2String
         cell.tvAnswer.isEditable = true
+        
+        cell.btnFlag.notificationName = "TrueFalseUpdateFlag"
+        cell.btnFlag.indexPath = indexPath
+        cell.btnFlag.defaultImage = #imageLiteral(resourceName: "flag-noBG")
+        cell.btnFlag.questionId = questions[indexPath.row].id
+        let predicateQuery = NSPredicate.init(format: "Id == %@", questions[indexPath.row].id)
+        if let fv = realm?.objects(FlaggedQuestion.self).filter(predicateQuery).first?.flagValue {
+            
+            cell.btnFlag.flagValue = fv
+        }
+        if cell.btnFlag.allTargets.count == 0{
+            
+            cell.btnFlag.addTarget(self, action: #selector(self.openEditFlagVC(_:)), for: .touchUpInside)
+        }
         
         if showAnswers{
             
@@ -108,6 +124,22 @@ class TrueFalseViewController: ParentViewController, UITableViewDelegate, UITabl
                 }
             }
         }
+    }
+    
+    @objc func updateRow(_ notification: NSNotification){
         
+        if let index = notification.userInfo?["indexPath"] as? IndexPath{
+            
+            print("\(index)")
+            
+            let btn = (tableView.cellForRow(at: index) as? TrueFalseTableViewCell)?.btnFlag
+            
+            let predicateQuery = NSPredicate.init(format: "Id == %@", btn?.questionId ?? "")
+            
+            if let fq = realm?.objects(FlaggedQuestion.self).filter(predicateQuery).first {
+                print("\(fq)")
+                btn?.flagValue = fq.flagValue
+            }
+        }
     }
 }

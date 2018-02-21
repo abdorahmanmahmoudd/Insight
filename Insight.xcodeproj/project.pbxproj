@@ -45,6 +45,7 @@
 		BD2141D12039D4980083B242 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = BD2141D02039D4980083B242 /* MBProgressHUD.m */; };
 		BD27EEDE201FF02D007872E0 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD27EEDD201FF02D007872E0 /* SignInViewController.swift */; };
 		BD27EEE0201FF353007872E0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD27EEDF201FF353007872E0 /* LaunchScreen.storyboard */; };
+		BD2EF68A203DB2A70003B96B /* FlagRealmObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2EF689203DB2A70003B96B /* FlagRealmObjects.swift */; };
 		BD39AD412027447F00DC03B3 /* QuestionCompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD39AD402027447F00DC03B3 /* QuestionCompleteViewController.swift */; };
 		BD39AD432027449A00DC03B3 /* QuestionCompleteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD39AD422027449A00DC03B3 /* QuestionCompleteTableViewCell.swift */; };
 		BD39AD4520275A7000DC03B3 /* QuestionAntonymTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD39AD4420275A7000DC03B3 /* QuestionAntonymTableViewCell.swift */; };
@@ -142,6 +143,7 @@
 		BD2141D02039D4980083B242 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		BD27EEDD201FF02D007872E0 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		BD27EEDF201FF353007872E0 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BD2EF689203DB2A70003B96B /* FlagRealmObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlagRealmObjects.swift; sourceTree = "<group>"; };
 		BD39AD402027447F00DC03B3 /* QuestionCompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionCompleteViewController.swift; sourceTree = "<group>"; };
 		BD39AD422027449A00DC03B3 /* QuestionCompleteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionCompleteTableViewCell.swift; sourceTree = "<group>"; };
 		BD39AD4420275A7000DC03B3 /* QuestionAntonymTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionAntonymTableViewCell.swift; sourceTree = "<group>"; };
@@ -333,6 +335,14 @@
 				BD2141D02039D4980083B242 /* MBProgressHUD.m */,
 			);
 			name = MBProgressHUD;
+			sourceTree = "<group>";
+		};
+		BD2EF688203DB28D0003B96B /* Flag */ = {
+			isa = PBXGroup;
+			children = (
+				BD2EF689203DB2A70003B96B /* FlagRealmObjects.swift */,
+			);
+			path = Flag;
 			sourceTree = "<group>";
 		};
 		BD39AD3E20273ED100DC03B3 /* Complete */ = {
@@ -581,6 +591,7 @@
 		BDD184DE201F9CEF006EBAB9 /* Contracts */ = {
 			isa = PBXGroup;
 			children = (
+				BD2EF688203DB28D0003B96B /* Flag */,
 				BDA5B8B0203BA5070009DD31 /* ChangePasswordResponse .swift */,
 				BD1A0C702022DA850019B3CB /* InsightContent */,
 				BD1B1EB72020F7AF0000D813 /* Auth */,
@@ -682,11 +693,15 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Insight/Pods-Insight-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SpinKit/SpinKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SpinKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -807,6 +822,7 @@
 				BD1B1EA92020F17E0000D813 /* SignUpViewController.swift in Sources */,
 				BD96772120234A5C0078B0A3 /* SubCategoryTableViewCell.swift in Sources */,
 				BD1B1ED12021349D0000D813 /* SideMenuAnimationController.swift in Sources */,
+				BD2EF68A203DB2A70003B96B /* FlagRealmObjects.swift in Sources */,
 				BDAA5810202D12EE00C32AA9 /* SubQuestion.swift in Sources */,
 				BD5378EA202FA6C0005BDE85 /* GeneralTableViewHeader.swift in Sources */,
 				BD47F1CE202353E900ABEBF5 /* Enumerations.swift in Sources */,

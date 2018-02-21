@@ -37,10 +37,6 @@ class QuestionsContainerViewController: ParentViewController {
             
         }
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -60,6 +56,8 @@ class QuestionsContainerViewController: ParentViewController {
             currentQuestionIndex += 1
             lblTimer.isHidden = true
             hideLoading()
+            btnPrevious.isEnabled = false
+            btnNextOrSubmit.isEnabled = false
             presentQuestions(currentQuestion: currentQuestionIndex)
         }
         
@@ -90,6 +88,9 @@ class QuestionsContainerViewController: ParentViewController {
     @IBAction func btnPreviousClicked(_ sender: UIButton) {
         
         if currentQuestionIndex > 0{
+            
+            btnPrevious.isEnabled = false
+            btnNextOrSubmit.isEnabled = false
             isNext = false
             currentQuestionIndex -= 1
             presentQuestions(currentQuestion: currentQuestionIndex)
@@ -222,6 +223,8 @@ class QuestionsContainerViewController: ParentViewController {
                 self.btnNextOrSubmit.removeTarget(nil, action: #selector(self.nextQuestion), for: .touchUpInside)
                 self.btnNextOrSubmit.addTarget(nil, action: #selector(self.submitQuestion), for: .touchUpInside)
                 hideLoaderFor(view: self.view)
+                self.btnPrevious.isEnabled = true
+                self.btnNextOrSubmit.isEnabled = true
             }
             
             self.addChildViewController(vc)
@@ -257,6 +260,8 @@ class QuestionsContainerViewController: ParentViewController {
                 self.btnNextOrSubmit.addTarget(nil, action: #selector(self.submitQuestion), for: .touchUpInside)
                 
                 hideLoaderFor(view: self.view)
+                self.btnPrevious.isEnabled = true
+                self.btnNextOrSubmit.isEnabled = true
             }
             
             self.addChildViewController(vc)
@@ -293,6 +298,8 @@ class QuestionsContainerViewController: ParentViewController {
                 self.btnNextOrSubmit.addTarget(nil, action: #selector(self.submitQuestion), for: .touchUpInside)
                 
                 hideLoaderFor(view: self.view)
+                self.btnPrevious.isEnabled = true
+                self.btnNextOrSubmit.isEnabled = true
             }
     
             self.addChildViewController(vc)
@@ -325,6 +332,8 @@ class QuestionsContainerViewController: ParentViewController {
                 self.btnNextOrSubmit.addTarget(nil, action: #selector(self.submitQuestion), for: .touchUpInside)
                 
                 hideLoaderFor(view: self.view)
+                self.btnPrevious.isEnabled = true
+                self.btnNextOrSubmit.isEnabled = true
             }
             
             self.addChildViewController(vc)
@@ -367,6 +376,8 @@ class QuestionsContainerViewController: ParentViewController {
                 self.btnNextOrSubmit.addTarget(nil, action: #selector(self.submitQuestion), for: .touchUpInside)
                 
                 hideLoaderFor(view: self.view)
+                self.btnPrevious.isEnabled = true
+                self.btnNextOrSubmit.isEnabled = true
             }
             
             self.addChildViewController(vc)
@@ -396,6 +407,8 @@ class QuestionsContainerViewController: ParentViewController {
                 self.btnNextOrSubmit.addTarget(nil, action: #selector(self.nextQuestion), for: .touchUpInside)
                 
                 hideLoaderFor(view: self.view)
+                self.btnPrevious.isEnabled = true
+                self.btnNextOrSubmit.isEnabled = true
             }
         
             self.addChildViewController(vc)
@@ -436,6 +449,8 @@ class QuestionsContainerViewController: ParentViewController {
                 self.btnNextOrSubmit.addTarget(nil, action: #selector(self.submitQuestion), for: .touchUpInside)
                 
                 hideLoaderFor(view: self.view)
+                self.btnPrevious.isEnabled = true
+                self.btnNextOrSubmit.isEnabled = true
                 
             }
     
@@ -467,6 +482,8 @@ class QuestionsContainerViewController: ParentViewController {
                 self.btnNextOrSubmit.addTarget(nil, action: #selector(self.nextQuestion), for: .touchUpInside)
                 
                 hideLoaderFor(view: self.view)
+                self.btnPrevious.isEnabled = true
+                self.btnNextOrSubmit.isEnabled = true
             }
             
             self.addChildViewController(vc)
@@ -498,6 +515,8 @@ class QuestionsContainerViewController: ParentViewController {
                 self.btnNextOrSubmit.addTarget(nil, action: #selector(self.nextQuestion), for: .touchUpInside)
                 
                 hideLoaderFor(view: self.view)
+                self.btnPrevious.isEnabled = true
+                self.btnNextOrSubmit.isEnabled = true
                 
             }
             
@@ -530,6 +549,8 @@ class QuestionsContainerViewController: ParentViewController {
                 self.btnNextOrSubmit.addTarget(nil, action: #selector(self.nextQuestion), for: .touchUpInside)
                 
                 hideLoaderFor(view: self.view)
+                self.btnPrevious.isEnabled = true
+                self.btnNextOrSubmit.isEnabled = true
             }
             
             self.addChildViewController(vc)
@@ -561,6 +582,8 @@ class QuestionsContainerViewController: ParentViewController {
                 self.btnNextOrSubmit.addTarget(nil, action: #selector(self.submitQuestion), for: .touchUpInside)
                 
                 hideLoaderFor(view: self.view)
+                self.btnPrevious.isEnabled = true
+                self.btnNextOrSubmit.isEnabled = true
             }
             
             self.addChildViewController(vc)

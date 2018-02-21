@@ -10,6 +10,7 @@ import UIKit
 
 class GeneralQuestionTableViewCell: UITableViewCell {
 
+    @IBOutlet var btnFlag: flagBtn!
     @IBOutlet var tvAnswer: UnderLinedTextView!
     @IBOutlet var tvContent: UITextView!
     

@@ -14,7 +14,7 @@ class TrueFalseTableViewCell: UITableViewCell {
     @IBOutlet var btnTrue: UIButton!
     @IBOutlet var btnFalse: UIButton!
     @IBOutlet var tvContent: UITextView!
-    @IBOutlet var btnFlag: UIButton!
+    @IBOutlet var btnFlag: flagBtn!
     
     var selectedAnswer = -1
     
