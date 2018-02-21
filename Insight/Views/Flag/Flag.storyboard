@@ -113,7 +113,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="Xjx-tz-PC7">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                             </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="400" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wuP-jc-auA">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="400" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wuP-jc-auA" customClass="IntinsicTableView" customModule="Insight" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="20" width="375" height="400"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -136,29 +136,34 @@
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5MO-Iy-l5v">
-                                                    <rect key="frame" x="323" y="24.5" width="36" height="31"/>
-                                                    <state key="normal" backgroundImage="unselectedFlag"/>
-                                                    <connections>
-                                                        <action selector="btnFlagClicked:" destination="4lJ-Mv-wRc" eventType="touchUpInside" id="103-xa-MTC"/>
-                                                    </connections>
-                                                </button>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="unselectedFlag" translatesAutoresizingMaskIntoConstraints="NO" id="eMH-oe-dGs">
+                                                    <rect key="frame" x="315" y="21.5" width="36" height="36"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="eMH-oe-dGs" secondAttribute="height" multiplier="1:1" id="hCR-He-jZe"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="seletedFlag" translatesAutoresizingMaskIntoConstraints="NO" id="qoY-2X-XOg">
+                                                    <rect key="frame" x="315" y="21.5" width="36" height="36"/>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="NhY-4G-Ao1" firstAttribute="centerX" secondItem="17m-AF-ihQ" secondAttribute="centerX" multiplier="0.3" id="05X-0z-HMp"/>
-                                                <constraint firstAttribute="trailing" secondItem="5MO-Iy-l5v" secondAttribute="trailing" constant="16" id="3dN-oh-SGr"/>
-                                                <constraint firstItem="5MO-Iy-l5v" firstAttribute="width" secondItem="NhY-4G-Ao1" secondAttribute="width" id="5q6-Sf-qaD"/>
-                                                <constraint firstItem="5MO-Iy-l5v" firstAttribute="centerY" secondItem="NhY-4G-Ao1" secondAttribute="centerY" id="KwH-W5-o1F"/>
+                                                <constraint firstItem="qoY-2X-XOg" firstAttribute="width" secondItem="qoY-2X-XOg" secondAttribute="height" multiplier="1:1" id="3EA-s0-zK4"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="eMH-oe-dGs" secondAttribute="trailing" constant="16" id="5Zv-od-uUQ"/>
+                                                <constraint firstItem="eMH-oe-dGs" firstAttribute="width" secondItem="NhY-4G-Ao1" secondAttribute="width" id="B9R-tM-gHd"/>
                                                 <constraint firstItem="Jum-oG-6cT" firstAttribute="centerY" secondItem="NhY-4G-Ao1" secondAttribute="centerY" id="Npj-9y-oy1"/>
                                                 <constraint firstItem="NhY-4G-Ao1" firstAttribute="centerY" secondItem="17m-AF-ihQ" secondAttribute="centerY" id="OKb-5d-axy"/>
+                                                <constraint firstItem="eMH-oe-dGs" firstAttribute="centerY" secondItem="NhY-4G-Ao1" secondAttribute="centerY" id="Twh-cB-spp"/>
+                                                <constraint firstItem="qoY-2X-XOg" firstAttribute="width" secondItem="NhY-4G-Ao1" secondAttribute="width" id="VOB-8w-MfV"/>
+                                                <constraint firstItem="qoY-2X-XOg" firstAttribute="centerY" secondItem="NhY-4G-Ao1" secondAttribute="centerY" id="ZWt-w3-vUE"/>
                                                 <constraint firstItem="Jum-oG-6cT" firstAttribute="leading" secondItem="NhY-4G-Ao1" secondAttribute="trailing" constant="8" id="h1k-Su-Lyo"/>
-                                                <constraint firstItem="5MO-Iy-l5v" firstAttribute="width" secondItem="NhY-4G-Ao1" secondAttribute="height" multiplier="1:1" id="maS-W9-2mM"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="qoY-2X-XOg" secondAttribute="trailing" constant="16" id="k8d-BL-ewT"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
-                                            <outlet property="btnFlagSelected" destination="5MO-Iy-l5v" id="fMV-KH-XYS"/>
                                             <outlet property="imgFlag" destination="NhY-4G-Ao1" id="TyL-zy-I9y"/>
+                                            <outlet property="imgIsSelected" destination="qoY-2X-XOg" id="9Pe-ZK-SfS"/>
                                             <outlet property="lblFlag" destination="Jum-oG-6cT" id="kUy-mU-O79"/>
                                         </connections>
                                     </tableViewCell>
@@ -222,6 +227,7 @@
         <image name="background" width="374" height="644"/>
         <image name="button-blueBG" width="160" height="34"/>
         <image name="button-whiteBG" width="160" height="34"/>
+        <image name="seletedFlag" width="35" height="29"/>
         <image name="unselectedFlag" width="31" height="31"/>
     </resources>
 </document>

@@ -52,6 +52,11 @@ class AntonymQViewController: ParentViewController, UITableViewDelegate, UITable
         cell.tvContent.text = questions[indexPath.row].content.html2String
         cell.tvAnswer.isEditable = true
         
+        if cell.btnFlag.allTargets.count == 0 {
+            
+            cell.btnFlag.addTarget(self, action: #selector(self.openEditFlagVC(_:)), for: .touchUpInside)
+        }
+        
         if showAnswers{
             
             cell.tvAnswer.text = questions[indexPath.row].answer.html2String

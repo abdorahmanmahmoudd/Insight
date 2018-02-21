@@ -52,6 +52,13 @@ class QuestionDictationViewController: ParentViewController, UITableViewDelegate
         cell.tvContent.text = questions[indexPath.row].content.html2String
         cell.tvAnswer.isEditable = true
         
+        (cell.btnFlag as! flagBtn).questionId = questions[indexPath.row].id
+        
+        if cell.btnFlag.allTargets.count == 0{
+            
+            cell.btnFlag.addTarget(self, action: #selector(self.openEditFlagVC(_:)), for: .touchUpInside)
+        }
+        
         if showAnswers{
             
             cell.tvAnswer.text = questions[indexPath.row].answer.html2String
@@ -60,6 +67,7 @@ class QuestionDictationViewController: ParentViewController, UITableViewDelegate
         
         return cell
     }
+
     
     func textViewDidChange(_ textView: UITextView) {
         tableView.beginUpdates()

@@ -90,3 +90,10 @@ class IntinsicTableView : UITableView {
     
 }
 
+class flagBtn : UIButton {
+    
+    var questionId = String()
+    var flagValue = 0
+    
+}
+

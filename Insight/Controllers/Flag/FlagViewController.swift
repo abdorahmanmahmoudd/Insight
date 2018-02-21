@@ -25,6 +25,7 @@ class FlagViewController: ParentViewController, UITableViewDelegate, UITableView
         super.viewWillAppear(animated)
         
         selectedIndex = 3
+        self.navigationController?.isNavigationBarHidden = false
     }
 
     override func didReceiveMemoryWarning() {

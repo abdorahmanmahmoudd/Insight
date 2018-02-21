@@ -26,6 +26,4 @@ class QuestionCompleteTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
-    @IBAction func btnFlagClicked(_ sender: UIButton) {
-    }
 }

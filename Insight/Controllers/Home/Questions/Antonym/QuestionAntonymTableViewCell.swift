@@ -13,7 +13,7 @@ class QuestionAntonymTableViewCell: UITableViewCell {
     @IBOutlet var tvAnswer: UnderLinedTextView!
     @IBOutlet var tvContent: UITextView!
     @IBOutlet var btnFlag: UIButton!
-    
+        
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -24,7 +24,7 @@ class QuestionAntonymTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    @IBAction func btnFlagClicked(_ sender: UIButton) {
-    }
+ 
+    
     
 }

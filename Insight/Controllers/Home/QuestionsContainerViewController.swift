@@ -58,6 +58,8 @@ class QuestionsContainerViewController: ParentViewController {
         if currentQuestionIndex < subsubCategory!.questions.count - 1{
             isNext = true
             currentQuestionIndex += 1
+            lblTimer.isHidden = true
+            hideLoading()
             presentQuestions(currentQuestion: currentQuestionIndex)
         }
         

@@ -63,14 +63,17 @@ class ParentViewController: UIViewController {
     {
         self.hud?.hide(animated: true)
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    @objc func openEditFlagVC(_ sender: flagBtn){
+        
+        let sb = UIStoryboard.init(name: "Flag", bundle: Bundle.main)
+        if let vc = sb.instantiateViewController(withIdentifier: "EditFlagVC") as? EditFlagViewController{
+            
+            vc.flagValue = sender.flagValue
+            vc.questionId = sender.questionId
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
-    */
+   
 
 }

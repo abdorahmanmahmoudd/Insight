@@ -9,19 +9,29 @@
 import UIKit
 
 class EditFlagTableViewCell: UITableViewCell {
+    
     @IBOutlet var imgFlag: UIImageView!
     @IBOutlet var lblFlag: UILabel!
-    @IBOutlet var btnFlagSelected: UIButton!
+    @IBOutlet var imgIsSelected: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+        if selected {
+            
+            imgIsSelected.image = #imageLiteral(resourceName: "seletedFlag")
+            
+        }else{
+            
+            imgIsSelected.image = UIImage()
+        }
     }
 
     @IBAction func btnFlagClicked(_ sender: UIButton) {
