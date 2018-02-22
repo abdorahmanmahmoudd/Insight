@@ -14,6 +14,7 @@ class SubSubCategoryViewController: ParentViewController, UITableViewDelegate, U
     
     var subsubCaterogies = [SubSubCategory]()
     var selectedSubSubCategory = Int()
+    var flagFilter : Flag?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,7 +64,38 @@ class SubSubCategoryViewController: ParentViewController, UITableViewDelegate, U
             
             if let des = segue.destination as? QuestionsContainerViewController{
                 
-                des.subsubCategory = subsubCaterogies[selectedSubSubCategory]
+                if flagFilter == nil {
+                    des.subsubCategory = subsubCaterogies[selectedSubSubCategory]
+                    
+                }else{
+                
+                    do {
+                        let predicateQuery = NSPredicate.init(format: "flagValue == %@", flagFilter?.rawValue ?? 0)
+                        
+                        let flaggedQuestions = realm?.objects(FlaggedQuestion.self).filter(predicateQuery)
+                        
+                        if let questionsIDs = flaggedQuestions?.map({ (item) -> String in
+                            item.Id
+                        }){
+                            
+                            let filteredQuestions = subsubCaterogies[selectedSubSubCategory].questions.filter({ (question) -> Bool in
+                                questionsIDs.contains(String(question.id))
+                            })
+                            subsubCaterogies[selectedSubSubCategory].questions = filteredQuestions
+                            des.subsubCategory = subsubCaterogies[selectedSubSubCategory]
+                            
+                        }else{
+                            
+                            des.subsubCategory = subsubCaterogies[selectedSubSubCategory]
+                        }
+                        
+                    }catch let err {
+                        
+                        showAlert(title: "", message: err.localizedDescription, vc: self, closure: nil)
+                    }
+                    
+                }
+                
             }
         }else if segue.identifier == "QuestionListeningSegue"{
             

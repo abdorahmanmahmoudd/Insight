@@ -12,12 +12,13 @@ class HomeViewController: ParentViewController {
     
     @IBOutlet var viewsHome: [UIView]!
     var insightContent = [InsightContentRootClass]()
+    var flagFilter: Flag?
+    var homeTitle = "Home"
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        setStyle()
         configuration()
         loadContentFile()
     }
@@ -32,14 +33,19 @@ class HomeViewController: ParentViewController {
         selectedIndex = 0
     }
     
-    func setStyle(){
-        self.title = "Home"
-    }
-    
     func configuration(){
         
         SideMenuManager.shared.wire(to: self.navigationController!)
-        addSideMenuBtn()
+        if flagFilter == nil{
+            
+            addSideMenuBtn()
+
+        }else {
+            
+            homeTitle = flagFilter?.string ?? "Home"
+        }
+        self.title = homeTitle
+
     }
 
     
@@ -187,6 +193,7 @@ class HomeViewController: ParentViewController {
                 des.subCategory = insightContent[((sender as? UIButton)?.tag)! - 1 ].subCategory
                 let title = Categories(rawValue: ((sender as? UIButton)?.tag)!)?.desc ?? ""
                 des.titleText = title
+                des.flagFilter = self.flagFilter
             }
         }
     }

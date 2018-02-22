@@ -13,6 +13,8 @@ class FlagViewController: ParentViewController, UITableViewDelegate, UITableView
     
     @IBOutlet var tableView: UITableView!
     
+    var selectedFilter : Flag?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -54,8 +56,18 @@ class FlagViewController: ParentViewController, UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let selectedFlag = Flag(rawValue: indexPath.row)
-        print(selectedFlag?.string)
+        selectedFilter = Flag(rawValue: indexPath.row + 1)
+        performSegue(withIdentifier: "HomeSegue", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "HomeSegue"{
+            
+            if let des = segue.destination as? HomeViewController{
+                
+                des.flagFilter = selectedFilter
+            }
+        }
     }
     
 

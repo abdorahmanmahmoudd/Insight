@@ -14,7 +14,7 @@ class SubCategoryViewController: ParentViewController, UITableViewDelegate, UITa
     
     var subCategory = [SubCategory]()
     var titleText = String()
-    
+    var flagFilter : Flag?
     var selectedSubCategory = Int()
     
     override func viewDidLoad() {
@@ -64,6 +64,7 @@ class SubCategoryViewController: ParentViewController, UITableViewDelegate, UITa
             if let des = segue.destination  as? SubSubCategoryViewController{
                 
                 des.subsubCaterogies = subCategory[selectedSubCategory].subSubCategory
+                des.flagFilter = self.flagFilter
             }
         }
     }

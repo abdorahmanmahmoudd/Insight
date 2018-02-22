@@ -18,6 +18,14 @@
         </array>
     </customFonts>
     <scenes>
+        <!--HomeVC-->
+        <scene sceneID="HsL-7H-0R5">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Home" referencedIdentifier="HomeVC" id="0JW-Oo-m9R" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iNd-qQ-KOO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="515" y="167"/>
+        </scene>
         <!--Flag View Controller-->
         <scene sceneID="beW-8n-WVa">
             <objects>
@@ -96,11 +104,12 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="Khr-1p-W0Q" id="UrB-jj-8o6"/>
+                        <segue destination="0JW-Oo-m9R" kind="show" identifier="HomeSegue" id="bOZ-eA-Avr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HDl-vl-HEJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="176.80000000000001" y="167.76611694152925"/>
+            <point key="canvasLocation" x="-151" y="168"/>
         </scene>
         <!--Edit Flag View Controller-->
         <scene sceneID="BlQ-pK-Lnz">

@@ -50,7 +50,7 @@
             </objects>
             <point key="canvasLocation" x="-884" y="173"/>
         </scene>
-        <!--Home-->
+        <!--Home View Controller-->
         <scene sceneID="UH7-Uz-d3z">
             <objects>
                 <viewController storyboardIdentifier="HomeVC" id="PwW-LA-6Pe" customClass="HomeViewController" customModule="Insight" customModuleProvider="target" sceneMemberID="viewController">
@@ -271,7 +271,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Zlg-tm-hAq"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Home" id="vjM-QM-x6N"/>
+                    <navigationItem key="navigationItem" id="vjM-QM-x6N"/>
                     <connections>
                         <outletCollection property="viewsHome" destination="ekc-f1-hIE" collectionClass="NSMutableArray" id="gAF-w2-MVm"/>
                         <outletCollection property="viewsHome" destination="fOt-KU-jjz" collectionClass="NSMutableArray" id="4Pn-Pz-HiK"/>
