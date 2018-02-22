@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class SubSubCategoryViewController: ParentViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -70,21 +71,25 @@ class SubSubCategoryViewController: ParentViewController, UITableViewDelegate, U
                 }else{
                 
                     do {
-                        let predicateQuery = NSPredicate.init(format: "flagValue == %@", flagFilter?.rawValue ?? 0)
+                        
+                        let predicateQuery = NSPredicate.init(format: "flagValue == %d", flagFilter!.rawValue )
                         
                         let flaggedQuestions = realm?.objects(FlaggedQuestion.self).filter(predicateQuery)
                         
-                        if let questionsIDs = flaggedQuestions?.map({ (item) -> String in
-                            item.Id
-                        }){
+                        if let questionsIDs = flaggedQuestions?.map ({ $0.Id }) {
                             
-                            let filteredQuestions = subsubCaterogies[selectedSubSubCategory].questions.filter({ (question) -> Bool in
-                                questionsIDs.contains(String(question.id))
-                            })
-                            subsubCaterogies[selectedSubSubCategory].questions = filteredQuestions
+                            for i in 0..<subsubCaterogies[selectedSubSubCategory].questions.count{
+                                
+                                let filteredQuestions = subsubCaterogies[selectedSubSubCategory].questions[i].data.filter({ (question) -> Bool in
+                                    print(question.id)
+                                    return questionsIDs.contains(String(question.id))
+                                })
+                                
+                                subsubCaterogies[selectedSubSubCategory].questions[i].data = filteredQuestions
+                            }
                             des.subsubCategory = subsubCaterogies[selectedSubSubCategory]
                             
-                        }else{
+                        } else {
                             
                             des.subsubCategory = subsubCaterogies[selectedSubSubCategory]
                         }
