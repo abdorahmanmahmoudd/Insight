@@ -34,7 +34,6 @@ class BorderedTV :  UITextView {
         self.layer.masksToBounds = true
         layer.cornerRadius = 6
         layer.borderWidth = 2
-        layer.borderColor = UIColor.white.cgColor
         
     }
     

@@ -12,6 +12,7 @@ class SubCategoryViewController: ParentViewController, UITableViewDelegate, UITa
 
     @IBOutlet var tableSubCategory: UITableView!
     
+    var homeItemId = 0
     var subCategory = [SubCategory]()
     var titleText = String()
     var flagFilter : Flag?
@@ -65,6 +66,8 @@ class SubCategoryViewController: ParentViewController, UITableViewDelegate, UITa
                 
                 des.subsubCaterogies = subCategory[selectedSubCategory].subSubCategory
                 des.flagFilter = self.flagFilter
+                des.subCategoryId = subCategory[selectedSubCategory].id
+                des.homeItemId = homeItemId
             }
         }
     }

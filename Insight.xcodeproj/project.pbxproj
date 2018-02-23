@@ -71,6 +71,11 @@
 		BD9A4B5E2027682100DCCAE6 /* QuestionDictationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9A4B5D2027682100DCCAE6 /* QuestionDictationViewController.swift */; };
 		BD9A4B61202775B800DCCAE6 /* QuestionListeningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9A4B60202775B800DCCAE6 /* QuestionListeningViewController.swift */; };
 		BD9A4B63202775D200DCCAE6 /* QuestionListeningTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9A4B62202775D200DCCAE6 /* QuestionListeningTableViewCell.swift */; };
+		BDA2B4072040BCA700F36AB2 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA2B4062040BCA700F36AB2 /* ResultsViewController.swift */; };
+		BDA2B4082040D0C800F36AB2 /* MavenPro-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BD1B1EA62020ED710000D813 /* MavenPro-Black.ttf */; };
+		BDA2B4092040D0CB00F36AB2 /* MavenPro-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BD1B1EA42020ED700000D813 /* MavenPro-Bold.ttf */; };
+		BDA2B40A2040D0CD00F36AB2 /* MavenPro-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BD1B1EA52020ED700000D813 /* MavenPro-Medium.ttf */; };
+		BDA2B40B2040D0D000F36AB2 /* MavenPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BD1B1EA72020ED720000D813 /* MavenPro-Regular.ttf */; };
 		BDA5B8B1203BA5070009DD31 /* ChangePasswordResponse .swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA5B8B0203BA5070009DD31 /* ChangePasswordResponse .swift */; };
 		BDAA57F8202CEF9900C32AA9 /* MistakesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDAA57F7202CEF9900C32AA9 /* MistakesViewController.swift */; };
 		BDAA57FA202CEFAF00C32AA9 /* MistakesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDAA57F9202CEFAF00C32AA9 /* MistakesTableViewCell.swift */; };
@@ -169,6 +174,7 @@
 		BD9A4B5D2027682100DCCAE6 /* QuestionDictationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionDictationViewController.swift; sourceTree = "<group>"; };
 		BD9A4B60202775B800DCCAE6 /* QuestionListeningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionListeningViewController.swift; sourceTree = "<group>"; };
 		BD9A4B62202775D200DCCAE6 /* QuestionListeningTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionListeningTableViewCell.swift; sourceTree = "<group>"; };
+		BDA2B4062040BCA700F36AB2 /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 		BDA5B8B0203BA5070009DD31 /* ChangePasswordResponse .swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ChangePasswordResponse .swift"; sourceTree = "<group>"; };
 		BDAA57F7202CEF9900C32AA9 /* MistakesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MistakesViewController.swift; sourceTree = "<group>"; };
 		BDAA57F9202CEFAF00C32AA9 /* MistakesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MistakesTableViewCell.swift; sourceTree = "<group>"; };
@@ -305,6 +311,7 @@
 				BD96771C202346950078B0A3 /* SubSubCategoryTableViewCell.swift */,
 				BD1FF8452023EBC900FC74C2 /* QuestionsContainerViewController.swift */,
 				BD5378E9202FA6C0005BDE85 /* GeneralTableViewHeader.swift */,
+				BDA2B4062040BCA700F36AB2 /* ResultsViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -672,7 +679,11 @@
 			files = (
 				BDD184E0201FA0CE006EBAB9 /* Authentication.storyboard in Resources */,
 				BD1B1EC220212F560000D813 /* Home.storyboard in Resources */,
+				BDA2B4092040D0CB00F36AB2 /* MavenPro-Bold.ttf in Resources */,
+				BDA2B4082040D0C800F36AB2 /* MavenPro-Black.ttf in Resources */,
 				BDD184D8201F9BAE006EBAB9 /* Land.storyboard in Resources */,
+				BDA2B40A2040D0CD00F36AB2 /* MavenPro-Medium.ttf in Resources */,
+				BDA2B40B2040D0D000F36AB2 /* MavenPro-Regular.ttf in Resources */,
 				BD1B1EDB2021389F0000D813 /* SideMenuViewController.storyboard in Resources */,
 				BD27EEE0201FF353007872E0 /* LaunchScreen.storyboard in Resources */,
 				BDD184C7201F9ABD006EBAB9 /* Assets.xcassets in Resources */,
@@ -696,6 +707,7 @@
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SpinKit/SpinKit.framework",
+				"${BUILT_PRODUCTS_DIR}/UICircularProgressRing/UICircularProgressRing.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -703,6 +715,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SpinKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UICircularProgressRing.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -772,6 +785,7 @@
 				BD2141CC2039D1230083B242 /* ParentViewController.swift in Sources */,
 				BD1B1EBD2020FC280000D813 /* UserModel.swift in Sources */,
 				BD9A4B5E2027682100DCCAE6 /* QuestionDictationViewController.swift in Sources */,
+				BDA2B4072040BCA700F36AB2 /* ResultsViewController.swift in Sources */,
 				BD3DA3FD202AF66A00CCB7B0 /* MiniDialogViewController.swift in Sources */,
 				BDAA5807202CFA9600C32AA9 /* GeneralQuestionViewController.swift in Sources */,
 				BD9A4B61202775B800DCCAE6 /* QuestionListeningViewController.swift in Sources */,

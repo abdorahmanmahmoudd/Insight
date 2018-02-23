@@ -13,7 +13,11 @@ protocol CorrectedQuestion: class {
     func submitAnswers()
 }
 
-class QuestionsContainerViewController: ParentViewController {
+protocol GradedQuestion : class {
+    func updateScore(total : Int, score: Int)
+}
+
+class QuestionsContainerViewController: ParentViewController, GradedQuestion {
 
     @IBOutlet var lblTimer: UILabel!
     @IBOutlet var lblTitle: UILabel!
@@ -29,6 +33,11 @@ class QuestionsContainerViewController: ParentViewController {
     var questionTimer = Timer()
     var timerCounter = 0
     
+    var homeItemId = 0
+    var subCategoryId = 0
+    var gradedQuestions = 0
+    var gradedQuestionsScore = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -36,7 +45,6 @@ class QuestionsContainerViewController: ParentViewController {
         if subsubCategory != nil {
             
             self.presentQuestions(currentQuestion: self.currentQuestionIndex)
-            
         }
     }
 
@@ -57,6 +65,7 @@ class QuestionsContainerViewController: ParentViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard (_:)))
+        tapGesture.cancelsTouchesInView = false
         self.view.addGestureRecognizer(tapGesture)
     }
     
@@ -88,36 +97,39 @@ class QuestionsContainerViewController: ParentViewController {
             isNext = true
             currentQuestionIndex += 1
             lblTimer.isHidden = true
-            hideLoading()
+            hideLoaderFor(view: self.view)
             btnPrevious.isEnabled = false
             btnNextOrSubmit.isEnabled = false
             presentQuestions(currentQuestion: currentQuestionIndex)
+            
+        }else{
+            
+            performSegue(withIdentifier: "ShowResultSegue", sender: self)
         }
+        
         
     }
     
     @objc func submitQuestion(){
         
-        if delegate != nil{
+        if self.delegate != nil{
             
-            questionTimer.invalidate()
-                        
-            delegate!.submitAnswers()
+            self.questionTimer.invalidate()
             
-            btnNextOrSubmit.setTitle("Next", for: .normal)
+            self.delegate!.submitAnswers()
             
-            btnNextOrSubmit.removeTarget(nil, action: #selector(self.submitQuestion), for: .touchUpInside)
+            self.btnNextOrSubmit.setTitle("Next", for: .normal)
             
-            btnNextOrSubmit.addTarget(nil, action: #selector(self.nextQuestion), for: .touchUpInside)
+            self.btnNextOrSubmit.removeTarget(nil, action: #selector(self.submitQuestion), for: .touchUpInside)
+            
+            self.btnNextOrSubmit.addTarget(nil, action: #selector(self.nextQuestion), for: .touchUpInside)
             
         }else {
             
-            nextQuestion()
+            self.nextQuestion()
         }
-        
-        
     }
-    
+
     @IBAction func btnPreviousClicked(_ sender: UIButton) {
         
         if currentQuestionIndex > 0{
@@ -213,6 +225,8 @@ class QuestionsContainerViewController: ParentViewController {
                     
                 default:
                     showAlert(title: "Warning", message: "Unexpected question type!", vc: self, closure: {
+                        
+                        hideLoaderFor(view: self.view)
                         if self.isNext {
                             
                             self.nextQuestion()
@@ -224,9 +238,7 @@ class QuestionsContainerViewController: ParentViewController {
                     break
                     
                 }
-                //
             }
-        
         }
         
     }
@@ -242,6 +254,7 @@ class QuestionsContainerViewController: ParentViewController {
             
             vc.questions = subsubCategory!.questions[currentQuestionIndex].data
             self.delegate = vc
+            vc.containerDelegate = self
             vc.willMove(toParentViewController: self)
             
             DispatchQueue.main.async {
@@ -278,6 +291,7 @@ class QuestionsContainerViewController: ParentViewController {
             
             vc.questions = subsubCategory!.questions[currentQuestionIndex].data
             self.delegate = vc
+            vc.containerDelegate = self
             vc.willMove(toParentViewController: self)
             
             DispatchQueue.main.async{
@@ -314,6 +328,7 @@ class QuestionsContainerViewController: ParentViewController {
             
             vc.questions = subsubCategory!.questions[currentQuestionIndex].data
             self.delegate = vc
+            vc.containerDelegate = self
             vc.willMove(toParentViewController: self)
             
             DispatchQueue.main.async{
@@ -344,11 +359,15 @@ class QuestionsContainerViewController: ParentViewController {
 
     func initMatchQuestionView(){
         
+        DispatchQueue.main.async {
+            self.lblTimer.isHidden = true
+        }
         let storyboard = UIStoryboard.init(name: "Home", bundle: Bundle.main)
         if let vc  = storyboard.instantiateViewController(withIdentifier: "QuestionMatchVC") as? QuestionMatchViewController {
             
             vc.questions = subsubCategory!.questions[currentQuestionIndex].data
             self.delegate = vc
+            vc.containerDelegate = self
             vc.willMove(toParentViewController: self)
             
             DispatchQueue.main.async{
@@ -421,6 +440,9 @@ class QuestionsContainerViewController: ParentViewController {
         }
     }
     func initMiniDialogQuestionView(){
+        DispatchQueue.main.async {
+            self.lblTimer.isHidden = true
+        }
         
         let storyboard = UIStoryboard.init(name: "Home", bundle: Bundle.main)
         if let vc  = storyboard.instantiateViewController(withIdentifier: "QuestionMiniDialogVC") as? MiniDialogViewController {
@@ -458,6 +480,7 @@ class QuestionsContainerViewController: ParentViewController {
             
             vc.questions = subsubCategory!.questions[currentQuestionIndex].data
             self.delegate = vc
+            vc.containerDelegate = self
             vc.willMove(toParentViewController: self)
             
             var mistakesCounter = 0
@@ -496,7 +519,9 @@ class QuestionsContainerViewController: ParentViewController {
     
     func initGeneralQuestionView(){
         
-
+        DispatchQueue.main.async {
+            self.lblTimer.isHidden = true
+        }
         let storyboard = UIStoryboard.init(name: "Home", bundle: Bundle.main)
         if let vc  = storyboard.instantiateViewController(withIdentifier: "GeneralQuestionVC") as? GeneralQuestionViewController {
             
@@ -528,7 +553,9 @@ class QuestionsContainerViewController: ParentViewController {
     }
     func initWritingQuestionView(){
         
-        
+        DispatchQueue.main.async {
+            self.lblTimer.isHidden = true
+        }
         let storyboard = UIStoryboard.init(name: "Home", bundle: Bundle.main)
         if let vc  = storyboard.instantiateViewController(withIdentifier: "QuestionWritingVC") as? WritingViewController {
             
@@ -562,7 +589,9 @@ class QuestionsContainerViewController: ParentViewController {
     }
     func initQuotationsQuestionView(){
         
-        
+        DispatchQueue.main.async {
+            self.lblTimer.isHidden = true
+        }
         let storyboard = UIStoryboard.init(name: "Home", bundle: Bundle.main)
         if let vc  = storyboard.instantiateViewController(withIdentifier: "QuestionQuotationVC") as? QuotationViewController {
             
@@ -594,7 +623,9 @@ class QuestionsContainerViewController: ParentViewController {
     }
     func initTrueFalseQuestionView(){
         
-        
+        DispatchQueue.main.async {
+            self.lblTimer.isHidden = true
+        }
         let storyboard = UIStoryboard.init(name: "Home", bundle: Bundle.main)
         if let vc  = storyboard.instantiateViewController(withIdentifier: "QuestionTrueFalseVC") as? TrueFalseViewController {
             
@@ -656,6 +687,22 @@ class QuestionsContainerViewController: ParentViewController {
         let minutes = Int(time) / 60 % 60
         let seconds = Int(time) % 60
         return String.init(format: "%02i:%02i:%02i", arguments: [hours,minutes,seconds])
+    }
+    
+    func updateScore(total: Int, score: Int) {
+        self.gradedQuestions += total
+        self.gradedQuestionsScore += score
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ShowResultSegue"{
+            
+            if let des = segue.destination as? ResultsViewController{
+                
+                des.userResult = CGFloat(50)
+//                des.appAvg =
+            }
+        }
     }
     
 }

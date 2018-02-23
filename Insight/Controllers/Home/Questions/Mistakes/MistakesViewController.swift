@@ -10,11 +10,15 @@ import UIKit
 
 class MistakesViewController: ParentViewController, UITableViewDelegate, UITableViewDataSource, UITextViewDelegate, CorrectedQuestion {
     
+    @IBOutlet var constraintHeightLblScore: NSLayoutConstraint!
+    @IBOutlet var lblScore: UILabel!
     @IBOutlet var tableView: IntinsicTableView!
     @IBOutlet var btnShowAnswer : UIButton!
     
     var questions = [QuestionData]()
     var showAnswers = false
+    var isSubmitted = false
+    weak var containerDelegate: QuestionsContainerViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -108,41 +112,72 @@ class MistakesViewController: ParentViewController, UITableViewDelegate, UITable
     
     @IBAction func btnShowAnswerClicked(_ sender: UIButton) {
         
-        if let nav = self.parent?.navigationController {
+        if !self.isSubmitted{
             
-            if let selfVC = storyboard?.instantiateViewController(withIdentifier: "QuestionMistakesVC") as? MistakesViewController{
+            showYesNoAlert(title: "", message: "Do you want to submit your answers?", vc: self) { (submit) in
+                if submit{
+                    if self.containerDelegate != nil{
+                        
+                        self.containerDelegate?.submitQuestion()
+                    }
+                }
+            }
+            
+        }else{
+            
+            if let nav = self.parent?.navigationController {
                 
-                selfVC.showAnswers = true
-                selfVC.questions = self.questions
-                nav.pushViewController(selfVC, animated: true)
+                if let selfVC = storyboard?.instantiateViewController(withIdentifier: "QuestionMistakesVC") as? MistakesViewController{
+                    
+                    selfVC.showAnswers = true
+                    selfVC.questions = self.questions
+                    nav.pushViewController(selfVC, animated: true)
+                }
             }
         }
     }
     
     func submitAnswers() {
         
-        for section in 0..<tableView.numberOfSections {
+        self.isSubmitted = true
+        var questionsCounter = 0
+        var correctAnswersCounter = 0
+        
+        for section in 0..<self.tableView.numberOfSections {
             
-            for row in 0..<tableView.numberOfRows(inSection: section){
+            for row in 0..<self.tableView.numberOfRows(inSection: section){
                 
-                if let cell = tableView.cellForRow(at: IndexPath.init(row: row, section: section)) as? MistakesTableViewCell{
+                if let cell = self.tableView.cellForRow(at: IndexPath.init(row: row, section: section)) as? MistakesTableViewCell{
                     
                     cell.tvAnswer.isEditable = false
                     cell.tvMistake.isEditable = false
+                    questionsCounter += 1
                     
-                    if cell.tvAnswer.text.trimmedText().lowercased() == questions[row].mistakes[0].answer.html2String.lowercased() && cell.tvMistake.text.trimmedText().lowercased() == questions[row].mistakes[0].content.html2String.lowercased(){
+                    if cell.tvAnswer.text.trimmedText().lowercased() == self.questions[section].mistakes[row].answer.html2String.lowercased() && cell.tvMistake.text.trimmedText().lowercased() == self.questions[section].mistakes[row].content.html2String.lowercased(){
                         
                         cell.tvAnswer.textColor = UIColor.green
+                        correctAnswersCounter += 1
                         
                     }else {
-                        
                         cell.tvAnswer.textColor = UIColor.red
                     }
                 }
             }
         }
+        if containerDelegate != nil {
+            containerDelegate?.updateScore(total: questionsCounter, score: correctAnswersCounter)
+        }
+        
+        self.constraintHeightLblScore.constant = 94
+        self.lblScore.layer.cornerRadius = (self.lblScore.frame.width + 1) / 2
+        self.lblScore.layer.borderWidth = 4
+        self.lblScore.layer.borderColor = UIColor.white.cgColor
+        self.lblScore.text = "\(correctAnswersCounter) / \(questionsCounter)"
+        
+        showAlert(title: "", message: "Your score: \(correctAnswersCounter)\nTotal score: \(questionsCounter)", vc: self, closure: nil)
     }
     
+    //MARK: to update flag
     @objc func updateRow(_ notification: NSNotification){
         
         if let index = notification.userInfo?["indexPath"] as? IndexPath{

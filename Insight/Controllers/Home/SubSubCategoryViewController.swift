@@ -16,6 +16,8 @@ class SubSubCategoryViewController: ParentViewController, UITableViewDelegate, U
     var subsubCaterogies = [SubSubCategory]()
     var selectedSubSubCategory = Int()
     var flagFilter : Flag?
+    var subCategoryId = 0
+    var homeItemId = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -36,11 +36,6 @@ class QuestionMatchTableViewCell: UITableViewCell {
         viewAnswer.layer.borderColor = UIColor.white.cgColor
         viewAnswer.layer.borderWidth = 2
     }
-    
-    func fillData(question : QuestionData){
-        
-        tvContent.text = question.content.html2String
-        tvAnswer.text = question.answer.html2String
-    }
+
 
 }

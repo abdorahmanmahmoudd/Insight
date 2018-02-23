@@ -15,6 +15,12 @@ class QuestionMatchViewController: ParentViewController, UITableViewDelegate, UI
     
     var questions = [QuestionData]()
     var showAnswers = false
+    var isSubmitted = false
+    weak var containerDelegate : QuestionsContainerViewController?
+    
+    var tempAnswersArray = [String]()
+    var shuffledAnswers = [String]()
+    var correctAnswersIndices = [Int]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +46,21 @@ class QuestionMatchViewController: ParentViewController, UITableViewDelegate, UI
         }
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.updateRow(_:)), name: NSNotification.Name("MatchUpdateFlag"), object: nil)
+        
+        for item in questions{
+            tempAnswersArray.append(item.answer)
+        }
+        for _ in 0..<tempAnswersArray.count
+        {
+            let rand = Int(arc4random_uniform(UInt32(tempAnswersArray.count)))
+            
+            correctAnswersIndices.append(rand)
+            
+            shuffledAnswers.append(tempAnswersArray[rand])
+            
+            tempAnswersArray.remove(at: rand)
+        }
+        tableView.reloadData()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -49,7 +70,8 @@ class QuestionMatchViewController: ParentViewController, UITableViewDelegate, UI
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "QuestionMatchCell", for: indexPath) as! QuestionMatchTableViewCell
         
-        cell.fillData(question: questions[indexPath.row])
+        cell.tvContent.text = questions[indexPath.row].content.html2String
+        cell.tvAnswer.text = shuffledAnswers[indexPath.row].html2String
         cell.tfAnswerNumber.isEnabled = true
         
         (cell.btnFlag as! flagBtn).notificationName = "MatchUpdateFlag"
@@ -68,6 +90,7 @@ class QuestionMatchViewController: ParentViewController, UITableViewDelegate, UI
         
         if showAnswers {
             
+            cell.tfAnswerNumber.text = String(correctAnswersIndices[indexPath.row] + 1)
             cell.tfAnswerNumber.isEnabled = false
         }
         
@@ -76,18 +99,34 @@ class QuestionMatchViewController: ParentViewController, UITableViewDelegate, UI
     
     @IBAction func btnShowAnswerClicked(_ sender: UIButton) {
         
-        if let nav = self.parent?.navigationController {
+        if !self.isSubmitted{
             
-            if let selfVC = storyboard?.instantiateViewController(withIdentifier: "QuestionMatchVC") as? QuestionMatchViewController{
+            showYesNoAlert(title: "", message: "Do you want to submit your answers?", vc: self) { (submit) in
+                if submit{
+                    if self.containerDelegate != nil{
+                        
+                        self.containerDelegate?.submitQuestion()
+                    }
+                }
+            }
+            
+        }else{
+            
+            if let nav = self.parent?.navigationController {
                 
-                selfVC.showAnswers = true
-                selfVC.questions = self.questions
-                nav.pushViewController(selfVC, animated: true)
+                if let selfVC = storyboard?.instantiateViewController(withIdentifier: "QuestionMatchVC") as? QuestionMatchViewController{
+                    
+                    selfVC.showAnswers = true
+                    selfVC.questions = self.questions
+                    nav.pushViewController(selfVC, animated: true)
+                }
             }
         }
     }
     
     func submitAnswers() {
+        
+        self.isSubmitted = true
         
         for section in 0..<tableView.numberOfSections {
             
@@ -95,12 +134,18 @@ class QuestionMatchViewController: ParentViewController, UITableViewDelegate, UI
                 
                 if let cell = tableView.cellForRow(at: IndexPath.init(row: row, section: section)) as? QuestionMatchTableViewCell{
                     
-                    cell.tvAnswer.isEditable = false
+                    cell.tfAnswerNumber.isEnabled = false
                     
-                    if cell.tvAnswer.text.trimmedText().lowercased() == questions[row].answer.html2String.lowercased(){
+                    if let i = Int(cell.tfAnswerNumber.text ?? "0"), (i - 1) >= 0 , (i - 1) < questions.count{
                         
-                        cell.tvAnswer.textColor = UIColor.green
-                        
+                        if questions[i - 1].answer.html2String.lowercased() == cell.tvAnswer.text.lowercased(){
+                            
+                            cell.tvAnswer.textColor = UIColor.green
+                            
+                        }else {
+                            
+                            cell.tvAnswer.textColor = UIColor.red
+                        }
                     }else {
                         
                         cell.tvAnswer.textColor = UIColor.red

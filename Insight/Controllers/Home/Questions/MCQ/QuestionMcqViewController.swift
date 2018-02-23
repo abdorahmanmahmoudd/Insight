@@ -90,13 +90,11 @@ class QuestionMcqViewController: ParentViewController, UITableViewDelegate, UITa
         
         cell.choices = questions[indexPath.section].choices[indexPath.row].choices
         cell.correctAnswer = questions[indexPath.section].choices[indexPath.row].answer
-        cell.tableChoices.allowsSelection = true
         
         if showAnswers {
             
-            cell.tableChoices.allowsSelection = false
-            let ip = IndexPath.init(row: 0, section: indexPath.section)
-            cell.tableChoices.selectRow(at: ip, animated: false, scrollPosition: UITableViewScrollPosition.none)
+            cell.tableChoices.isUserInteractionEnabled = false
+            cell.showAnswer = true
         }
         
         return cell
@@ -112,7 +110,6 @@ class QuestionMcqViewController: ParentViewController, UITableViewDelegate, UITa
                     if self.containerDelegate != nil{
                         
                         self.containerDelegate?.submitQuestion()
-                        
                     }
                 }
             }
@@ -160,6 +157,10 @@ class QuestionMcqViewController: ParentViewController, UITableViewDelegate, UITa
                 }
             }
         }
+        if containerDelegate != nil {
+            containerDelegate?.updateScore(total: questionsCounter, score: correctAnswersCounter)
+        }
+        
         constraintHeightLblScore.constant = 94
         lblScore.layer.cornerRadius = (lblScore.frame.width + 1) / 2
         lblScore.layer.borderWidth = 4

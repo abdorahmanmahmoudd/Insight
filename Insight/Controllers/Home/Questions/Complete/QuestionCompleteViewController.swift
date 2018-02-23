@@ -15,6 +15,8 @@ class QuestionCompleteViewController: ParentViewController, UITableViewDelegate,
     
     var questions = [QuestionData]()
     var showAnswers = false
+    var isSubmitted = false
+    weak var containerDelegate: QuestionsContainerViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -89,18 +91,34 @@ class QuestionCompleteViewController: ParentViewController, UITableViewDelegate,
 
     @IBAction func btnShowAnswer(_ sender: UIButton) {
         
-        if let nav = self.parent?.navigationController {
+        if !self.isSubmitted{
             
-            if let selfVC = storyboard?.instantiateViewController(withIdentifier: "QuestionCompleteVC") as? QuestionCompleteViewController{
+            showYesNoAlert(title: "", message: "Do you want to submit your answers?", vc: self) { (submit) in
+                if submit{
+                    if self.containerDelegate != nil{
+                        
+                        self.containerDelegate?.submitQuestion()
+                    }
+                }
+            }
+            
+        }else{
+            
+            if let nav = self.parent?.navigationController {
                 
-                selfVC.showAnswers = true
-                selfVC.questions = self.questions
-                nav.pushViewController(selfVC, animated: true)
+                if let selfVC = storyboard?.instantiateViewController(withIdentifier: "QuestionCompleteVC") as? QuestionCompleteViewController{
+                    
+                    selfVC.showAnswers = true
+                    selfVC.questions = self.questions
+                    nav.pushViewController(selfVC, animated: true)
+                }
             }
         }
     }
     
     func submitAnswers() {
+        
+        isSubmitted = true
         
         for section in 0..<tableView.numberOfSections {
             

@@ -10,11 +10,15 @@ import UIKit
 
 class QuestionDictationViewController: ParentViewController, UITableViewDelegate, UITableViewDataSource, CorrectedQuestion, UITextViewDelegate {
 
+    @IBOutlet var constraintHeightLblScore: NSLayoutConstraint!
+    @IBOutlet var lblScore: UILabel!
     @IBOutlet var btnShowAnswer: UIButton!
     @IBOutlet var tableView: IntinsicTableView!
     
     var questions = [QuestionData]()
     var showAnswers = false
+    var isSubmitted = false
+    weak var containerDelegate : QuestionsContainerViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -89,18 +93,36 @@ class QuestionDictationViewController: ParentViewController, UITableViewDelegate
     
     @IBAction func btnShowAnswerClicked(_ sender: UIButton) {
         
-        if let nav = self.parent?.navigationController {
+        if !self.isSubmitted{
             
-            if let selfVC = storyboard?.instantiateViewController(withIdentifier: "QuestionDictationVC") as? QuestionDictationViewController{
+            showYesNoAlert(title: "", message: "Do you want to submit your answers?", vc: self) { (submit) in
+                if submit{
+                    if self.containerDelegate != nil{
+                        
+                        self.containerDelegate?.submitQuestion()
+                    }
+                }
+            }
+            
+        }else{
+            
+            if let nav = self.parent?.navigationController {
                 
-                selfVC.showAnswers = true
-                selfVC.questions = self.questions
-                nav.pushViewController(selfVC, animated: true)
+                if let selfVC = storyboard?.instantiateViewController(withIdentifier: "QuestionDictationVC") as? QuestionDictationViewController{
+                    
+                    selfVC.showAnswers = true
+                    selfVC.questions = self.questions
+                    nav.pushViewController(selfVC, animated: true)
+                }
             }
         }
     }
     
     func submitAnswers() {
+        
+        isSubmitted = true
+        var questionsCounter = 0
+        var correctAnswersCounter = 0
         
         for section in 0..<tableView.numberOfSections {
             
@@ -109,10 +131,11 @@ class QuestionDictationViewController: ParentViewController, UITableViewDelegate
                 if let cell = tableView.cellForRow(at: IndexPath.init(row: row, section: section)) as? QuestionDictationTableViewCell{
                     
                     cell.tvAnswer.isEditable = false
-                    
+                    questionsCounter += 1
                     if cell.tvAnswer.text.trimmedText().lowercased() == questions[row].answer.html2String.lowercased(){
                         
                         cell.tvAnswer.textColor = UIColor.green
+                        correctAnswersCounter += 1
                         
                     }else {
                         
@@ -121,6 +144,18 @@ class QuestionDictationViewController: ParentViewController, UITableViewDelegate
                 }
             }
         }
+    
+        if containerDelegate != nil {
+            containerDelegate?.updateScore(total: questionsCounter, score: correctAnswersCounter)
+        }
+        
+        constraintHeightLblScore.constant = 94
+        lblScore.layer.cornerRadius = (lblScore.frame.width + 1) / 2
+        lblScore.layer.borderWidth = 4
+        lblScore.layer.borderColor = UIColor.white.cgColor
+        lblScore.text = "\(correctAnswersCounter) / \(questionsCounter)"
+        
+        showAlert(title: "", message: "Your score: \(correctAnswersCounter)\nTotal score: \(questionsCounter)", vc: self, closure: nil)
         
     }
 

@@ -194,6 +194,7 @@ class HomeViewController: ParentViewController {
                 let title = Categories(rawValue: ((sender as? UIButton)?.tag)!)?.desc ?? ""
                 des.titleText = title
                 des.flagFilter = self.flagFilter
+                des.homeItemId = insightContent[((sender as? UIButton)?.tag)! - 1 ].id
             }
         }
     }

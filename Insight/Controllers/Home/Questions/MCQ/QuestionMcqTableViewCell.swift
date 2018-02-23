@@ -15,6 +15,7 @@ class QuestionMcqTableViewCell: UITableViewCell, UITableViewDelegate, UITableVie
     
     var choices = [String]()
     var correctAnswer = String()
+    var showAnswer = false
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -36,6 +37,14 @@ class QuestionMcqTableViewCell: UITableViewCell, UITableViewDelegate, UITableVie
         let cell = tableView.dequeueReusableCell(withIdentifier: "McqChoiceCell", for: indexPath) as! McqChoiceTableViewCell
         
         cell.lblContent.text = choices[indexPath.row]
+        
+        if showAnswer {
+            
+            if correctAnswer == String(indexPath.row){
+             
+                tableChoices.selectRow(at: indexPath, animated: false, scrollPosition: UITableViewScrollPosition.none)
+            }
+        }
         
         return cell
     }

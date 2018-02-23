@@ -17,6 +17,8 @@ class MistakesTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        tvMistake.layer.borderColor = UIColor.red.cgColor
+        tvAnswer.layer.borderColor = UIColor.green.cgColor
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -26,5 +28,7 @@ class MistakesTableViewCell: UITableViewCell {
     }
 
     @IBAction func btnAddMistakeClicked(_ sender: UIButton) {
+        
+        
     }
 }
