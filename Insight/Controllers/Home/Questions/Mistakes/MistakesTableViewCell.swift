@@ -25,4 +25,6 @@ class MistakesTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    @IBAction func btnAddMistakeClicked(_ sender: UIButton) {
+    }
 }

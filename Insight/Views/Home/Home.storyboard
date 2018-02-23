@@ -1394,7 +1394,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kOC-eG-EP1" userLabel="containerView">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="382"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="406"/>
                                         <subviews>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="300" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="WbY-Uf-2Lq" customClass="IntinsicTableView" customModule="Insight" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="16" width="375" height="300"/>
@@ -1498,7 +1498,7 @@
                                                 </connections>
                                             </tableView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JlF-cs-2zN">
-                                                <rect key="frame" x="107" y="332" width="160" height="34"/>
+                                                <rect key="frame" x="107" y="356" width="160" height="34"/>
                                                 <fontDescription key="fontDescription" name="MavenPro-Regular" family="Maven Pro" pointSize="18"/>
                                                 <state key="normal" title="SHOW ANSWER" backgroundImage="button-blueBG">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1507,14 +1507,26 @@
                                                     <action selector="btnShowAnswerClicked:" destination="wV4-IQ-GMi" eventType="touchUpInside" id="DzS-1S-UgJ"/>
                                                 </connections>
                                             </button>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0/3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aBf-dP-MOV">
+                                                <rect key="frame" x="140.5" y="332" width="94" height="0.0"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" id="Rwq-sX-vr0"/>
+                                                    <constraint firstAttribute="width" constant="94" id="nk2-Ci-Ihn"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="MavenPro-Medium" family="Maven Pro" pointSize="20"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
+                                            <constraint firstItem="aBf-dP-MOV" firstAttribute="centerX" secondItem="kOC-eG-EP1" secondAttribute="centerX" id="8uv-MV-QsC"/>
                                             <constraint firstItem="JlF-cs-2zN" firstAttribute="centerX" secondItem="kOC-eG-EP1" secondAttribute="centerX" id="IlJ-lU-MgX"/>
+                                            <constraint firstItem="JlF-cs-2zN" firstAttribute="top" secondItem="aBf-dP-MOV" secondAttribute="bottom" constant="24" id="JZR-MG-Iaw"/>
                                             <constraint firstItem="WbY-Uf-2Lq" firstAttribute="leading" secondItem="kOC-eG-EP1" secondAttribute="leading" id="LPi-7J-fVd"/>
+                                            <constraint firstItem="aBf-dP-MOV" firstAttribute="top" secondItem="WbY-Uf-2Lq" secondAttribute="bottom" constant="16" id="LV8-W5-eXW"/>
                                             <constraint firstAttribute="trailing" secondItem="WbY-Uf-2Lq" secondAttribute="trailing" id="UGS-4V-r10"/>
                                             <constraint firstItem="WbY-Uf-2Lq" firstAttribute="top" secondItem="kOC-eG-EP1" secondAttribute="top" constant="16" id="Vg5-ZQ-bCR"/>
-                                            <constraint firstItem="JlF-cs-2zN" firstAttribute="top" secondItem="WbY-Uf-2Lq" secondAttribute="bottom" constant="16" id="cZX-NX-wAJ"/>
                                             <constraint firstAttribute="bottom" secondItem="JlF-cs-2zN" secondAttribute="bottom" constant="16" id="dwl-YC-g31"/>
                                         </constraints>
                                     </view>
@@ -1544,6 +1556,8 @@
                     </view>
                     <connections>
                         <outlet property="btnShowAnswer" destination="JlF-cs-2zN" id="5rd-5J-LdC"/>
+                        <outlet property="constraintHeightLblScore" destination="Rwq-sX-vr0" id="CeE-Ca-I0r"/>
+                        <outlet property="lblScore" destination="aBf-dP-MOV" id="xrV-cB-nu7"/>
                         <outlet property="tableQuestions" destination="WbY-Uf-2Lq" id="Pjh-nd-kPq"/>
                     </connections>
                 </viewController>
@@ -2161,6 +2175,9 @@
                                                                         <constraint firstAttribute="height" constant="30" id="Rkm-g4-1wM"/>
                                                                     </constraints>
                                                                     <state key="normal" image="Revision"/>
+                                                                    <connections>
+                                                                        <action selector="btnAddMistakeClicked:" destination="tlp-Hz-ASU" eventType="touchUpInside" id="gvX-Dn-pFw"/>
+                                                                    </connections>
                                                                 </button>
                                                             </subviews>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>

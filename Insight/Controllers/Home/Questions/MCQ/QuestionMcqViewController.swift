@@ -10,11 +10,15 @@ import UIKit
 
 class QuestionMcqViewController: ParentViewController, UITableViewDelegate, UITableViewDataSource, CorrectedQuestion {
     
+    @IBOutlet var constraintHeightLblScore: NSLayoutConstraint!
+    @IBOutlet var lblScore: UILabel!
     @IBOutlet var tableQuestions: IntinsicTableView!
     @IBOutlet var btnShowAnswer: UIButton!
     
     var questions = [QuestionData]()
     var showAnswers = false
+    var isSubmitted = false
+    weak var containerDelegate: QuestionsContainerViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +47,7 @@ class QuestionMcqViewController: ParentViewController, UITableViewDelegate, UITa
             
             btnShowAnswer.isHidden = true
             self.navigationController?.isNavigationBarHidden = false
+            
         }
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.updateRow(_:)), name: NSNotification.Name("MCQUpdateFlag"), object: nil)
@@ -100,20 +105,39 @@ class QuestionMcqViewController: ParentViewController, UITableViewDelegate, UITa
 
     @IBAction func btnShowAnswerClicked(_ sender: UIButton) {
         
-        if let nav = self.parent?.navigationController {
+        if !self.isSubmitted{
             
-            if let selfVC = storyboard?.instantiateViewController(withIdentifier: "QuestionMCQVC") as? QuestionMcqViewController{
+            showYesNoAlert(title: "", message: "Do you want to submit your answers?", vc: self) { (submit) in
+                if submit{
+                    if self.containerDelegate != nil{
+                        
+                        self.containerDelegate?.submitQuestion()
+                        
+                    }
+                }
+            }
+            
+        }else{
+            
+            if let nav = self.parent?.navigationController {
                 
-                selfVC.showAnswers = true
-                selfVC.questions = self.questions
-                nav.pushViewController(selfVC, animated: true)
+                if let selfVC = storyboard?.instantiateViewController(withIdentifier: "QuestionMCQVC") as? QuestionMcqViewController{
+                    
+                    selfVC.showAnswers = true
+                    selfVC.questions = self.questions
+                    nav.pushViewController(selfVC, animated: true)
+                }
             }
         }
+       
+        
     }
     
     
     func submitAnswers() {
         
+        isSubmitted = true
+        var questionsCounter = 0
         var correctAnswersCounter = 0
         
         for section in 0..<tableQuestions.numberOfSections{
@@ -121,6 +145,8 @@ class QuestionMcqViewController: ParentViewController, UITableViewDelegate, UITa
             for row in 0..<tableQuestions.numberOfRows(inSection: section){
                 
                 if let cell = tableQuestions.cellForRow(at: IndexPath.init(row: row, section: section)) as? QuestionMcqTableViewCell{
+                    
+                    questionsCounter += 1
                     
                     cell.tableChoices.allowsSelection = false
                     
@@ -134,8 +160,13 @@ class QuestionMcqViewController: ParentViewController, UITableViewDelegate, UITa
                 }
             }
         }
+        constraintHeightLblScore.constant = 94
+        lblScore.layer.cornerRadius = (lblScore.frame.width + 1) / 2
+        lblScore.layer.borderWidth = 4
+        lblScore.layer.borderColor = UIColor.white.cgColor
+        lblScore.text = "\(correctAnswersCounter) / \(questionsCounter)"
         
-        print("number of correct asnwers: \(correctAnswersCounter)")
+        showAlert(title: "", message: "Your score: \(correctAnswersCounter)\nTotal score: \(questionsCounter)", vc: self, closure: nil)
     }
     
     @objc func updateRow(_ notification: NSNotification){

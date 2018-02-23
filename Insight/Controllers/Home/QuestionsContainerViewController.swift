@@ -21,6 +21,7 @@ class QuestionsContainerViewController: ParentViewController {
     @IBOutlet var btnNextOrSubmit: UIButton!
     @IBOutlet var btnPrevious: UIButton!
     
+    var isKeyboard = false
     var subsubCategory : SubSubCategory?
     var currentQuestionIndex = 0
     var isNext = true
@@ -31,6 +32,7 @@ class QuestionsContainerViewController: ParentViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        configuration()
         if subsubCategory != nil {
             
             self.presentQuestions(currentQuestion: self.currentQuestionIndex)
@@ -47,6 +49,37 @@ class QuestionsContainerViewController: ParentViewController {
         super.viewWillAppear(animated)
         
         navigationController?.isNavigationBarHidden = true
+    }
+    
+    func configuration(){
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name:NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard (_:)))
+        self.view.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            if !isKeyboard {
+                self.view.frame.size.height -= keyboardSize.height
+                isKeyboard = !isKeyboard
+            }
+        }
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            if isKeyboard{
+                self.view.frame.size.height += keyboardSize.height
+                isKeyboard = !isKeyboard
+            }
+        }
+    }
+    
+    @objc func dismissKeyboard (_ sender: UITapGestureRecognizer) {
+        view.endEditing(true)
     }
     
     @objc func nextQuestion() {
@@ -350,6 +383,7 @@ class QuestionsContainerViewController: ParentViewController {
             
             vc.questions = subsubCategory!.questions[currentQuestionIndex].data
             self.delegate = vc
+            vc.containerDelegate = self
             vc.willMove(toParentViewController: self)
             
             var mcqCounter = 0
