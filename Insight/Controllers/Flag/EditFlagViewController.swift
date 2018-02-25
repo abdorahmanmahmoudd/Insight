@@ -56,6 +56,7 @@ class EditFlagViewController: ParentViewController, UITableViewDelegate, UITable
     }
     
     @IBAction func btnAddMediaClicked(_ sender: UIButton) {
+        performSegue(withIdentifier: "AddMediaSegue", sender: self)
     }
     
     @IBAction func btnSaveClicked(_ sender: UIButton) {
@@ -97,8 +98,16 @@ class EditFlagViewController: ParentViewController, UITableViewDelegate, UITable
         }catch let err {
             showAlert(title: "", message: err.localizedDescription, vc: self, closure: nil)
         }
-        
+    }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "AddMediaSegue" {
+            
+            if let des = segue.destination as? AddMediaViewController{
+                
+                des.questionId = self.questionId
+            }
+        }
     }
     
 

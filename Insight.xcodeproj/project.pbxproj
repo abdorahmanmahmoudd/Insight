@@ -76,7 +76,10 @@
 		BDA2B4092040D0CB00F36AB2 /* MavenPro-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BD1B1EA42020ED700000D813 /* MavenPro-Bold.ttf */; };
 		BDA2B40A2040D0CD00F36AB2 /* MavenPro-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BD1B1EA52020ED700000D813 /* MavenPro-Medium.ttf */; };
 		BDA2B40B2040D0D000F36AB2 /* MavenPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BD1B1EA72020ED720000D813 /* MavenPro-Regular.ttf */; };
-		BDA5B8B1203BA5070009DD31 /* ChangePasswordResponse .swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA5B8B0203BA5070009DD31 /* ChangePasswordResponse .swift */; };
+		BDA2B40D20417B8F00F36AB2 /* AddMediaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA2B40C20417B8F00F36AB2 /* AddMediaViewController.swift */; };
+		BDA2B40F20417E3800F36AB2 /* AddPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA2B40E20417E3800F36AB2 /* AddPhotoViewController.swift */; };
+		BDA2B41120421F5400F36AB2 /* AddNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA2B41020421F5400F36AB2 /* AddNoteViewController.swift */; };
+		BDA5B8B1203BA5070009DD31 /* GeneralResponse .swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA5B8B0203BA5070009DD31 /* GeneralResponse .swift */; };
 		BDAA57F8202CEF9900C32AA9 /* MistakesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDAA57F7202CEF9900C32AA9 /* MistakesViewController.swift */; };
 		BDAA57FA202CEFAF00C32AA9 /* MistakesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDAA57F9202CEFAF00C32AA9 /* MistakesTableViewCell.swift */; };
 		BDAA5807202CFA9600C32AA9 /* GeneralQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDAA5806202CFA9600C32AA9 /* GeneralQuestionViewController.swift */; };
@@ -175,7 +178,10 @@
 		BD9A4B60202775B800DCCAE6 /* QuestionListeningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionListeningViewController.swift; sourceTree = "<group>"; };
 		BD9A4B62202775D200DCCAE6 /* QuestionListeningTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionListeningTableViewCell.swift; sourceTree = "<group>"; };
 		BDA2B4062040BCA700F36AB2 /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
-		BDA5B8B0203BA5070009DD31 /* ChangePasswordResponse .swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ChangePasswordResponse .swift"; sourceTree = "<group>"; };
+		BDA2B40C20417B8F00F36AB2 /* AddMediaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMediaViewController.swift; sourceTree = "<group>"; };
+		BDA2B40E20417E3800F36AB2 /* AddPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoViewController.swift; sourceTree = "<group>"; };
+		BDA2B41020421F5400F36AB2 /* AddNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteViewController.swift; sourceTree = "<group>"; };
+		BDA5B8B0203BA5070009DD31 /* GeneralResponse .swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GeneralResponse .swift"; sourceTree = "<group>"; };
 		BDAA57F7202CEF9900C32AA9 /* MistakesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MistakesViewController.swift; sourceTree = "<group>"; };
 		BDAA57F9202CEFAF00C32AA9 /* MistakesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MistakesTableViewCell.swift; sourceTree = "<group>"; };
 		BDAA5806202CFA9600C32AA9 /* GeneralQuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralQuestionViewController.swift; sourceTree = "<group>"; };
@@ -395,6 +401,9 @@
 				BD40FD93203C5D84001E159C /* FlagTableViewCell.swift */,
 				BD40FD97203C6AF3001E159C /* EditFlagViewController.swift */,
 				BD40FD95203C6AE0001E159C /* EditFlagTableViewCell.swift */,
+				BDA2B40C20417B8F00F36AB2 /* AddMediaViewController.swift */,
+				BDA2B40E20417E3800F36AB2 /* AddPhotoViewController.swift */,
+				BDA2B41020421F5400F36AB2 /* AddNoteViewController.swift */,
 			);
 			path = Flag;
 			sourceTree = "<group>";
@@ -527,6 +536,7 @@
 			isa = PBXGroup;
 			children = (
 				BDD184DE201F9CEF006EBAB9 /* Contracts */,
+				BDA5B8B0203BA5070009DD31 /* GeneralResponse .swift */,
 				BD1B1EB62020F7180000D813 /* UserModel.swift */,
 			);
 			path = Models;
@@ -599,7 +609,6 @@
 			isa = PBXGroup;
 			children = (
 				BD2EF688203DB28D0003B96B /* Flag */,
-				BDA5B8B0203BA5070009DD31 /* ChangePasswordResponse .swift */,
 				BD1A0C702022DA850019B3CB /* InsightContent */,
 				BD1B1EB72020F7AF0000D813 /* Auth */,
 			);
@@ -764,6 +773,7 @@
 			files = (
 				BDAA57FA202CEFAF00C32AA9 /* MistakesTableViewCell.swift in Sources */,
 				BD1B1ED42021349D0000D813 /* SideMenuPresentationInteractionController.swift in Sources */,
+				BDA2B41120421F5400F36AB2 /* AddNoteViewController.swift in Sources */,
 				BDAA581A202D18DC00C32AA9 /* TrueFalseViewController.swift in Sources */,
 				BD1B1EBB2020F7CE0000D813 /* User.swift in Sources */,
 				BD96771D202346950078B0A3 /* SubSubCategoryTableViewCell.swift in Sources */,
@@ -793,11 +803,12 @@
 				BD2141D12039D4980083B242 /* MBProgressHUD.m in Sources */,
 				BD1B1ED02021349D0000D813 /* InteractionControlller.swift in Sources */,
 				BD3DB17920384894002A632D /* GeneralQuestionAnswersViewController.swift in Sources */,
+				BDA2B40D20417B8F00F36AB2 /* AddMediaViewController.swift in Sources */,
 				BD1478BC202330E00090A481 /* InsightContentRootClass.swift in Sources */,
 				BDAA580E202D118400C32AA9 /* WritingViewController.swift in Sources */,
 				BDE45FF22037A69A0078C557 /* MiniDialogAnswersViewController.swift in Sources */,
 				BD9A4B5B202767F200DCCAE6 /* QuestionDictationTableViewCell.swift in Sources */,
-				BDA5B8B1203BA5070009DD31 /* ChangePasswordResponse .swift in Sources */,
+				BDA5B8B1203BA5070009DD31 /* GeneralResponse .swift in Sources */,
 				BDB624932028CB0E0007B261 /* McqChoiceTableViewCell.swift in Sources */,
 				BDD184DB201F9BE2006EBAB9 /* LandViewController.swift in Sources */,
 				BD1FF8462023EBC900FC74C2 /* QuestionsContainerViewController.swift in Sources */,
@@ -818,6 +829,7 @@
 				BDAA580C202D117200C32AA9 /* WritingTableViewCell.swift in Sources */,
 				BD628E8B2028A62B0007BEE4 /* QuestionMatchTableViewCell.swift in Sources */,
 				BD40FD92203C5820001E159C /* FlagViewController.swift in Sources */,
+				BDA2B40F20417E3800F36AB2 /* AddPhotoViewController.swift in Sources */,
 				BD96771F2023478B0078B0A3 /* SubCategoryViewController.swift in Sources */,
 				BDD184C0201F9ABD006EBAB9 /* AppDelegate.swift in Sources */,
 				BDAA5815202D14BB00C32AA9 /* QuotationTableViewCell.swift in Sources */,

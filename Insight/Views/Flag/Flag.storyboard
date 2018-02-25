@@ -16,6 +16,12 @@
         <array key="MavenPro-Bold.ttf">
             <string>MavenPro-Bold</string>
         </array>
+        <array key="MavenPro-Medium.ttf">
+            <string>MavenPro-Medium</string>
+        </array>
+        <array key="MavenPro-Regular.ttf">
+            <string>MavenPro-Regular</string>
+        </array>
     </customFonts>
     <scenes>
         <!--HomeVC-->
@@ -89,7 +95,7 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Khr-1p-W0Q" firstAttribute="leading" secondItem="W2E-Hq-S5K" secondAttribute="leading" id="3j7-qm-2Lv"/>
                             <constraint firstItem="W2E-Hq-S5K" firstAttribute="trailing" secondItem="Khr-1p-W0Q" secondAttribute="trailing" id="8Cx-5T-p8w"/>
@@ -110,6 +116,171 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HDl-vl-HEJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-151" y="168"/>
+        </scene>
+        <!--Add Media View Controller-->
+        <scene sceneID="agA-pl-AIf">
+            <objects>
+                <viewController storyboardIdentifier="AddMediaVC" id="ScS-aG-lo1" customClass="AddMediaViewController" customModule="Insight" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="GHs-M1-BUg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="XBS-wQ-5kC">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6bS-Ax-gZ4">
+                                <rect key="frame" x="16" y="44" width="343" height="35"/>
+                                <fontDescription key="fontDescription" name="MavenPro-Regular" family="Maven Pro" pointSize="19"/>
+                                <state key="normal" title="Add Photo">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnAddPhotoClicked:" destination="ScS-aG-lo1" eventType="touchUpInside" id="Lpa-fk-dos"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a45-CP-Jgn">
+                                <rect key="frame" x="0.0" y="79" width="375" height="1"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="xpK-Uw-bUB"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6wy-Xn-xb4">
+                                <rect key="frame" x="16" y="88" width="343" height="35"/>
+                                <fontDescription key="fontDescription" name="MavenPro-Regular" family="Maven Pro" pointSize="19"/>
+                                <state key="normal" title="Add Note">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnAddNoteClicked:" destination="ScS-aG-lo1" eventType="touchUpInside" id="8J7-Ra-J9q"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jin-Fw-ifp">
+                                <rect key="frame" x="0.0" y="123" width="375" height="1"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="NEF-tR-0ee"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iKj-GB-Jgp">
+                                <rect key="frame" x="16" y="132" width="343" height="35"/>
+                                <fontDescription key="fontDescription" name="MavenPro-Regular" family="Maven Pro" pointSize="19"/>
+                                <state key="normal" title="Add Voice Note">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnAddVoiceNoteClicked:" destination="ScS-aG-lo1" eventType="touchUpInside" id="D58-V0-fq8"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r48-L5-S2i">
+                                <rect key="frame" x="0.0" y="167" width="375" height="1"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="H3D-1v-RUt"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="a45-CP-Jgn" firstAttribute="leading" secondItem="YxP-aX-EAE" secondAttribute="leading" id="2hw-DV-7AN"/>
+                            <constraint firstItem="Jin-Fw-ifp" firstAttribute="leading" secondItem="GHs-M1-BUg" secondAttribute="leading" id="4Nq-PX-T2v"/>
+                            <constraint firstAttribute="trailing" secondItem="r48-L5-S2i" secondAttribute="trailing" id="8Iv-db-uTE"/>
+                            <constraint firstItem="YxP-aX-EAE" firstAttribute="trailing" secondItem="6wy-Xn-xb4" secondAttribute="trailing" constant="16" id="Ayd-sT-Gv0"/>
+                            <constraint firstItem="r48-L5-S2i" firstAttribute="top" secondItem="iKj-GB-Jgp" secondAttribute="bottom" id="CTp-vl-9V8"/>
+                            <constraint firstItem="Jin-Fw-ifp" firstAttribute="top" secondItem="6wy-Xn-xb4" secondAttribute="bottom" id="DNx-9F-pT4"/>
+                            <constraint firstItem="6bS-Ax-gZ4" firstAttribute="top" secondItem="YxP-aX-EAE" secondAttribute="top" constant="24" id="FDA-DO-ZIf"/>
+                            <constraint firstItem="YxP-aX-EAE" firstAttribute="trailing" secondItem="XBS-wQ-5kC" secondAttribute="trailing" id="Fde-B5-HD2"/>
+                            <constraint firstItem="XBS-wQ-5kC" firstAttribute="leading" secondItem="YxP-aX-EAE" secondAttribute="leading" id="HGr-F3-hIR"/>
+                            <constraint firstItem="XBS-wQ-5kC" firstAttribute="top" secondItem="YxP-aX-EAE" secondAttribute="top" id="IeP-O6-50k"/>
+                            <constraint firstItem="iKj-GB-Jgp" firstAttribute="leading" secondItem="YxP-aX-EAE" secondAttribute="leading" constant="16" id="Ju9-uC-eRC"/>
+                            <constraint firstItem="a45-CP-Jgn" firstAttribute="top" secondItem="6bS-Ax-gZ4" secondAttribute="bottom" id="KwK-fO-Zmc"/>
+                            <constraint firstItem="6bS-Ax-gZ4" firstAttribute="leading" secondItem="YxP-aX-EAE" secondAttribute="leading" constant="16" id="TPz-g4-kWj"/>
+                            <constraint firstItem="YxP-aX-EAE" firstAttribute="trailing" secondItem="6bS-Ax-gZ4" secondAttribute="trailing" constant="16" id="jwx-nH-eWI"/>
+                            <constraint firstAttribute="trailing" secondItem="Jin-Fw-ifp" secondAttribute="trailing" id="l96-T7-Xn3"/>
+                            <constraint firstItem="YxP-aX-EAE" firstAttribute="trailing" secondItem="a45-CP-Jgn" secondAttribute="trailing" id="lCb-Jz-uYK"/>
+                            <constraint firstItem="6wy-Xn-xb4" firstAttribute="leading" secondItem="YxP-aX-EAE" secondAttribute="leading" constant="16" id="rMJ-tN-LXk"/>
+                            <constraint firstItem="iKj-GB-Jgp" firstAttribute="top" secondItem="Jin-Fw-ifp" secondAttribute="bottom" constant="8" id="tU8-IC-Gvp"/>
+                            <constraint firstItem="r48-L5-S2i" firstAttribute="leading" secondItem="GHs-M1-BUg" secondAttribute="leading" id="xQN-s0-eQ9"/>
+                            <constraint firstItem="YxP-aX-EAE" firstAttribute="bottom" secondItem="XBS-wQ-5kC" secondAttribute="bottom" id="xpq-rm-k31"/>
+                            <constraint firstItem="YxP-aX-EAE" firstAttribute="trailing" secondItem="iKj-GB-Jgp" secondAttribute="trailing" constant="16" id="yXg-BY-NhF"/>
+                            <constraint firstItem="6wy-Xn-xb4" firstAttribute="top" secondItem="a45-CP-Jgn" secondAttribute="bottom" constant="8" id="yja-ka-jZv"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="YxP-aX-EAE"/>
+                    </view>
+                    <connections>
+                        <segue destination="kcx-v5-QgR" kind="show" identifier="AddPhotoSegue" id="E9j-j9-7po"/>
+                        <segue destination="Oye-ZG-XoL" kind="show" identifier="AddNoteSegue" id="otM-Vl-WZe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wZJ-Tg-KYi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="968.79999999999995" y="952.17391304347836"/>
+        </scene>
+        <!--Add Note View Controller-->
+        <scene sceneID="bf5-uR-5Tp">
+            <objects>
+                <viewController id="Oye-ZG-XoL" customClass="AddNoteViewController" customModule="Insight" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="54z-Bm-z6U">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="g2g-X3-x8B">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="rso-Lg-SrW" customClass="BorderedTV" customModule="Insight" customModuleProvider="target">
+                                <rect key="frame" x="16" y="36" width="343" height="323.5"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="MavenPro-Regular" family="Maven Pro" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tln-c9-pCc">
+                                <rect key="frame" x="107" y="375.5" width="160" height="34"/>
+                                <fontDescription key="fontDescription" name="MavenPro-Medium" family="Maven Pro" pointSize="18"/>
+                                <state key="normal" title="SAVE" backgroundImage="button-whiteBG">
+                                    <color key="titleColor" red="0.20392156859999999" green="0.59607843140000005" blue="0.85882352939999995" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnSaveClicked:" destination="kcx-v5-QgR" eventType="touchUpInside" id="lak-ID-5cg"/>
+                                    <action selector="btnSaveClicked:" destination="Oye-ZG-XoL" eventType="touchUpInside" id="wfl-cj-iJs"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MM1-yN-M3E">
+                                <rect key="frame" x="107" y="425.5" width="160" height="34"/>
+                                <fontDescription key="fontDescription" name="MavenPro-Medium" family="Maven Pro" pointSize="18"/>
+                                <state key="normal" title="CANCEL" backgroundImage="button-blueBG">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnCancelClicked:" destination="kcx-v5-QgR" eventType="touchUpInside" id="W9D-Hh-gbh"/>
+                                    <action selector="btnCancelClicked:" destination="Oye-ZG-XoL" eventType="touchUpInside" id="vMe-Jv-lt8"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="MM1-yN-M3E" firstAttribute="top" secondItem="Tln-c9-pCc" secondAttribute="bottom" constant="16" id="7qk-0q-jIB"/>
+                            <constraint firstItem="Uoa-1G-hOS" firstAttribute="bottom" secondItem="g2g-X3-x8B" secondAttribute="bottom" id="Dso-Kh-WM9"/>
+                            <constraint firstItem="MM1-yN-M3E" firstAttribute="centerX" secondItem="54z-Bm-z6U" secondAttribute="centerX" id="FcX-ae-yxv"/>
+                            <constraint firstItem="Tln-c9-pCc" firstAttribute="top" secondItem="rso-Lg-SrW" secondAttribute="bottom" constant="16" id="Md5-sN-sTR"/>
+                            <constraint firstItem="rso-Lg-SrW" firstAttribute="height" secondItem="g2g-X3-x8B" secondAttribute="height" multiplier="0.5" id="SG4-Ep-2QD"/>
+                            <constraint firstItem="Uoa-1G-hOS" firstAttribute="trailing" secondItem="g2g-X3-x8B" secondAttribute="trailing" id="WOQ-He-WTk"/>
+                            <constraint firstItem="g2g-X3-x8B" firstAttribute="top" secondItem="Uoa-1G-hOS" secondAttribute="top" id="X2e-Aa-ZWq"/>
+                            <constraint firstItem="Uoa-1G-hOS" firstAttribute="trailing" secondItem="rso-Lg-SrW" secondAttribute="trailing" constant="16" id="ewm-dF-ugL"/>
+                            <constraint firstItem="g2g-X3-x8B" firstAttribute="leading" secondItem="Uoa-1G-hOS" secondAttribute="leading" id="gml-FK-6N1"/>
+                            <constraint firstItem="Tln-c9-pCc" firstAttribute="centerX" secondItem="54z-Bm-z6U" secondAttribute="centerX" id="p9D-cu-F4p"/>
+                            <constraint firstItem="rso-Lg-SrW" firstAttribute="top" secondItem="Uoa-1G-hOS" secondAttribute="top" constant="16" id="scG-P6-tXc"/>
+                            <constraint firstItem="Uoa-1G-hOS" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="MM1-yN-M3E" secondAttribute="bottom" id="tJq-Vg-yN9"/>
+                            <constraint firstItem="rso-Lg-SrW" firstAttribute="leading" secondItem="Uoa-1G-hOS" secondAttribute="leading" constant="16" id="taS-C1-Gua"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Uoa-1G-hOS"/>
+                    </view>
+                    <connections>
+                        <outlet property="tvNote" destination="rso-Lg-SrW" id="CXR-gt-eiH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="B02-3K-JyL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1785" y="1724"/>
         </scene>
         <!--Edit Flag View Controller-->
         <scene sceneID="BlQ-pK-Lnz">
@@ -203,7 +374,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="P9J-Ed-r8t" firstAttribute="bottom" secondItem="Xjx-tz-PC7" secondAttribute="bottom" id="7yh-cO-QEB"/>
                             <constraint firstItem="wuP-jc-auA" firstAttribute="leading" secondItem="P9J-Ed-r8t" secondAttribute="leading" id="9VZ-M8-mon"/>
@@ -224,14 +395,160 @@
                         <outlet property="btnAddMedia" destination="eL3-nW-WU5" id="KUT-xM-2g4"/>
                         <outlet property="btnSave" destination="cNV-F9-04P" id="2i7-Cc-Ixf"/>
                         <outlet property="tableView" destination="wuP-jc-auA" id="if9-X0-Px3"/>
+                        <segue destination="ScS-aG-lo1" kind="show" identifier="AddMediaSegue" id="axY-KT-ED5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RFM-S3-sKu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="968.79999999999995" y="167.76611694152925"/>
         </scene>
+        <!--Add Photo View Controller-->
+        <scene sceneID="1Z0-qC-1S3">
+            <objects>
+                <viewController id="kcx-v5-QgR" customClass="AddPhotoViewController" customModule="Insight" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="UTz-rr-x2X">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="jB1-Pb-0uN">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RDT-Ag-ax8">
+                                <rect key="frame" x="107" y="246" width="160" height="34"/>
+                                <fontDescription key="fontDescription" name="MavenPro-Medium" family="Maven Pro" pointSize="18"/>
+                                <state key="normal" title="SAVE" backgroundImage="button-whiteBG">
+                                    <color key="titleColor" red="0.20392156859999999" green="0.59607843140000005" blue="0.85882352939999995" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnSaveClicked:" destination="kcx-v5-QgR" eventType="touchUpInside" id="aVU-20-RkG"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6nI-bf-O6T">
+                                <rect key="frame" x="112.5" y="52" width="150" height="162"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" image="Home"/>
+                                <connections>
+                                    <action selector="btnAddPhotoClicked:" destination="kcx-v5-QgR" eventType="touchUpInside" id="o5n-OF-JAz"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JIU-Zb-cBw">
+                                <rect key="frame" x="107" y="296" width="160" height="34"/>
+                                <fontDescription key="fontDescription" name="MavenPro-Medium" family="Maven Pro" pointSize="18"/>
+                                <state key="normal" title="CANCEL" backgroundImage="button-blueBG">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnCancelClicked:" destination="kcx-v5-QgR" eventType="touchUpInside" id="gJs-OC-LiU"/>
+                                </connections>
+                            </button>
+                            <view hidden="YES" alpha="0.20000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L7q-10-Q5Y">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jAR-Uw-Wo5">
+                                <rect key="frame" x="28" y="236" width="319" height="194.5"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Essential" translatesAutoresizingMaskIntoConstraints="NO" id="avC-hN-Qyd">
+                                        <rect key="frame" x="230" y="79" width="36" height="37"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Or" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1sm-jn-zCW">
+                                        <rect key="frame" x="149.5" y="87" width="19" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Camera" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uTb-Vp-gQz">
+                                        <rect key="frame" x="38" y="131" width="67" height="22.5"/>
+                                        <fontDescription key="fontDescription" name="MavenPro-Medium" family="Maven Pro" pointSize="19"/>
+                                        <color key="textColor" red="1" green="0.6705882353" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gallery" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qam-LW-BDR">
+                                        <rect key="frame" x="218.5" y="132" width="59.5" height="22.5"/>
+                                        <fontDescription key="fontDescription" name="MavenPro-Medium" family="Maven Pro" pointSize="19"/>
+                                        <color key="textColor" red="1" green="0.6705882353" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Critical" translatesAutoresizingMaskIntoConstraints="NO" id="f3w-EI-p8y">
+                                        <rect key="frame" x="32" y="79" width="77.5" height="36"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RqD-GL-jon">
+                                        <rect key="frame" x="8" y="32" width="125.5" height="130.5"/>
+                                        <connections>
+                                            <action selector="btnCameraClicked:" destination="kcx-v5-QgR" eventType="touchUpInside" id="eqJ-iv-ut7"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sdV-GC-sqv">
+                                        <rect key="frame" x="185" y="32" width="125.5" height="130.5"/>
+                                        <connections>
+                                            <action selector="btnGalleryClicked:" destination="kcx-v5-QgR" eventType="touchUpInside" id="SaK-lw-Oyk"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.027450980390000001" green="0.14117647059999999" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="sdV-GC-sqv" firstAttribute="leading" secondItem="1sm-jn-zCW" secondAttribute="trailing" constant="16" id="0Sr-4O-ON1"/>
+                                    <constraint firstItem="avC-hN-Qyd" firstAttribute="centerX" secondItem="sdV-GC-sqv" secondAttribute="centerX" id="2CN-7F-HqK"/>
+                                    <constraint firstItem="RqD-GL-jon" firstAttribute="leading" secondItem="jAR-Uw-Wo5" secondAttribute="leading" constant="8" id="8Tn-9b-hgt"/>
+                                    <constraint firstItem="Qam-LW-BDR" firstAttribute="top" secondItem="avC-hN-Qyd" secondAttribute="bottom" constant="16" id="Cb9-h1-LDB"/>
+                                    <constraint firstAttribute="bottom" secondItem="RqD-GL-jon" secondAttribute="bottom" constant="32" id="G1Y-Jn-TIU"/>
+                                    <constraint firstItem="sdV-GC-sqv" firstAttribute="top" secondItem="jAR-Uw-Wo5" secondAttribute="top" constant="32" id="JMD-xz-osL"/>
+                                    <constraint firstItem="uTb-Vp-gQz" firstAttribute="centerX" secondItem="f3w-EI-p8y" secondAttribute="centerX" id="M2m-t1-ebz"/>
+                                    <constraint firstItem="f3w-EI-p8y" firstAttribute="centerX" secondItem="RqD-GL-jon" secondAttribute="centerX" id="Y4Z-wz-Td4"/>
+                                    <constraint firstItem="1sm-jn-zCW" firstAttribute="centerY" secondItem="jAR-Uw-Wo5" secondAttribute="centerY" id="Yja-u2-8Ya"/>
+                                    <constraint firstItem="avC-hN-Qyd" firstAttribute="centerY" secondItem="1sm-jn-zCW" secondAttribute="centerY" id="ZyC-Hs-aAZ"/>
+                                    <constraint firstItem="f3w-EI-p8y" firstAttribute="centerY" secondItem="1sm-jn-zCW" secondAttribute="centerY" id="aMZ-85-WW4"/>
+                                    <constraint firstItem="1sm-jn-zCW" firstAttribute="leading" secondItem="RqD-GL-jon" secondAttribute="trailing" constant="16" id="c0F-0O-tPq"/>
+                                    <constraint firstItem="RqD-GL-jon" firstAttribute="top" secondItem="jAR-Uw-Wo5" secondAttribute="top" constant="32" id="cOL-Ej-dj2"/>
+                                    <constraint firstItem="uTb-Vp-gQz" firstAttribute="top" secondItem="f3w-EI-p8y" secondAttribute="bottom" constant="16" id="fDJ-km-foV"/>
+                                    <constraint firstItem="Qam-LW-BDR" firstAttribute="centerX" secondItem="avC-hN-Qyd" secondAttribute="centerX" id="hOv-se-uFu"/>
+                                    <constraint firstAttribute="trailing" secondItem="sdV-GC-sqv" secondAttribute="trailing" constant="8" id="kzG-bW-fnA"/>
+                                    <constraint firstItem="1sm-jn-zCW" firstAttribute="centerX" secondItem="jAR-Uw-Wo5" secondAttribute="centerX" id="nZP-Vp-MRa"/>
+                                    <constraint firstItem="f3w-EI-p8y" firstAttribute="leading" secondItem="jAR-Uw-Wo5" secondAttribute="leading" constant="32" id="s27-ZT-h7X"/>
+                                    <constraint firstAttribute="bottom" secondItem="sdV-GC-sqv" secondAttribute="bottom" constant="32" id="vle-5A-3lK"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="6nI-bf-O6T" firstAttribute="height" secondItem="jB1-Pb-0uN" secondAttribute="height" multiplier="0.25" id="9E9-na-hdw"/>
+                            <constraint firstItem="6nI-bf-O6T" firstAttribute="top" secondItem="nYc-cB-LFl" secondAttribute="top" constant="32" id="CRI-uF-5yx"/>
+                            <constraint firstItem="jAR-Uw-Wo5" firstAttribute="width" secondItem="L7q-10-Q5Y" secondAttribute="width" multiplier="0.85" id="D5U-3G-324"/>
+                            <constraint firstItem="jB1-Pb-0uN" firstAttribute="top" secondItem="nYc-cB-LFl" secondAttribute="top" id="EHK-Cu-KKk"/>
+                            <constraint firstItem="JIU-Zb-cBw" firstAttribute="centerX" secondItem="UTz-rr-x2X" secondAttribute="centerX" id="Eds-Yf-cqh"/>
+                            <constraint firstItem="L7q-10-Q5Y" firstAttribute="leading" secondItem="nYc-cB-LFl" secondAttribute="leading" id="GrX-Jp-Fu1"/>
+                            <constraint firstItem="jB1-Pb-0uN" firstAttribute="leading" secondItem="UTz-rr-x2X" secondAttribute="leading" id="I4s-Dz-fod"/>
+                            <constraint firstItem="nYc-cB-LFl" firstAttribute="bottom" secondItem="L7q-10-Q5Y" secondAttribute="bottom" id="IAq-i1-dLf"/>
+                            <constraint firstItem="jAR-Uw-Wo5" firstAttribute="height" secondItem="L7q-10-Q5Y" secondAttribute="height" multiplier="0.3" id="KDF-a1-RCq"/>
+                            <constraint firstItem="nYc-cB-LFl" firstAttribute="trailing" secondItem="jB1-Pb-0uN" secondAttribute="trailing" id="PnD-mm-QEa"/>
+                            <constraint firstItem="JIU-Zb-cBw" firstAttribute="top" secondItem="RDT-Ag-ax8" secondAttribute="bottom" constant="16" id="Tlo-cO-VLf"/>
+                            <constraint firstItem="nYc-cB-LFl" firstAttribute="trailing" secondItem="L7q-10-Q5Y" secondAttribute="trailing" id="Tzq-Pe-5F6"/>
+                            <constraint firstItem="6nI-bf-O6T" firstAttribute="centerX" secondItem="UTz-rr-x2X" secondAttribute="centerX" id="Yth-sD-rZ2"/>
+                            <constraint firstItem="jAR-Uw-Wo5" firstAttribute="centerX" secondItem="UTz-rr-x2X" secondAttribute="centerX" id="ZFy-FV-Gkk"/>
+                            <constraint firstItem="RDT-Ag-ax8" firstAttribute="top" secondItem="6nI-bf-O6T" secondAttribute="bottom" constant="32" id="dOz-fU-6hr"/>
+                            <constraint firstItem="RDT-Ag-ax8" firstAttribute="centerX" secondItem="UTz-rr-x2X" secondAttribute="centerX" id="hM1-Lh-ggL"/>
+                            <constraint firstItem="jAR-Uw-Wo5" firstAttribute="centerY" secondItem="UTz-rr-x2X" secondAttribute="centerY" id="n4T-bZ-3uX"/>
+                            <constraint firstItem="6nI-bf-O6T" firstAttribute="width" secondItem="jB1-Pb-0uN" secondAttribute="width" multiplier="0.4" id="onZ-Rs-i3X"/>
+                            <constraint firstItem="nYc-cB-LFl" firstAttribute="bottom" secondItem="jB1-Pb-0uN" secondAttribute="bottom" id="r2i-M9-pE3"/>
+                            <constraint firstItem="L7q-10-Q5Y" firstAttribute="top" secondItem="nYc-cB-LFl" secondAttribute="top" id="yXS-GD-qYu"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="nYc-cB-LFl"/>
+                    </view>
+                    <connections>
+                        <outlet property="btnPhoto" destination="6nI-bf-O6T" id="cjV-qn-bry"/>
+                        <outlet property="viewBackGround" destination="L7q-10-Q5Y" id="wAs-Rk-eCn"/>
+                        <outlet property="viewPhotoSource" destination="jAR-Uw-Wo5" id="o5Y-pG-Pdy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ps7-qE-Vwf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1784.8" y="951.27436281859082"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="Critical" width="36" height="36"/>
+        <image name="Essential" width="36" height="37"/>
+        <image name="Home" width="21" height="21"/>
         <image name="Important" width="36" height="36"/>
         <image name="background" width="374" height="644"/>
         <image name="button-blueBG" width="160" height="34"/>

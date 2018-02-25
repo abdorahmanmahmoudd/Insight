@@ -38,7 +38,7 @@ class FlagViewController: ParentViewController, UITableViewDelegate, UITableView
     func confiuration(){
         
         self.title = "Flagged"
-    
+
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -66,6 +66,7 @@ class FlagViewController: ParentViewController, UITableViewDelegate, UITableView
             if let des = segue.destination as? HomeViewController{
                 
                 des.flagFilter = selectedFilter
+                des.cameFromFlag = true
             }
         }
     }

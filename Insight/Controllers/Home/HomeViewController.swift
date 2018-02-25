@@ -14,6 +14,7 @@ class HomeViewController: ParentViewController {
     var insightContent = [InsightContentRootClass]()
     var flagFilter: Flag?
     var homeTitle = "Home"
+    var cameFromFlag = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +32,11 @@ class HomeViewController: ParentViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         selectedIndex = 0
+        
+        if cameFromFlag {
+            
+            selectedIndex = 3
+        }
     }
     
     func configuration(){

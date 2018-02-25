@@ -55,5 +55,11 @@
 	</dict>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Allow Insight to acces photo library</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Allow Insight to access camera</string>
+	<key>NSAppleMusicUsageDescription</key>
+	<string>Allow Insight to access Media library</string>
 </dict>
 </plist>

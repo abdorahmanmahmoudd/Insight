@@ -12,6 +12,9 @@ class FlaggedQuestion: Object {
     
     @objc dynamic var Id = ""
     @objc dynamic var flagValue = 0
+    @objc dynamic var photoPath : String? = nil
+    @objc dynamic var note : String? = nil
+    @objc dynamic var voiceNotePath : String? = nil
     
     
     override static func primaryKey() -> String? {

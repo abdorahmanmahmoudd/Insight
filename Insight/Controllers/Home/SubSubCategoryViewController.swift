@@ -83,7 +83,6 @@ class SubSubCategoryViewController: ParentViewController, UITableViewDelegate, U
                             for i in 0..<subsubCaterogies[selectedSubSubCategory].questions.count{
                                 
                                 let filteredQuestions = subsubCaterogies[selectedSubSubCategory].questions[i].data.filter({ (question) -> Bool in
-                                    print(question.id)
                                     return questionsIDs.contains(String(question.id))
                                 })
                                 

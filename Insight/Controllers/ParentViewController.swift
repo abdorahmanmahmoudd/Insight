@@ -13,7 +13,7 @@ class ParentViewController: UIViewController {
     
     var hud : MBProgressHUD! = nil
     var realm : Realm? = nil
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -68,29 +68,42 @@ class ParentViewController: UIViewController {
     
     @objc func openEditFlagVC(_ sender: flagBtn){
         
-        if sender.flagValue == 0{
-            let sb = UIStoryboard.init(name: "Flag", bundle: Bundle.main)
-            if let vc = sb.instantiateViewController(withIdentifier: "EditFlagVC") as? EditFlagViewController{
+        if selectedIndex == 0 {// 0 -> Home
+            
+            if sender.flagValue == 0{
+                let sb = UIStoryboard.init(name: "Flag", bundle: Bundle.main)
+                if let vc = sb.instantiateViewController(withIdentifier: "EditFlagVC") as? EditFlagViewController{
+                    
+                    vc.flagValue = sender.flagValue
+                    vc.questionId = sender.questionId
+                    vc.indexPath = sender.indexPath
+                    vc.notificationName = sender.notificationName
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
+            }else{
                 
-                vc.flagValue = sender.flagValue
-                vc.questionId = sender.questionId
-                vc.indexPath = sender.indexPath
-                vc.notificationName = sender.notificationName
-                self.navigationController?.pushViewController(vc, animated: true)
+                let alert = UIAlertController.init(title: nil, message: "Are you sure you want to remove this flagged question?", preferredStyle: .alert)
+                alert.view.tintColor = #colorLiteral(red: 1, green: 0.7244103551, blue: 0.2923497558, alpha: 1)
+                let yes = UIAlertAction.init(title: "YES", style: .default, handler: { (action) in
+                    //handle remove question
+                    self.deleteQuestionFlag(sender: sender)
+                })
+                let no = UIAlertAction.init(title: "Cancel", style: .default, handler: nil)
+                alert.addAction(yes)
+                alert.addAction(no)
+                
+                self.present(alert, animated: true, completion: nil)
             }
-        }else{
+        }else if selectedIndex == 3{ //flagged screen
             
-            let alert = UIAlertController.init(title: nil, message: "Are you sure you want to remove this flagged question?", preferredStyle: .alert)
-            alert.view.tintColor = #colorLiteral(red: 1, green: 0.7244103551, blue: 0.2923497558, alpha: 1)
-            let yes = UIAlertAction.init(title: "YES", style: .default, handler: { (action) in
-                //handle remove question
-                self.deleteQuestionFlag(sender: sender)
-            })
-            let no = UIAlertAction.init(title: "Cancel", style: .default, handler: nil)
-            alert.addAction(yes)
-            alert.addAction(no)
-            
-            self.present(alert, animated: true, completion: nil)
+            if sender.flagValue != 0{
+                let sb = UIStoryboard.init(name: "Flag", bundle: Bundle.main)
+                if let vc = sb.instantiateViewController(withIdentifier: "AddMediaVC") as? AddMediaViewController{
+                    
+                    vc.questionId = sender.questionId
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
+            }
         }
     
     }
