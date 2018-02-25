@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		37CF4B43B70845F6FFD7E7DB /* Pods_Insight.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6BB51FC6CCE498E490B9F12 /* Pods_Insight.framework */; };
+		BD0D6083204300780007C867 /* AddVoiceNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0D6082204300780007C867 /* AddVoiceNoteViewController.swift */; };
 		BD0E781A203AE289001003B5 /* Account.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD0E7819203AE289001003B5 /* Account.storyboard */; };
 		BD0E781C203AE344001003B5 /* UserAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0E781B203AE344001003B5 /* UserAccountViewController.swift */; };
 		BD0E781E203B95F6001003B5 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0E781D203B95F6001003B5 /* ChangePasswordViewController.swift */; };
@@ -108,6 +109,7 @@
 		018E49D3A5B90AA814EA38F8 /* Pods-Insight.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Insight.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Insight/Pods-Insight.debug.xcconfig"; sourceTree = "<group>"; };
 		26A23FCDB9BC4A55412DA1D2 /* Pods-Insight.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Insight.release.xcconfig"; path = "Pods/Target Support Files/Pods-Insight/Pods-Insight.release.xcconfig"; sourceTree = "<group>"; };
 		A6BB51FC6CCE498E490B9F12 /* Pods_Insight.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Insight.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD0D6082204300780007C867 /* AddVoiceNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVoiceNoteViewController.swift; sourceTree = "<group>"; };
 		BD0E7819203AE289001003B5 /* Account.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Account.storyboard; sourceTree = "<group>"; };
 		BD0E781B203AE344001003B5 /* UserAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccountViewController.swift; sourceTree = "<group>"; };
 		BD0E781D203B95F6001003B5 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
@@ -404,6 +406,7 @@
 				BDA2B40C20417B8F00F36AB2 /* AddMediaViewController.swift */,
 				BDA2B40E20417E3800F36AB2 /* AddPhotoViewController.swift */,
 				BDA2B41020421F5400F36AB2 /* AddNoteViewController.swift */,
+				BD0D6082204300780007C867 /* AddVoiceNoteViewController.swift */,
 			);
 			path = Flag;
 			sourceTree = "<group>";
@@ -827,6 +830,7 @@
 				BD1B1ED32021349D0000D813 /* SideMenuManager.swift in Sources */,
 				BD1B1ED72021349D0000D813 /* StoryboardLoadable.swift in Sources */,
 				BDAA580C202D117200C32AA9 /* WritingTableViewCell.swift in Sources */,
+				BD0D6083204300780007C867 /* AddVoiceNoteViewController.swift in Sources */,
 				BD628E8B2028A62B0007BEE4 /* QuestionMatchTableViewCell.swift in Sources */,
 				BD40FD92203C5820001E159C /* FlagViewController.swift in Sources */,
 				BDA2B40F20417E3800F36AB2 /* AddPhotoViewController.swift in Sources */,

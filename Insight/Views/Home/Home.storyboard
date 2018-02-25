@@ -514,6 +514,7 @@
                             <constraint firstItem="pNm-r2-3vT" firstAttribute="top" secondItem="5kD-yv-xn2" secondAttribute="topMargin" id="mim-K7-y67"/>
                             <constraint firstAttribute="trailing" secondItem="pNm-r2-3vT" secondAttribute="trailing" id="yfS-Yw-WT6"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="ePZ-Nl-O3B"/>
                     </view>
                     <connections>
                         <outlet property="btnShowAnswer" destination="faj-Br-d0b" id="5gf-7c-ZzJ"/>
@@ -661,11 +662,16 @@
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="timer" translatesAutoresizingMaskIntoConstraints="NO" id="LRe-dP-Zje">
+                                        <rect key="frame" x="311.5" y="26" width="16" height="17"/>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="zwh-0y-bta" firstAttribute="height" secondItem="vw4-99-GhV" secondAttribute="height" id="3Jk-wn-bQr"/>
                                     <constraint firstItem="vw4-99-GhV" firstAttribute="width" secondItem="wkc-z3-EEs" secondAttribute="width" multiplier="0.3" id="6jm-ce-lU1"/>
+                                    <constraint firstItem="LRe-dP-Zje" firstAttribute="centerY" secondItem="OcJ-z6-9FS" secondAttribute="centerY" id="7Sp-p0-V0g"/>
+                                    <constraint firstItem="OcJ-z6-9FS" firstAttribute="leading" secondItem="LRe-dP-Zje" secondAttribute="trailing" constant="4" id="Aca-xI-EQe"/>
                                     <constraint firstItem="vw4-99-GhV" firstAttribute="centerX" secondItem="wkc-z3-EEs" secondAttribute="centerX" multiplier="0.6" id="GgL-vM-AzE"/>
                                     <constraint firstItem="zwh-0y-bta" firstAttribute="leading" secondItem="vw4-99-GhV" secondAttribute="trailing" constant="8" id="NQ6-3M-FNK"/>
                                     <constraint firstItem="zwh-0y-bta" firstAttribute="centerY" secondItem="wkc-z3-EEs" secondAttribute="centerY" id="OpH-jj-zkL"/>
@@ -675,6 +681,7 @@
                                     <constraint firstItem="vw4-99-GhV" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="wkc-z3-EEs" secondAttribute="leading" constant="8" id="jLv-Ad-Jge"/>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="zwh-0y-bta" secondAttribute="trailing" id="p2f-Le-Ceq"/>
                                     <constraint firstAttribute="trailing" secondItem="OcJ-z6-9FS" secondAttribute="trailing" constant="8" id="qiu-jh-RO2"/>
+                                    <constraint firstItem="LRe-dP-Zje" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="zwh-0y-bta" secondAttribute="trailing" constant="2" id="uLd-Xb-hsy"/>
                                     <constraint firstItem="OcJ-z6-9FS" firstAttribute="centerY" secondItem="zwh-0y-bta" secondAttribute="centerY" id="vdm-6B-wi3"/>
                                     <constraint firstItem="OcJ-z6-9FS" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="zwh-0y-bta" secondAttribute="trailing" constant="8" id="y2y-bi-7Uw"/>
                                 </constraints>
@@ -710,6 +717,7 @@
                         <outlet property="btnNextOrSubmit" destination="zwh-0y-bta" id="RJo-dP-qhW"/>
                         <outlet property="btnPrevious" destination="vw4-99-GhV" id="dPK-fT-hPQ"/>
                         <outlet property="containerViewQuestion" destination="WrU-65-ti9" id="zdG-qS-TCI"/>
+                        <outlet property="imgTimer" destination="LRe-dP-Zje" id="YlE-kj-Ket"/>
                         <outlet property="lblTimer" destination="OcJ-z6-9FS" id="LyF-Vp-lB2"/>
                         <outlet property="lblTitle" destination="PSs-d3-ekx" id="ZKm-C3-R94"/>
                         <segue destination="prM-Zh-Vis" kind="show" identifier="ShowResultSegue" id="47S-Dn-WLE"/>
@@ -717,7 +725,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MDE-8f-XGg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2705" y="172"/>
+            <point key="canvasLocation" x="2704.8000000000002" y="171.36431784107947"/>
         </scene>
         <!--Results View Controller-->
         <scene sceneID="XNB-a2-CDX">
@@ -795,13 +803,13 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Results" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="riy-3h-41T">
-                                <rect key="frame" x="41.5" y="274" width="112" height="23.5"/>
+                                <rect key="frame" x="42" y="274" width="112" height="23.5"/>
                                 <fontDescription key="fontDescription" name="MavenPro-Medium" family="Maven Pro" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="App Avg. Results" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LiQ-3r-7C8">
-                                <rect key="frame" x="202" y="274" width="154" height="23.5"/>
+                                <rect key="frame" x="201.5" y="274" width="154" height="23.5"/>
                                 <fontDescription key="fontDescription" name="MavenPro-Medium" family="Maven Pro" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -1014,6 +1022,7 @@
                             <constraint firstAttribute="top" secondItem="ZBG-KH-AGJ" secondAttribute="top" id="qvE-uf-Nx4"/>
                             <constraint firstItem="GQi-7p-hqx" firstAttribute="top" secondItem="KgM-UW-9AC" secondAttribute="top" id="wYQ-Gw-ikt"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="xlb-sx-Aow"/>
                     </view>
                     <connections>
                         <outlet property="btnShowAnswer" destination="Oi0-cS-CtD" id="j0O-QV-Xht"/>
@@ -1195,6 +1204,7 @@
                             <constraint firstItem="Km6-Rb-3vQ" firstAttribute="leading" secondItem="otV-pM-oWz" secondAttribute="leading" id="cyK-ar-ssa"/>
                             <constraint firstItem="6qK-vd-2c1" firstAttribute="leading" secondItem="otV-pM-oWz" secondAttribute="leading" id="kvU-DI-pes"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="k1Y-3g-S28"/>
                     </view>
                     <connections>
                         <outlet property="btnShowAnswer" destination="Nb8-a8-djP" id="dZB-6T-yCh"/>
@@ -1518,6 +1528,7 @@
                             <constraint firstItem="iMP-Za-C9R" firstAttribute="trailing" secondItem="Qi2-0I-AWu" secondAttribute="trailing" id="r8b-VV-XqI"/>
                             <constraint firstAttribute="bottom" secondItem="iMP-Za-C9R" secondAttribute="bottom" id="t56-e8-dt2"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="a1W-R2-Spt"/>
                     </view>
                     <connections>
                         <outlet property="btnShowAnswer" destination="8qh-VI-c0R" id="Cno-WL-i0D"/>
@@ -1702,6 +1713,7 @@
                             <constraint firstAttribute="bottom" secondItem="ODP-Xf-vGf" secondAttribute="bottom" id="uK7-sF-ILK"/>
                             <constraint firstItem="4CN-G4-rOQ" firstAttribute="leading" secondItem="ZjG-Xc-Eki" secondAttribute="leading" id="v2k-1d-Efa"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="7Xx-h0-90z"/>
                     </view>
                     <connections>
                         <outlet property="btnShowAnswer" destination="JlF-cs-2zN" id="5rd-5J-LdC"/>
@@ -1942,6 +1954,7 @@
                             <constraint firstItem="ITI-Ee-5yZ" firstAttribute="width" secondItem="ja1-Bg-KE4" secondAttribute="width" multiplier="0.8" id="anB-qo-Y40"/>
                             <constraint firstItem="ITI-Ee-5yZ" firstAttribute="centerY" secondItem="ja1-Bg-KE4" secondAttribute="centerY" id="gZj-3H-pdb"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="tMr-1A-RKg"/>
                     </view>
                     <connections>
                         <outlet property="lblFunctionA" destination="JAW-n0-0vi" id="ln6-2n-faA"/>
@@ -2244,6 +2257,7 @@
                             <constraint firstItem="tuu-Y4-5U4" firstAttribute="leading" secondItem="lK3-cj-bHs" secondAttribute="leading" id="bjy-ZI-5f3"/>
                             <constraint firstAttribute="top" secondItem="tuu-Y4-5U4" secondAttribute="top" id="wLR-3x-8Dr"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="jSJ-tn-QRu"/>
                     </view>
                     <connections>
                         <outlet property="tableView" destination="ygI-iN-xQS" id="c31-hI-0mj"/>
@@ -3121,6 +3135,7 @@
                             <constraint firstAttribute="trailing" secondItem="35K-IT-MhQ" secondAttribute="trailing" id="kgy-N9-Djc"/>
                             <constraint firstItem="uvN-Lm-i8u" firstAttribute="height" secondItem="qxD-Dg-jTL" secondAttribute="height" multiplier="0.45" id="pie-y3-ET9"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="BZB-PP-3DS"/>
                     </view>
                     <connections>
                         <outlet property="tvAnswer" destination="6bV-ke-wmw" id="a5f-5T-tcr"/>
@@ -3148,6 +3163,7 @@
         <image name="flag-noBG" width="12" height="17"/>
         <image name="matchQuesTF-BG" width="30" height="30"/>
         <image name="play" width="17" height="20"/>
+        <image name="timer" width="16" height="17"/>
         <image name="unlock" width="77" height="21"/>
         <image name="unlocked" width="36" height="36"/>
         <image name="whiteCircle" width="15" height="15"/>

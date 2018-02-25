@@ -19,6 +19,7 @@ protocol GradedQuestion : class {
 
 class QuestionsContainerViewController: ParentViewController, GradedQuestion {
 
+    @IBOutlet var imgTimer: UIImageView!
     @IBOutlet var lblTimer: UILabel!
     @IBOutlet var lblTitle: UILabel!
     @IBOutlet var containerViewQuestion: UIView!
@@ -97,6 +98,7 @@ class QuestionsContainerViewController: ParentViewController, GradedQuestion {
             isNext = true
             currentQuestionIndex += 1
             lblTimer.isHidden = true
+            imgTimer.isHidden = true
             hideLoaderFor(view: self.view)
             btnPrevious.isEnabled = false
             btnNextOrSubmit.isEnabled = false
@@ -247,6 +249,7 @@ class QuestionsContainerViewController: ParentViewController, GradedQuestion {
         
         DispatchQueue.main.async {
             self.lblTimer.isHidden = true
+            self.imgTimer.isHidden = true
         }
         
         let storyboard = UIStoryboard.init(name: "Home", bundle: Bundle.main)
@@ -284,6 +287,7 @@ class QuestionsContainerViewController: ParentViewController, GradedQuestion {
         
         DispatchQueue.main.async {
             self.lblTimer.isHidden = true
+            self.imgTimer.isHidden = true
         }
         
         let storyboard = UIStoryboard.init(name: "Home", bundle: Bundle.main)
@@ -361,6 +365,7 @@ class QuestionsContainerViewController: ParentViewController, GradedQuestion {
         
         DispatchQueue.main.async {
             self.lblTimer.isHidden = true
+            self.imgTimer.isHidden = true
         }
         let storyboard = UIStoryboard.init(name: "Home", bundle: Bundle.main)
         if let vc  = storyboard.instantiateViewController(withIdentifier: "QuestionMatchVC") as? QuestionMatchViewController {
@@ -442,6 +447,7 @@ class QuestionsContainerViewController: ParentViewController, GradedQuestion {
     func initMiniDialogQuestionView(){
         DispatchQueue.main.async {
             self.lblTimer.isHidden = true
+            self.imgTimer.isHidden = true
         }
         
         let storyboard = UIStoryboard.init(name: "Home", bundle: Bundle.main)
@@ -521,6 +527,7 @@ class QuestionsContainerViewController: ParentViewController, GradedQuestion {
         
         DispatchQueue.main.async {
             self.lblTimer.isHidden = true
+            self.imgTimer.isHidden = true
         }
         let storyboard = UIStoryboard.init(name: "Home", bundle: Bundle.main)
         if let vc  = storyboard.instantiateViewController(withIdentifier: "GeneralQuestionVC") as? GeneralQuestionViewController {
@@ -555,6 +562,7 @@ class QuestionsContainerViewController: ParentViewController, GradedQuestion {
         
         DispatchQueue.main.async {
             self.lblTimer.isHidden = true
+            self.imgTimer.isHidden = true
         }
         let storyboard = UIStoryboard.init(name: "Home", bundle: Bundle.main)
         if let vc  = storyboard.instantiateViewController(withIdentifier: "QuestionWritingVC") as? WritingViewController {
@@ -591,6 +599,7 @@ class QuestionsContainerViewController: ParentViewController, GradedQuestion {
         
         DispatchQueue.main.async {
             self.lblTimer.isHidden = true
+            self.imgTimer.isHidden = true
         }
         let storyboard = UIStoryboard.init(name: "Home", bundle: Bundle.main)
         if let vc  = storyboard.instantiateViewController(withIdentifier: "QuestionQuotationVC") as? QuotationViewController {
@@ -625,6 +634,7 @@ class QuestionsContainerViewController: ParentViewController, GradedQuestion {
         
         DispatchQueue.main.async {
             self.lblTimer.isHidden = true
+            self.imgTimer.isHidden = true
         }
         let storyboard = UIStoryboard.init(name: "Home", bundle: Bundle.main)
         if let vc  = storyboard.instantiateViewController(withIdentifier: "QuestionTrueFalseVC") as? TrueFalseViewController {
@@ -663,6 +673,7 @@ class QuestionsContainerViewController: ParentViewController, GradedQuestion {
         timerCounter = questionTimerUnit * numberOfQuestions
         lblTimer.text = timeString(time: TimeInterval.init(questionTimerUnit * numberOfQuestions))
         lblTimer.isHidden = false
+        imgTimer.isHidden = false
         self.questionTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.updateTimer), userInfo: nil, repeats: true)
 
 
@@ -683,10 +694,10 @@ class QuestionsContainerViewController: ParentViewController, GradedQuestion {
     }
     
     func timeString(time:TimeInterval) -> String {
-        let hours = Int(time) / 3600
+//        let hours = Int(time) / 3600
         let minutes = Int(time) / 60 % 60
         let seconds = Int(time) % 60
-        return String.init(format: "%02i:%02i:%02i", arguments: [hours,minutes,seconds])
+        return String.init(format: "%02i:%02i", arguments: [minutes,seconds])//%02i: //hours,
     }
     
     func updateScore(total: Int, score: Int) {

@@ -68,7 +68,7 @@ class AddPhotoViewController: ParentViewController, UIImagePickerControllerDeleg
         
         do {
             
-            if btnPhoto.currentImage != nil && btnPhoto.currentImage != #imageLiteral(resourceName: "Home"){
+            if btnPhoto.currentImage != nil && btnPhoto.currentImage != #imageLiteral(resourceName: "plusGray"){
                 
                 showLoaderFor(view: self.view)
                 
@@ -139,7 +139,7 @@ class AddPhotoViewController: ParentViewController, UIImagePickerControllerDeleg
         
         guard  imgName.characters.count > 0 else {
             print("ERROR: No image name")
-            return #imageLiteral(resourceName: "Home")
+            return #imageLiteral(resourceName: "plusGray")
         }
         
         let imgPath = imageFile + "/" + imgName
@@ -149,7 +149,7 @@ class AddPhotoViewController: ParentViewController, UIImagePickerControllerDeleg
     
     @IBAction func btnAddPhotoClicked(_ sender: UIButton) {
         
-        if self.btnPhoto.currentImage != #imageLiteral(resourceName: "Home"){
+        if self.btnPhoto.currentImage != #imageLiteral(resourceName: "plusGray"){
             
             ChangeOrRemovePhoto()
             
@@ -169,7 +169,7 @@ class AddPhotoViewController: ParentViewController, UIImagePickerControllerDeleg
         
         let removeButton = UIAlertAction(title: "Remove photo", style: .default, handler: { (action) -> Void in
             
-            self.btnPhoto.setImage(#imageLiteral(resourceName: "Home"), for: .normal)
+            self.btnPhoto.setImage(#imageLiteral(resourceName: "plusGray"), for: .normal)
         })
         
         alertController.view.tintColor = ColorMainBlue

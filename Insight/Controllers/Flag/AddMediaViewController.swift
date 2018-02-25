@@ -45,6 +45,7 @@ class AddMediaViewController: ParentViewController {
     
     @IBAction func btnAddVoiceNoteClicked(_ sender: UIButton) {
         
+        performSegue(withIdentifier: "AddVoiceNoteSegue", sender: self)
     }
     // MARK: - Navigation
 
@@ -62,6 +63,12 @@ class AddMediaViewController: ParentViewController {
         }else if segue.identifier == "AddNoteSegue"{
             
             if let des = segue.destination as? AddNoteViewController{
+                
+                des.questionId = self.questionId
+            }
+        }else if segue.identifier == "AddVoiceNoteSegue"{
+            
+            if let des = segue.destination as? AddVoiceNoteViewController{
                 
                 des.questionId = self.questionId
             }
