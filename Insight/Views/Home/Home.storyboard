@@ -730,7 +730,7 @@
         <!--Results View Controller-->
         <scene sceneID="XNB-a2-CDX">
             <objects>
-                <viewController id="prM-Zh-Vis" customClass="ResultsViewController" customModule="Insight" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ResultsVC" id="prM-Zh-Vis" customClass="ResultsViewController" customModule="Insight" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fwg-5S-XlG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -803,13 +803,13 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Results" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="riy-3h-41T">
-                                <rect key="frame" x="42" y="274" width="112" height="23.5"/>
+                                <rect key="frame" x="41.5" y="274" width="112" height="23.5"/>
                                 <fontDescription key="fontDescription" name="MavenPro-Medium" family="Maven Pro" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="App Avg. Results" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LiQ-3r-7C8">
-                                <rect key="frame" x="201.5" y="274" width="154" height="23.5"/>
+                                <rect key="frame" x="202" y="274" width="154" height="23.5"/>
                                 <fontDescription key="fontDescription" name="MavenPro-Medium" family="Maven Pro" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -852,6 +852,7 @@
                         <viewLayoutGuide key="safeArea" id="ZsZ-OK-Qbm"/>
                     </view>
                     <connections>
+                        <outlet property="btnDone" destination="k0A-BL-ozw" id="qXX-eu-TH7"/>
                         <outlet property="viewAppAvgResults" destination="P3E-wB-HBN" id="OCE-W4-Fd6"/>
                         <outlet property="viewUserResults" destination="zBV-gx-BUx" id="IVz-f5-SQY"/>
                     </connections>

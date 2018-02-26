@@ -710,8 +710,11 @@ class QuestionsContainerViewController: ParentViewController, GradedQuestion {
             
             if let des = segue.destination as? ResultsViewController{
                 
-                des.userResult = CGFloat(50)
-//                des.appAvg =
+                des.userResult = CGFloat(Float(gradedQuestionsScore) / Float(gradedQuestions))
+                des.updateServer = true
+                des.categoryId = String(homeItemId)
+                des.subSubCategoryId = String(subsubCategory!.id)
+                des.subCategoryId = String(subCategoryId)
             }
         }
     }

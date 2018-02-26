@@ -9,6 +9,7 @@ let SignInURL = "\(MainIP)auth/login"
 let ForgetPassURL = "\(MainIP)auth/password/forget"
 let EditProfileURL = "\(MainIP)users"
 let ChangePasswordURL = "\(MainIP)password"
+let UpdateScoreURL = "\(MainIP)score/create"
 
 
 //MARK: - Colors

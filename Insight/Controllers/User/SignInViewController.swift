@@ -67,6 +67,7 @@ class SignInViewController: ParentViewController {
 
     func signIn(){
         
+        view.endEditing(true)
         btnSignIn.isEnabled = false
         btnForgetPass.isEnabled = false
         showLoaderFor(view: self.view)
@@ -82,7 +83,7 @@ class SignInViewController: ParentViewController {
                 
                 if statusCode == 200{
                     
-                    if let user = json as? AuthRootClass{
+                    if let user = json{
                      
                         UserModel.getInstance.saveUser(user)
                         self.openHome()

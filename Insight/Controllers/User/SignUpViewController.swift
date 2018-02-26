@@ -107,6 +107,7 @@ class SignUpViewController: ParentViewController {
     
     func signup(){
         
+        view.endEditing(true)
         btnSignUp.isEnabled = false
         btnHaveAccount.isEnabled = false
         showLoaderFor(view: self.view)

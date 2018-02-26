@@ -52,7 +52,7 @@ class SideMenuViewController: UIViewController ,UITableViewDelegate, UITableView
 
         var viewController = UIViewController()
 
-        if index == 0{ // search
+        if index == 0{ 
 
             let sb = UIStoryboard.init(name: "Home", bundle: Bundle.main)
             viewController = sb.instantiateViewController(withIdentifier: "HomeVC")
@@ -66,6 +66,11 @@ class SideMenuViewController: UIViewController ,UITableViewDelegate, UITableView
             
             let sb = UIStoryboard.init(name: "Flag", bundle: Bundle.main)
             viewController = sb.instantiateViewController(withIdentifier: "FlagVC")
+            
+        }else if index == 5{
+            
+            let sb = UIStoryboard.init(name: "Home", bundle: Bundle.main)
+            viewController = sb.instantiateViewController(withIdentifier: "ResultsVC")
         }
         
         
