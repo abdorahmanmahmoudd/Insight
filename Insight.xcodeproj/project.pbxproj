@@ -44,6 +44,10 @@
 		BD1FF8462023EBC900FC74C2 /* QuestionsContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1FF8452023EBC900FC74C2 /* QuestionsContainerViewController.swift */; };
 		BD2141CC2039D1230083B242 /* ParentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2141CB2039D1230083B242 /* ParentViewController.swift */; };
 		BD2141D12039D4980083B242 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = BD2141D02039D4980083B242 /* MBProgressHUD.m */; };
+		BD263C2F2045AF3E00EB5B1F /* Mcq.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD263C2D2045AF3D00EB5B1F /* Mcq.swift */; };
+		BD263C302045AF3E00EB5B1F /* Freewriting.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD263C2E2045AF3D00EB5B1F /* Freewriting.swift */; };
+		BD263C332045AFBB00EB5B1F /* ComprehensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD263C322045AFBB00EB5B1F /* ComprehensionViewController.swift */; };
+		BD263C352045B2D900EB5B1F /* FreeWritingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD263C342045B2D900EB5B1F /* FreeWritingTableViewCell.swift */; };
 		BD27EEDE201FF02D007872E0 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD27EEDD201FF02D007872E0 /* SignInViewController.swift */; };
 		BD27EEE0201FF353007872E0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD27EEDF201FF353007872E0 /* LaunchScreen.storyboard */; };
 		BD2EF68A203DB2A70003B96B /* FlagRealmObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2EF689203DB2A70003B96B /* FlagRealmObjects.swift */; };
@@ -154,6 +158,10 @@
 		BD2141CE2039D4970083B242 /* Insight-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Insight-Bridging-Header.h"; sourceTree = "<group>"; };
 		BD2141CF2039D4980083B242 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		BD2141D02039D4980083B242 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		BD263C2D2045AF3D00EB5B1F /* Mcq.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mcq.swift; sourceTree = "<group>"; };
+		BD263C2E2045AF3D00EB5B1F /* Freewriting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Freewriting.swift; sourceTree = "<group>"; };
+		BD263C322045AFBB00EB5B1F /* ComprehensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComprehensionViewController.swift; sourceTree = "<group>"; };
+		BD263C342045B2D900EB5B1F /* FreeWritingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreeWritingTableViewCell.swift; sourceTree = "<group>"; };
 		BD27EEDD201FF02D007872E0 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		BD27EEDF201FF353007872E0 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BD2EF689203DB2A70003B96B /* FlagRealmObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlagRealmObjects.swift; sourceTree = "<group>"; };
@@ -249,6 +257,8 @@
 		BD1A0C702022DA850019B3CB /* InsightContent */ = {
 			isa = PBXGroup;
 			children = (
+				BD263C2E2045AF3D00EB5B1F /* Freewriting.swift */,
+				BD263C2D2045AF3D00EB5B1F /* Mcq.swift */,
 				BDAA580F202D12EE00C32AA9 /* SubQuestion.swift */,
 				BD3DA400202B009500CCB7B0 /* Mistake.swift */,
 				BDB6248B2028C2C20007B261 /* Choice.swift */,
@@ -333,6 +343,7 @@
 		BD1FF8422023CF9700FC74C2 /* Questions */ = {
 			isa = PBXGroup;
 			children = (
+				BD263C312045AF8F00EB5B1F /* Comprehension */,
 				BDAA5816202D155000C32AA9 /* TrueFalse */,
 				BDAA5811202D134800C32AA9 /* Quotations */,
 				BDAA580A202D113500C32AA9 /* Writing */,
@@ -356,6 +367,15 @@
 				BD2141D02039D4980083B242 /* MBProgressHUD.m */,
 			);
 			name = MBProgressHUD;
+			sourceTree = "<group>";
+		};
+		BD263C312045AF8F00EB5B1F /* Comprehension */ = {
+			isa = PBXGroup;
+			children = (
+				BD263C322045AFBB00EB5B1F /* ComprehensionViewController.swift */,
+				BD263C342045B2D900EB5B1F /* FreeWritingTableViewCell.swift */,
+			);
+			path = Comprehension;
 			sourceTree = "<group>";
 		};
 		BD2EF688203DB28D0003B96B /* Flag */ = {
@@ -733,6 +753,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Insight/Pods-Insight-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SpinKit/SpinKit.framework",
@@ -741,6 +762,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SpinKit.framework",
@@ -806,6 +828,7 @@
 				BD39AD432027449A00DC03B3 /* QuestionCompleteTableViewCell.swift in Sources */,
 				BD628E892028A6160007BEE4 /* QuestionMatchViewController.swift in Sources */,
 				BD40FD96203C6AE0001E159C /* EditFlagTableViewCell.swift in Sources */,
+				BD263C332045AFBB00EB5B1F /* ComprehensionViewController.swift in Sources */,
 				BD47F1D02023762900ABEBF5 /* SubSubCategoryViewController.swift in Sources */,
 				BD39AD412027447F00DC03B3 /* QuestionCompleteViewController.swift in Sources */,
 				BD4EB7A5204442DA001B3DD7 /* UpdateScoreData.swift in Sources */,
@@ -852,6 +875,8 @@
 				BDAA580C202D117200C32AA9 /* WritingTableViewCell.swift in Sources */,
 				BD0D6083204300780007C867 /* AddVoiceNoteViewController.swift in Sources */,
 				BD628E8B2028A62B0007BEE4 /* QuestionMatchTableViewCell.swift in Sources */,
+				BD263C352045B2D900EB5B1F /* FreeWritingTableViewCell.swift in Sources */,
+				BD263C2F2045AF3E00EB5B1F /* Mcq.swift in Sources */,
 				BD40FD92203C5820001E159C /* FlagViewController.swift in Sources */,
 				BDA2B40F20417E3800F36AB2 /* AddPhotoViewController.swift in Sources */,
 				BD96771F2023478B0078B0A3 /* SubCategoryViewController.swift in Sources */,
@@ -860,6 +885,7 @@
 				BDB624912028CA410007B261 /* QuestionMcqTableViewCell.swift in Sources */,
 				BD1478BA202330E00090A481 /* SubCategory.swift in Sources */,
 				BD0E781C203AE344001003B5 /* UserAccountViewController.swift in Sources */,
+				BD263C302045AF3E00EB5B1F /* Freewriting.swift in Sources */,
 				BD3DA401202B009500CCB7B0 /* Mistake.swift in Sources */,
 				BD39AD4520275A7000DC03B3 /* QuestionAntonymTableViewCell.swift in Sources */,
 				BD1B1EAD2020F6090000D813 /* AppConstants.swift in Sources */,

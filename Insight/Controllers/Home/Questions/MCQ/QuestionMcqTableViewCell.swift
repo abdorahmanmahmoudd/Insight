@@ -12,6 +12,7 @@ class QuestionMcqTableViewCell: UITableViewCell, UITableViewDelegate, UITableVie
     
 
     @IBOutlet var tableChoices: UITableView!
+    @IBOutlet weak var tvSubContent: UITextView!
     
     var choices = [String]()
     var correctAnswer = String()
@@ -20,7 +21,8 @@ class QuestionMcqTableViewCell: UITableViewCell, UITableViewDelegate, UITableVie
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-
+        tableChoices.estimatedRowHeight = 0
+        tableChoices.rowHeight = UITableViewAutomaticDimension
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -40,7 +42,7 @@ class QuestionMcqTableViewCell: UITableViewCell, UITableViewDelegate, UITableVie
         
         if showAnswer {
             
-            if correctAnswer == String(indexPath.row){
+            if correctAnswer == String(indexPath.row + 1){
              
                 tableChoices.selectRow(at: indexPath, animated: false, scrollPosition: UITableViewScrollPosition.none)
             }

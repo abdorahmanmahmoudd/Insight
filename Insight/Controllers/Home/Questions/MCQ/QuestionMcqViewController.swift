@@ -149,7 +149,7 @@ class QuestionMcqViewController: ParentViewController, UITableViewDelegate, UITa
                     
                     if let indexOfSelectedAnswer = cell.tableChoices.indexPathForSelectedRow{
                         
-                        if indexOfSelectedAnswer.row == Int(cell.correctAnswer){
+                        if indexOfSelectedAnswer.row + 1 == Int(cell.correctAnswer){
                             
                             correctAnswersCounter += 1
                         }

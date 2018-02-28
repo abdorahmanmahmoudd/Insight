@@ -27,6 +27,9 @@ class QuestionData : NSObject, NSCoding{
     var questions : [SubQuestion]!
     
     var answerContent : String!
+    
+    var freewriting : [Freewriting]!
+    var mcq : [Mcq]!
 
 
 	/**
@@ -68,6 +71,20 @@ class QuestionData : NSObject, NSCoding{
         
         answerContent = dictionary["answerContent"] as? String
         
+        freewriting = [Freewriting]()
+        if let freewritingArray = dictionary["freewriting"] as? [[String:Any]]{
+            for dic in freewritingArray{
+                let value = Freewriting(fromDictionary: dic)
+                freewriting.append(value)
+            }
+        }
+        mcq = [Mcq]()
+        if let mcqArray = dictionary["mcq"] as? [[String:Any]]{
+            for dic in mcqArray{
+                let value = Mcq(fromDictionary: dic)
+                mcq.append(value)
+            }
+        }
 	}
 
 	/**
@@ -133,6 +150,21 @@ class QuestionData : NSObject, NSCoding{
             dictionary["answerContent"] = answerContent
         }
         
+        if freewriting != nil{
+            var dictionaryElements = [[String:Any]]()
+            for freewritingElement in freewriting {
+                dictionaryElements.append(freewritingElement.toDictionary())
+            }
+            dictionary["freewriting"] = dictionaryElements
+        }
+        if mcq != nil{
+            var dictionaryElements = [[String:Any]]()
+            for mcqElement in mcq {
+                dictionaryElements.append(mcqElement.toDictionary())
+            }
+            dictionary["mcq"] = dictionaryElements
+        }
+        
 		return dictionary
 	}
 
@@ -156,7 +188,8 @@ class QuestionData : NSObject, NSCoding{
         mistakes = aDecoder.decodeObject(forKey :"mistakes") as? [Mistake]
         questions = aDecoder.decodeObject(forKey :"questions") as? [SubQuestion]
         answerContent = aDecoder.decodeObject(forKey :"answerContent") as? String
-
+        freewriting = aDecoder.decodeObject(forKey :"freewriting") as? [Freewriting]
+        mcq = aDecoder.decodeObject(forKey :"mcq") as? [Mcq]
 
 	}
 
@@ -208,7 +241,12 @@ class QuestionData : NSObject, NSCoding{
         if answerContent != nil{
             aCoder.encode(answerContent, forKey: "answerContent")
         }
-        
+        if freewriting != nil{
+            aCoder.encode(freewriting, forKey: "freewriting")
+        }
+        if mcq != nil{
+            aCoder.encode(mcq, forKey: "mcq")
+        }
 
 	}
 

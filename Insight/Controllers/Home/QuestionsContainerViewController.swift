@@ -225,6 +225,10 @@ class QuestionsContainerViewController: ParentViewController, GradedQuestion {
                     self.initTrueFalseQuestionView()
                     break
                     
+                case QuestionTypes.Comprehension.rawValue?:
+                    self.initComprehesionQuestionView()
+                    break
+                    
                 default:
                     showAlert(title: "Warning", message: "Unexpected question type!", vc: self, closure: {
                         
@@ -664,6 +668,44 @@ class QuestionsContainerViewController: ParentViewController, GradedQuestion {
             self.addChildViewController(vc)
             vc.didMove(toParentViewController: self)
             
+            
+        }
+    }
+    
+    func initComprehesionQuestionView(){
+        
+        DispatchQueue.main.async {
+            self.lblTimer.isHidden = true
+            self.imgTimer.isHidden = true
+        }
+        let storyboard = UIStoryboard.init(name: "Home", bundle: Bundle.main)
+        if let vc  = storyboard.instantiateViewController(withIdentifier: "QuestionComprehensionVC") as? ComprehensionViewController {
+            
+            vc.questions = subsubCategory!.questions[currentQuestionIndex].data
+            self.delegate = vc
+            vc.containerDelegate = self
+            vc.willMove(toParentViewController: self)
+            
+            DispatchQueue.main.async{
+                vc.view.translatesAutoresizingMaskIntoConstraints = false
+                
+                self.containerViewQuestion.addSubview(vc.view)
+                vc.view.leadingAnchor.constraint(equalTo: self.containerViewQuestion.leadingAnchor).isActive = true
+                vc.view.trailingAnchor.constraint(equalTo: self.containerViewQuestion.trailingAnchor).isActive = true
+                vc.view.topAnchor.constraint(equalTo: self.containerViewQuestion.topAnchor).isActive = true
+                vc.view.bottomAnchor.constraint(equalTo: self.containerViewQuestion.bottomAnchor).isActive = true
+                
+                self.btnNextOrSubmit.setTitle("Submit", for: .normal)
+                self.btnNextOrSubmit.removeTarget(nil, action: #selector(self.nextQuestion), for: .touchUpInside)
+                self.btnNextOrSubmit.addTarget(nil, action: #selector(self.submitQuestion), for: .touchUpInside)
+                
+                hideLoaderFor(view: self.view)
+                self.btnPrevious.isEnabled = true
+                self.btnNextOrSubmit.isEnabled = true
+            }
+            
+            self.addChildViewController(vc)
+            vc.didMove(toParentViewController: self)
             
         }
     }

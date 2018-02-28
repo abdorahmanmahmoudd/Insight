@@ -9,7 +9,7 @@
 import UIKit
 import UICircularProgressRing
 
-class ResultsViewController: UIViewController {
+class ResultsViewController: ParentViewController {
 
     @IBOutlet var viewAppAvgResults: UICircularProgressRingView!
     @IBOutlet var viewUserResults: UICircularProgressRingView!
@@ -54,7 +54,7 @@ class ResultsViewController: UIViewController {
         }else{
             
             selectedIndex = 5
-            
+            addSideMenuBtn()
             getScore()
         }
         
