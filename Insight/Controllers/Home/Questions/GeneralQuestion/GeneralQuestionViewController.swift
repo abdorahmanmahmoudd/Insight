@@ -100,6 +100,8 @@ class GeneralQuestionViewController: ParentViewController , UITableViewDelegate,
             if let fq = realm?.objects(FlaggedQuestion.self).filter(predicateQuery).first {
                 print("\(fq)")
                 btn?.flagValue = fq.flagValue
+            }else {
+                btn?.flagValue = 0
             }
         }
     }

@@ -183,6 +183,8 @@ class QuestionMcqViewController: ParentViewController, UITableViewDelegate, UITa
             if let fq = realm?.objects(FlaggedQuestion.self).filter(predicateQuery).first {
                 print("\(fq)")
                 btn?.flagValue = fq.flagValue
+            }else {
+                btn?.flagValue = 0
             }
         }
     }

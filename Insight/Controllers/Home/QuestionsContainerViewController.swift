@@ -36,8 +36,12 @@ class QuestionsContainerViewController: ParentViewController, GradedQuestion {
     
     var homeItemId = 0
     var subCategoryId = 0
+    var gradedQuestionsExists = false
     var gradedQuestions = 0
     var gradedQuestionsScore = 0
+    
+    var derivativesCurrentIndex = 0
+    var isDerivative = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -94,21 +98,41 @@ class QuestionsContainerViewController: ParentViewController, GradedQuestion {
     
     @objc func nextQuestion() {
         
-        if currentQuestionIndex < subsubCategory!.questions.count - 1{
-            isNext = true
-            currentQuestionIndex += 1
-            lblTimer.isHidden = true
-            imgTimer.isHidden = true
-            hideLoaderFor(view: self.view)
-            btnPrevious.isEnabled = false
-            btnNextOrSubmit.isEnabled = false
-            presentQuestions(currentQuestion: currentQuestionIndex)
+        if isDerivative {
             
-        }else{
+            if derivativesCurrentIndex < subsubCategory!.questions[currentQuestionIndex].data.count - 1{
+                
+                derivativesCurrentIndex += 1
+                hideLoaderFor(view: self.view)
+                btnPrevious.isEnabled = false
+                btnNextOrSubmit.isEnabled = false
+                presentQuestions(currentQuestion: currentQuestionIndex)
+            }else{
+                isDerivative = false
+            }
             
-            performSegue(withIdentifier: "ShowResultSegue", sender: self)
         }
         
+        if !isDerivative {
+            
+            if currentQuestionIndex < subsubCategory!.questions.count - 1{
+                isNext = true
+                currentQuestionIndex += 1
+                lblTimer.isHidden = true
+                imgTimer.isHidden = true
+                hideLoaderFor(view: self.view)
+                btnPrevious.isEnabled = false
+                btnNextOrSubmit.isEnabled = false
+                presentQuestions(currentQuestion: currentQuestionIndex)
+                
+            }else{
+                if gradedQuestionsExists{
+                    performSegue(withIdentifier: "ShowResultSegue", sender: self)
+                }else{
+                    self.navigationController?.popViewController(animated: true)
+                }
+            }
+        }
         
     }
     
@@ -229,6 +253,10 @@ class QuestionsContainerViewController: ParentViewController, GradedQuestion {
                     self.initComprehesionQuestionView()
                     break
                     
+                case QuestionTypes.derivatives.rawValue?:
+                    self.initDerivativesQuestionView()
+                    break
+                    
                 default:
                     showAlert(title: "Warning", message: "Unexpected question type!", vc: self, closure: {
                         
@@ -330,7 +358,7 @@ class QuestionsContainerViewController: ParentViewController, GradedQuestion {
     
     func initDictationQuestionView(){
         
-        
+        gradedQuestionsExists = true
         let storyboard = UIStoryboard.init(name: "Home", bundle: Bundle.main)
         if let vc  = storyboard.instantiateViewController(withIdentifier: "QuestionDictationVC") as? QuestionDictationViewController {
             
@@ -405,7 +433,7 @@ class QuestionsContainerViewController: ParentViewController, GradedQuestion {
     }
     func initMCQQuestionView(){
     
-        
+        gradedQuestionsExists = true
         let storyboard = UIStoryboard.init(name: "Home", bundle: Bundle.main)
         if let vc  = storyboard.instantiateViewController(withIdentifier: "QuestionMCQVC") as? QuestionMcqViewController {
             
@@ -485,6 +513,7 @@ class QuestionsContainerViewController: ParentViewController, GradedQuestion {
     }
     func initMistakesQuestionView(){
         
+        gradedQuestionsExists = true
         let storyboard = UIStoryboard.init(name: "Home", bundle: Bundle.main)
         if let vc  = storyboard.instantiateViewController(withIdentifier: "QuestionMistakesVC") as? MistakesViewController {
             
@@ -682,6 +711,45 @@ class QuestionsContainerViewController: ParentViewController, GradedQuestion {
         if let vc  = storyboard.instantiateViewController(withIdentifier: "QuestionComprehensionVC") as? ComprehensionViewController {
             
             vc.questions = subsubCategory!.questions[currentQuestionIndex].data
+            self.delegate = vc
+            vc.containerDelegate = self
+            vc.willMove(toParentViewController: self)
+            
+            DispatchQueue.main.async{
+                vc.view.translatesAutoresizingMaskIntoConstraints = false
+                
+                self.containerViewQuestion.addSubview(vc.view)
+                vc.view.leadingAnchor.constraint(equalTo: self.containerViewQuestion.leadingAnchor).isActive = true
+                vc.view.trailingAnchor.constraint(equalTo: self.containerViewQuestion.trailingAnchor).isActive = true
+                vc.view.topAnchor.constraint(equalTo: self.containerViewQuestion.topAnchor).isActive = true
+                vc.view.bottomAnchor.constraint(equalTo: self.containerViewQuestion.bottomAnchor).isActive = true
+                
+                self.btnNextOrSubmit.setTitle("Submit", for: .normal)
+                self.btnNextOrSubmit.removeTarget(nil, action: #selector(self.nextQuestion), for: .touchUpInside)
+                self.btnNextOrSubmit.addTarget(nil, action: #selector(self.submitQuestion), for: .touchUpInside)
+                
+                hideLoaderFor(view: self.view)
+                self.btnPrevious.isEnabled = true
+                self.btnNextOrSubmit.isEnabled = true
+            }
+            
+            self.addChildViewController(vc)
+            vc.didMove(toParentViewController: self)
+            
+        }
+    }
+    
+    func initDerivativesQuestionView(){
+        
+        isDerivative = true
+        DispatchQueue.main.async {
+            self.lblTimer.isHidden = true
+            self.imgTimer.isHidden = true
+        }
+        let storyboard = UIStoryboard.init(name: "Home", bundle: Bundle.main)
+        if let vc  = storyboard.instantiateViewController(withIdentifier: "QuestionDerivativesVC") as? DerivativesViewController {
+            
+            vc.questions = subsubCategory!.questions[currentQuestionIndex].data[derivativesCurrentIndex]
             self.delegate = vc
             vc.containerDelegate = self
             vc.willMove(toParentViewController: self)

@@ -18,6 +18,7 @@ class AddPhotoViewController: ParentViewController, UIImagePickerControllerDeleg
     
     var imagePicker = UIImagePickerController()
     var questionId = String()
+    var mediaSaved = true
     
     var imageFile: String {
         return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.path
@@ -42,10 +43,36 @@ class AddPhotoViewController: ParentViewController, UIImagePickerControllerDeleg
         imagePicker.allowsEditing = false
         // load image if exists
         getQuestionImgIfExists()
+        configureBackBtn()
+    }
+    
+    
+    func configureBackBtn(){
+        
+        let btn = UIButton.init(type: .custom)
+        btn.setImage(#imageLiteral(resourceName: "back-NoShadow"), for: .normal)
+        btn.addTarget(self, action: #selector(self.backBtnClicked), for: .touchUpInside)
+        let barBtn = UIBarButtonItem.init(customView: btn)
+        self.navigationItem.leftBarButtonItem = barBtn
+    }
+    
+    @objc func backBtnClicked(){
+        
+        if mediaSaved{
+            self.navigationController?.popViewController(animated: true)
+        }else{
+            showYesNoAlert(title: "Attention", message: "Unsaved media will be discarded.", vc: self, firstBtnTitle: "Discard", secondBtnTitle: "Cancel", closure: { (exit) in
+                if exit{
+                    
+                    self.navigationController?.popViewController(animated: true)
+                }
+            })
+        }
     }
     
     @IBAction func btnGalleryClicked(_ sender: UIButton) {
         
+        mediaSaved = false
         self.imagePicker.sourceType = .photoLibrary
         self.present(self.imagePicker, animated: true, completion: {
             self.imagePicker.navigationBar.topItem?.rightBarButtonItem?.tintColor = .white
@@ -53,6 +80,7 @@ class AddPhotoViewController: ParentViewController, UIImagePickerControllerDeleg
     }
     @IBAction func btnCameraClicked(_ sender: UIButton) {
         
+        mediaSaved = false
         self.imagePicker.sourceType = .camera
         self.present(self.imagePicker, animated: true, completion: {
             self.imagePicker.navigationBar.topItem?.rightBarButtonItem?.tintColor = .white
@@ -92,6 +120,7 @@ class AddPhotoViewController: ParentViewController, UIImagePickerControllerDeleg
                         
                         realm?.add(question, update: true)
                     }
+                    self.mediaSaved = true
                 }
                 
                 hideLoaderFor(view: self.view)

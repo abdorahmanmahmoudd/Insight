@@ -179,6 +179,16 @@
                                     <constraint firstAttribute="height" constant="1" id="H3D-1v-RUt"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L6R-tw-nxI">
+                                <rect key="frame" x="107" y="192" width="160" height="34"/>
+                                <fontDescription key="fontDescription" name="MavenPro-Medium" family="Maven Pro" pointSize="18"/>
+                                <state key="normal" title="REMOVE" backgroundImage="button-blueBG">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnRemoveFlaggedQuestionClicked:" destination="ScS-aG-lo1" eventType="touchUpInside" id="Ko8-sv-L0X"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -195,6 +205,8 @@
                             <constraint firstItem="iKj-GB-Jgp" firstAttribute="leading" secondItem="YxP-aX-EAE" secondAttribute="leading" constant="16" id="Ju9-uC-eRC"/>
                             <constraint firstItem="a45-CP-Jgn" firstAttribute="top" secondItem="6bS-Ax-gZ4" secondAttribute="bottom" id="KwK-fO-Zmc"/>
                             <constraint firstItem="6bS-Ax-gZ4" firstAttribute="leading" secondItem="YxP-aX-EAE" secondAttribute="leading" constant="16" id="TPz-g4-kWj"/>
+                            <constraint firstItem="L6R-tw-nxI" firstAttribute="centerX" secondItem="GHs-M1-BUg" secondAttribute="centerX" id="Y2p-LJ-5Xi"/>
+                            <constraint firstItem="L6R-tw-nxI" firstAttribute="top" secondItem="r48-L5-S2i" secondAttribute="bottom" constant="24" id="haA-tj-h9z"/>
                             <constraint firstItem="YxP-aX-EAE" firstAttribute="trailing" secondItem="6bS-Ax-gZ4" secondAttribute="trailing" constant="16" id="jwx-nH-eWI"/>
                             <constraint firstAttribute="trailing" secondItem="Jin-Fw-ifp" secondAttribute="trailing" id="l96-T7-Xn3"/>
                             <constraint firstItem="YxP-aX-EAE" firstAttribute="trailing" secondItem="a45-CP-Jgn" secondAttribute="trailing" id="lCb-Jz-uYK"/>
@@ -208,6 +220,7 @@
                         <viewLayoutGuide key="safeArea" id="YxP-aX-EAE"/>
                     </view>
                     <connections>
+                        <outlet property="btnRemoveFlaggedQuestion" destination="L6R-tw-nxI" id="nrt-nM-zJx"/>
                         <segue destination="kcx-v5-QgR" kind="show" identifier="AddPhotoSegue" id="E9j-j9-7po"/>
                         <segue destination="Oye-ZG-XoL" kind="show" identifier="AddNoteSegue" id="otM-Vl-WZe"/>
                         <segue destination="cSk-8m-Ykd" kind="show" identifier="AddVoiceNoteSegue" id="t4x-Pg-Nv0"/>
@@ -231,8 +244,12 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="rso-Lg-SrW" customClass="BorderedTV" customModule="Insight" customModuleProvider="target">
                                 <rect key="frame" x="16" y="36" width="343" height="323.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="MavenPro-Regular" family="Maven Pro" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="MavenPro-Medium" family="Maven Pro" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Oye-ZG-XoL" id="RrY-X2-ftw"/>
+                                </connections>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tln-c9-pCc">
                                 <rect key="frame" x="107" y="375.5" width="160" height="34"/>
@@ -422,10 +439,15 @@
                                     <action selector="btnSaveClicked:" destination="kcx-v5-QgR" eventType="touchUpInside" id="aVU-20-RkG"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6nI-bf-O6T">
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6nI-bf-O6T">
                                 <rect key="frame" x="112.5" y="52" width="150" height="162"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" image="plusGray"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="btnAddPhotoClicked:" destination="kcx-v5-QgR" eventType="touchUpInside" id="o5n-OF-JAz"/>
                                 </connections>

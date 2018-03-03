@@ -28,6 +28,7 @@ class AddVoiceNoteViewController: ParentViewController, AVAudioRecorderDelegate,
     var timer = Timer()
     var timerCounter = 0
     
+    var mediaSaved = true
     var questionId = String()
     var VoiceFile: String {
         return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.path
@@ -60,7 +61,31 @@ class AddVoiceNoteViewController: ParentViewController, AVAudioRecorderDelegate,
         btnRecord.layer.cornerRadius = (btnRecord.frame.width + 1) / 2
         // load voice note if exists
         getQuestionVoiceNoteIfExists()
+        configureBackBtn()
         
+    }
+    
+    func configureBackBtn(){
+        
+        let btn = UIButton.init(type: .custom)
+        btn.setImage(#imageLiteral(resourceName: "back-NoShadow"), for: .normal)
+        btn.addTarget(self, action: #selector(self.backBtnClicked), for: .touchUpInside)
+        let barBtn = UIBarButtonItem.init(customView: btn)
+        self.navigationItem.leftBarButtonItem = barBtn
+    }
+    
+    @objc func backBtnClicked(){
+        
+        if mediaSaved{
+            self.navigationController?.popViewController(animated: true)
+        }else{
+            showYesNoAlert(title: "Attention", message: "Unsaved changes will be discarded.", vc: self, firstBtnTitle: "Discard", secondBtnTitle: "Cancel", closure: { (exit) in
+                if exit{
+                    
+                    self.navigationController?.popViewController(animated: true)
+                }
+            })
+        }
     }
     
     func getQuestionVoiceNoteIfExists(){
@@ -161,6 +186,8 @@ class AddVoiceNoteViewController: ParentViewController, AVAudioRecorderDelegate,
     
     @IBAction func btnRecordClicked(_ sender: UIButton) {
         
+        mediaSaved = false
+        
         if audioRecorder == nil {
             self.btnRecord.setImage(#imageLiteral(resourceName: "Home"), for: .normal)
             self.startRecording()
@@ -182,6 +209,8 @@ class AddVoiceNoteViewController: ParentViewController, AVAudioRecorderDelegate,
     }
     
     @IBAction func btnSaveRecordClicked(_ sender: UIButton) {
+        
+        mediaSaved = true
         
         if isRecordExits{
             
@@ -222,7 +251,7 @@ class AddVoiceNoteViewController: ParentViewController, AVAudioRecorderDelegate,
                 
                 if let fq = realm?.objects(FlaggedQuestion.self).filter(predicateQuery).first{
                     
-                    var url = NSURL.init(fileURLWithPath: VoiceFile)
+                    let url = NSURL.init(fileURLWithPath: VoiceFile)
                     
                     if let filePath = url.appendingPathComponent("\(questionId).m4a"){
                         
@@ -244,6 +273,8 @@ class AddVoiceNoteViewController: ParentViewController, AVAudioRecorderDelegate,
     }
     
     @IBAction func btnsDeleteClicked(_ sender: UIButton) {
+        
+        mediaSaved = false
         
         if isRecordExits{
             

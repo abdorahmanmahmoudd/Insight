@@ -70,7 +70,7 @@ class QuestionMatchViewController: ParentViewController, UITableViewDelegate, UI
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "QuestionMatchCell", for: indexPath) as! QuestionMatchTableViewCell
         
-        cell.tvContent.text = questions[indexPath.row].content.html2String
+        cell.tvContent.text = "\(indexPath.row + 1)- \(questions[indexPath.row].content.html2String)"
         cell.tvAnswer.text = shuffledAnswers[indexPath.row].html2String
         cell.tfAnswerNumber.isEnabled = true
         
@@ -168,6 +168,8 @@ class QuestionMatchViewController: ParentViewController, UITableViewDelegate, UI
             if let fq = realm?.objects(FlaggedQuestion.self).filter(predicateQuery).first {
                 print("\(fq)")
                 btn?.flagValue = fq.flagValue
+            }else {
+                btn?.flagValue = 0
             }
         }
     }

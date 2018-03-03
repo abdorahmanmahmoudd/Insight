@@ -68,8 +68,8 @@ class ParentViewController: UIViewController {
     
     @objc func openEditFlagVC(_ sender: flagBtn){
         
-        if selectedIndex == 0 {// 0 -> Home
-            
+//        if selectedIndex == 0 {// 0 -> Home
+        
             if sender.flagValue == 0{
                 let sb = UIStoryboard.init(name: "Flag", bundle: Bundle.main)
                 if let vc = sb.instantiateViewController(withIdentifier: "EditFlagVC") as? EditFlagViewController{
@@ -82,52 +82,51 @@ class ParentViewController: UIViewController {
                 }
             }else{
                 
-                let alert = UIAlertController.init(title: nil, message: "Are you sure you want to remove this flagged question?", preferredStyle: .alert)
-                alert.view.tintColor = #colorLiteral(red: 1, green: 0.7244103551, blue: 0.2923497558, alpha: 1)
-                let yes = UIAlertAction.init(title: "YES", style: .default, handler: { (action) in
-                    //handle remove question
-                    self.deleteQuestionFlag(sender: sender)
-                })
-                let no = UIAlertAction.init(title: "Cancel", style: .default, handler: nil)
-                alert.addAction(yes)
-                alert.addAction(no)
-                
-                self.present(alert, animated: true, completion: nil)
-            }
-        }else if selectedIndex == 3{ //flagged screen
-            
-            if sender.flagValue != 0{
                 let sb = UIStoryboard.init(name: "Flag", bundle: Bundle.main)
                 if let vc = sb.instantiateViewController(withIdentifier: "AddMediaVC") as? AddMediaViewController{
                     
                     vc.questionId = sender.questionId
+                    vc.removeBtnHidden = false
+                    vc.indexPath = sender.indexPath
+                    vc.notificationName = sender.notificationName
                     self.navigationController?.pushViewController(vc, animated: true)
                 }
-            }
-        }
-    
-    }
-    
-    func deleteQuestionFlag(sender button: flagBtn){
-        button.flagValue = 0
-        do {
-            
-            let predicateQuery = NSPredicate.init(format: "Id == %@", button.questionId )
-            
-            if let fq = realm?.objects(FlaggedQuestion.self).filter(predicateQuery).first {
                 
-                try? realm?.write {
-                    realm?.delete(fq)
-                }
-                NotificationCenter.default.post(name: NSNotification.Name(rawValue: button.notificationName), object: nil, userInfo: ["indexPath":button.indexPath])
-                print("\(String(describing: realm?.objects(FlaggedQuestion.self)))")
             }
-
-            
-        }catch let err {
-            showAlert(title: "", message: err.localizedDescription, vc: self, closure: nil)
-        }
+//        }else if selectedIndex == 3{ //flagged screen
+//
+//            if sender.flagValue != 0{
+//                let sb = UIStoryboard.init(name: "Flag", bundle: Bundle.main)
+//                if let vc = sb.instantiateViewController(withIdentifier: "AddMediaVC") as? AddMediaViewController{
+//
+//                    vc.questionId = sender.questionId
+//                    self.navigationController?.pushViewController(vc, animated: true)
+//                }
+//            }
+//        }
+    
     }
+//    
+//    func deleteQuestionFlag(sender button: flagBtn){
+//        button.flagValue = 0
+//        do {
+//            
+//            let predicateQuery = NSPredicate.init(format: "Id == %@", button.questionId )
+//            
+//            if let fq = realm?.objects(FlaggedQuestion.self).filter(predicateQuery).first {
+//                
+//                try? realm?.write {
+//                    realm?.delete(fq)
+//                }
+//                NotificationCenter.default.post(name: NSNotification.Name(rawValue: button.notificationName), object: nil, userInfo: ["indexPath":button.indexPath])
+//                print("\(String(describing: realm?.objects(FlaggedQuestion.self)))")
+//            }
+//
+//            
+//        }catch let err {
+//            showAlert(title: "", message: err.localizedDescription, vc: self, closure: nil)
+//        }
+//    }
    
 
 }

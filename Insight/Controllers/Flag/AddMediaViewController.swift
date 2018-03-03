@@ -10,7 +10,12 @@ import UIKit
 
 class AddMediaViewController: ParentViewController {
     
+    @IBOutlet var btnRemoveFlaggedQuestion: UIButton!
+    
+    var removeBtnHidden = false
     var questionId = String()
+    var indexPath = IndexPath()
+    var notificationName = String()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +37,7 @@ class AddMediaViewController: ParentViewController {
     func configuration(){
         
         self.title = "Add Media"
+        btnRemoveFlaggedQuestion.isHidden = removeBtnHidden
     }
     
     @IBAction func btnAddPhotoClicked(_ sender: UIButton) {
@@ -75,4 +81,61 @@ class AddMediaViewController: ParentViewController {
         }
     }
 
+    @IBAction func btnRemoveFlaggedQuestionClicked(_ sender: UIButton) {
+        
+        do {
+            
+            let predicateQuery = NSPredicate.init(format: "Id == %@", questionId)
+            
+            if let fq = realm?.objects(FlaggedQuestion.self).filter(predicateQuery).first{
+                
+                if fq.photoPath != nil {
+                    
+                    var imageFile: String {
+                        return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.path
+                    }
+                    let url = NSURL.init(fileURLWithPath: imageFile)
+                    
+                    if let filePath = url.appendingPathComponent(fq.photoPath!){
+                        
+                        if FileManager.default.fileExists(atPath: filePath.path) {
+                            
+                            try FileManager.default.removeItem(at: filePath)
+                            
+                        }
+                    }
+                }
+                
+                if fq.voiceNotePath != nil{
+                    
+                    var VoiceFile: String {
+                        return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.path
+                    }
+                    let url = NSURL.init(fileURLWithPath: VoiceFile)
+                    
+                    if let filePath = url.appendingPathComponent(fq.voiceNotePath!){
+                        
+                        if FileManager.default.fileExists(atPath: filePath.path) {
+                            
+                            try FileManager.default.removeItem(at: filePath)
+                            
+                        }
+                    }
+                }
+                
+                try realm?.write {
+                    realm?.delete(fq)
+                }
+                
+                print("\(realm!.objects(FlaggedQuestion.self))")
+                
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: notificationName ), object: nil, userInfo: ["indexPath":indexPath])
+                
+                self.navigationController?.popViewController(animated: true)
+            }
+            
+        }catch let err{
+            showAlert(title: "Error", message: err.localizedDescription, vc: self, closure: nil)
+        }
+    }
 }

@@ -803,13 +803,13 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Results" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="riy-3h-41T">
-                                <rect key="frame" x="42" y="274" width="112" height="23.5"/>
+                                <rect key="frame" x="41.5" y="274" width="112" height="23.5"/>
                                 <fontDescription key="fontDescription" name="MavenPro-Medium" family="Maven Pro" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="App Avg. Results" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LiQ-3r-7C8">
-                                <rect key="frame" x="201.5" y="274" width="154" height="23.5"/>
+                                <rect key="frame" x="202" y="274" width="154" height="23.5"/>
                                 <fontDescription key="fontDescription" name="MavenPro-Medium" family="Maven Pro" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -3421,6 +3421,351 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6aT-lQ-c41" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="10965.6" y="1025.9370314842579"/>
+        </scene>
+        <!--Derivatives View Controller-->
+        <scene sceneID="LQF-zs-YPZ">
+            <objects>
+                <viewController storyboardIdentifier="QuestionDerivativesVC" id="yzK-ZW-n0P" customClass="DerivativesViewController" customModule="Insight" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4XF-hc-wv3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="Z39-1m-Rd7">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jLW-Pn-agT">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RHg-OX-Kvi" userLabel="containerView">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="280.5"/>
+                                        <subviews>
+                                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PTk-lF-2E1">
+                                                <rect key="frame" x="8" y="62" width="359" height="152.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="Noun" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kRf-wR-8Pb">
+                                                        <rect key="frame" x="8" y="15" width="49.5" height="20"/>
+                                                        <fontDescription key="fontDescription" name="MavenPro-Regular" family="Maven Pro" pointSize="17"/>
+                                                        <color key="textColor" red="0.54117647059999996" green="0.54117647059999996" blue="0.54117647059999996" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="Verb" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MsP-GQ-FZt">
+                                                        <rect key="frame" x="8" y="66" width="49" height="20"/>
+                                                        <fontDescription key="fontDescription" name="MavenPro-Regular" family="Maven Pro" pointSize="17"/>
+                                                        <color key="textColor" red="0.54117647059999996" green="0.54117647059999996" blue="0.54117647059999996" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="Adj./Adv" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qv2-Bk-K9g">
+                                                        <rect key="frame" x="2" y="118" width="61" height="18"/>
+                                                        <fontDescription key="fontDescription" name="MavenPro-Regular" family="Maven Pro" pointSize="15"/>
+                                                        <color key="textColor" red="0.54117647059999996" green="0.54117647059999996" blue="0.54117647059999996" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CbJ-lP-XzF">
+                                                        <rect key="frame" x="65" y="8" width="90" height="34"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <attributedString key="attributedText">
+                                                            <fragment content=" ">
+                                                                <attributes>
+                                                                    <color key="NSColor" red="0.40392" green="0.40392" blue="0.40392" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <font key="NSFont" size="15" name="HelveticaNeue-Light"/>
+                                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                                                </attributes>
+                                                            </fragment>
+                                                        </attributedString>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="yzK-ZW-n0P" id="vIs-r8-Phf"/>
+                                                        </connections>
+                                                    </textView>
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E1s-dV-iE9">
+                                                        <rect key="frame" x="163" y="8" width="90" height="34"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <attributedString key="attributedText">
+                                                            <fragment content=" ">
+                                                                <attributes>
+                                                                    <color key="NSColor" red="0.40392156862745099" green="0.40392156862745099" blue="0.40392156862745099" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <font key="NSFont" size="15" name="HelveticaNeue-Light"/>
+                                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                </attributes>
+                                                            </fragment>
+                                                        </attributedString>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="yzK-ZW-n0P" id="SBo-WX-MdR"/>
+                                                        </connections>
+                                                    </textView>
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KhR-T5-nXL">
+                                                        <rect key="frame" x="261" y="8" width="90" height="34"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <attributedString key="attributedText">
+                                                            <fragment content=" ">
+                                                                <attributes>
+                                                                    <color key="NSColor" red="0.40392156862745099" green="0.40392156862745099" blue="0.40392156862745099" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <font key="NSFont" size="15" name="HelveticaNeue-Light"/>
+                                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                </attributes>
+                                                            </fragment>
+                                                        </attributedString>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="yzK-ZW-n0P" id="ZTl-4d-qAg"/>
+                                                        </connections>
+                                                    </textView>
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="agc-DJ-ejL">
+                                                        <rect key="frame" x="65" y="59" width="90" height="34"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <attributedString key="attributedText">
+                                                            <fragment content=" ">
+                                                                <attributes>
+                                                                    <color key="NSColor" red="0.40392156862745099" green="0.40392156862745099" blue="0.40392156862745099" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <font key="NSFont" size="15" name="HelveticaNeue-Light"/>
+                                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                </attributes>
+                                                            </fragment>
+                                                        </attributedString>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="yzK-ZW-n0P" id="xDB-Et-h5h"/>
+                                                        </connections>
+                                                    </textView>
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ffr-7l-C6v">
+                                                        <rect key="frame" x="163" y="59" width="90" height="34"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <attributedString key="attributedText">
+                                                            <fragment content=" ">
+                                                                <attributes>
+                                                                    <color key="NSColor" red="0.40392156862745099" green="0.40392156862745099" blue="0.40392156862745099" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <font key="NSFont" size="15" name="HelveticaNeue-Light"/>
+                                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                </attributes>
+                                                            </fragment>
+                                                        </attributedString>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="yzK-ZW-n0P" id="9YA-Nc-Jcz"/>
+                                                        </connections>
+                                                    </textView>
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E7d-uN-gau">
+                                                        <rect key="frame" x="261" y="59" width="90" height="34"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <attributedString key="attributedText">
+                                                            <fragment content=" ">
+                                                                <attributes>
+                                                                    <color key="NSColor" red="0.40392156862745099" green="0.40392156862745099" blue="0.40392156862745099" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <font key="NSFont" size="15" name="HelveticaNeue-Light"/>
+                                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                </attributes>
+                                                            </fragment>
+                                                        </attributedString>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="yzK-ZW-n0P" id="JH9-e9-szQ"/>
+                                                        </connections>
+                                                    </textView>
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="u4m-zD-rgc">
+                                                        <rect key="frame" x="65" y="110" width="90" height="34"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <attributedString key="attributedText">
+                                                            <fragment content=" ">
+                                                                <attributes>
+                                                                    <color key="NSColor" red="0.40392156862745099" green="0.40392156862745099" blue="0.40392156862745099" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <font key="NSFont" size="15" name="HelveticaNeue-Light"/>
+                                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                </attributes>
+                                                            </fragment>
+                                                        </attributedString>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="yzK-ZW-n0P" id="853-8T-3cJ"/>
+                                                        </connections>
+                                                    </textView>
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sWL-Pp-4p8">
+                                                        <rect key="frame" x="163" y="110" width="90" height="34.5"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <attributedString key="attributedText">
+                                                            <fragment content=" ">
+                                                                <attributes>
+                                                                    <color key="NSColor" red="0.40392156862745099" green="0.40392156862745099" blue="0.40392156862745099" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <font key="NSFont" size="15" name="HelveticaNeue-Light"/>
+                                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                </attributes>
+                                                            </fragment>
+                                                        </attributedString>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="yzK-ZW-n0P" id="PCT-YH-sYt"/>
+                                                        </connections>
+                                                    </textView>
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oOs-V1-vTh">
+                                                        <rect key="frame" x="261" y="110" width="90" height="34.5"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <attributedString key="attributedText">
+                                                            <fragment content=" ">
+                                                                <attributes>
+                                                                    <color key="NSColor" red="0.40392156862745099" green="0.40392156862745099" blue="0.40392156862745099" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <font key="NSFont" size="15" name="HelveticaNeue-Light"/>
+                                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                </attributes>
+                                                            </fragment>
+                                                        </attributedString>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="yzK-ZW-n0P" id="wuu-ex-Jwh"/>
+                                                        </connections>
+                                                    </textView>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q6e-Vb-wr3">
+                                                        <rect key="frame" x="4" y="50" width="351" height="1"/>
+                                                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="1" id="8Qm-mv-EXW"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8YK-wN-h8D">
+                                                        <rect key="frame" x="4" y="101" width="351" height="1"/>
+                                                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="1" id="xek-NO-ibQ"/>
+                                                        </constraints>
+                                                    </view>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstItem="agc-DJ-ejL" firstAttribute="top" secondItem="Q6e-Vb-wr3" secondAttribute="bottom" constant="8" id="1TC-z7-tVs"/>
+                                                    <constraint firstItem="E1s-dV-iE9" firstAttribute="top" secondItem="PTk-lF-2E1" secondAttribute="top" constant="8" id="1af-eZ-cOS"/>
+                                                    <constraint firstItem="u4m-zD-rgc" firstAttribute="leading" secondItem="Qv2-Bk-K9g" secondAttribute="trailing" constant="2" id="3DP-jr-mxf"/>
+                                                    <constraint firstItem="E7d-uN-gau" firstAttribute="leading" secondItem="ffr-7l-C6v" secondAttribute="trailing" constant="8" id="3Ds-NO-tPJ"/>
+                                                    <constraint firstItem="CbJ-lP-XzF" firstAttribute="top" secondItem="PTk-lF-2E1" secondAttribute="top" constant="8" id="4UB-px-ZGM"/>
+                                                    <constraint firstItem="KhR-T5-nXL" firstAttribute="top" secondItem="PTk-lF-2E1" secondAttribute="top" constant="8" id="5c3-zz-jIU"/>
+                                                    <constraint firstItem="kRf-wR-8Pb" firstAttribute="centerY" secondItem="CbJ-lP-XzF" secondAttribute="centerY" id="5hK-Hp-fv4"/>
+                                                    <constraint firstAttribute="trailing" secondItem="oOs-V1-vTh" secondAttribute="trailing" constant="8" id="6Aj-Tx-Pw7"/>
+                                                    <constraint firstItem="MsP-GQ-FZt" firstAttribute="leading" secondItem="PTk-lF-2E1" secondAttribute="leading" constant="8" id="6Sf-Ee-fVG"/>
+                                                    <constraint firstItem="u4m-zD-rgc" firstAttribute="top" secondItem="8YK-wN-h8D" secondAttribute="bottom" constant="8" id="7R0-hG-16I"/>
+                                                    <constraint firstItem="ffr-7l-C6v" firstAttribute="leading" secondItem="agc-DJ-ejL" secondAttribute="trailing" constant="8" id="9UJ-NN-EzR"/>
+                                                    <constraint firstItem="oOs-V1-vTh" firstAttribute="leading" secondItem="sWL-Pp-4p8" secondAttribute="trailing" constant="8" id="AbW-OB-XDu"/>
+                                                    <constraint firstItem="oOs-V1-vTh" firstAttribute="top" secondItem="8YK-wN-h8D" secondAttribute="bottom" constant="8" id="ByS-OV-6CA"/>
+                                                    <constraint firstAttribute="trailing" secondItem="KhR-T5-nXL" secondAttribute="trailing" constant="8" id="DBh-Cn-LA1"/>
+                                                    <constraint firstAttribute="trailing" secondItem="E7d-uN-gau" secondAttribute="trailing" constant="8" id="GpM-rQ-4Pw"/>
+                                                    <constraint firstItem="Qv2-Bk-K9g" firstAttribute="leading" secondItem="PTk-lF-2E1" secondAttribute="leading" constant="2" id="HGh-Yb-wQg"/>
+                                                    <constraint firstItem="Q6e-Vb-wr3" firstAttribute="top" secondItem="CbJ-lP-XzF" secondAttribute="bottom" constant="8" id="I6s-Ze-HyZ"/>
+                                                    <constraint firstItem="8YK-wN-h8D" firstAttribute="leading" secondItem="PTk-lF-2E1" secondAttribute="leading" constant="4" id="L4X-oI-teC"/>
+                                                    <constraint firstItem="8YK-wN-h8D" firstAttribute="top" secondItem="ffr-7l-C6v" secondAttribute="bottom" constant="8" id="LYB-wa-GTF"/>
+                                                    <constraint firstAttribute="bottom" secondItem="sWL-Pp-4p8" secondAttribute="bottom" constant="8" id="MrR-SB-6XW"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Q6e-Vb-wr3" secondAttribute="trailing" constant="4" id="NxG-82-PRI"/>
+                                                    <constraint firstItem="agc-DJ-ejL" firstAttribute="leading" secondItem="MsP-GQ-FZt" secondAttribute="trailing" constant="8" id="P50-gm-kSc"/>
+                                                    <constraint firstItem="E1s-dV-iE9" firstAttribute="width" secondItem="CbJ-lP-XzF" secondAttribute="width" id="RUZ-K7-cB2"/>
+                                                    <constraint firstItem="E1s-dV-iE9" firstAttribute="leading" secondItem="CbJ-lP-XzF" secondAttribute="trailing" constant="8" id="Snr-tf-M8t"/>
+                                                    <constraint firstItem="E7d-uN-gau" firstAttribute="top" secondItem="Q6e-Vb-wr3" secondAttribute="bottom" constant="8" id="Sws-GV-7R1"/>
+                                                    <constraint firstItem="sWL-Pp-4p8" firstAttribute="width" secondItem="u4m-zD-rgc" secondAttribute="width" id="Vmi-Si-2Wg"/>
+                                                    <constraint firstItem="KhR-T5-nXL" firstAttribute="leading" secondItem="E1s-dV-iE9" secondAttribute="trailing" constant="8" id="XB5-G0-NQa"/>
+                                                    <constraint firstItem="agc-DJ-ejL" firstAttribute="width" secondItem="CbJ-lP-XzF" secondAttribute="width" id="XxW-GG-HBJ"/>
+                                                    <constraint firstItem="ffr-7l-C6v" firstAttribute="width" secondItem="agc-DJ-ejL" secondAttribute="width" id="YX1-QQ-rVm"/>
+                                                    <constraint firstItem="8YK-wN-h8D" firstAttribute="top" secondItem="agc-DJ-ejL" secondAttribute="bottom" constant="8" id="YbS-ii-Pyh"/>
+                                                    <constraint firstAttribute="bottom" secondItem="oOs-V1-vTh" secondAttribute="bottom" constant="8" id="ZOf-jG-KuP"/>
+                                                    <constraint firstItem="CbJ-lP-XzF" firstAttribute="width" secondItem="PTk-lF-2E1" secondAttribute="width" multiplier="0.25" id="aRv-uE-Blp"/>
+                                                    <constraint firstItem="sWL-Pp-4p8" firstAttribute="top" secondItem="8YK-wN-h8D" secondAttribute="bottom" constant="8" id="gLc-gm-Ikh"/>
+                                                    <constraint firstItem="MsP-GQ-FZt" firstAttribute="centerY" secondItem="agc-DJ-ejL" secondAttribute="centerY" id="gaE-bF-PfD"/>
+                                                    <constraint firstItem="sWL-Pp-4p8" firstAttribute="leading" secondItem="u4m-zD-rgc" secondAttribute="trailing" constant="8" id="hKg-1S-NQe"/>
+                                                    <constraint firstItem="Q6e-Vb-wr3" firstAttribute="top" secondItem="KhR-T5-nXL" secondAttribute="bottom" constant="8" id="haL-o1-zkD"/>
+                                                    <constraint firstItem="u4m-zD-rgc" firstAttribute="width" secondItem="agc-DJ-ejL" secondAttribute="width" id="htP-YO-z56"/>
+                                                    <constraint firstItem="8YK-wN-h8D" firstAttribute="top" secondItem="E7d-uN-gau" secondAttribute="bottom" constant="8" id="k4Z-Ow-y3l"/>
+                                                    <constraint firstItem="Qv2-Bk-K9g" firstAttribute="centerY" secondItem="u4m-zD-rgc" secondAttribute="centerY" id="opL-3c-STS"/>
+                                                    <constraint firstItem="Q6e-Vb-wr3" firstAttribute="leading" secondItem="PTk-lF-2E1" secondAttribute="leading" constant="4" id="q6B-7B-xpJ"/>
+                                                    <constraint firstItem="Q6e-Vb-wr3" firstAttribute="top" secondItem="E1s-dV-iE9" secondAttribute="bottom" constant="8" id="rxk-IR-jhV"/>
+                                                    <constraint firstItem="kRf-wR-8Pb" firstAttribute="leading" secondItem="PTk-lF-2E1" secondAttribute="leading" constant="8" id="sVx-HA-ZFO"/>
+                                                    <constraint firstItem="ffr-7l-C6v" firstAttribute="top" secondItem="Q6e-Vb-wr3" secondAttribute="bottom" constant="8" id="shE-L4-Rgi"/>
+                                                    <constraint firstItem="KhR-T5-nXL" firstAttribute="width" secondItem="CbJ-lP-XzF" secondAttribute="width" id="tIF-FC-MnB"/>
+                                                    <constraint firstItem="E7d-uN-gau" firstAttribute="width" secondItem="agc-DJ-ejL" secondAttribute="width" id="tMv-6J-TsH"/>
+                                                    <constraint firstItem="oOs-V1-vTh" firstAttribute="width" secondItem="u4m-zD-rgc" secondAttribute="width" id="uZL-Va-Uk5"/>
+                                                    <constraint firstAttribute="trailing" secondItem="8YK-wN-h8D" secondAttribute="trailing" constant="4" id="yOA-KX-VXb"/>
+                                                    <constraint firstItem="CbJ-lP-XzF" firstAttribute="leading" secondItem="kRf-wR-8Pb" secondAttribute="trailing" constant="8" id="z6T-p9-jsp"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <integer key="value" value="9"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QId-7R-0y8">
+                                                <rect key="frame" x="107.5" y="230.5" width="160" height="34"/>
+                                                <fontDescription key="fontDescription" name="MavenPro-Regular" family="Maven Pro" pointSize="18"/>
+                                                <state key="normal" title="SHOW ANSWER" backgroundImage="button-blueBG">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="btnShowAnswerClicked:" destination="yzK-ZW-n0P" eventType="touchUpInside" id="xMB-Li-ou8"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zov-yB-OZK" customClass="flagBtn" customModule="Insight" customModuleProvider="target">
+                                                <rect key="frame" x="345" y="24" width="22" height="22"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="22" id="lQg-h5-KNg"/>
+                                                    <constraint firstAttribute="width" constant="22" id="v4E-be-Y2U"/>
+                                                </constraints>
+                                                <state key="normal" image="flag-noBG"/>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="QId-7R-0y8" secondAttribute="bottom" constant="16" id="2qR-TW-mgi"/>
+                                            <constraint firstItem="QId-7R-0y8" firstAttribute="top" secondItem="PTk-lF-2E1" secondAttribute="bottom" constant="16" id="6WT-KF-xu1"/>
+                                            <constraint firstAttribute="trailing" secondItem="zov-yB-OZK" secondAttribute="trailing" constant="8" id="B5g-ND-agJ"/>
+                                            <constraint firstItem="PTk-lF-2E1" firstAttribute="top" secondItem="zov-yB-OZK" secondAttribute="bottom" constant="16" id="NOw-bO-4Rk"/>
+                                            <constraint firstItem="zov-yB-OZK" firstAttribute="top" secondItem="RHg-OX-Kvi" secondAttribute="top" constant="24" id="ZVY-AX-buN"/>
+                                            <constraint firstAttribute="trailing" secondItem="PTk-lF-2E1" secondAttribute="trailing" constant="8" id="a9e-hB-fKJ"/>
+                                            <constraint firstItem="QId-7R-0y8" firstAttribute="centerX" secondItem="RHg-OX-Kvi" secondAttribute="centerX" id="jZ7-Mi-TNS"/>
+                                            <constraint firstItem="PTk-lF-2E1" firstAttribute="leading" secondItem="RHg-OX-Kvi" secondAttribute="leading" constant="8" id="l61-v9-vx2"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="RHg-OX-Kvi" secondAttribute="bottom" id="BDS-Pw-rSC"/>
+                                    <constraint firstItem="RHg-OX-Kvi" firstAttribute="leading" secondItem="jLW-Pn-agT" secondAttribute="leading" id="N54-55-SsL"/>
+                                    <constraint firstItem="RHg-OX-Kvi" firstAttribute="top" secondItem="jLW-Pn-agT" secondAttribute="top" id="Ydc-nO-vfe"/>
+                                    <constraint firstAttribute="trailing" secondItem="RHg-OX-Kvi" secondAttribute="trailing" id="ifJ-60-hkh"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="Z39-1m-Rd7" secondAttribute="bottom" id="6MR-Gb-g60"/>
+                            <constraint firstItem="Z39-1m-Rd7" firstAttribute="leading" secondItem="4XF-hc-wv3" secondAttribute="leading" id="9h1-rX-e9y"/>
+                            <constraint firstAttribute="top" secondItem="jLW-Pn-agT" secondAttribute="top" id="BkF-Su-IPV"/>
+                            <constraint firstItem="RHg-OX-Kvi" firstAttribute="width" secondItem="4XF-hc-wv3" secondAttribute="width" id="Cqm-t7-qSU"/>
+                            <constraint firstItem="Z39-1m-Rd7" firstAttribute="top" secondItem="4XF-hc-wv3" secondAttribute="top" id="Ic1-aU-leM"/>
+                            <constraint firstItem="jLW-Pn-agT" firstAttribute="leading" secondItem="4XF-hc-wv3" secondAttribute="leading" id="KO1-Vl-P9o"/>
+                            <constraint firstItem="Z39-1m-Rd7" firstAttribute="trailing" secondItem="4XF-hc-wv3" secondAttribute="trailing" id="Mg7-yO-axr"/>
+                            <constraint firstAttribute="bottom" secondItem="jLW-Pn-agT" secondAttribute="bottom" id="YNt-GI-hWx"/>
+                            <constraint firstAttribute="trailing" secondItem="jLW-Pn-agT" secondAttribute="trailing" id="gtU-gj-XDg"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="cck-Dw-diu"/>
+                    </view>
+                    <connections>
+                        <outlet property="btnFlag" destination="zov-yB-OZK" id="jMI-W4-7Ek"/>
+                        <outlet property="btnShowAnswer" destination="QId-7R-0y8" id="VfH-iH-JKr"/>
+                        <outletCollection property="tvNouns" destination="CbJ-lP-XzF" collectionClass="NSMutableArray" id="SvJ-LF-nv0"/>
+                        <outletCollection property="tvNouns" destination="E1s-dV-iE9" collectionClass="NSMutableArray" id="JuM-hX-t6a"/>
+                        <outletCollection property="tvNouns" destination="KhR-T5-nXL" collectionClass="NSMutableArray" id="0Sr-58-qVv"/>
+                        <outletCollection property="tvVerbs" destination="agc-DJ-ejL" collectionClass="NSMutableArray" id="gLb-Ht-njR"/>
+                        <outletCollection property="tvVerbs" destination="ffr-7l-C6v" collectionClass="NSMutableArray" id="YWy-ti-NXh"/>
+                        <outletCollection property="tvVerbs" destination="E7d-uN-gau" collectionClass="NSMutableArray" id="t8n-lP-Ncq"/>
+                        <outletCollection property="tvAdjs" destination="u4m-zD-rgc" collectionClass="NSMutableArray" id="KoZ-9h-AaY"/>
+                        <outletCollection property="tvAdjs" destination="sWL-Pp-4p8" collectionClass="NSMutableArray" id="ogP-EZ-HpT"/>
+                        <outletCollection property="tvAdjs" destination="oOs-V1-vTh" collectionClass="NSMutableArray" id="fph-Ec-smv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ker-y4-Ls7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="11720.799999999999" y="1020.5397301349326"/>
         </scene>
     </scenes>
     <resources>

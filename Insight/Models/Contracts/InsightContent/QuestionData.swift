@@ -30,6 +30,10 @@ class QuestionData : NSObject, NSCoding{
     
     var freewriting : [Freewriting]!
     var mcq : [Mcq]!
+    
+    var adj : [DerivativeData]!
+    var noun : [DerivativeData]!
+    var dVerb : [DerivativeData]!
 
 
 	/**
@@ -83,6 +87,28 @@ class QuestionData : NSObject, NSCoding{
             for dic in mcqArray{
                 let value = Mcq(fromDictionary: dic)
                 mcq.append(value)
+            }
+        }
+        
+        adj = [DerivativeData]()
+        if let adjArray = dictionary["adj"] as? [[String:Any]]{
+            for dic in adjArray{
+                let value = DerivativeData(fromDictionary: dic)
+                adj.append(value)
+            }
+        }
+        noun = [DerivativeData]()
+        if let nounArray = dictionary["noun"] as? [[String:Any]]{
+            for dic in nounArray{
+                let value = DerivativeData(fromDictionary: dic)
+                noun.append(value)
+            }
+        }
+        dVerb = [DerivativeData]()
+        if let verbArray = dictionary["verb"] as? [[String:Any]]{
+            for dic in verbArray{
+                let value = DerivativeData(fromDictionary: dic)
+                dVerb.append(value)
             }
         }
 	}
@@ -164,6 +190,27 @@ class QuestionData : NSObject, NSCoding{
             }
             dictionary["mcq"] = dictionaryElements
         }
+        if adj != nil{
+            var dictionaryElements = [[String:Any]]()
+            for adjElement in adj {
+                dictionaryElements.append(adjElement.toDictionary())
+            }
+            dictionary["adj"] = dictionaryElements
+        }
+        if noun != nil{
+            var dictionaryElements = [[String:Any]]()
+            for nounElement in noun {
+                dictionaryElements.append(nounElement.toDictionary())
+            }
+            dictionary["noun"] = dictionaryElements
+        }
+        if dVerb != nil{
+            var dictionaryElements = [[String:Any]]()
+            for verbElement in dVerb {
+                dictionaryElements.append(verbElement.toDictionary())
+            }
+            dictionary["verb"] = dictionaryElements
+        }
         
 		return dictionary
 	}
@@ -190,7 +237,10 @@ class QuestionData : NSObject, NSCoding{
         answerContent = aDecoder.decodeObject(forKey :"answerContent") as? String
         freewriting = aDecoder.decodeObject(forKey :"freewriting") as? [Freewriting]
         mcq = aDecoder.decodeObject(forKey :"mcq") as? [Mcq]
-
+        adj = aDecoder.decodeObject(forKey :"adj") as? [DerivativeData]
+        noun = aDecoder.decodeObject(forKey :"noun") as? [DerivativeData]
+        dVerb = aDecoder.decodeObject(forKey :"verb") as? [DerivativeData]
+        
 	}
 
     /**
@@ -246,6 +296,15 @@ class QuestionData : NSObject, NSCoding{
         }
         if mcq != nil{
             aCoder.encode(mcq, forKey: "mcq")
+        }
+        if adj != nil{
+            aCoder.encode(adj, forKey: "adj")
+        }
+        if noun != nil{
+            aCoder.encode(noun, forKey: "noun")
+        }
+        if dVerb != nil{
+            aCoder.encode(verb, forKey: "verb")
         }
 
 	}

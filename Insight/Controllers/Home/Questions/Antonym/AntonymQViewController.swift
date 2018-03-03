@@ -156,6 +156,8 @@ class AntonymQViewController: ParentViewController, UITableViewDelegate, UITable
             if let fq = realm?.objects(FlaggedQuestion.self).filter(predicateQuery).first {
                 print("\(fq)")
                 btn?.flagValue = fq.flagValue
+            }else {
+                btn?.flagValue = 0
             }
         }
     }

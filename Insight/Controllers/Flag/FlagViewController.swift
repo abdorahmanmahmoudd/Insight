@@ -66,7 +66,7 @@ class FlagViewController: ParentViewController, UITableViewDelegate, UITableView
             if let des = segue.destination as? HomeViewController{
                 
                 des.flagFilter = selectedFilter
-                des.cameFromFlag = true
+//                des.cameFromFlag = true
             }
         }
     }

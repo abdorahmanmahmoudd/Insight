@@ -16,7 +16,7 @@ class HomeViewController: ParentViewController {
     var insightContent = [InsightContentRootClass]()
     var flagFilter: Flag?
     var homeTitle = "Home"
-    var cameFromFlag = false
+//    var cameFromFlag = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,10 +35,10 @@ class HomeViewController: ParentViewController {
         super.viewWillAppear(animated)
         selectedIndex = 0
         
-        if cameFromFlag {
-            
-            selectedIndex = 3
-        }
+//        if cameFromFlag {
+//
+//            selectedIndex = 3
+//        }
     }
     
     func configuration(){
@@ -68,19 +68,24 @@ class HomeViewController: ParentViewController {
                 
                 if let data = data{
                     
-                    //decode
-                    let dataString = String.init(data: data, encoding: .utf8)
-                    if let decodedStr = self.decode(data: dataString!){
+                    if let _ = try? JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableContainers) as? [Any]{
                         
-                        if let jsonData = try? JSONSerialization.data(withJSONObject: decodedStr, options:[]){
-                            
-                            if let jsonStr = String.init(data: jsonData, encoding: String.Encoding.utf8){
-                                
-                                self.saveContentFile(jsonStr : jsonStr,jsonData:  jsonData)
-                                
-                            }
-                        }
+                        self.saveContentFile(jsonData:  data)
+                        
                     }
+                    
+                    //decode
+                    //                    let dataString = String.init(data: data, encoding: .utf8)
+                    //                    if let decodedStr = self.decode(data: dataString!){
+                    //                        if let jsonData = try? JSONSerialization.data(withJSONObject: decodedStr, options:[]){
+                    //
+                    //                            if let jsonStr = String.init(data: jsonData, encoding: String.Encoding.utf8){
+                    //
+                    //                                self.saveContentFile(jsonData:  jsonData)
+                    //
+                    //                            }
+                    //                        }
+                    //                    }
                 }
                 
                 OperationQueue.main.addOperation {
@@ -140,7 +145,7 @@ class HomeViewController: ParentViewController {
         hideLoaderFor(view: self.view)
     }
     
-    func saveContentFile(jsonStr : String, jsonData: Data){
+    func saveContentFile(jsonData: Data){
         
         
         if let documentsDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first {
@@ -151,7 +156,7 @@ class HomeViewController: ParentViewController {
             
             do {
                 
-                try jsonStr.write(to: savingPath, atomically: true, encoding: String.Encoding.utf8)
+                try jsonData.write(to: savingPath)
                 
                 let json = try JSONSerialization.jsonObject(with: jsonData, options: .mutableContainers)
                 

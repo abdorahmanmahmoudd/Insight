@@ -8,11 +8,12 @@
 
 import UIKit
 
-class AddNoteViewController: ParentViewController {
+class AddNoteViewController: ParentViewController, UITextViewDelegate {
 
     @IBOutlet var tvNote: BorderedTV!
     
     var questionId = String()
+    var mediaSaved = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +32,30 @@ class AddNoteViewController: ParentViewController {
         self.title = "Add Note"
         tvNote.layer.borderColor = UIColor.white.cgColor
         getQuestionNoteIfExists()
+        configureBackBtn()
+    }
+    
+    func configureBackBtn(){
+        
+        let btn = UIButton.init(type: .custom)
+        btn.setImage(#imageLiteral(resourceName: "back-NoShadow"), for: .normal)
+        btn.addTarget(self, action: #selector(self.backBtnClicked), for: .touchUpInside)
+        let barBtn = UIBarButtonItem.init(customView: btn)
+        self.navigationItem.leftBarButtonItem = barBtn
+    }
+    
+    @objc func backBtnClicked(){
+        
+        if mediaSaved{
+            self.navigationController?.popViewController(animated: true)
+        }else{
+            showYesNoAlert(title: "Attention", message: "Unsaved changes will be discarded.", vc: self, firstBtnTitle: "Discard", secondBtnTitle: "Cancel", closure: { (exit) in
+                if exit{
+                    
+                    self.navigationController?.popViewController(animated: true)
+                }
+            })
+        }
     }
     
     @IBAction func btnCancelClicked(_ sender: UIButton) {
@@ -57,6 +82,7 @@ class AddNoteViewController: ParentViewController {
                         
                         realm?.add(question, update: true)
                     }
+                    mediaSaved = true
                 }
                 
                 hideLoaderFor(view: self.view)
@@ -94,6 +120,10 @@ class AddNoteViewController: ParentViewController {
             
             showAlert(title: "Error", message: err.localizedDescription, vc: self, closure: nil)
         }
+    }
+    
+    func textViewDidChange(_ textView: UITextView) {
+        mediaSaved = false
     }
 
 }

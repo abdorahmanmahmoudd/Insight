@@ -50,6 +50,7 @@
 		BD263C352045B2D900EB5B1F /* FreeWritingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD263C342045B2D900EB5B1F /* FreeWritingTableViewCell.swift */; };
 		BD27EEDE201FF02D007872E0 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD27EEDD201FF02D007872E0 /* SignInViewController.swift */; };
 		BD27EEE0201FF353007872E0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD27EEDF201FF353007872E0 /* LaunchScreen.storyboard */; };
+		BD2C1879204A0380002C78C8 /* DerivativeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2C1878204A037F002C78C8 /* DerivativeData.swift */; };
 		BD2EF68A203DB2A70003B96B /* FlagRealmObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2EF689203DB2A70003B96B /* FlagRealmObjects.swift */; };
 		BD39AD412027447F00DC03B3 /* QuestionCompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD39AD402027447F00DC03B3 /* QuestionCompleteViewController.swift */; };
 		BD39AD432027449A00DC03B3 /* QuestionCompleteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD39AD422027449A00DC03B3 /* QuestionCompleteTableViewCell.swift */; };
@@ -99,6 +100,7 @@
 		BDAA5815202D14BB00C32AA9 /* QuotationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDAA5814202D14BB00C32AA9 /* QuotationTableViewCell.swift */; };
 		BDAA5818202D18C600C32AA9 /* TrueFalseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDAA5817202D18C600C32AA9 /* TrueFalseTableViewCell.swift */; };
 		BDAA581A202D18DC00C32AA9 /* TrueFalseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDAA5819202D18DC00C32AA9 /* TrueFalseViewController.swift */; };
+		BDABD3B020485BF300E2E5A7 /* DerivativesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDABD3AF20485BF300E2E5A7 /* DerivativesViewController.swift */; };
 		BDB6248C2028C2C20007B261 /* Choice.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB6248B2028C2C20007B261 /* Choice.swift */; };
 		BDB6248F2028CA220007B261 /* QuestionMcqViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB6248E2028CA220007B261 /* QuestionMcqViewController.swift */; };
 		BDB624912028CA410007B261 /* QuestionMcqTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB624902028CA410007B261 /* QuestionMcqTableViewCell.swift */; };
@@ -164,6 +166,7 @@
 		BD263C342045B2D900EB5B1F /* FreeWritingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreeWritingTableViewCell.swift; sourceTree = "<group>"; };
 		BD27EEDD201FF02D007872E0 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		BD27EEDF201FF353007872E0 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BD2C1878204A037F002C78C8 /* DerivativeData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DerivativeData.swift; sourceTree = "<group>"; };
 		BD2EF689203DB2A70003B96B /* FlagRealmObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlagRealmObjects.swift; sourceTree = "<group>"; };
 		BD39AD402027447F00DC03B3 /* QuestionCompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionCompleteViewController.swift; sourceTree = "<group>"; };
 		BD39AD422027449A00DC03B3 /* QuestionCompleteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionCompleteTableViewCell.swift; sourceTree = "<group>"; };
@@ -209,6 +212,7 @@
 		BDAA5814202D14BB00C32AA9 /* QuotationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotationTableViewCell.swift; sourceTree = "<group>"; };
 		BDAA5817202D18C600C32AA9 /* TrueFalseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrueFalseTableViewCell.swift; sourceTree = "<group>"; };
 		BDAA5819202D18DC00C32AA9 /* TrueFalseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrueFalseViewController.swift; sourceTree = "<group>"; };
+		BDABD3AF20485BF300E2E5A7 /* DerivativesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DerivativesViewController.swift; sourceTree = "<group>"; };
 		BDB6248B2028C2C20007B261 /* Choice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Choice.swift; sourceTree = "<group>"; };
 		BDB6248E2028CA220007B261 /* QuestionMcqViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionMcqViewController.swift; sourceTree = "<group>"; };
 		BDB624902028CA410007B261 /* QuestionMcqTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionMcqTableViewCell.swift; sourceTree = "<group>"; };
@@ -257,6 +261,7 @@
 		BD1A0C702022DA850019B3CB /* InsightContent */ = {
 			isa = PBXGroup;
 			children = (
+				BD2C1878204A037F002C78C8 /* DerivativeData.swift */,
 				BD263C2E2045AF3D00EB5B1F /* Freewriting.swift */,
 				BD263C2D2045AF3D00EB5B1F /* Mcq.swift */,
 				BDAA580F202D12EE00C32AA9 /* SubQuestion.swift */,
@@ -343,6 +348,7 @@
 		BD1FF8422023CF9700FC74C2 /* Questions */ = {
 			isa = PBXGroup;
 			children = (
+				BDABD3AE2048519600E2E5A7 /* Derivatives */,
 				BD263C312045AF8F00EB5B1F /* Comprehension */,
 				BDAA5816202D155000C32AA9 /* TrueFalse */,
 				BDAA5811202D134800C32AA9 /* Quotations */,
@@ -508,6 +514,14 @@
 				BDAA5817202D18C600C32AA9 /* TrueFalseTableViewCell.swift */,
 			);
 			path = TrueFalse;
+			sourceTree = "<group>";
+		};
+		BDABD3AE2048519600E2E5A7 /* Derivatives */ = {
+			isa = PBXGroup;
+			children = (
+				BDABD3AF20485BF300E2E5A7 /* DerivativesViewController.swift */,
+			);
+			path = Derivatives;
 			sourceTree = "<group>";
 		};
 		BDB6248D2028C3260007B261 /* MCQ */ = {
@@ -817,6 +831,7 @@
 				BD1B1ED42021349D0000D813 /* SideMenuPresentationInteractionController.swift in Sources */,
 				BDA2B41120421F5400F36AB2 /* AddNoteViewController.swift in Sources */,
 				BDAA581A202D18DC00C32AA9 /* TrueFalseViewController.swift in Sources */,
+				BD2C1879204A0380002C78C8 /* DerivativeData.swift in Sources */,
 				BD1B1EBB2020F7CE0000D813 /* User.swift in Sources */,
 				BD96771D202346950078B0A3 /* SubSubCategoryTableViewCell.swift in Sources */,
 				BD9A4B63202775D200DCCAE6 /* QuestionListeningTableViewCell.swift in Sources */,
@@ -864,6 +879,7 @@
 				BDAA5813202D14A500C32AA9 /* QuotationViewController.swift in Sources */,
 				BD1B1EDA202135720000D813 /* HomeViewController.swift in Sources */,
 				BD1478BB202330E00090A481 /* SubSubCategory.swift in Sources */,
+				BDABD3B020485BF300E2E5A7 /* DerivativesViewController.swift in Sources */,
 				BD1B1EB52020F6F80000D813 /* GeneralMethods.swift in Sources */,
 				BDAA57F8202CEF9900C32AA9 /* MistakesViewController.swift in Sources */,
 				BD1B1ED62021349D0000D813 /* Storyboard.swift in Sources */,
