@@ -62,6 +62,11 @@ class SideMenuViewController: UIViewController ,UITableViewDelegate, UITableView
             let sb = UIStoryboard.init(name: "Account", bundle: Bundle.main)
             viewController = sb.instantiateViewController(withIdentifier: "UserAccountVC")
             
+        }else if index == 2{
+            
+            let sb = UIStoryboard.init(name: "Subscribtion", bundle: Bundle.main)
+            viewController = sb.instantiateViewController(withIdentifier: "SubscribeVC")
+            
         }else if index == 3{
             
             let sb = UIStoryboard.init(name: "Flag", bundle: Bundle.main)

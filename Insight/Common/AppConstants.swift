@@ -11,6 +11,7 @@ let ForgetPassURL = "\(MainIP)auth/password/forget"
 let EditProfileURL = "\(MainIP)users"
 let ChangePasswordURL = "\(MainIP)password"
 let UpdateScoreURL = "\(MainIP)score/create"
+let GetPackagesURL = "\(MainIP)packages"
 
 
 //MARK: - Colors

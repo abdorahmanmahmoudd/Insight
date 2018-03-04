@@ -469,8 +469,8 @@
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jAR-Uw-Wo5">
                                 <rect key="frame" x="28" y="236" width="319" height="194.5"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Essential" translatesAutoresizingMaskIntoConstraints="NO" id="avC-hN-Qyd">
-                                        <rect key="frame" x="230" y="79" width="36" height="37"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="picture white" translatesAutoresizingMaskIntoConstraints="NO" id="avC-hN-Qyd">
+                                        <rect key="frame" x="229" y="82.5" width="38" height="30"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Or" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1sm-jn-zCW">
                                         <rect key="frame" x="149.5" y="87" width="19" height="21"/>
@@ -479,19 +479,19 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Camera" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uTb-Vp-gQz">
-                                        <rect key="frame" x="38" y="131" width="67" height="22.5"/>
+                                        <rect key="frame" x="37.5" y="128.5" width="67" height="22.5"/>
                                         <fontDescription key="fontDescription" name="MavenPro-Medium" family="Maven Pro" pointSize="19"/>
                                         <color key="textColor" red="1" green="0.6705882353" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gallery" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qam-LW-BDR">
-                                        <rect key="frame" x="218.5" y="132" width="59.5" height="22.5"/>
+                                        <rect key="frame" x="218.5" y="128.5" width="59.5" height="22.5"/>
                                         <fontDescription key="fontDescription" name="MavenPro-Medium" family="Maven Pro" pointSize="19"/>
                                         <color key="textColor" red="1" green="0.6705882353" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Critical" translatesAutoresizingMaskIntoConstraints="NO" id="f3w-EI-p8y">
-                                        <rect key="frame" x="32" y="79" width="77.5" height="36"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera white" translatesAutoresizingMaskIntoConstraints="NO" id="f3w-EI-p8y">
+                                        <rect key="frame" x="32" y="81.5" width="77.5" height="31"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RqD-GL-jon">
                                         <rect key="frame" x="8" y="32" width="125.5" height="130.5"/>
@@ -765,15 +765,15 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Critical" width="36" height="36"/>
-        <image name="Essential" width="36" height="37"/>
         <image name="Important" width="36" height="36"/>
         <image name="background" width="374" height="644"/>
         <image name="basket" width="15" height="19"/>
         <image name="button-blueBG" width="160" height="34"/>
         <image name="button-whiteBG" width="160" height="34"/>
+        <image name="camera white" width="38" height="31"/>
         <image name="icClose" width="11" height="12"/>
         <image name="mice" width="24" height="32"/>
+        <image name="picture white" width="38" height="30"/>
         <image name="play" width="17" height="20"/>
         <image name="plusGray" width="19" height="18"/>
         <image name="seletedFlag" width="35" height="29"/>

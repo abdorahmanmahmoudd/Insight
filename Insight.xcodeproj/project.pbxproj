@@ -39,6 +39,14 @@
 		BD1B1ED72021349D0000D813 /* StoryboardLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1B1ECD202131760000D813 /* StoryboardLoadable.swift */; };
 		BD1B1EDA202135720000D813 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1B1ED9202135720000D813 /* HomeViewController.swift */; };
 		BD1B1EDB2021389F0000D813 /* SideMenuViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD1B1ECE2021319C0000D813 /* SideMenuViewController.storyboard */; };
+		BD1D28CE204C267A0088869A /* Subscribtion.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD1D28CD204C267A0088869A /* Subscribtion.storyboard */; };
+		BD1D28D0204C26C50088869A /* SubscribeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1D28CF204C26C50088869A /* SubscribeViewController.swift */; };
+		BD1D28D4204C2E4D0088869A /* PackageRootClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1D28D2204C2E4D0088869A /* PackageRootClass.swift */; };
+		BD1D28D5204C2E4D0088869A /* PackageUnlocked.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1D28D3204C2E4D0088869A /* PackageUnlocked.swift */; };
+		BD1D28D7204C2E700088869A /* SubscribtionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1D28D6204C2E700088869A /* SubscribtionModel.swift */; };
+		BD1D28DB204C34930088869A /* PackageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1D28DA204C34930088869A /* PackageViewController.swift */; };
+		BD1D28DD204C39DB0088869A /* Package.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD1D28DC204C39DB0088869A /* Package.xib */; };
+		BD1D28DF204C3AE00088869A /* PackageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1D28DE204C3AE00088869A /* PackageView.swift */; };
 		BD1FF8412023CB4E00FC74C2 /* SubClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1FF8402023CB4E00FC74C2 /* SubClass.swift */; };
 		BD1FF8442023CFBA00FC74C2 /* AntonymQViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1FF8432023CFBA00FC74C2 /* AntonymQViewController.swift */; };
 		BD1FF8462023EBC900FC74C2 /* QuestionsContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1FF8452023EBC900FC74C2 /* QuestionsContainerViewController.swift */; };
@@ -153,6 +161,14 @@
 		BD1B1ECD202131760000D813 /* StoryboardLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardLoadable.swift; sourceTree = "<group>"; };
 		BD1B1ECE2021319C0000D813 /* SideMenuViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SideMenuViewController.storyboard; sourceTree = "<group>"; };
 		BD1B1ED9202135720000D813 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		BD1D28CD204C267A0088869A /* Subscribtion.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Subscribtion.storyboard; sourceTree = "<group>"; };
+		BD1D28CF204C26C50088869A /* SubscribeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribeViewController.swift; sourceTree = "<group>"; };
+		BD1D28D2204C2E4D0088869A /* PackageRootClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PackageRootClass.swift; sourceTree = "<group>"; };
+		BD1D28D3204C2E4D0088869A /* PackageUnlocked.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PackageUnlocked.swift; sourceTree = "<group>"; };
+		BD1D28D6204C2E700088869A /* SubscribtionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribtionModel.swift; sourceTree = "<group>"; };
+		BD1D28DA204C34930088869A /* PackageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageViewController.swift; sourceTree = "<group>"; };
+		BD1D28DC204C39DB0088869A /* Package.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Package.xib; sourceTree = "<group>"; };
+		BD1D28DE204C3AE00088869A /* PackageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageView.swift; sourceTree = "<group>"; };
 		BD1FF8402023CB4E00FC74C2 /* SubClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubClass.swift; sourceTree = "<group>"; };
 		BD1FF8432023CFBA00FC74C2 /* AntonymQViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AntonymQViewController.swift; sourceTree = "<group>"; };
 		BD1FF8452023EBC900FC74C2 /* QuestionsContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsContainerViewController.swift; sourceTree = "<group>"; };
@@ -345,6 +361,34 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
+		BD1D28CB204C262A0088869A /* Subscribtion */ = {
+			isa = PBXGroup;
+			children = (
+				BD1D28CF204C26C50088869A /* SubscribeViewController.swift */,
+				BD1D28DA204C34930088869A /* PackageViewController.swift */,
+				BD1D28DE204C3AE00088869A /* PackageView.swift */,
+			);
+			path = Subscribtion;
+			sourceTree = "<group>";
+		};
+		BD1D28CC204C26540088869A /* Subscribtion */ = {
+			isa = PBXGroup;
+			children = (
+				BD1D28CD204C267A0088869A /* Subscribtion.storyboard */,
+				BD1D28DC204C39DB0088869A /* Package.xib */,
+			);
+			path = Subscribtion;
+			sourceTree = "<group>";
+		};
+		BD1D28D1204C2E110088869A /* Subscribtion */ = {
+			isa = PBXGroup;
+			children = (
+				BD1D28D2204C2E4D0088869A /* PackageRootClass.swift */,
+				BD1D28D3204C2E4D0088869A /* PackageUnlocked.swift */,
+			);
+			path = Subscribtion;
+			sourceTree = "<group>";
+		};
 		BD1FF8422023CF9700FC74C2 /* Questions */ = {
 			isa = PBXGroup;
 			children = (
@@ -443,13 +487,13 @@
 			path = Flag;
 			sourceTree = "<group>";
 		};
-		BD4EB7A2204442C9001B3DD7 /* ScoreModel */ = {
+		BD4EB7A2204442C9001B3DD7 /* Score */ = {
 			isa = PBXGroup;
 			children = (
 				BD4EB7A3204442DA001B3DD7 /* UpdateScoreData.swift */,
 				BD4EB7A4204442DA001B3DD7 /* UpdateScoreRootClass.swift */,
 			);
-			path = ScoreModel;
+			path = Score;
 			sourceTree = "<group>";
 		};
 		BD9A4B5C2027680700DCCAE6 /* Dictation */ = {
@@ -591,6 +635,7 @@
 				BDA5B8B0203BA5070009DD31 /* GeneralResponse .swift */,
 				BD1B1EB62020F7180000D813 /* UserModel.swift */,
 				BD4EB7A020444150001B3DD7 /* ScoreModel.swift */,
+				BD1D28D6204C2E700088869A /* SubscribtionModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -598,6 +643,7 @@
 		BDD184D4201F9AF8006EBAB9 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				BD1D28CB204C262A0088869A /* Subscribtion */,
 				BD40FD8D203C5395001E159C /* Flag */,
 				BD1B1ED82021355F0000D813 /* Home */,
 				BD1B1EC42021313C0000D813 /* SideMenu */,
@@ -611,6 +657,7 @@
 		BDD184D5201F9AFD006EBAB9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				BD1D28CC204C26540088869A /* Subscribtion */,
 				BD40FD8C203C5379001E159C /* Flag */,
 				BD1B1EC3202131340000D813 /* SideMenu */,
 				BD1B1EC02021213F0000D813 /* Home */,
@@ -661,7 +708,8 @@
 		BDD184DE201F9CEF006EBAB9 /* Contracts */ = {
 			isa = PBXGroup;
 			children = (
-				BD4EB7A2204442C9001B3DD7 /* ScoreModel */,
+				BD1D28D1204C2E110088869A /* Subscribtion */,
+				BD4EB7A2204442C9001B3DD7 /* Score */,
 				BD2EF688203DB28D0003B96B /* Flag */,
 				BD1A0C702022DA850019B3CB /* InsightContent */,
 				BD1B1EB72020F7AF0000D813 /* Auth */,
@@ -750,7 +798,9 @@
 				BD1B1EDB2021389F0000D813 /* SideMenuViewController.storyboard in Resources */,
 				BD27EEE0201FF353007872E0 /* LaunchScreen.storyboard in Resources */,
 				BDD184C7201F9ABD006EBAB9 /* Assets.xcassets in Resources */,
+				BD1D28DD204C39DB0088869A /* Package.xib in Resources */,
 				BD0E781A203AE289001003B5 /* Account.storyboard in Resources */,
+				BD1D28CE204C267A0088869A /* Subscribtion.storyboard in Resources */,
 				BD40FD90203C53B6001E159C /* Flag.storyboard in Resources */,
 				BD5378E8202FA5B7005BDE85 /* QuestionGeneralHeader.xib in Resources */,
 			);
@@ -827,7 +877,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD1D28D4204C2E4D0088869A /* PackageRootClass.swift in Sources */,
 				BDAA57FA202CEFAF00C32AA9 /* MistakesTableViewCell.swift in Sources */,
+				BD1D28D0204C26C50088869A /* SubscribeViewController.swift in Sources */,
 				BD1B1ED42021349D0000D813 /* SideMenuPresentationInteractionController.swift in Sources */,
 				BDA2B41120421F5400F36AB2 /* AddNoteViewController.swift in Sources */,
 				BDAA581A202D18DC00C32AA9 /* TrueFalseViewController.swift in Sources */,
@@ -835,6 +887,7 @@
 				BD1B1EBB2020F7CE0000D813 /* User.swift in Sources */,
 				BD96771D202346950078B0A3 /* SubSubCategoryTableViewCell.swift in Sources */,
 				BD9A4B63202775D200DCCAE6 /* QuestionListeningTableViewCell.swift in Sources */,
+				BD1D28D7204C2E700088869A /* SubscribtionModel.swift in Sources */,
 				BD40FD98203C6AF3001E159C /* EditFlagViewController.swift in Sources */,
 				BDAA5818202D18C600C32AA9 /* TrueFalseTableViewCell.swift in Sources */,
 				BD27EEDE201FF02D007872E0 /* SignInViewController.swift in Sources */,
@@ -842,6 +895,7 @@
 				BD1B1EB12020F61C0000D813 /* Extensions.swift in Sources */,
 				BD39AD432027449A00DC03B3 /* QuestionCompleteTableViewCell.swift in Sources */,
 				BD628E892028A6160007BEE4 /* QuestionMatchViewController.swift in Sources */,
+				BD1D28D5204C2E4D0088869A /* PackageUnlocked.swift in Sources */,
 				BD40FD96203C6AE0001E159C /* EditFlagTableViewCell.swift in Sources */,
 				BD263C332045AFBB00EB5B1F /* ComprehensionViewController.swift in Sources */,
 				BD47F1D02023762900ABEBF5 /* SubSubCategoryViewController.swift in Sources */,
@@ -856,6 +910,8 @@
 				BD1B1EBD2020FC280000D813 /* UserModel.swift in Sources */,
 				BD9A4B5E2027682100DCCAE6 /* QuestionDictationViewController.swift in Sources */,
 				BDA2B4072040BCA700F36AB2 /* ResultsViewController.swift in Sources */,
+				BD1D28DB204C34930088869A /* PackageViewController.swift in Sources */,
+				BD1D28DF204C3AE00088869A /* PackageView.swift in Sources */,
 				BD3DA3FD202AF66A00CCB7B0 /* MiniDialogViewController.swift in Sources */,
 				BDAA5807202CFA9600C32AA9 /* GeneralQuestionViewController.swift in Sources */,
 				BD9A4B61202775B800DCCAE6 /* QuestionListeningViewController.swift in Sources */,
