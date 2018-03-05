@@ -8,12 +8,15 @@
 
 import UIKit
 
-class PackageViewController: UIViewController {
+class PackageViewController: ParentViewController {
 
+    var package : PackageRootClass?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        configuration()
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,6 +24,10 @@ class PackageViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func configuration(){
+        
+        self.title = package?.name
+    }
 
     /*
     // MARK: - Navigation

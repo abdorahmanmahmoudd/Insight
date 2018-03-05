@@ -19,6 +19,7 @@ class SubscribeViewController: ParentViewController, UICollectionViewDelegate, U
     
     var userPackages = [PackageRootClass]()
     var packages = [PackageRootClass]()
+    var selectedPackageIndex : Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +39,8 @@ class SubscribeViewController: ParentViewController, UICollectionViewDelegate, U
         addSideMenuBtn()
         collectionViewPackages.register(UINib.init(nibName: "Package", bundle: Bundle.main), forCellWithReuseIdentifier: "PackageView")
         
+        viewNoCurrentPkg.layer.borderWidth = 2
+        viewNoCurrentPkg.layer.borderColor = #colorLiteral(red: 1, green: 0.7244103551, blue: 0.2923497558, alpha: 1)
         getUserPackages()
         getPackeges()
     }
@@ -65,7 +68,8 @@ class SubscribeViewController: ParentViewController, UICollectionViewDelegate, U
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PackageView", for: indexPath) as! PackageView
-        
+        cell.subscribeHandler = self.subscribeBtnHandler(selectedPackageIndex:)
+        cell.myIndex = indexPath.row
         if collectionView == collectionViewUserPackages{
             
             cell.lblPgkName.text = ""
@@ -190,14 +194,22 @@ class SubscribeViewController: ParentViewController, UICollectionViewDelegate, U
         
         
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "PackageSegue"{
+            
+            if let des = segue.destination as? PackageViewController{
+                
+                if selectedPackageIndex != nil {
+                    des.package = packages[selectedPackageIndex!]
+                }
+            }
+        }
     }
-    */
 
+    @objc func subscribeBtnHandler (selectedPackageIndex : Int){
+        
+        self.selectedPackageIndex = selectedPackageIndex
+        performSegue(withIdentifier: "PackageSegue", sender: self)
+    }
 }
