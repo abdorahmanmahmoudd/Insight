@@ -13,7 +13,7 @@ class PackageView: UICollectionViewCell {
     @IBOutlet var btnSubscribe: UIButton!
     @IBOutlet var lblPkgSections: UILabel!
     @IBOutlet var lblPkgCategories: UILabel!
-    @IBOutlet var lblPkgQuestions: UILabel!
+    @IBOutlet var lblPkgUnits: UILabel!
     @IBOutlet var lblPkgTitle: UILabel!
     @IBOutlet var lblPgkName: UILabel!
         

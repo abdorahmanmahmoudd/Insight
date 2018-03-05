@@ -27,6 +27,58 @@ class LogoutViewController: ParentViewController {
     @IBAction func dismiss(_ sender: UITapGestureRecognizer) {
         self.dismiss(animated: true, completion: nil)
     }
+    @IBAction func btnLogoutClicked(_ sender: UIButton) {
+        
+        showLoaderFor(view: self.view)
+        
+        let um = UserModel()
+        
+        um.LogOut(complation: { (json, code) in
+            
+            hideLoaderFor(view: self.view)
+            
+            if let statusCode = code as? Int{
+                
+                if statusCode == 200{
+                    
+                    if let object = json{
+                        
+                        if object.isSuccess {
+                            
+                            UserModel.getInstance.deleteUserCredentials()
+                            self.view.window?.rootViewController?.dismiss(animated: true, completion: nil)
+                        }
+                        else{
+                            
+                            showAlert(title: "", message: "\(object.message ?? "")", vc: self, closure: nil)
+                        }
+                        
+                    }
+                    
+                }else if statusCode == 452{ //token expired
+                    
+                    showAlert(title: "", message: "Token expired", vc: self, closure: nil)
+                    
+                }else if statusCode == 456{ //account blocked
+                    
+                    showAlert(title: "", message: "Accout blocked", vc: self, closure: nil)
+                    
+                }else if statusCode == 451{ //force update
+                    
+                    showAlert(title: "", message: "Please update", vc: self, closure: nil)
+                    
+                }else{
+                    
+                    showAlert(title: "", message: "Error code \(statusCode)"  , vc: self, closure: nil)
+                }
+            }
+            
+        }) { (error, msg) in
+            
+            hideLoaderFor(view: self.view)
+            showAlert(title: "Error", message: "Failed to log out \n Please check your internet connection", vc: self, closure: nil)
+        }
+    }
     
     /*
     // MARK: - Navigation

@@ -64,11 +64,37 @@ class UserModel {
         return nil
     }
     
+    static var LogOutResource = Resource<GeneralResponse>.init(url: LogOutURL, httpmethod: .put) { (json) -> GeneralResponse? in
+        
+        if let jsonObj = json as? [String : Any]
+        {
+            let content = GeneralResponse(fromDictionary: jsonObj)
+            return content
+        }
+        return nil
+    }
+    
     func SignIn(phone: String, pass: String, complation: @escaping (AuthRootClass?, Any?) -> (), errorHandler: @escaping (ErrorCode, Any?) -> ()){
         
         let sm = ServerManager()
         UserModel.AuthResource.url = SignInURL
-        sm.httpConnect(resource: UserModel.AuthResource, paramters: ["mobile" : phone , "password" : pass,"device_id": UIDevice.current.identifierForVendor?.uuidString, "platform": "ios" ], authentication: nil, AdditionalHeaders: ["version":appVersion], complation:
+        sm.httpConnect(resource: UserModel.AuthResource, paramters: ["mobile" : phone , "password" : pass,"device_id": UIDevice.current.identifierForVendor?.uuidString ?? "", "platform": "ios" ], authentication: nil, AdditionalHeaders: ["version":appVersion], complation:
+            { (json, data) in
+                if let obj = json
+                {
+                    complation(obj, data)
+                }
+        })
+        { (error, msg) in
+            
+            errorHandler(error, msg)
+        }
+    }
+    
+    func LogOut(complation: @escaping (GeneralResponse?, Any?) -> (), errorHandler: @escaping (ErrorCode, Any?) -> ()){
+        
+        let sm = ServerManager()
+        sm.httpConnect(resource: UserModel.LogOutResource, paramters: ["device_id": UIDevice.current.identifierForVendor?.uuidString ?? ""], authentication: nil, AdditionalHeaders: ["version":appVersion], complation:
             { (json, data) in
                 if let obj = json
                 {
@@ -85,7 +111,7 @@ class UserModel {
         
         let sm = ServerManager()
         UserModel.AuthResource.url = SignUpURL
-        sm.httpConnect(resource: UserModel.AuthResource, paramters: ["name" : name , "mobile" : mobile , "password" : pass , "governorate" : governorate, "school" : school ,"email" : email, "device_id": UIDevice.current.identifierForVendor?.uuidString, "platform": "ios" ], authentication: nil, AdditionalHeaders: ["version":appVersion], complation:
+        sm.httpConnect(resource: UserModel.AuthResource, paramters: ["name" : name , "mobile" : mobile , "password" : pass , "governorate" : governorate, "school" : school ,"email" : email, "device_id": UIDevice.current.identifierForVendor?.uuidString ?? "", "platform": "ios" ], authentication: nil, AdditionalHeaders: ["version":appVersion], complation:
             { (json, data) in
                 if let obj = json
                 {

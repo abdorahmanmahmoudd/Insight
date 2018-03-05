@@ -70,17 +70,45 @@ class SubscribeViewController: ParentViewController, UICollectionViewDelegate, U
             
             cell.lblPgkName.text = ""
             cell.lblPkgTitle.text = userPackages[indexPath.row].name
-            cell.lblPkgCategories.text = userPackages[indexPath.row].name
-            cell.lblPkgQuestions.text = userPackages[indexPath.row].name
-            cell.lblPkgSections.text = userPackages[indexPath.row].name
+            if userPackages[indexPath.row].all {
+                
+                cell.lblPkgCategories.text = "All Categories"
+                cell.lblPkgUnits.text = "All Units"
+                cell.lblPkgSections.text = "All Sections"
+            }else{
+                
+                cell.lblPkgCategories.text = "\(userPackages[indexPath.row].unlocked.count) Units"
+                for unit in userPackages[indexPath.row].unlocked{
+                    
+                    if unit.all{
+                        cell.lblPkgSections.text = "All Units"
+                    }
+                }
+            }
+
             
         }else if collectionView == collectionViewPackages{
             
             cell.lblPgkName.text = packages[indexPath.row].name
             cell.lblPkgTitle.text = ""
-            cell.lblPkgCategories.text = packages[indexPath.row].name
-            cell.lblPkgQuestions.text = packages[indexPath.row].name
-            cell.lblPkgSections.text = packages[indexPath.row].name
+            if packages[indexPath.row].all {
+                
+                cell.lblPkgCategories.text = "All Categories"
+                cell.lblPkgUnits.text = "All Units"
+                cell.lblPkgSections.text = "All Sections"
+            }else{
+                
+                cell.lblPkgCategories.text = "\(packages[indexPath.row].unlocked.count) Categories"
+                for unit in packages[indexPath.row].unlocked{
+                    
+                    if unit.all{
+                        cell.lblPkgUnits.text = "All Units"
+                        cell.lblPkgSections.text = "All Sections"
+                        break
+                    }
+                }
+            }
+            
         }
         return cell
     }

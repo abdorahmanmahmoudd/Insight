@@ -93,13 +93,13 @@ class SideMenuViewController: UIViewController ,UITableViewDelegate, UITableView
         return viewController
     }
     
-    func navigate(to viewController: UIViewController) {
+    func navigate(to viewController: UIViewController, isLogOut: Bool = false) {
         guard let delegate = self.delegate else {
             return
         }
         DispatchQueue.main.async {
             self.dismiss(animated: true) {
-                if selectedIndex != 9{ // logout item index
+                if !isLogOut {
                     delegate.setViewControllers([viewController], animated: true)
                 }else{
 //                    delegate.pushViewController(viewController, animated: true)
@@ -117,8 +117,12 @@ class SideMenuViewController: UIViewController ,UITableViewDelegate, UITableView
         guard indexPath.row != selectedIndex else {
             return
         }
-        selectedIndex = indexPath.row
-        self.navigate(to: self.getViewController(for: selectedIndex ))
+        if indexPath.row == 9 {
+            self.navigate(to: self.getViewController(for: indexPath.row ), isLogOut: true)
+        }else{
+            selectedIndex = indexPath.row
+            self.navigate(to: self.getViewController(for: indexPath.row ))
+        }
     }
     
 //    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
