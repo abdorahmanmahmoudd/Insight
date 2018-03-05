@@ -74,7 +74,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Student Evaluation Guide" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="12" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2lH-Mb-X0k">
-                                        <rect key="frame" x="0.0" y="124" width="150" height="35"/>
+                                        <rect key="frame" x="0.0" y="123.5" width="150" height="35.5"/>
                                         <fontDescription key="fontDescription" name="MavenPro-Bold" family="Maven Pro" pointSize="15"/>
                                         <color key="textColor" red="0.54117647059999996" green="0.54117647059999996" blue="0.54117647059999996" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -657,13 +657,13 @@
                                         </state>
                                     </button>
                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OcJ-z6-9FS">
-                                        <rect key="frame" x="331.5" y="26" width="35.5" height="16.5"/>
+                                        <rect key="frame" x="325" y="26" width="42" height="16.5"/>
                                         <fontDescription key="fontDescription" name="MavenPro-Regular" family="Maven Pro" pointSize="14"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView hidden="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="timer" translatesAutoresizingMaskIntoConstraints="NO" id="LRe-dP-Zje">
-                                        <rect key="frame" x="311.5" y="26" width="16" height="17"/>
+                                        <rect key="frame" x="305" y="26" width="16" height="17"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -803,13 +803,13 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Results" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="riy-3h-41T">
-                                <rect key="frame" x="41.5" y="274" width="112" height="23.5"/>
+                                <rect key="frame" x="40" y="274" width="115.5" height="23.5"/>
                                 <fontDescription key="fontDescription" name="MavenPro-Medium" family="Maven Pro" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="App Avg. Results" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LiQ-3r-7C8">
-                                <rect key="frame" x="202" y="274" width="154" height="23.5"/>
+                                <rect key="frame" x="200" y="274" width="156.5" height="23.5"/>
                                 <fontDescription key="fontDescription" name="MavenPro-Medium" family="Maven Pro" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -2029,37 +2029,37 @@
                                                                     <rect key="frame" x="8" y="60" width="359" height="220"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Place:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cjG-t4-h2H">
-                                                                            <rect key="frame" x="8" y="16" width="47" height="20"/>
+                                                                            <rect key="frame" x="8" y="16" width="49.5" height="20"/>
                                                                             <fontDescription key="fontDescription" name="MavenPro-Medium" family="Maven Pro" pointSize="17"/>
                                                                             <color key="textColor" red="0.54117647058823526" green="0.54117647058823526" blue="0.54117647058823526" alpha="1" colorSpace="calibratedRGB"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Speaker A:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gj9-S4-2bk">
-                                                                            <rect key="frame" x="8" y="58" width="83.5" height="20"/>
+                                                                            <rect key="frame" x="8" y="58" width="86.5" height="20"/>
                                                                             <fontDescription key="fontDescription" name="MavenPro-Medium" family="Maven Pro" pointSize="17"/>
                                                                             <color key="textColor" red="0.54117647059999996" green="0.54117647059999996" blue="0.54117647059999996" alpha="1" colorSpace="calibratedRGB"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Speaker B:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GaP-ue-zV3">
-                                                                            <rect key="frame" x="8" y="100.5" width="84.5" height="20"/>
+                                                                            <rect key="frame" x="8" y="100.5" width="86" height="20"/>
                                                                             <fontDescription key="fontDescription" name="MavenPro-Medium" family="Maven Pro" pointSize="17"/>
                                                                             <color key="textColor" red="0.54117647059999996" green="0.54117647059999996" blue="0.54117647059999996" alpha="1" colorSpace="calibratedRGB"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Function A:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wgQ-aC-Lbc">
-                                                                            <rect key="frame" x="8" y="143" width="87" height="34.5"/>
+                                                                            <rect key="frame" x="8" y="143" width="91.5" height="34.5"/>
                                                                             <fontDescription key="fontDescription" name="MavenPro-Medium" family="Maven Pro" pointSize="17"/>
                                                                             <color key="textColor" red="0.54117647059999996" green="0.54117647059999996" blue="0.54117647059999996" alpha="1" colorSpace="calibratedRGB"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Function B:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dd9-P7-J7h">
-                                                                            <rect key="frame" x="8" y="185.5" width="87.5" height="20"/>
+                                                                            <rect key="frame" x="8" y="185.5" width="91.5" height="20"/>
                                                                             <fontDescription key="fontDescription" name="MavenPro-Medium" family="Maven Pro" pointSize="17"/>
                                                                             <color key="textColor" red="0.54117647059999996" green="0.54117647059999996" blue="0.54117647059999996" alpha="1" colorSpace="calibratedRGB"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nN1-6q-KLI">
-                                                                            <rect key="frame" x="62.5" y="8" width="288.5" height="34"/>
+                                                                            <rect key="frame" x="65" y="8" width="286" height="34"/>
                                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                             <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                             <attributedString key="attributedText">
@@ -2077,7 +2077,7 @@
                                                                             </connections>
                                                                         </textView>
                                                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v9H-9F-NlV">
-                                                                            <rect key="frame" x="99" y="50" width="252" height="34.5"/>
+                                                                            <rect key="frame" x="102" y="50" width="249" height="34.5"/>
                                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                             <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                             <attributedString key="attributedText">
@@ -2095,7 +2095,7 @@
                                                                             </connections>
                                                                         </textView>
                                                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yYg-u5-GM6">
-                                                                            <rect key="frame" x="100.5" y="92.5" width="250.5" height="34.5"/>
+                                                                            <rect key="frame" x="102" y="92.5" width="249" height="34.5"/>
                                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                             <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                             <attributedString key="attributedText">
@@ -2113,7 +2113,7 @@
                                                                             </connections>
                                                                         </textView>
                                                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8On-fn-TxC">
-                                                                            <rect key="frame" x="103" y="135" width="248" height="34.5"/>
+                                                                            <rect key="frame" x="107.5" y="135" width="243.5" height="34.5"/>
                                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                             <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                             <attributedString key="attributedText">
@@ -2131,7 +2131,7 @@
                                                                             </connections>
                                                                         </textView>
                                                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i1F-am-jMh">
-                                                                            <rect key="frame" x="103.5" y="177.5" width="247.5" height="34.5"/>
+                                                                            <rect key="frame" x="107.5" y="177.5" width="243.5" height="34.5"/>
                                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                             <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                             <attributedString key="attributedText">
@@ -3767,6 +3767,124 @@
             </objects>
             <point key="canvasLocation" x="11720.799999999999" y="1020.5397301349326"/>
         </scene>
+        <!--Logout View Controller-->
+        <scene sceneID="OMW-m1-rLa">
+            <objects>
+                <viewController storyboardIdentifier="LogoutVC" id="sqw-Mg-0LA" customClass="LogoutViewController" customModule="Insight" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9Cd-X4-6Ga">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view alpha="0.20000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Buu-dK-CeU">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="Vxi-kn-D08" appends="YES" id="kJ3-ze-czu"/>
+                                </connections>
+                            </view>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wQ8-eL-QZK">
+                                <rect key="frame" x="37.5" y="233.5" width="300" height="200"/>
+                                <subviews>
+                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eim-CX-T8R">
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="155.5"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icLogout" translatesAutoresizingMaskIntoConstraints="NO" id="hba-cr-Ybm">
+                                                <rect key="frame" x="129.5" y="16" width="41" height="40"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Are you sure you want to log out?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RC6-2M-s1f">
+                                                <rect key="frame" x="8" y="64" width="284" height="20"/>
+                                                <fontDescription key="fontDescription" name="MavenPro-Bold" family="Maven Pro" pointSize="17"/>
+                                                <color key="textColor" red="1" green="0.6705882353" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="hba-cr-Ybm" firstAttribute="centerX" secondItem="eim-CX-T8R" secondAttribute="centerX" id="KqX-Gn-non"/>
+                                            <constraint firstItem="RC6-2M-s1f" firstAttribute="centerX" secondItem="eim-CX-T8R" secondAttribute="centerX" id="VsM-XB-Uab"/>
+                                            <constraint firstItem="hba-cr-Ybm" firstAttribute="top" secondItem="eim-CX-T8R" secondAttribute="top" constant="16" id="ZDj-7b-eMl"/>
+                                            <constraint firstItem="RC6-2M-s1f" firstAttribute="leading" secondItem="eim-CX-T8R" secondAttribute="leading" constant="8" id="iwi-VR-c4D"/>
+                                            <constraint firstAttribute="trailing" secondItem="RC6-2M-s1f" secondAttribute="trailing" constant="8" id="mDz-7T-uMK"/>
+                                            <constraint firstItem="RC6-2M-s1f" firstAttribute="top" secondItem="hba-cr-Ybm" secondAttribute="bottom" constant="8" id="o54-tC-wiw"/>
+                                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="RC6-2M-s1f" secondAttribute="bottom" constant="8" id="tO1-v3-7FI"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <integer key="value" value="6"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Vj-WC-ULB">
+                                        <rect key="frame" x="0.0" y="155.5" width="150" height="45"/>
+                                        <color key="backgroundColor" red="1" green="0.6705882353" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="45" id="Jkr-Yw-al3"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="MavenPro-Bold" family="Maven Pro" pointSize="19"/>
+                                        <state key="normal" title="LOG OUT">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I0S-bh-Kmz">
+                                        <rect key="frame" x="150" y="155" width="150" height="45"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="45" id="mBb-v8-zsL"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="MavenPro-Bold" family="Maven Pro" pointSize="19"/>
+                                        <state key="normal" title="CANCEL">
+                                            <color key="titleColor" red="1" green="0.6705882353" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnCancelClicked:" destination="sqw-Mg-0LA" eventType="touchUpInside" id="zD8-ZF-2Si"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="eim-CX-T8R" firstAttribute="top" secondItem="wQ8-eL-QZK" secondAttribute="top" id="Akg-tH-N8s"/>
+                                    <constraint firstItem="2Vj-WC-ULB" firstAttribute="top" secondItem="eim-CX-T8R" secondAttribute="bottom" id="B78-hV-xnG"/>
+                                    <constraint firstAttribute="trailing" secondItem="eim-CX-T8R" secondAttribute="trailing" id="GMA-qs-BXh"/>
+                                    <constraint firstItem="2Vj-WC-ULB" firstAttribute="leading" secondItem="wQ8-eL-QZK" secondAttribute="leading" id="KKi-2I-Qpk"/>
+                                    <constraint firstItem="I0S-bh-Kmz" firstAttribute="leading" secondItem="2Vj-WC-ULB" secondAttribute="trailing" id="QIh-9D-MV8"/>
+                                    <constraint firstItem="eim-CX-T8R" firstAttribute="leading" secondItem="wQ8-eL-QZK" secondAttribute="leading" id="Tjc-vG-qQU"/>
+                                    <constraint firstAttribute="trailing" secondItem="I0S-bh-Kmz" secondAttribute="trailing" id="evc-7p-y20"/>
+                                    <constraint firstItem="2Vj-WC-ULB" firstAttribute="width" secondItem="wQ8-eL-QZK" secondAttribute="width" multiplier="0.5" id="fb8-iK-mUQ"/>
+                                    <constraint firstItem="I0S-bh-Kmz" firstAttribute="width" secondItem="2Vj-WC-ULB" secondAttribute="width" id="g5z-CK-nJR"/>
+                                    <constraint firstAttribute="bottom" secondItem="2Vj-WC-ULB" secondAttribute="bottom" id="obp-ZK-Ced"/>
+                                    <constraint firstAttribute="bottom" secondItem="I0S-bh-Kmz" secondAttribute="bottom" id="yGz-Sm-hxI"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="9"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Buu-dK-CeU" firstAttribute="top" secondItem="9Cd-X4-6Ga" secondAttribute="top" id="W53-6j-qPW"/>
+                            <constraint firstItem="wQ8-eL-QZK" firstAttribute="height" secondItem="9Cd-X4-6Ga" secondAttribute="height" multiplier="0.3" id="YUV-US-coz"/>
+                            <constraint firstAttribute="bottom" secondItem="Buu-dK-CeU" secondAttribute="bottom" id="a7Z-ls-NGk"/>
+                            <constraint firstAttribute="trailing" secondItem="Buu-dK-CeU" secondAttribute="trailing" id="d5A-n1-72b"/>
+                            <constraint firstItem="Buu-dK-CeU" firstAttribute="leading" secondItem="9Cd-X4-6Ga" secondAttribute="leading" id="gN5-OO-6aS"/>
+                            <constraint firstItem="wQ8-eL-QZK" firstAttribute="centerY" secondItem="9Cd-X4-6Ga" secondAttribute="centerY" id="i0u-vz-nVX"/>
+                            <constraint firstItem="wQ8-eL-QZK" firstAttribute="centerX" secondItem="9Cd-X4-6Ga" secondAttribute="centerX" id="iG5-BY-n24"/>
+                            <constraint firstItem="wQ8-eL-QZK" firstAttribute="width" secondItem="9Cd-X4-6Ga" secondAttribute="width" multiplier="0.8" id="j5N-mZ-Vp9"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="bx8-cl-CSK"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7O7-vH-vfC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Vxi-kn-D08">
+                    <connections>
+                        <action selector="dismiss:" destination="sqw-Mg-0LA" id="sWD-lX-9xT"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="-60" y="1025.9370314842579"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Exams" width="71" height="103"/>
@@ -3783,6 +3901,7 @@
         <image name="button-whiteBig" width="369" height="76"/>
         <image name="flag-blacked" width="12" height="17"/>
         <image name="flag-noBG" width="12" height="17"/>
+        <image name="icLogout" width="41" height="40"/>
         <image name="matchQuesTF-BG" width="30" height="30"/>
         <image name="play" width="17" height="20"/>
         <image name="timer" width="16" height="17"/>

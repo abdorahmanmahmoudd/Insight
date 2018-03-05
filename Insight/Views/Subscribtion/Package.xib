@@ -35,10 +35,10 @@
                             <rect key="frame" x="187.5" y="76" width="187.5" height="166.5"/>
                         </imageView>
                         <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" image="money" translatesAutoresizingMaskIntoConstraints="NO" id="oue-KY-wvu">
-                            <rect key="frame" x="104.5" y="16" width="26" height="24"/>
+                            <rect key="frame" x="123.5" y="16" width="26" height="24"/>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Current Package" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F90-2p-5y4">
-                            <rect key="frame" x="138.5" y="20" width="98" height="15.5"/>
+                            <rect key="frame" x="157.5" y="20" width="98" height="15.5"/>
                             <fontDescription key="fontDescription" name="MavenPro-Regular" family="Maven Pro" pointSize="13"/>
                             <color key="textColor" red="0.51764705879999995" green="0.54901960780000003" blue="0.59215686270000001" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
@@ -97,7 +97,7 @@
                         <constraint firstItem="c2P-q4-9VV" firstAttribute="width" secondItem="Ujq-NN-DxM" secondAttribute="width" multiplier="0.5" id="jRp-QU-S9e"/>
                         <constraint firstItem="t2P-Ay-sOg" firstAttribute="top" secondItem="cCw-oU-STz" secondAttribute="bottom" constant="8" id="pxh-7V-5V0"/>
                         <constraint firstItem="c2P-q4-9VV" firstAttribute="bottom" secondItem="hIQ-aG-9hN" secondAttribute="bottom" id="sKx-b1-hV0"/>
-                        <constraint firstItem="F90-2p-5y4" firstAttribute="centerX" secondItem="Ujq-NN-DxM" secondAttribute="centerX" id="uMt-rG-Rl2"/>
+                        <constraint firstItem="F90-2p-5y4" firstAttribute="centerX" secondItem="Ujq-NN-DxM" secondAttribute="centerX" multiplier="1.1" id="uMt-rG-Rl2"/>
                         <constraint firstItem="F90-2p-5y4" firstAttribute="leading" secondItem="oue-KY-wvu" secondAttribute="trailing" constant="8" id="v6R-Ms-1ab"/>
                         <constraint firstItem="oue-KY-wvu" firstAttribute="top" secondItem="Ujq-NN-DxM" secondAttribute="top" constant="16" id="wSS-la-pgd"/>
                         <constraint firstItem="t2P-Ay-sOg" firstAttribute="centerX" secondItem="Ujq-NN-DxM" secondAttribute="centerX" id="wV2-AN-phK"/>
@@ -121,10 +121,10 @@
             <connections>
                 <outlet property="btnSubscribe" destination="hIQ-aG-9hN" id="YbV-TW-44l"/>
                 <outlet property="lblPgkName" destination="F90-2p-5y4" id="YfE-51-Llq"/>
-                <outlet property="lblPkgMonths" destination="cCw-oU-STz" id="I8a-7r-sCx"/>
+                <outlet property="lblPkgCategories" destination="cCw-oU-STz" id="I8a-7r-sCx"/>
                 <outlet property="lblPkgQuestions" destination="t2P-Ay-sOg" id="K18-FX-2VR"/>
+                <outlet property="lblPkgSections" destination="bow-8J-0bd" id="7HH-kc-VL0"/>
                 <outlet property="lblPkgTitle" destination="FK0-o1-pU5" id="OOf-tc-DaZ"/>
-                <outlet property="lblPkgUnits" destination="bow-8J-0bd" id="7HH-kc-VL0"/>
             </connections>
         </view>
     </objects>

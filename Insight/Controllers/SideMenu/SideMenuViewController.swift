@@ -77,6 +77,12 @@ class SideMenuViewController: UIViewController ,UITableViewDelegate, UITableView
             let sb = UIStoryboard.init(name: "Home", bundle: Bundle.main)
             viewController = sb.instantiateViewController(withIdentifier: "ResultsVC")
         }
+        else if index == 9{
+            
+            let sb = UIStoryboard.init(name: "Home", bundle: Bundle.main)
+            viewController = sb.instantiateViewController(withIdentifier: "LogoutVC")
+        }
+        
         
         
         
@@ -93,8 +99,15 @@ class SideMenuViewController: UIViewController ,UITableViewDelegate, UITableView
         }
         DispatchQueue.main.async {
             self.dismiss(animated: true) {
-                delegate.setViewControllers([viewController], animated: true)
-//                delegate.pushViewController(viewController, animated: true)
+                if selectedIndex != 9{ // logout item index
+                    delegate.setViewControllers([viewController], animated: true)
+                }else{
+//                    delegate.pushViewController(viewController, animated: true)
+                    viewController.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
+                    viewController.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+                    delegate.present(viewController, animated: true, completion: nil)
+                }
+            
             }
         }
     }
@@ -105,7 +118,6 @@ class SideMenuViewController: UIViewController ,UITableViewDelegate, UITableView
             return
         }
         selectedIndex = indexPath.row
-        
         self.navigate(to: self.getViewController(for: selectedIndex ))
     }
     

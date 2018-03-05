@@ -26,6 +26,25 @@ class SubscribtionModel{
     func getPackages(complation: @escaping ([PackageRootClass], Any?) -> (), errorHandler: @escaping (ErrorCode, Any?) -> () ){
         
         let sm = ServerManager()
+        SubscribtionModel.GetPackagesResource.url = GetPackagesURL
+        sm.httpConnect(resource: SubscribtionModel.GetPackagesResource, paramters: nil, authentication: UserModel.getInstance.getUser()?.token, AdditionalHeaders: ["version":appVersion], complation:
+            { (json, data) in
+                if let obj = json
+                {
+                    complation(obj, data)
+                }
+        })
+        { (error, msg) in
+            
+            errorHandler(error, msg)
+        }
+    }
+    
+    
+    func getUserPackages(complation: @escaping ([PackageRootClass], Any?) -> (), errorHandler: @escaping (ErrorCode, Any?) -> () ){
+        
+        let sm = ServerManager()
+        SubscribtionModel.GetPackagesResource.url = GetUserPackagesURL
         sm.httpConnect(resource: SubscribtionModel.GetPackagesResource, paramters: nil, authentication: UserModel.getInstance.getUser()?.token, AdditionalHeaders: ["version":appVersion], complation:
             { (json, data) in
                 if let obj = json

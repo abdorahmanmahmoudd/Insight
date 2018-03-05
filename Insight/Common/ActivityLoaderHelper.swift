@@ -53,13 +53,9 @@ func showLoaderForCustomView(view:UIView, color:UIColor)
 {
     let spinner = RTSpinKitView(style: style, color: color)
     view.addSubview(spinner!)
-    let viewFrame = view.bounds
-   let halfButtonHeight = view.bounds.size.height / 2;
-//    let buttonWidth = view.bounds.size.width / 2;
-//    spinner?.center = CGPoint(x: buttonWidth - halfButtonHeight , y: halfButtonHeight)
-//    spinner?.frame.origin.x = view.frame.width / 2 - halfButtonHeight
-    spinner?.spinnerSize = halfButtonHeight
-    spinner?.center = CGPoint(x:viewFrame.midX, y:viewFrame.midY)
+    let halfButtonHeight = view.frame.size.height / 2;
+    let buttonWidth = view.frame.size.width / 2;
+    spinner?.center = CGPoint(x: buttonWidth - (spinner?.frame.width)! , y: halfButtonHeight - (spinner?.frame.height)!)
     
 }
 

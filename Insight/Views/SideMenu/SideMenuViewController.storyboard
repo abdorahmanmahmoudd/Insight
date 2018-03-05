@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -32,7 +31,7 @@
                                 <rect key="frame" x="105.5" y="16" width="163" height="137"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1rt-BH-5f2">
-                                <rect key="frame" x="0.0" y="169" width="375" height="561"/>
+                                <rect key="frame" x="0.0" y="169" width="375" height="498"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="SideMenuCell" id="jso-4V-RkY" customClass="SideMenuTableViewCell" customModule="Insight" customModuleProvider="target">
@@ -83,12 +82,12 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="hrU-BY-dgi" firstAttribute="centerX" secondItem="zMb-5r-KQY" secondAttribute="centerX" id="0m1-Tc-xhZ"/>
+                            <constraint firstAttribute="bottom" secondItem="1rt-BH-5f2" secondAttribute="bottom" id="Doo-sc-cQs"/>
                             <constraint firstItem="cNA-Xm-Ssh" firstAttribute="top" secondItem="zMb-5r-KQY" secondAttribute="top" id="GhW-qN-bC6"/>
                             <constraint firstItem="rPG-qn-QUv" firstAttribute="trailing" secondItem="1rt-BH-5f2" secondAttribute="trailing" id="Rt3-cR-k4P"/>
                             <constraint firstItem="1rt-BH-5f2" firstAttribute="leading" secondItem="rPG-qn-QUv" secondAttribute="leading" id="cXx-MZ-JXQ"/>
                             <constraint firstAttribute="trailing" secondItem="cNA-Xm-Ssh" secondAttribute="trailing" id="fYy-Yy-6VJ"/>
                             <constraint firstItem="hrU-BY-dgi" firstAttribute="top" secondItem="zMb-5r-KQY" secondAttribute="top" constant="16" id="gqs-WT-hm3"/>
-                            <constraint firstItem="1rt-BH-5f2" firstAttribute="height" secondItem="zMb-5r-KQY" secondAttribute="height" multiplier="0.842" id="j4x-Am-VWm"/>
                             <constraint firstItem="cNA-Xm-Ssh" firstAttribute="leading" secondItem="zMb-5r-KQY" secondAttribute="leading" id="n7L-mu-FMO"/>
                             <constraint firstAttribute="bottom" secondItem="cNA-Xm-Ssh" secondAttribute="bottom" id="s1L-e5-P3G"/>
                             <constraint firstItem="1rt-BH-5f2" firstAttribute="top" secondItem="hrU-BY-dgi" secondAttribute="bottom" constant="16" id="sGu-II-l9Y"/>

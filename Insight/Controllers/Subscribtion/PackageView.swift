@@ -11,8 +11,8 @@ import UIKit
 class PackageView: UICollectionViewCell {
 
     @IBOutlet var btnSubscribe: UIButton!
-    @IBOutlet var lblPkgUnits: UILabel!
-    @IBOutlet var lblPkgMonths: UILabel!
+    @IBOutlet var lblPkgSections: UILabel!
+    @IBOutlet var lblPkgCategories: UILabel!
     @IBOutlet var lblPkgQuestions: UILabel!
     @IBOutlet var lblPkgTitle: UILabel!
     @IBOutlet var lblPgkName: UILabel!
