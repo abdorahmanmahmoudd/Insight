@@ -110,6 +110,8 @@
 		BDAA5818202D18C600C32AA9 /* TrueFalseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDAA5817202D18C600C32AA9 /* TrueFalseTableViewCell.swift */; };
 		BDAA581A202D18DC00C32AA9 /* TrueFalseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDAA5819202D18DC00C32AA9 /* TrueFalseViewController.swift */; };
 		BDABD3B020485BF300E2E5A7 /* DerivativesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDABD3AF20485BF300E2E5A7 /* DerivativesViewController.swift */; };
+		BDABFA83204DFE1D00051A2B /* PackagesDuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDABFA82204DFE1D00051A2B /* PackagesDuration.swift */; };
+		BDABFA85204E06E700051A2B /* DurationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDABFA84204E06E700051A2B /* DurationCollectionViewCell.swift */; };
 		BDB6248C2028C2C20007B261 /* Choice.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB6248B2028C2C20007B261 /* Choice.swift */; };
 		BDB6248F2028CA220007B261 /* QuestionMcqViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB6248E2028CA220007B261 /* QuestionMcqViewController.swift */; };
 		BDB624912028CA410007B261 /* QuestionMcqTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB624902028CA410007B261 /* QuestionMcqTableViewCell.swift */; };
@@ -231,6 +233,8 @@
 		BDAA5817202D18C600C32AA9 /* TrueFalseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrueFalseTableViewCell.swift; sourceTree = "<group>"; };
 		BDAA5819202D18DC00C32AA9 /* TrueFalseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrueFalseViewController.swift; sourceTree = "<group>"; };
 		BDABD3AF20485BF300E2E5A7 /* DerivativesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DerivativesViewController.swift; sourceTree = "<group>"; };
+		BDABFA82204DFE1D00051A2B /* PackagesDuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PackagesDuration.swift; sourceTree = "<group>"; };
+		BDABFA84204E06E700051A2B /* DurationCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DurationCollectionViewCell.swift; sourceTree = "<group>"; };
 		BDB6248B2028C2C20007B261 /* Choice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Choice.swift; sourceTree = "<group>"; };
 		BDB6248E2028CA220007B261 /* QuestionMcqViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionMcqViewController.swift; sourceTree = "<group>"; };
 		BDB624902028CA410007B261 /* QuestionMcqTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionMcqTableViewCell.swift; sourceTree = "<group>"; };
@@ -370,6 +374,7 @@
 				BD1D28CF204C26C50088869A /* SubscribeViewController.swift */,
 				BD1D28DA204C34930088869A /* PackageViewController.swift */,
 				BD1D28DE204C3AE00088869A /* PackageView.swift */,
+				BDABFA84204E06E700051A2B /* DurationCollectionViewCell.swift */,
 			);
 			path = Subscribtion;
 			sourceTree = "<group>";
@@ -386,6 +391,7 @@
 		BD1D28D1204C2E110088869A /* Subscribtion */ = {
 			isa = PBXGroup;
 			children = (
+				BDABFA82204DFE1D00051A2B /* PackagesDuration.swift */,
 				BD1D28D2204C2E4D0088869A /* PackageRootClass.swift */,
 				BD1D28D3204C2E4D0088869A /* PackageUnlocked.swift */,
 			);
@@ -928,6 +934,7 @@
 				BDE45FF22037A69A0078C557 /* MiniDialogAnswersViewController.swift in Sources */,
 				BD9A4B5B202767F200DCCAE6 /* QuestionDictationTableViewCell.swift in Sources */,
 				BDA5B8B1203BA5070009DD31 /* GeneralResponse .swift in Sources */,
+				BDABFA85204E06E700051A2B /* DurationCollectionViewCell.swift in Sources */,
 				BDB624932028CB0E0007B261 /* McqChoiceTableViewCell.swift in Sources */,
 				BDD184DB201F9BE2006EBAB9 /* LandViewController.swift in Sources */,
 				BD1FF8462023EBC900FC74C2 /* QuestionsContainerViewController.swift in Sources */,
@@ -946,6 +953,7 @@
 				BDD184E2201FA0E1006EBAB9 /* AuthenticationViewController.swift in Sources */,
 				BDAA5809202CFAAF00C32AA9 /* GeneralQuestionTableViewCell.swift in Sources */,
 				BD1FF8442023CFBA00FC74C2 /* AntonymQViewController.swift in Sources */,
+				BDABFA83204DFE1D00051A2B /* PackagesDuration.swift in Sources */,
 				BD1B1ED32021349D0000D813 /* SideMenuManager.swift in Sources */,
 				BD1B1ED72021349D0000D813 /* StoryboardLoadable.swift in Sources */,
 				BDAA580C202D117200C32AA9 /* WritingTableViewCell.swift in Sources */,
@@ -1099,7 +1107,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 38726ZL3C8;
+				DEVELOPMENT_TEAM = 3F85YZFU22;
 				INFOPLIST_FILE = Insight/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1121,7 +1129,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 38726ZL3C8;
+				DEVELOPMENT_TEAM = 3F85YZFU22;
 				INFOPLIST_FILE = Insight/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

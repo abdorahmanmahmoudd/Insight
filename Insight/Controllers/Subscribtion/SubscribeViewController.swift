@@ -72,7 +72,7 @@ class SubscribeViewController: ParentViewController, UICollectionViewDelegate, U
         cell.myIndex = indexPath.row
         if collectionView == collectionViewUserPackages{
             
-            cell.lblPgkName.text = ""
+            cell.lblPgkName.text = "Package"
             cell.lblPkgTitle.text = userPackages[indexPath.row].name
             if userPackages[indexPath.row].all {
                 

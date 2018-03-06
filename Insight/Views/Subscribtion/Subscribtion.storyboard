@@ -189,19 +189,19 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UGs-uB-39k" userLabel="containerView">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="497"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="523.5"/>
                                         <subviews>
                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gKU-It-Bom">
-                                                <rect key="frame" x="103.5" y="8" width="168.5" height="167"/>
+                                                <rect key="frame" x="103.5" y="8" width="168.5" height="193.5"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="moneyBG" translatesAutoresizingMaskIntoConstraints="NO" id="XwG-ZL-X0z">
-                                                        <rect key="frame" x="84" y="83.5" width="84.5" height="83.5"/>
+                                                        <rect key="frame" x="84" y="96.5" width="84.5" height="97"/>
                                                     </imageView>
                                                     <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="money" translatesAutoresizingMaskIntoConstraints="NO" id="nTv-ec-zcZ">
-                                                        <rect key="frame" x="8" y="16" width="26" height="24"/>
+                                                        <rect key="frame" x="29" y="16" width="26" height="24"/>
                                                     </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Package" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cmt-Jb-7Iu">
-                                                        <rect key="frame" x="38" y="20" width="98" height="15.5"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Package" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cmt-Jb-7Iu">
+                                                        <rect key="frame" x="59" y="20" width="51" height="15.5"/>
                                                         <fontDescription key="fontDescription" name="MavenPro-Regular" family="Maven Pro" pointSize="13"/>
                                                         <color key="textColor" red="0.51764705882352935" green="0.5490196078431373" blue="0.59215686274509804" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -213,7 +213,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="L.E" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="esG-wt-VUj">
-                                                        <rect key="frame" x="69.5" y="126" width="29" height="23.5"/>
+                                                        <rect key="frame" x="69.5" y="162" width="29" height="23.5"/>
                                                         <fontDescription key="fontDescription" name="MavenPro-Medium" family="Maven Pro" pointSize="20"/>
                                                         <color key="textColor" red="1" green="0.6705882353" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -221,9 +221,10 @@
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstItem="esG-wt-VUj" firstAttribute="top" secondItem="Fuf-3x-vs4" secondAttribute="bottom" constant="8" id="7uA-gI-PLb"/>
+                                                    <constraint firstItem="Cmt-Jb-7Iu" firstAttribute="centerX" secondItem="gKU-It-Bom" secondAttribute="centerX" id="7hI-Tw-UcH"/>
+                                                    <constraint firstItem="esG-wt-VUj" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Fuf-3x-vs4" secondAttribute="bottom" constant="8" id="7uA-gI-PLb"/>
                                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Cmt-Jb-7Iu" secondAttribute="trailing" constant="4" id="9bY-Yj-Xro"/>
-                                                    <constraint firstItem="nTv-ec-zcZ" firstAttribute="leading" secondItem="gKU-It-Bom" secondAttribute="leading" constant="8" id="9z5-TW-oeP"/>
+                                                    <constraint firstItem="nTv-ec-zcZ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="gKU-It-Bom" secondAttribute="leading" constant="4" id="9z5-TW-oeP"/>
                                                     <constraint firstItem="XwG-ZL-X0z" firstAttribute="width" secondItem="gKU-It-Bom" secondAttribute="width" multiplier="0.5" id="Ja4-el-NUe"/>
                                                     <constraint firstItem="XwG-ZL-X0z" firstAttribute="height" secondItem="gKU-It-Bom" secondAttribute="height" multiplier="0.5" id="MqT-yT-a5O"/>
                                                     <constraint firstAttribute="bottom" secondItem="XwG-ZL-X0z" secondAttribute="bottom" id="NlI-B7-FXD"/>
@@ -233,6 +234,7 @@
                                                     <constraint firstAttribute="trailing" secondItem="XwG-ZL-X0z" secondAttribute="trailing" id="imZ-eJ-zc6"/>
                                                     <constraint firstItem="esG-wt-VUj" firstAttribute="centerX" secondItem="gKU-It-Bom" secondAttribute="centerX" id="lvs-54-BPh"/>
                                                     <constraint firstItem="Fuf-3x-vs4" firstAttribute="centerX" secondItem="gKU-It-Bom" secondAttribute="centerX" id="wXL-yM-zT5"/>
+                                                    <constraint firstAttribute="bottom" secondItem="esG-wt-VUj" secondAttribute="bottom" constant="8" id="x6v-Vn-Rva"/>
                                                     <constraint firstItem="Cmt-Jb-7Iu" firstAttribute="leading" secondItem="nTv-ec-zcZ" secondAttribute="trailing" constant="4" id="zuF-Ca-xmD"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
@@ -242,36 +244,39 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N2W-7g-OA9">
-                                                <rect key="frame" x="107" y="455" width="160" height="34"/>
+                                                <rect key="frame" x="107" y="481.5" width="160" height="34"/>
                                                 <fontDescription key="fontDescription" name="MavenPro-Regular" family="Maven Pro" pointSize="19"/>
                                                 <state key="normal" title="Subscribe" backgroundImage="button-blueBorder">
                                                     <color key="titleColor" red="0.20392156859999999" green="0.59607843140000005" blue="0.85882352939999995" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="btnSubscribeClicked:" destination="8Xo-B2-9Ch" eventType="touchUpInside" id="eta-QV-0d6"/>
+                                                </connections>
                                             </button>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oSb-J1-w0b">
-                                                <rect key="frame" x="16" y="191" width="343" height="60"/>
+                                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oSb-J1-w0b">
+                                                <rect key="frame" x="24" y="217.5" width="327" height="60"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="promo code" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jd4-Ne-qkL">
-                                                        <rect key="frame" x="40" y="20.5" width="92.5" height="20"/>
+                                                        <rect key="frame" x="36" y="20.5" width="92.5" height="20"/>
                                                         <fontDescription key="fontDescription" name="MavenPro-Medium" family="Maven Pro" pointSize="17"/>
                                                         <color key="textColor" red="1" green="0.6705882353" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YWe-IY-6Em">
-                                                        <rect key="frame" x="171" y="2" width="1" height="56"/>
+                                                        <rect key="frame" x="163" y="2" width="1" height="56"/>
                                                         <color key="backgroundColor" red="1" green="0.6705882353" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="1" id="4HU-Ad-GGt"/>
                                                         </constraints>
                                                     </view>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="QTT-Gp-X1L">
-                                                        <rect key="frame" x="176" y="21.5" width="129" height="17"/>
+                                                        <rect key="frame" x="168" y="21.5" width="121" height="17"/>
                                                         <color key="textColor" red="1" green="0.6705882353" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" name="MavenPro-Regular" family="Maven Pro" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                                     </textField>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4Qh-Xp-w1t">
-                                                        <rect key="frame" x="309" y="15" width="30" height="30"/>
+                                                        <rect key="frame" x="293" y="15" width="30" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="30" id="NKS-8m-urz"/>
                                                             <constraint firstAttribute="height" constant="30" id="U1p-fS-Jsy"/>
@@ -299,58 +304,83 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0nc-gg-Ydq">
-                                                <rect key="frame" x="0.0" y="259" width="375" height="1"/>
+                                                <rect key="frame" x="0.0" y="285.5" width="375" height="1"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="f86-x4-FiB"/>
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Package Description" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qQ9-PS-9MH">
-                                                <rect key="frame" x="16" y="268" width="204" height="26"/>
+                                                <rect key="frame" x="16" y="294.5" width="204" height="26"/>
                                                 <fontDescription key="fontDescription" name="MavenPro-Bold" family="Maven Pro" pointSize="22"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="36" scrollEnabled="NO" editable="NO" text="description" translatesAutoresizingMaskIntoConstraints="NO" id="pbl-2m-dhn">
-                                                <rect key="frame" x="16" y="302" width="343" height="36"/>
+                                                <rect key="frame" x="16" y="328.5" width="343" height="36"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" name="MavenPro-Regular" family="Maven Pro" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5yu-CF-8Ag">
-                                                <rect key="frame" x="0.0" y="346" width="375" height="1"/>
+                                                <rect key="frame" x="0.0" y="372.5" width="375" height="1"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="Prn-59-6Kl"/>
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Package Duration" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p32-qd-TX6">
-                                                <rect key="frame" x="16" y="355" width="175.5" height="26"/>
+                                                <rect key="frame" x="16" y="381.5" width="175.5" height="26"/>
                                                 <fontDescription key="fontDescription" name="MavenPro-Bold" family="Maven Pro" pointSize="22"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="lnE-l0-6Dd">
-                                                <rect key="frame" x="16" y="389" width="343" height="50"/>
+                                                <rect key="frame" x="16" y="415.5" width="343" height="50"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="222-2h-pL2"/>
                                                 </constraints>
                                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="J1P-Z0-xuZ">
-                                                    <size key="itemSize" width="50" height="50"/>
+                                                    <size key="itemSize" width="100" height="30"/>
                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 </collectionViewFlowLayout>
                                                 <cells>
-                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="moX-bL-UwL">
-                                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="durationCell" id="moX-bL-UwL" customClass="DurationCollectionViewCell" customModule="Insight" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="10" width="100" height="30"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="100" height="30"/>
                                                             <autoresizingMask key="autoresizingMask"/>
+                                                            <subviews>
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="button-blueBG" translatesAutoresizingMaskIntoConstraints="NO" id="IZn-Oy-JG2">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="100" height="30"/>
+                                                                </imageView>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11 month" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TVo-s1-fuG">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="100" height="30"/>
+                                                                    <fontDescription key="fontDescription" name="MavenPro-Regular" family="Maven Pro" pointSize="17"/>
+                                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
                                                         </view>
+                                                        <constraints>
+                                                            <constraint firstItem="TVo-s1-fuG" firstAttribute="top" secondItem="moX-bL-UwL" secondAttribute="top" id="G3j-oN-9Dq"/>
+                                                            <constraint firstItem="IZn-Oy-JG2" firstAttribute="leading" secondItem="moX-bL-UwL" secondAttribute="leading" id="bbb-E0-zUw"/>
+                                                            <constraint firstAttribute="trailing" secondItem="IZn-Oy-JG2" secondAttribute="trailing" id="dua-fz-BLc"/>
+                                                            <constraint firstAttribute="bottom" secondItem="TVo-s1-fuG" secondAttribute="bottom" id="fm7-4y-JKj"/>
+                                                            <constraint firstItem="TVo-s1-fuG" firstAttribute="leading" secondItem="moX-bL-UwL" secondAttribute="leading" id="grf-R7-hZB"/>
+                                                            <constraint firstAttribute="trailing" secondItem="TVo-s1-fuG" secondAttribute="trailing" id="i5Z-Fv-bR2"/>
+                                                            <constraint firstAttribute="bottom" secondItem="IZn-Oy-JG2" secondAttribute="bottom" id="of1-KM-T7u"/>
+                                                            <constraint firstItem="IZn-Oy-JG2" firstAttribute="top" secondItem="moX-bL-UwL" secondAttribute="top" id="p8i-fD-vpF"/>
+                                                        </constraints>
+                                                        <size key="customSize" width="100" height="30"/>
+                                                        <connections>
+                                                            <outlet property="lblTitle" destination="TVo-s1-fuG" id="eSH-9N-MED"/>
+                                                        </connections>
                                                     </collectionViewCell>
                                                 </cells>
                                             </collectionView>
@@ -360,7 +390,7 @@
                                             <constraint firstItem="qQ9-PS-9MH" firstAttribute="leading" secondItem="UGs-uB-39k" secondAttribute="leading" constant="16" id="0WJ-yL-0Va"/>
                                             <constraint firstItem="p32-qd-TX6" firstAttribute="leading" secondItem="UGs-uB-39k" secondAttribute="leading" constant="16" id="1Rt-8F-mpj"/>
                                             <constraint firstItem="oSb-J1-w0b" firstAttribute="top" secondItem="gKU-It-Bom" secondAttribute="bottom" constant="16" id="25W-9Z-CXb"/>
-                                            <constraint firstAttribute="trailing" secondItem="oSb-J1-w0b" secondAttribute="trailing" constant="16" id="2VK-jF-O9L"/>
+                                            <constraint firstAttribute="trailing" secondItem="oSb-J1-w0b" secondAttribute="trailing" constant="24" id="2VK-jF-O9L"/>
                                             <constraint firstItem="5yu-CF-8Ag" firstAttribute="leading" secondItem="UGs-uB-39k" secondAttribute="leading" id="3RI-4a-gGv"/>
                                             <constraint firstItem="N2W-7g-OA9" firstAttribute="centerX" secondItem="UGs-uB-39k" secondAttribute="centerX" id="3dB-cS-Gl8"/>
                                             <constraint firstAttribute="trailing" secondItem="lnE-l0-6Dd" secondAttribute="trailing" constant="16" id="6tj-Ea-aAV"/>
@@ -376,7 +406,7 @@
                                             <constraint firstItem="qQ9-PS-9MH" firstAttribute="top" secondItem="0nc-gg-Ydq" secondAttribute="bottom" constant="8" id="WeH-gS-ILq"/>
                                             <constraint firstItem="p32-qd-TX6" firstAttribute="top" secondItem="5yu-CF-8Ag" secondAttribute="bottom" constant="8" id="cfr-p2-BuG"/>
                                             <constraint firstItem="0nc-gg-Ydq" firstAttribute="top" secondItem="oSb-J1-w0b" secondAttribute="bottom" constant="8" id="eUt-Qg-E1J"/>
-                                            <constraint firstItem="oSb-J1-w0b" firstAttribute="leading" secondItem="UGs-uB-39k" secondAttribute="leading" constant="16" id="h4o-2K-Yfk"/>
+                                            <constraint firstItem="oSb-J1-w0b" firstAttribute="leading" secondItem="UGs-uB-39k" secondAttribute="leading" constant="24" id="h4o-2K-Yfk"/>
                                             <constraint firstItem="0nc-gg-Ydq" firstAttribute="leading" secondItem="UGs-uB-39k" secondAttribute="leading" id="iRo-wQ-dnf"/>
                                             <constraint firstItem="5yu-CF-8Ag" firstAttribute="top" secondItem="pbl-2m-dhn" secondAttribute="bottom" constant="8" id="ime-P6-Zgx"/>
                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="qQ9-PS-9MH" secondAttribute="trailing" constant="16" id="iso-0s-KoF"/>
@@ -397,7 +427,7 @@
                         <color key="backgroundColor" red="0.027450980390000001" green="0.14117647059999999" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="N2L-mX-Kle" firstAttribute="bottom" secondItem="CAR-Uk-5mW" secondAttribute="bottom" id="4CT-6f-Vvt"/>
-                            <constraint firstItem="gKU-It-Bom" firstAttribute="height" secondItem="edG-yV-RnN" secondAttribute="height" multiplier="0.25" id="6Ed-Sl-VpC"/>
+                            <constraint firstItem="gKU-It-Bom" firstAttribute="height" secondItem="edG-yV-RnN" secondAttribute="height" multiplier="0.29" id="6Ed-Sl-VpC"/>
                             <constraint firstItem="a2O-gw-Gxt" firstAttribute="top" secondItem="N2L-mX-Kle" secondAttribute="top" id="AgH-Cr-if5"/>
                             <constraint firstItem="N2L-mX-Kle" firstAttribute="trailing" secondItem="a2O-gw-Gxt" secondAttribute="trailing" id="GyD-uX-tbt"/>
                             <constraint firstItem="a2O-gw-Gxt" firstAttribute="leading" secondItem="N2L-mX-Kle" secondAttribute="leading" id="N1n-sE-scO"/>
@@ -410,6 +440,15 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="N2L-mX-Kle"/>
                     </view>
+                    <connections>
+                        <outlet property="collectionViewDurtions" destination="lnE-l0-6Dd" id="X1p-y5-dcC"/>
+                        <outlet property="imgCodeVerification" destination="4Qh-Xp-w1t" id="JhJ-XQ-d68"/>
+                        <outlet property="lblPackageName" destination="Cmt-Jb-7Iu" id="TCd-Z6-IWG"/>
+                        <outlet property="lblPrice" destination="Fuf-3x-vs4" id="SD6-7m-IAA"/>
+                        <outlet property="tfPromoCode" destination="QTT-Gp-X1L" id="1P0-Ld-Npt"/>
+                        <outlet property="tvDescription" destination="pbl-2m-dhn" id="HRz-jU-D6y"/>
+                        <outlet property="viewPkgPrice" destination="gKU-It-Bom" id="3js-Lg-hTD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XEv-fE-baH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -418,6 +457,7 @@
     </scenes>
     <resources>
         <image name="background" width="374" height="644"/>
+        <image name="button-blueBG" width="160" height="34"/>
         <image name="button-blueBorder" width="160" height="34"/>
         <image name="money" width="26" height="24"/>
         <image name="moneyBG" width="158" height="128"/>

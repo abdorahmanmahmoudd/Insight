@@ -10,7 +10,7 @@ class PackageRootClass : NSObject, NSCoding{
 	var all : Bool!
 	var id : Int!
 	var name : String!
-	var packagesDurations : [AnyObject]!
+	var packagesDurations : [PackagesDuration]!
 	var unlocked : [PackageUnlocked]!
 
 
@@ -21,7 +21,13 @@ class PackageRootClass : NSObject, NSCoding{
 		all = dictionary["all"] as? Bool
 		id = dictionary["id"] as? Int
 		name = dictionary["name"] as? String
-		packagesDurations = dictionary["packages_durations"] as? [AnyObject]
+        packagesDurations = [PackagesDuration]()
+        if let packagesDurationsArray = dictionary["packages_durations"] as? [[String:Any]]{
+            for dic in packagesDurationsArray{
+                let value = PackagesDuration(fromDictionary: dic)
+                packagesDurations.append(value)
+            }
+        }
 		unlocked = [PackageUnlocked]()
 		if let unlockedArray = dictionary["unlocked"] as? [[String:Any]]{
 			for dic in unlockedArray{
@@ -46,9 +52,13 @@ class PackageRootClass : NSObject, NSCoding{
 		if name != nil{
 			dictionary["name"] = name
 		}
-		if packagesDurations != nil{
-			dictionary["packages_durations"] = packagesDurations
-		}
+        if packagesDurations != nil{
+            var dictionaryElements = [[String:Any]]()
+            for packagesDurationsElement in packagesDurations {
+                dictionaryElements.append(packagesDurationsElement.toDictionary())
+            }
+            dictionary["packages_durations"] = dictionaryElements
+        }
 		if unlocked != nil{
 			var dictionaryElements = [[String:Any]]()
 			for unlockedElement in unlocked {
@@ -68,7 +78,7 @@ class PackageRootClass : NSObject, NSCoding{
          all = aDecoder.decodeObject(forKey: "all") as? Bool
          id = aDecoder.decodeObject(forKey: "id") as? Int
          name = aDecoder.decodeObject(forKey: "name") as? String
-         packagesDurations = aDecoder.decodeObject(forKey: "packages_durations") as? [AnyObject]
+         packagesDurations = aDecoder.decodeObject(forKey :"packages_durations") as? [PackagesDuration]
          unlocked = aDecoder.decodeObject(forKey :"unlocked") as? [PackageUnlocked]
 
 	}
@@ -88,9 +98,9 @@ class PackageRootClass : NSObject, NSCoding{
 		if name != nil{
 			aCoder.encode(name, forKey: "name")
 		}
-		if packagesDurations != nil{
-			aCoder.encode(packagesDurations, forKey: "packages_durations")
-		}
+        if packagesDurations != nil{
+            aCoder.encode(packagesDurations, forKey: "packages_durations")
+        }
 		if unlocked != nil{
 			aCoder.encode(unlocked, forKey: "unlocked")
 		}
