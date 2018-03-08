@@ -72,19 +72,43 @@ class SideMenuViewController: UIViewController ,UITableViewDelegate, UITableView
             let sb = UIStoryboard.init(name: "Flag", bundle: Bundle.main)
             viewController = sb.instantiateViewController(withIdentifier: "FlagVC")
             
+        }else if index == 4{
+            
+            let sb = UIStoryboard.init(name: "Note", bundle: Bundle.main)
+            viewController = sb.instantiateViewController(withIdentifier: "AppNoteVC")
+            
         }else if index == 5{
             
             let sb = UIStoryboard.init(name: "Home", bundle: Bundle.main)
             viewController = sb.instantiateViewController(withIdentifier: "ResultsVC")
+        }else if index == 6{
+            
+            let sb = UIStoryboard.init(name: "Information", bundle: Bundle.main)
+            viewController = sb.instantiateViewController(withIdentifier: "AboutAppVC")
+        }else if index == 7{
+            
+            let sb = UIStoryboard.init(name: "Information", bundle: Bundle.main)
+            viewController = sb.instantiateViewController(withIdentifier: "AboutDevelopersVC")
+        }else if index == 8{
+            
+            // https://itunesconnect.apple.com/WebObjects/iTunesConnect.woa/ra/ng/app/601958396
+            if let name = URL(string: "https://itunes.apple.com/app/id1186228942")
+            {
+                let objectsToShare = [name]
+                let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+                activityVC.setValue("Insight", forKey: "subject")
+                viewController = activityVC
+            }
+            else
+            {
+                print("Sharing is not available")
+            }
         }
         else if index == 9{
             
             let sb = UIStoryboard.init(name: "Home", bundle: Bundle.main)
             viewController = sb.instantiateViewController(withIdentifier: "LogoutVC")
         }
-        
-        
-        
         
 //        viewController.isTransitionEnabled = true
 //        viewController.transitionAnimation = .circleReveal(from: AppDelegate.shared.window!.center, mask: .backgroundGrey)
@@ -93,19 +117,22 @@ class SideMenuViewController: UIViewController ,UITableViewDelegate, UITableView
         return viewController
     }
     
-    func navigate(to viewController: UIViewController, isLogOut: Bool = false) {
+    func navigate(to viewController: UIViewController, isLogOut: Bool = false, isShare: Bool = false) {
         guard let delegate = self.delegate else {
             return
         }
         DispatchQueue.main.async {
             self.dismiss(animated: true) {
-                if !isLogOut {
-                    delegate.setViewControllers([viewController], animated: true)
-                }else{
-//                    delegate.pushViewController(viewController, animated: true)
+                if isShare{
+                    delegate.present(viewController, animated: true, completion: nil)
+                    
+                }else if isLogOut {
                     viewController.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
                     viewController.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
                     delegate.present(viewController, animated: true, completion: nil)
+                    
+                }else{
+                    delegate.setViewControllers([viewController], animated: true)
                 }
             
             }
@@ -117,8 +144,12 @@ class SideMenuViewController: UIViewController ,UITableViewDelegate, UITableView
         guard indexPath.row != selectedIndex else {
             return
         }
-        if indexPath.row == 9 {
-            self.navigate(to: self.getViewController(for: indexPath.row ), isLogOut: true)
+        if indexPath.row == 8{
+            self.navigate(to: self.getViewController(for: indexPath.row ), isLogOut: false, isShare: true)
+            
+        }else if indexPath.row == 9 {
+            self.navigate(to: self.getViewController(for: indexPath.row ), isLogOut: true, isShare: false)
+            
         }else{
             selectedIndex = indexPath.row
             self.navigate(to: self.getViewController(for: indexPath.row ))

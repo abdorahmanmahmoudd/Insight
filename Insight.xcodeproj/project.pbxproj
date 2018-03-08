@@ -72,6 +72,8 @@
 		BD40FD94203C5D84001E159C /* FlagTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD40FD93203C5D84001E159C /* FlagTableViewCell.swift */; };
 		BD40FD96203C6AE0001E159C /* EditFlagTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD40FD95203C6AE0001E159C /* EditFlagTableViewCell.swift */; };
 		BD40FD98203C6AF3001E159C /* EditFlagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD40FD97203C6AF3001E159C /* EditFlagViewController.swift */; };
+		BD436721205063CC0038345A /* Note.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD436720205063CC0038345A /* Note.storyboard */; };
+		BD4367242050644D0038345A /* ApplicationNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4367232050644D0038345A /* ApplicationNoteViewController.swift */; };
 		BD47F1CE202353E900ABEBF5 /* Enumerations.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD47F1CD202353E900ABEBF5 /* Enumerations.swift */; };
 		BD47F1D02023762900ABEBF5 /* SubSubCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD47F1CF2023762900ABEBF5 /* SubSubCategoryViewController.swift */; };
 		BD4EB7A120444150001B3DD7 /* ScoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4EB7A020444150001B3DD7 /* ScoreModel.swift */; };
@@ -79,6 +81,9 @@
 		BD4EB7A6204442DA001B3DD7 /* UpdateScoreRootClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4EB7A4204442DA001B3DD7 /* UpdateScoreRootClass.swift */; };
 		BD5378E8202FA5B7005BDE85 /* QuestionGeneralHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD5378E7202FA5B7005BDE85 /* QuestionGeneralHeader.xib */; };
 		BD5378EA202FA6C0005BDE85 /* GeneralTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5378E9202FA6C0005BDE85 /* GeneralTableViewHeader.swift */; };
+		BD542A3D20509B0300FE3674 /* Information.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD542A3C20509B0300FE3674 /* Information.storyboard */; };
+		BD542A4020509DB700FE3674 /* AboutAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD542A3F20509DB700FE3674 /* AboutAppViewController.swift */; };
+		BD542A4220509FA500FE3674 /* AboutDevelopersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD542A4120509FA500FE3674 /* AboutDevelopersViewController.swift */; };
 		BD628E892028A6160007BEE4 /* QuestionMatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD628E882028A6160007BEE4 /* QuestionMatchViewController.swift */; };
 		BD628E8B2028A62B0007BEE4 /* QuestionMatchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD628E8A2028A62B0007BEE4 /* QuestionMatchTableViewCell.swift */; };
 		BD7E3991204D6B7C0092A02E /* LogoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7E3990204D6B7C0092A02E /* LogoutViewController.swift */; };
@@ -199,6 +204,8 @@
 		BD40FD93203C5D84001E159C /* FlagTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlagTableViewCell.swift; sourceTree = "<group>"; };
 		BD40FD95203C6AE0001E159C /* EditFlagTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditFlagTableViewCell.swift; sourceTree = "<group>"; };
 		BD40FD97203C6AF3001E159C /* EditFlagViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditFlagViewController.swift; sourceTree = "<group>"; };
+		BD436720205063CC0038345A /* Note.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Note.storyboard; sourceTree = "<group>"; };
+		BD4367232050644D0038345A /* ApplicationNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationNoteViewController.swift; sourceTree = "<group>"; };
 		BD47F1CD202353E900ABEBF5 /* Enumerations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enumerations.swift; sourceTree = "<group>"; };
 		BD47F1CF2023762900ABEBF5 /* SubSubCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubSubCategoryViewController.swift; sourceTree = "<group>"; };
 		BD4EB7A020444150001B3DD7 /* ScoreModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreModel.swift; sourceTree = "<group>"; };
@@ -206,6 +213,9 @@
 		BD4EB7A4204442DA001B3DD7 /* UpdateScoreRootClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateScoreRootClass.swift; sourceTree = "<group>"; };
 		BD5378E7202FA5B7005BDE85 /* QuestionGeneralHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuestionGeneralHeader.xib; sourceTree = "<group>"; };
 		BD5378E9202FA6C0005BDE85 /* GeneralTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralTableViewHeader.swift; sourceTree = "<group>"; };
+		BD542A3C20509B0300FE3674 /* Information.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Information.storyboard; sourceTree = "<group>"; };
+		BD542A3F20509DB700FE3674 /* AboutAppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutAppViewController.swift; sourceTree = "<group>"; };
+		BD542A4120509FA500FE3674 /* AboutDevelopersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutDevelopersViewController.swift; sourceTree = "<group>"; };
 		BD628E882028A6160007BEE4 /* QuestionMatchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionMatchViewController.swift; sourceTree = "<group>"; };
 		BD628E8A2028A62B0007BEE4 /* QuestionMatchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionMatchTableViewCell.swift; sourceTree = "<group>"; };
 		BD7E3990204D6B7C0092A02E /* LogoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutViewController.swift; sourceTree = "<group>"; };
@@ -221,6 +231,7 @@
 		BDA2B40E20417E3800F36AB2 /* AddPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoViewController.swift; sourceTree = "<group>"; };
 		BDA2B41020421F5400F36AB2 /* AddNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteViewController.swift; sourceTree = "<group>"; };
 		BDA5B8B0203BA5070009DD31 /* GeneralResponse .swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GeneralResponse .swift"; sourceTree = "<group>"; };
+		BDAA1AFC204ECBEE00D02E01 /* Insight.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Insight.entitlements; sourceTree = "<group>"; };
 		BDAA57F7202CEF9900C32AA9 /* MistakesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MistakesViewController.swift; sourceTree = "<group>"; };
 		BDAA57F9202CEFAF00C32AA9 /* MistakesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MistakesTableViewCell.swift; sourceTree = "<group>"; };
 		BDAA5806202CFA9600C32AA9 /* GeneralQuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralQuestionViewController.swift; sourceTree = "<group>"; };
@@ -496,6 +507,22 @@
 			path = Flag;
 			sourceTree = "<group>";
 		};
+		BD43671F205063C00038345A /* note */ = {
+			isa = PBXGroup;
+			children = (
+				BD436720205063CC0038345A /* Note.storyboard */,
+			);
+			path = note;
+			sourceTree = "<group>";
+		};
+		BD436722205064380038345A /* Note */ = {
+			isa = PBXGroup;
+			children = (
+				BD4367232050644D0038345A /* ApplicationNoteViewController.swift */,
+			);
+			path = Note;
+			sourceTree = "<group>";
+		};
 		BD4EB7A2204442C9001B3DD7 /* Score */ = {
 			isa = PBXGroup;
 			children = (
@@ -503,6 +530,23 @@
 				BD4EB7A4204442DA001B3DD7 /* UpdateScoreRootClass.swift */,
 			);
 			path = Score;
+			sourceTree = "<group>";
+		};
+		BD542A3B20509AD700FE3674 /* Information */ = {
+			isa = PBXGroup;
+			children = (
+				BD542A3C20509B0300FE3674 /* Information.storyboard */,
+			);
+			path = Information;
+			sourceTree = "<group>";
+		};
+		BD542A3E20509D9F00FE3674 /* Information */ = {
+			isa = PBXGroup;
+			children = (
+				BD542A3F20509DB700FE3674 /* AboutAppViewController.swift */,
+				BD542A4120509FA500FE3674 /* AboutDevelopersViewController.swift */,
+			);
+			path = Information;
 			sourceTree = "<group>";
 		};
 		BD9A4B5C2027680700DCCAE6 /* Dictation */ = {
@@ -608,6 +652,7 @@
 		BDD184BE201F9ABD006EBAB9 /* Insight */ = {
 			isa = PBXGroup;
 			children = (
+				BDAA1AFC204ECBEE00D02E01 /* Insight.entitlements */,
 				BDD184CB201F9ABD006EBAB9 /* Info.plist */,
 				BDD184D1201F9ACD006EBAB9 /* Common */,
 				BDD184D3201F9AEE006EBAB9 /* Models */,
@@ -652,6 +697,8 @@
 		BDD184D4201F9AF8006EBAB9 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				BD542A3E20509D9F00FE3674 /* Information */,
+				BD436722205064380038345A /* Note */,
 				BD1D28CB204C262A0088869A /* Subscribtion */,
 				BD40FD8D203C5395001E159C /* Flag */,
 				BD1B1ED82021355F0000D813 /* Home */,
@@ -666,6 +713,8 @@
 		BDD184D5201F9AFD006EBAB9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				BD542A3B20509AD700FE3674 /* Information */,
+				BD43671F205063C00038345A /* note */,
 				BD1D28CC204C26540088869A /* Subscribtion */,
 				BD40FD8C203C5379001E159C /* Flag */,
 				BD1B1EC3202131340000D813 /* SideMenu */,
@@ -771,6 +820,14 @@
 						CreatedOnToolsVersion = 9.0;
 						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -808,7 +865,9 @@
 				BD27EEE0201FF353007872E0 /* LaunchScreen.storyboard in Resources */,
 				BDD184C7201F9ABD006EBAB9 /* Assets.xcassets in Resources */,
 				BD1D28DD204C39DB0088869A /* Package.xib in Resources */,
+				BD542A3D20509B0300FE3674 /* Information.storyboard in Resources */,
 				BD0E781A203AE289001003B5 /* Account.storyboard in Resources */,
+				BD436721205063CC0038345A /* Note.storyboard in Resources */,
 				BD1D28CE204C267A0088869A /* Subscribtion.storyboard in Resources */,
 				BD40FD90203C53B6001E159C /* Flag.storyboard in Resources */,
 				BD5378E8202FA5B7005BDE85 /* QuestionGeneralHeader.xib in Resources */,
@@ -889,11 +948,13 @@
 				BD1D28D4204C2E4D0088869A /* PackageRootClass.swift in Sources */,
 				BDAA57FA202CEFAF00C32AA9 /* MistakesTableViewCell.swift in Sources */,
 				BD1D28D0204C26C50088869A /* SubscribeViewController.swift in Sources */,
+				BD542A4220509FA500FE3674 /* AboutDevelopersViewController.swift in Sources */,
 				BD1B1ED42021349D0000D813 /* SideMenuPresentationInteractionController.swift in Sources */,
 				BDA2B41120421F5400F36AB2 /* AddNoteViewController.swift in Sources */,
 				BDAA581A202D18DC00C32AA9 /* TrueFalseViewController.swift in Sources */,
 				BD2C1879204A0380002C78C8 /* DerivativeData.swift in Sources */,
 				BD1B1EBB2020F7CE0000D813 /* User.swift in Sources */,
+				BD4367242050644D0038345A /* ApplicationNoteViewController.swift in Sources */,
 				BD96771D202346950078B0A3 /* SubSubCategoryTableViewCell.swift in Sources */,
 				BD9A4B63202775D200DCCAE6 /* QuestionListeningTableViewCell.swift in Sources */,
 				BD1D28D7204C2E700088869A /* SubscribtionModel.swift in Sources */,
@@ -953,6 +1014,7 @@
 				BDD184E2201FA0E1006EBAB9 /* AuthenticationViewController.swift in Sources */,
 				BDAA5809202CFAAF00C32AA9 /* GeneralQuestionTableViewCell.swift in Sources */,
 				BD1FF8442023CFBA00FC74C2 /* AntonymQViewController.swift in Sources */,
+				BD542A4020509DB700FE3674 /* AboutAppViewController.swift in Sources */,
 				BDABFA83204DFE1D00051A2B /* PackagesDuration.swift in Sources */,
 				BD1B1ED32021349D0000D813 /* SideMenuManager.swift in Sources */,
 				BD1B1ED72021349D0000D813 /* StoryboardLoadable.swift in Sources */,
@@ -1105,13 +1167,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Insight/Insight.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3F85YZFU22;
+				DEVELOPMENT_TEAM = WHZTV622V5;
 				INFOPLIST_FILE = Insight/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Insight;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Clueapps.Insight;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Insight/Common/Insight-Bridging-Header.h";
@@ -1127,13 +1190,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Insight/Insight.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3F85YZFU22;
+				DEVELOPMENT_TEAM = WHZTV622V5;
 				INFOPLIST_FILE = Insight/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Insight;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Clueapps.Insight;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Insight/Common/Insight-Bridging-Header.h";

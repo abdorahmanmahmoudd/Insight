@@ -104,7 +104,7 @@ class flagBtn : UIButton {
             case 3:
                 self.setImage(#imageLiteral(resourceName: "flag-yellow"), for: .normal)
             default:
-                self.setImage(#imageLiteral(resourceName: "flag-blacked"), for: .normal)
+                self.setImage(defaultImage, for: .normal)
             }
         }
     }

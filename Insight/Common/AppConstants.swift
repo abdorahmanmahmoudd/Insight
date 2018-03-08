@@ -40,6 +40,7 @@ let MavenProMedium = "mavenPro-Medium"
 let MavenProBold = "mavenPro-Bold"
 
 let jsonContentFileDirectory = "InsightContentFile.json"
+let InsightAppNoteKey = "InsightAppNoteKey"
 
 let questionTimerUnit = 30
 

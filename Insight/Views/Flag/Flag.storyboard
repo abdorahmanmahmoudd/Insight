@@ -479,7 +479,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Camera" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uTb-Vp-gQz">
-                                        <rect key="frame" x="37.5" y="128.5" width="67" height="22.5"/>
+                                        <rect key="frame" x="38" y="128.5" width="67" height="22.5"/>
                                         <fontDescription key="fontDescription" name="MavenPro-Medium" family="Maven Pro" pointSize="19"/>
                                         <color key="textColor" red="1" green="0.6705882353" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>

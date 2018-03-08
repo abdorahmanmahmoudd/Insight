@@ -90,7 +90,7 @@ class SignInViewController: ParentViewController {
                     }
                 }else if statusCode == 401{ //unauthorized
                     
-                    showAlert(title: "", message: "Invalid username or password", vc: self, closure: nil)
+                    showAlert(title: "", message: "Unauthorized to log in", vc: self, closure: nil)
                 }else{
                     
                     showAlert(title: "", message: "Error code \(statusCode)"  , vc: self, closure: nil)

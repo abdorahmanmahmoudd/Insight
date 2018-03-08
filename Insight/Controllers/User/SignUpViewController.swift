@@ -128,16 +128,13 @@ class SignUpViewController: ParentViewController {
                         UserModel.getInstance.saveUser(user)
                         showAlert(title: "", message: "User registered successfully", vc: self, closure: {
                             
-                            if self.delegate != nil {
-                                
-                                self.delegate?.initSignInView()
-                            }
+                            self.openHome()
                         })
                     }
                     
                 }else if statusCode == 400{ // bad request
                     
-                    showAlert(title: "Bad request", message: "\(json)"  , vc: self, closure: nil)
+                    showAlert(title: "", message: "Invalid mobile number of email"  , vc: self, closure: nil)
                     
                 }else { // unknown error
                     
@@ -154,6 +151,18 @@ class SignUpViewController: ParentViewController {
             showAlert(title: "", message: "Failed to sign up \n please check your internet connection", vc: self, closure: nil)
             
         }
+    }
+    
+    func openHome(){
+        
+        let sb = UIStoryboard.init(name: "Home", bundle: Bundle.main)
+        
+        if let vc = sb.instantiateViewController(withIdentifier: "HomeNC") as? UINavigationController{
+            
+            //            self.view.window?.rootViewController = vc
+            self.present(vc, animated: true, completion: nil)
+        }
+        
     }
     
 }

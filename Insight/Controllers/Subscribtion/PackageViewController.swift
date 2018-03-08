@@ -55,7 +55,7 @@ class PackageViewController: ParentViewController, UICollectionViewDelegate, UIC
                 var descriptionTxt = "Unlocks "
                 for item in pkg.unlocked{
                     
-                    descriptionTxt += " \(item.categoryName),"
+                    descriptionTxt += " \(item.categoryName ?? "-"),"
                 }
                 descriptionTxt.removeLast(1)
                 self.tvDescription.text = descriptionTxt
@@ -72,18 +72,18 @@ class PackageViewController: ParentViewController, UICollectionViewDelegate, UIC
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return durations.count
     }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSizeFromString("\(durations[indexPath.row].duration) Months")
-    }
+//    
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//        return CGSize.init(width: "\(durations[indexPath.row].duration) Months".width(withConstraintedHeight: 0, font: getFont(17, MavenProMedium)), height: collectionViewLayout.collectionViewContentSize.height)
+//    }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "durationCell", for: indexPath) as! DurationCollectionViewCell
         
         if durations[indexPath.row].duration < 2 {
-            cell.lblTitle.text = "\(durations[indexPath.row].duration) Month"
+            cell.lblTitle.text = "\(durations[indexPath.row].duration ?? 0) Month"
         }else{
-            cell.lblTitle.text = "\(durations[indexPath.row].duration) Months"
+            cell.lblTitle.text = "\(durations[indexPath.row].duration ?? 0) Months"
         }
         
         return cell
@@ -91,6 +91,8 @@ class PackageViewController: ParentViewController, UICollectionViewDelegate, UIC
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         //handle selection
+        lblPrice.text = "\(durations[indexPath.row].price - ((durations[indexPath.row].discount / 100) * durations[indexPath.row].price))"
+        
     }
     
     

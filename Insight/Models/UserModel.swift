@@ -78,7 +78,7 @@ class UserModel {
         
         let sm = ServerManager()
         UserModel.AuthResource.url = SignInURL
-        sm.httpConnect(resource: UserModel.AuthResource, paramters: ["mobile" : phone , "password" : pass,"device_id": UIDevice.current.identifierForVendor?.uuidString ?? "", "platform": "ios" ], authentication: nil, AdditionalHeaders: ["version":appVersion], complation:
+        sm.httpConnect(resource: UserModel.AuthResource, paramters: ["mobile" : phone , "password" : pass,"device_id": UIDevice.current.identifierForVendor?.uuidString ?? "", "platform": "ios", "firebase_token" :"" ], authentication: nil, AdditionalHeaders: ["version":appVersion], complation:
             { (json, data) in
                 if let obj = json
                 {
@@ -111,7 +111,7 @@ class UserModel {
         
         let sm = ServerManager()
         UserModel.AuthResource.url = SignUpURL
-        sm.httpConnect(resource: UserModel.AuthResource, paramters: ["name" : name , "mobile" : mobile , "password" : pass , "governorate" : governorate, "school" : school ,"email" : email, "device_id": UIDevice.current.identifierForVendor?.uuidString ?? "", "platform": "ios" ], authentication: nil, AdditionalHeaders: ["version":appVersion], complation:
+        sm.httpConnect(resource: UserModel.AuthResource, paramters: ["name" : name , "mobile" : mobile , "password" : pass , "governorate" : governorate, "school" : school ,"email" : email, "device_id": UIDevice.current.identifierForVendor?.uuidString ?? "", "platform": "ios", "firebase_token": "" ], authentication: nil, AdditionalHeaders: ["version":appVersion], complation:
             { (json, data) in
                 if let obj = json
                 {
