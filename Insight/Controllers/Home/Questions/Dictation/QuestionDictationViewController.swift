@@ -101,6 +101,16 @@ class QuestionDictationViewController: ParentViewController, UITableViewDelegate
                         
                         self.containerDelegate?.submitQuestion()
                     }
+                }else{
+                    if let nav = self.parent?.navigationController {
+                        
+                        if let selfVC = self.storyboard?.instantiateViewController(withIdentifier: "QuestionDictationVC") as? QuestionDictationViewController{
+                            
+                            selfVC.showAnswers = true
+                            selfVC.questions = self.questions
+                            nav.pushViewController(selfVC, animated: true)
+                        }
+                    }
                 }
             }
             

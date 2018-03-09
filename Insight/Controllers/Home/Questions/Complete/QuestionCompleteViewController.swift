@@ -99,11 +99,22 @@ class QuestionCompleteViewController: ParentViewController, UITableViewDelegate,
                         
                         self.containerDelegate?.submitQuestion()
                     }
+                }else{
+                    //show answers
+                    if let nav = self.parent?.navigationController {
+                        
+                        if let selfVC = self.storyboard?.instantiateViewController(withIdentifier: "QuestionCompleteVC") as? QuestionCompleteViewController{
+                            
+                            selfVC.showAnswers = true
+                            selfVC.questions = self.questions
+                            nav.pushViewController(selfVC, animated: true)
+                        }
+                    }
                 }
             }
             
         }else{
-            
+            //show answers
             if let nav = self.parent?.navigationController {
                 
                 if let selfVC = storyboard?.instantiateViewController(withIdentifier: "QuestionCompleteVC") as? QuestionCompleteViewController{

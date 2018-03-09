@@ -206,8 +206,8 @@
                                                         <color key="textColor" red="0.51764705882352935" green="0.5490196078431373" blue="0.59215686274509804" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fuf-3x-vs4">
-                                                        <rect key="frame" x="42" y="59.5" width="83.5" height="59"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fuf-3x-vs4">
+                                                        <rect key="frame" x="70" y="59.5" width="28" height="59"/>
                                                         <fontDescription key="fontDescription" name="MavenPro-Black" family="Maven Pro" pointSize="50"/>
                                                         <color key="textColor" red="1" green="0.6705882353" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -274,6 +274,9 @@
                                                         <color key="textColor" red="1" green="0.6705882353" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" name="MavenPro-Regular" family="Maven Pro" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="8Xo-B2-9Ch" id="0zq-Gc-YNO"/>
+                                                        </connections>
                                                     </textField>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4Qh-Xp-w1t">
                                                         <rect key="frame" x="293" y="15" width="30" height="30"/>
@@ -445,6 +448,7 @@
                         <viewLayoutGuide key="safeArea" id="N2L-mX-Kle"/>
                     </view>
                     <connections>
+                        <outlet property="btnSubscribe" destination="N2W-7g-OA9" id="UMX-Ez-olE"/>
                         <outlet property="collectionViewDurtions" destination="lnE-l0-6Dd" id="X1p-y5-dcC"/>
                         <outlet property="imgCodeVerification" destination="4Qh-Xp-w1t" id="JhJ-XQ-d68"/>
                         <outlet property="lblPackageName" destination="Cmt-Jb-7Iu" id="TCd-Z6-IWG"/>

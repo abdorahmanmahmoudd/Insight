@@ -11,8 +11,10 @@ import RealmSwift
 
 class ParentViewController: UIViewController {
     
-    var hud : MBProgressHUD! = nil
     var realm : Realm? = nil
+    
+    static var currentQParentParentId : Int? // unit
+    static var currentQParentId : Int? //section
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,17 +56,17 @@ class ParentViewController: UIViewController {
     }
 
     //MARK: - progress hud
-    func showLoading()
-    {
-        self.view.backgroundColor = UIColor.white
-        self.hud = MBProgressHUD.showAdded(to: self.view, animated: true)
-        hud.mode = .indeterminate;
-    }
-    
-    func hideLoading()
-    {
-        self.hud?.hide(animated: true)
-    }
+//    func showLoading()
+//    {
+//        self.view.backgroundColor = UIColor.white
+//        self.hud = MBProgressHUD.showAdded(to: self.view, animated: true)
+//        hud.mode = .indeterminate;
+//    }
+//    
+//    func hideLoading()
+//    {
+//        self.hud?.hide(animated: true)
+//    }
     
     @objc func openEditFlagVC(_ sender: flagBtn){
         

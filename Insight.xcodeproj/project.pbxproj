@@ -84,6 +84,11 @@
 		BD542A3D20509B0300FE3674 /* Information.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD542A3C20509B0300FE3674 /* Information.storyboard */; };
 		BD542A4020509DB700FE3674 /* AboutAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD542A3F20509DB700FE3674 /* AboutAppViewController.swift */; };
 		BD542A4220509FA500FE3674 /* AboutDevelopersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD542A4120509FA500FE3674 /* AboutDevelopersViewController.swift */; };
+		BD542A462051593900FE3674 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD542A452051593800FE3674 /* Assets.xcassets */; };
+		BD542A4920515ED500FE3674 /* SubscribedPackage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD542A4720515ED500FE3674 /* SubscribedPackage.swift */; };
+		BD542A4A20515ED500FE3674 /* SubscribedPackageResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD542A4820515ED500FE3674 /* SubscribedPackageResponse.swift */; };
+		BD542A4D205165AE00FE3674 /* Promocode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD542A4B205165AD00FE3674 /* Promocode.swift */; };
+		BD542A4E205165AE00FE3674 /* PromoCodeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD542A4C205165AE00FE3674 /* PromoCodeResponse.swift */; };
 		BD628E892028A6160007BEE4 /* QuestionMatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD628E882028A6160007BEE4 /* QuestionMatchViewController.swift */; };
 		BD628E8B2028A62B0007BEE4 /* QuestionMatchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD628E8A2028A62B0007BEE4 /* QuestionMatchTableViewCell.swift */; };
 		BD7E3991204D6B7C0092A02E /* LogoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7E3990204D6B7C0092A02E /* LogoutViewController.swift */; };
@@ -122,7 +127,6 @@
 		BDB624912028CA410007B261 /* QuestionMcqTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB624902028CA410007B261 /* QuestionMcqTableViewCell.swift */; };
 		BDB624932028CB0E0007B261 /* McqChoiceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB624922028CB0E0007B261 /* McqChoiceTableViewCell.swift */; };
 		BDD184C0201F9ABD006EBAB9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD184BF201F9ABD006EBAB9 /* AppDelegate.swift */; };
-		BDD184C7201F9ABD006EBAB9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDD184C6201F9ABD006EBAB9 /* Assets.xcassets */; };
 		BDD184D8201F9BAE006EBAB9 /* Land.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDD184D7201F9BAE006EBAB9 /* Land.storyboard */; };
 		BDD184DB201F9BE2006EBAB9 /* LandViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD184DA201F9BE2006EBAB9 /* LandViewController.swift */; };
 		BDD184E0201FA0CE006EBAB9 /* Authentication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDD184DF201FA0CE006EBAB9 /* Authentication.storyboard */; };
@@ -216,6 +220,11 @@
 		BD542A3C20509B0300FE3674 /* Information.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Information.storyboard; sourceTree = "<group>"; };
 		BD542A3F20509DB700FE3674 /* AboutAppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutAppViewController.swift; sourceTree = "<group>"; };
 		BD542A4120509FA500FE3674 /* AboutDevelopersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutDevelopersViewController.swift; sourceTree = "<group>"; };
+		BD542A452051593800FE3674 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BD542A4720515ED500FE3674 /* SubscribedPackage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscribedPackage.swift; sourceTree = "<group>"; };
+		BD542A4820515ED500FE3674 /* SubscribedPackageResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscribedPackageResponse.swift; sourceTree = "<group>"; };
+		BD542A4B205165AD00FE3674 /* Promocode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Promocode.swift; sourceTree = "<group>"; };
+		BD542A4C205165AE00FE3674 /* PromoCodeResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PromoCodeResponse.swift; sourceTree = "<group>"; };
 		BD628E882028A6160007BEE4 /* QuestionMatchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionMatchViewController.swift; sourceTree = "<group>"; };
 		BD628E8A2028A62B0007BEE4 /* QuestionMatchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionMatchTableViewCell.swift; sourceTree = "<group>"; };
 		BD7E3990204D6B7C0092A02E /* LogoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutViewController.swift; sourceTree = "<group>"; };
@@ -252,7 +261,6 @@
 		BDB624922028CB0E0007B261 /* McqChoiceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = McqChoiceTableViewCell.swift; sourceTree = "<group>"; };
 		BDD184BC201F9ABD006EBAB9 /* Insight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Insight.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDD184BF201F9ABD006EBAB9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BDD184C6201F9ABD006EBAB9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BDD184CB201F9ABD006EBAB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BDD184D7201F9BAE006EBAB9 /* Land.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Land.storyboard; sourceTree = "<group>"; };
 		BDD184DA201F9BE2006EBAB9 /* LandViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandViewController.swift; sourceTree = "<group>"; };
@@ -402,6 +410,10 @@
 		BD1D28D1204C2E110088869A /* Subscribtion */ = {
 			isa = PBXGroup;
 			children = (
+				BD542A4B205165AD00FE3674 /* Promocode.swift */,
+				BD542A4C205165AE00FE3674 /* PromoCodeResponse.swift */,
+				BD542A4720515ED500FE3674 /* SubscribedPackage.swift */,
+				BD542A4820515ED500FE3674 /* SubscribedPackageResponse.swift */,
 				BDABFA82204DFE1D00051A2B /* PackagesDuration.swift */,
 				BD1D28D2204C2E4D0088869A /* PackageRootClass.swift */,
 				BD1D28D3204C2E4D0088869A /* PackageUnlocked.swift */,
@@ -669,8 +681,8 @@
 				BD2141CD2039D4550083B242 /* MBProgressHUD */,
 				BD1B1EBC2020F95A0000D813 /* mavenPro Font */,
 				BDD184BF201F9ABD006EBAB9 /* AppDelegate.swift */,
-				BDD184C6201F9ABD006EBAB9 /* Assets.xcassets */,
 				BD27EEDF201FF353007872E0 /* LaunchScreen.storyboard */,
+				BD542A452051593800FE3674 /* Assets.xcassets */,
 				BD1B1EAA2020F5EF0000D813 /* ServerManager.swift */,
 				BD1B1EAC2020F6090000D813 /* AppConstants.swift */,
 				BD1B1EAE2020F6120000D813 /* ActivityLoaderHelper.swift */,
@@ -860,10 +872,10 @@
 				BDA2B4082040D0C800F36AB2 /* MavenPro-Black.ttf in Resources */,
 				BDD184D8201F9BAE006EBAB9 /* Land.storyboard in Resources */,
 				BDA2B40A2040D0CD00F36AB2 /* MavenPro-Medium.ttf in Resources */,
+				BD542A462051593900FE3674 /* Assets.xcassets in Resources */,
 				BDA2B40B2040D0D000F36AB2 /* MavenPro-Regular.ttf in Resources */,
 				BD1B1EDB2021389F0000D813 /* SideMenuViewController.storyboard in Resources */,
 				BD27EEE0201FF353007872E0 /* LaunchScreen.storyboard in Resources */,
-				BDD184C7201F9ABD006EBAB9 /* Assets.xcassets in Resources */,
 				BD1D28DD204C39DB0088869A /* Package.xib in Resources */,
 				BD542A3D20509B0300FE3674 /* Information.storyboard in Resources */,
 				BD0E781A203AE289001003B5 /* Account.storyboard in Resources */,
@@ -959,6 +971,7 @@
 				BD9A4B63202775D200DCCAE6 /* QuestionListeningTableViewCell.swift in Sources */,
 				BD1D28D7204C2E700088869A /* SubscribtionModel.swift in Sources */,
 				BD40FD98203C6AF3001E159C /* EditFlagViewController.swift in Sources */,
+				BD542A4A20515ED500FE3674 /* SubscribedPackageResponse.swift in Sources */,
 				BDAA5818202D18C600C32AA9 /* TrueFalseTableViewCell.swift in Sources */,
 				BD27EEDE201FF02D007872E0 /* SignInViewController.swift in Sources */,
 				BD1B1ED22021349D0000D813 /* SideMenuDismissalInteractionController.swift in Sources */,
@@ -987,6 +1000,7 @@
 				BD9A4B61202775B800DCCAE6 /* QuestionListeningViewController.swift in Sources */,
 				BDB6248F2028CA220007B261 /* QuestionMcqViewController.swift in Sources */,
 				BD2141D12039D4980083B242 /* MBProgressHUD.m in Sources */,
+				BD542A4E205165AE00FE3674 /* PromoCodeResponse.swift in Sources */,
 				BD1B1ED02021349D0000D813 /* InteractionControlller.swift in Sources */,
 				BD3DB17920384894002A632D /* GeneralQuestionAnswersViewController.swift in Sources */,
 				BDA2B40D20417B8F00F36AB2 /* AddMediaViewController.swift in Sources */,
@@ -1013,6 +1027,7 @@
 				BD1B1ED62021349D0000D813 /* Storyboard.swift in Sources */,
 				BDD184E2201FA0E1006EBAB9 /* AuthenticationViewController.swift in Sources */,
 				BDAA5809202CFAAF00C32AA9 /* GeneralQuestionTableViewCell.swift in Sources */,
+				BD542A4920515ED500FE3674 /* SubscribedPackage.swift in Sources */,
 				BD1FF8442023CFBA00FC74C2 /* AntonymQViewController.swift in Sources */,
 				BD542A4020509DB700FE3674 /* AboutAppViewController.swift in Sources */,
 				BDABFA83204DFE1D00051A2B /* PackagesDuration.swift in Sources */,
@@ -1021,6 +1036,7 @@
 				BDAA580C202D117200C32AA9 /* WritingTableViewCell.swift in Sources */,
 				BD0D6083204300780007C867 /* AddVoiceNoteViewController.swift in Sources */,
 				BD628E8B2028A62B0007BEE4 /* QuestionMatchTableViewCell.swift in Sources */,
+				BD542A4D205165AE00FE3674 /* Promocode.swift in Sources */,
 				BD263C352045B2D900EB5B1F /* FreeWritingTableViewCell.swift in Sources */,
 				BD263C2F2045AF3E00EB5B1F /* Mcq.swift in Sources */,
 				BD40FD92203C5820001E159C /* FlagViewController.swift in Sources */,

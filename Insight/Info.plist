@@ -31,6 +31,8 @@
 	<string>Allow Insight to access camera</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Allow Insight to acces photo library</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Allow Insight to access microphone</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>MavenPro-Black</string>

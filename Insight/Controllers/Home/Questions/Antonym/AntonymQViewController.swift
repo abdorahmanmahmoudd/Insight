@@ -99,6 +99,17 @@ class AntonymQViewController: ParentViewController, UITableViewDelegate, UITable
                         
                         self.containerDelegate?.submitQuestion()
                     }
+                }else{
+                    if let nav = self.parent?.navigationController {
+                        
+                        if let selfVC = self.storyboard?.instantiateViewController(withIdentifier: "QuestionAntonymVC") as? AntonymQViewController{
+                            
+                            selfVC.showAnswers = true
+                            selfVC.questions = self.questions
+                            nav.pushViewController(selfVC, animated: true)
+                        }
+                    }
+                    
                 }
             }
             

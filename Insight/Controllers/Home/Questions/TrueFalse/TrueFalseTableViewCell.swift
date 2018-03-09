@@ -10,7 +10,7 @@ import UIKit
 
 class TrueFalseTableViewCell: UITableViewCell {
 
-    @IBOutlet var tvAnswer: UnderLinedTextView!
+    @IBOutlet var tvAnswer: UITextView!
     @IBOutlet var btnTrue: UIButton!
     @IBOutlet var btnFalse: UIButton!
     @IBOutlet var tvContent: UITextView!
@@ -23,21 +23,16 @@ class TrueFalseTableViewCell: UITableViewCell {
         // Initialization code
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
 
     @IBAction func btnTrueClicked(_ sender: UIButton) {
-        btnTrue.backgroundColor = UIColor.green
-        btnFalse.backgroundColor = UIColor.clear
+        btnTrue.setBackgroundImage(#imageLiteral(resourceName: "t_greens"), for: .normal)
+        btnFalse.setBackgroundImage(#imageLiteral(resourceName: "matchQuesTF-BG"), for: .normal)
         selectedAnswer = 1
     }
     
     @IBAction func btnFalseClicked(_ sender: UIButton) {
-        btnFalse.backgroundColor = UIColor.red
-        btnTrue.backgroundColor = UIColor.clear
+        btnFalse.setBackgroundImage(#imageLiteral(resourceName: "f_reds"), for: .normal)
+        btnTrue.setBackgroundImage(#imageLiteral(resourceName: "matchQuesTF-BG"), for: .normal)
         selectedAnswer = 0
     }
 }

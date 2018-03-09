@@ -134,7 +134,7 @@ class SignUpViewController: ParentViewController {
                     
                 }else if statusCode == 400{ // bad request
                     
-                    showAlert(title: "", message: "Invalid mobile number of email"  , vc: self, closure: nil)
+                    showAlert(title: "", message: "Taken mobile number or email"  , vc: self, closure: nil)
                     
                 }else { // unknown error
                     

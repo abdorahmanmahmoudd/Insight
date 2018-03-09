@@ -51,6 +51,8 @@ class AddPhotoViewController: ParentViewController, UIImagePickerControllerDeleg
         
         let btn = UIButton.init(type: .custom)
         btn.setImage(#imageLiteral(resourceName: "back-NoShadow"), for: .normal)
+        btn.setTitle(" Back", for: .normal)
+        btn.sizeToFit()
         btn.addTarget(self, action: #selector(self.backBtnClicked), for: .touchUpInside)
         let barBtn = UIBarButtonItem.init(customView: btn)
         self.navigationItem.leftBarButtonItem = barBtn

@@ -107,6 +107,17 @@ class QuestionMatchViewController: ParentViewController, UITableViewDelegate, UI
                         
                         self.containerDelegate?.submitQuestion()
                     }
+                }else{
+                    
+                    if let nav = self.parent?.navigationController {
+                        
+                        if let selfVC = self.storyboard?.instantiateViewController(withIdentifier: "QuestionMatchVC") as? QuestionMatchViewController{
+                            
+                            selfVC.showAnswers = true
+                            selfVC.questions = self.questions
+                            nav.pushViewController(selfVC, animated: true)
+                        }
+                    }
                 }
             }
             

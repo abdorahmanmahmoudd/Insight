@@ -41,30 +41,30 @@ class UserAccountViewController: ParentViewController {
     
     func configuration(){
         
-        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name:NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name:NSNotification.Name.UIKeyboardWillShow, object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard (_:)))
         self.view.addGestureRecognizer(tapGesture)
     }
     
-    @objc func keyboardWillShow(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-            if !isKeyboard {
-                self.view.frame.size.height -= keyboardSize.height
-                isKeyboard = !isKeyboard
-            }
-        }
-    }
-    
-    @objc func keyboardWillHide(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-            if isKeyboard{
-                self.view.frame.size.height += keyboardSize.height
-                isKeyboard = !isKeyboard
-            }
-        }
-    }
+//    @objc func keyboardWillShow(notification: NSNotification) {
+//        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+//            if !isKeyboard {
+//                self.view.frame.size.height -= keyboardSize.height
+//                isKeyboard = !isKeyboard
+//            }
+//        }
+//    }
+//    
+//    @objc func keyboardWillHide(notification: NSNotification) {
+//        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+//            if isKeyboard{
+//                self.view.frame.size.height += keyboardSize.height
+//                isKeyboard = !isKeyboard
+//            }
+//        }
+//    }
     
     @objc func dismissKeyboard (_ sender: UITapGestureRecognizer) {
         view.endEditing(true)
@@ -196,6 +196,10 @@ class UserAccountViewController: ParentViewController {
                     
                     // TODO: update the app
                     showAlert(title: "", message: "Update the application", vc: self, closure: nil)
+                    
+                }else if statusCode == 400{ //taken mobile or email
+                    
+                    showAlert(title: "", message: "Number or Email already exists", vc: self, closure: nil)
                     
                 }else {
                     

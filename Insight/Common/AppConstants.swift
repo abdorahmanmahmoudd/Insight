@@ -14,6 +14,9 @@ let ChangePasswordURL = "\(MainIP)password"
 let UpdateScoreURL = "\(MainIP)score/create"
 let GetPackagesURL = "\(MainIP)packages"
 let GetUserPackagesURL = "\(MainIP)userspackages"
+let ValidateCodeURL = "\(MainIP)promocodes/validate?code="
+let CreatePackageURL = "\(MainIP)userspackages"
+let FileSizeURL = "\(MainIP)filesize"
 
 
 //MARK: - Colors
@@ -41,6 +44,7 @@ let MavenProBold = "mavenPro-Bold"
 
 let jsonContentFileDirectory = "InsightContentFile.json"
 let InsightAppNoteKey = "InsightAppNoteKey"
+let InsightFileSizeKey = "InsightFileSize"
 
 let questionTimerUnit = 30
 

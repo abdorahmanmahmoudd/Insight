@@ -66,31 +66,31 @@ class QuestionsContainerViewController: ParentViewController, GradedQuestion {
     
     func configuration(){
         
-        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name:NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name:NSNotification.Name.UIKeyboardWillShow, object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard (_:)))
         tapGesture.cancelsTouchesInView = false
         self.view.addGestureRecognizer(tapGesture)
     }
     
-    @objc func keyboardWillShow(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-            if !isKeyboard {
-                self.view.frame.size.height -= keyboardSize.height
-                isKeyboard = !isKeyboard
-            }
-        }
-    }
+//    @objc func keyboardWillShow(notification: NSNotification) {
+//        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+//            if !isKeyboard {
+//                self.view.frame.size.height -= keyboardSize.height
+//                isKeyboard = !isKeyboard
+//            }
+//        }
+//    }
     
-    @objc func keyboardWillHide(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-            if isKeyboard{
-                self.view.frame.size.height += keyboardSize.height
-                isKeyboard = !isKeyboard
-            }
-        }
-    }
+//    @objc func keyboardWillHide(notification: NSNotification) {
+//        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+//            if isKeyboard{
+//                self.view.frame.size.height += keyboardSize.height
+//                isKeyboard = !isKeyboard
+//            }
+//        }
+//    }
     
     @objc func dismissKeyboard (_ sender: UITapGestureRecognizer) {
         view.endEditing(true)
@@ -160,6 +160,7 @@ class QuestionsContainerViewController: ParentViewController, GradedQuestion {
         
         if currentQuestionIndex > 0{
             
+            questionTimer.invalidate()
             btnPrevious.isEnabled = false
             btnNextOrSubmit.isEnabled = false
             isNext = false
@@ -674,6 +675,7 @@ class QuestionsContainerViewController: ParentViewController, GradedQuestion {
             
             vc.questions = subsubCategory!.questions[currentQuestionIndex].data
             self.delegate = vc
+            vc.containerDelegate = self
             vc.willMove(toParentViewController: self)
             
             DispatchQueue.main.async{
@@ -829,4 +831,11 @@ class QuestionsContainerViewController: ParentViewController, GradedQuestion {
         }
     }
     
+    @IBAction func btnHomeClicked(_ sender: UIButton) {
+        
+        questionTimer.invalidate()
+        navigationController?.isNavigationBarHidden = false
+        self.navigationController?.popToRootViewController(animated: true)
+        
+    }
 }

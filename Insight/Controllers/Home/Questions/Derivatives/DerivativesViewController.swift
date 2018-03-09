@@ -151,6 +151,17 @@ class DerivativesViewController: ParentViewController, CorrectedQuestion, UIText
                         
                         self.containerDelegate?.submitQuestion()
                     }
+                }else{
+                    
+                    if let nav = self.parent?.navigationController {
+                        
+                        if let selfVC = self.storyboard?.instantiateViewController(withIdentifier: "QuestionDerivativesVC") as? DerivativesViewController{
+                            
+                            selfVC.showAnswers = true
+                            selfVC.questions = self.questions
+                            nav.pushViewController(selfVC, animated: true)
+                        }
+                    }
                 }
             }
             

@@ -32,8 +32,8 @@ class TrueFalseViewController: ParentViewController, UITableViewDelegate, UITabl
     
     func configuration(){
     
-        tableView.rowHeight = 112
-        tableView.estimatedRowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 200
         
         if showAnswers{
             
@@ -70,12 +70,12 @@ class TrueFalseViewController: ParentViewController, UITableViewDelegate, UITabl
         
         if showAnswers{
             
-            cell.tvAnswer.text = questions[indexPath.row].answerContent?.html2String ?? ""
+            cell.tvAnswer.text = questions[indexPath.row].answerContent?.html2String
             cell.tvAnswer.isEditable = false
-            if questions[indexPath.row].answer == "0"{
-                cell.btnTrue.backgroundColor = UIColor.green
+            if questions[indexPath.row].answer == "1"{
+                cell.btnTrue.setBackgroundImage(#imageLiteral(resourceName: "t_greens"), for: .normal)
             }else {
-                cell.btnFalse.backgroundColor = UIColor.red
+                cell.btnFalse.setBackgroundImage(#imageLiteral(resourceName: "f_reds"), for: .normal)
             }
         }
         
@@ -100,6 +100,17 @@ class TrueFalseViewController: ParentViewController, UITableViewDelegate, UITabl
                     if self.containerDelegate != nil{
                         
                         self.containerDelegate?.submitQuestion()
+                    }
+                }else{
+                    
+                    if let nav = self.parent?.navigationController {
+                        
+                        if let selfVC = self.storyboard?.instantiateViewController(withIdentifier: "QuestionTrueFalseVC") as? TrueFalseViewController{
+                            
+                            selfVC.showAnswers = true
+                            selfVC.questions = self.questions
+                            nav.pushViewController(selfVC, animated: true)
+                        }
                     }
                 }
             }

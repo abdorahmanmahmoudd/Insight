@@ -42,7 +42,6 @@ class QuestionMcqViewController: ParentViewController, UITableViewDelegate, UITa
         tableQuestions.estimatedRowHeight = 500
         
         tableQuestions.register(UINib.init(nibName: "QuestionGeneralHeader", bundle: Bundle.main), forHeaderFooterViewReuseIdentifier: "QuestionGeneralHeader")
-        
         if showAnswers{
             
             btnShowAnswer.isHidden = true
@@ -110,6 +109,17 @@ class QuestionMcqViewController: ParentViewController, UITableViewDelegate, UITa
                     if self.containerDelegate != nil{
                         
                         self.containerDelegate?.submitQuestion()
+                    }
+                }else{
+                    
+                    if let nav = self.parent?.navigationController {
+                        
+                        if let selfVC = self.storyboard?.instantiateViewController(withIdentifier: "QuestionMCQVC") as? QuestionMcqViewController{
+                            
+                            selfVC.showAnswers = true
+                            selfVC.questions = self.questions
+                            nav.pushViewController(selfVC, animated: true)
+                        }
                     }
                 }
             }

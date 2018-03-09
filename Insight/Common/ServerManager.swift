@@ -81,6 +81,50 @@ class ServerManager: NSObject
         }
     }
     
+    func httpConnect(with URL: String, method: HTTPMethod, paramters:[String:Any]?, authentication:String?,AdditionalHeaders : [String:String]? = [:] , complation: @escaping (Any?, Any?) -> (), errorHandler: @escaping (ErrorCode, Any?) -> ()  )
+    {
+        
+        if let auth = authentication
+        {
+            headers["Authorization"] = "bearer \(auth)"
+        }
+        if AdditionalHeaders != nil {
+            
+            for header in AdditionalHeaders!{
+                
+                headers[header.key] = header.value
+            }
+        }
+        request = Alamofire.request(URL, method: method, parameters: paramters, encoding: JSONEncoding.default, headers: headers).validate(statusCode: 200..<500).responseJSON
+            { response in
+                switch response.result
+                {
+                case .success:
+                    let value = response.result.value
+                    //print(value!)
+                    let statusCode = response.response?.statusCode
+                    DispatchQueue.main.async
+                        {
+                            complation(value, statusCode)
+                    }
+                case .failure(let error):
+                    //print(error._code)
+                    print(error.localizedDescription)
+                    DispatchQueue.main.async
+                        {
+                            if let errorEnum = ErrorCode(rawValue: error._code)
+                            {
+                                errorHandler(errorEnum, error)
+                            }
+                            else
+                            {
+                                errorHandler(ErrorCode(rawValue: 000)!, error)
+                            }
+                    }
+                }
+        }
+    }
+    
     func httpMultiPartFormConnect<A>(resource:Resource<A>, authentication : String?,AdditionalHeaders : [String:String]? = [:], paramters:[String:Any]?, mediaData: Data?, mediaMimeType : String, thumbnailData: Data? ,thumbMemiType: String = "image/jpeg", complation: @escaping (A?, Any?) -> (), errorHandler: @escaping (ErrorCode, Any?) -> ()  )
     {
         

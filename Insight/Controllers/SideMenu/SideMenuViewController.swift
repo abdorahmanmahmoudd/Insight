@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 var selectedIndex: Int = 0 //refere to the selected side menu item 
 
@@ -188,6 +189,23 @@ class SideMenuViewController: UIViewController ,UITableViewDelegate, UITableView
         cell.img.image = UIImage.init(named: MenuItems[indexPath.row])
         cell.lblTitle.text = MenuItems[indexPath.row]
         
+        if MenuItems[indexPath.row] == "Flagged"{
+            
+            var flaggedQuestionsCounter = 0
+            if let realm = try? Realm(){
+                
+                flaggedQuestionsCounter = realm.objects(FlaggedQuestion.self).count
+            }
+            
+            let lbl = UILabel.init(frame: CGRect.init(origin: CGPoint.zero, size: CGSize.init(width: (0.2 * cell.bounds.width), height: cell.bounds.height)))
+            lbl.text = "\(flaggedQuestionsCounter)"
+            lbl.font = getFont(17, MavenProMedium)
+            
+            let view = UIView.init(frame: CGRect.init(origin: CGPoint.init(x: (cell.contentView.bounds.maxX * 0.75) - lbl.bounds.width, y: 0) , size: CGSize.init(width: (0.2 * cell.bounds.width), height: cell.bounds.height)))
+            view.addSubview(lbl)
+            
+            cell.contentView.addSubview(view)
+        }
         
         return cell
     }

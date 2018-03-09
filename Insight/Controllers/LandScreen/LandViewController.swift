@@ -36,6 +36,7 @@ class LandViewController: ParentViewController {
         }else {
             
             openLoginVC()
+//            openHome()
         }
     }
     

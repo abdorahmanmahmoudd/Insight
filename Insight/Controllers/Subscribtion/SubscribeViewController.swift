@@ -33,6 +33,12 @@ class SubscribeViewController: ParentViewController, UICollectionViewDelegate, U
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+ 
+        selectedIndex = 2
+    }
+    
     func configuration(){
         
         self.title = "Subscribe"

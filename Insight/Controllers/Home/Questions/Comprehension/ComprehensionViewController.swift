@@ -145,6 +145,17 @@ class ComprehensionViewController: ParentViewController, UITableViewDelegate, UI
                         
                         self.containerDelegate?.submitQuestion()
                     }
+                }else{
+                    
+                    if let nav = self.parent?.navigationController {
+                        
+                        if let selfVC = self.storyboard?.instantiateViewController(withIdentifier: "QuestionComprehensionVC") as? ComprehensionViewController{
+                            
+                            selfVC.showAnswers = true
+                            selfVC.questions = self.questions
+                            nav.pushViewController(selfVC, animated: true)
+                        }
+                    }
                 }
             }
             

@@ -23,7 +23,7 @@ class HomeViewController: ParentViewController {
 
         // Do any additional setup after loading the view.
         configuration()
-        loadContentFile()
+        checkFileSize()
     }
 
     override func didReceiveMemoryWarning() {
@@ -56,6 +56,59 @@ class HomeViewController: ParentViewController {
 
     }
 
+    func checkFileSize(){
+        
+        //get file size
+        var callSuccessed = false
+        showLoaderFor(view: self.view)
+        let sm = ServerManager()
+        sm.httpConnect(with: FileSizeURL, method: .get, paramters: nil, authentication: UserModel.getInstance.getUser()?.token ?? "", complation: { (json, code) in
+            
+            hideLoaderFor(view: self.view)
+            if let statusCode = code as? Int{
+                
+                if statusCode == 200 {
+                    
+                    if let obj = json as? [String : Any]{
+                        
+                        if let onlineSize = obj["filesize"] as? Int{
+                            
+                            callSuccessed = true
+                            let localSize = UserDefaults.standard.integer(forKey: InsightFileSizeKey)
+                            if localSize == 0 {
+                                // file does not exists
+                                UserDefaults.standard.set(onlineSize, forKey: InsightFileSizeKey)
+                                self.fetchContentFile()
+
+                            }else  {
+                                
+                                if localSize == onlineSize{
+                                    //load exists file
+                                    self.loadContentFile()
+                                }else{
+                                    //update the file
+                                    UserDefaults.standard.set(onlineSize, forKey: InsightFileSizeKey)
+                                    self.fetchContentFile()
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            if !callSuccessed{
+                print("call not successeded: will try to fetch local file")
+                self.loadContentFile()
+            }
+            
+            
+        }) { (error, msg) in
+            
+            hideLoaderFor(view: self.view)
+            print("Something went wrong, Please check your internet connection")
+            
+        }
+    
+    }
     
     
     func fetchContentFile(){
@@ -211,8 +264,51 @@ class HomeViewController: ParentViewController {
                 des.subCategory = insightContent[((sender as? UIButton)?.tag)! - 1 ].subCategory
                 let title = Categories(rawValue: ((sender as? UIButton)?.tag)!)?.desc ?? ""
                 des.titleText = title
-                des.flagFilter = self.flagFilter
                 des.homeItemId = insightContent[((sender as? UIButton)?.tag)! - 1 ].id
+                
+                if let flag = self.flagFilter{
+                    des.flagFilter = flag
+                    
+                    do {
+                        
+                        let flaggedQuestions = realm?.objects(FlaggedQuestion.self)
+                        
+                        des.subCategory = des.subCategory.filter({ (subCategory) -> Bool in
+                            
+                            if let questionsParentParentIDs = flaggedQuestions?.map ({ $0.parentParentId }) {
+                                
+                                return questionsParentParentIDs.contains(String(subCategory.id))
+                            }
+                            return false
+                        })
+                        
+//                        des.subCategory = des.subCategory.filter({ (subCategory) -> Bool in
+//
+//                            return subCategory.subSubCategory.filter({ (subsub) -> Bool in
+//
+//                                var filteredQuestions = [QuestionData]()
+//
+//                                if let questionsIDs = flaggedQuestions?.map ({ $0.Id }) {
+//
+//                                    for i in 0..<subsub.questions.count{
+//
+//                                        filteredQuestions = subsub.questions[i].data.filter({ (question) -> Bool in
+//                                            return questionsIDs.contains(String(question.id))
+//                                        })
+//                                    }
+//                                }
+//
+//                                return filteredQuestions.count > 0 ? true : false
+//
+//                            }).count > 0 ? true : false
+//                        })
+                        
+                    }catch let err {
+                        
+                        showAlert(title: "", message: err.localizedDescription, vc: self, closure: nil)
+                    }
+                    
+                }
             }
         }
     }

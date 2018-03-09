@@ -11,4 +11,9 @@ import UIKit
 class DurationCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet var lblTitle: UILabel!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+    }
+    
 }

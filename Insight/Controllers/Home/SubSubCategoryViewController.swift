@@ -12,6 +12,7 @@ import RealmSwift
 class SubSubCategoryViewController: ParentViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet var tableSubSubCategory: UITableView!
+    @IBOutlet var lblNoResults : UILabel!
     
     var subsubCaterogies = [SubSubCategory]()
     var selectedSubSubCategory = Int()
@@ -23,6 +24,9 @@ class SubSubCategoryViewController: ParentViewController, UITableViewDelegate, U
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        if subsubCaterogies.count == 0 {
+            lblNoResults.isHidden = false
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -57,6 +61,7 @@ class SubSubCategoryViewController: ParentViewController, UITableViewDelegate, U
             
         }else  {
             
+            ParentViewController.currentQParentId = subsubCaterogies[selectedSubSubCategory].id
             performSegue(withIdentifier: "QuestionsContainerSegue", sender: nil)
         }
         

@@ -28,7 +28,7 @@ enum Categories : Int{
             case .skills:
                 return "Skills"
             case .guide:
-                return "Studen Evaluation Guide"
+                return "Student Evaluation Guide"
             case .revision:
                 return "Final Revision"
             case .exams:

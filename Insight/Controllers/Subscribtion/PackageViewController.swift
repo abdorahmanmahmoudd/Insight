@@ -8,9 +8,15 @@
 
 import UIKit
 
-class PackageViewController: ParentViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+enum subType: String{
     
+    case duration = "duration_package_id"
+    case promo = "promocode_id"
+}
+
+class PackageViewController: ParentViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UITextFieldDelegate {
     
+    @IBOutlet var btnSubscribe: UIButton!
     @IBOutlet var viewPkgPrice: UIView!
     @IBOutlet var lblPrice: UILabel!
     @IBOutlet var lblPackageName: UILabel!
@@ -21,6 +27,10 @@ class PackageViewController: ParentViewController, UICollectionViewDelegate, UIC
     
     var package : PackageRootClass?
     var durations = [PackagesDuration]()
+    var searchTimer : Timer?
+    var selectedDurationIndex = Int()
+    var validPromoCode = false
+    var promoCodeId = Int()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +44,15 @@ class PackageViewController: ParentViewController, UICollectionViewDelegate, UIC
         // Dispose of any resources that can be recreated.
     }
     @IBAction func btnSubscribeClicked(_ sender: UIButton) {
+     
         
+        if validPromoCode {
+            
+            createPackage(id: String(promoCodeId), type: subType.promo.rawValue)
+            
+        }else{
+            createPackage(id: String(durations[selectedDurationIndex].id), type: subType.duration.rawValue)
+        }
     }
     
     func configuration(){
@@ -42,7 +60,14 @@ class PackageViewController: ParentViewController, UICollectionViewDelegate, UIC
         self.title = package?.name
         viewPkgPrice.layer.borderWidth = 2
         viewPkgPrice.layer.borderColor = #colorLiteral(red: 1, green: 0.7244103551, blue: 0.2923497558, alpha: 1)
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard (_:)))
+        self.view.addGestureRecognizer(tapGesture)
         fillData()
+        
+    }
+    
+    @objc func dismissKeyboard (_ sender: UITapGestureRecognizer) {
+        view.endEditing(true)
     }
     
     func fillData(){
@@ -65,6 +90,13 @@ class PackageViewController: ParentViewController, UICollectionViewDelegate, UIC
                 
                 self.durations.append(duration)
             }
+            
+            if self.durations.count == 0{
+                self.btnSubscribe.isEnabled = false
+            }else{
+                collectionViewDurtions.selectItem(at: IndexPath.init(row: 0, section: 0), animated: false, scrollPosition:.left)
+            }
+            
             self.collectionViewDurtions.reloadData()
         }
     }
@@ -92,19 +124,107 @@ class PackageViewController: ParentViewController, UICollectionViewDelegate, UIC
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         //handle selection
         lblPrice.text = "\(durations[indexPath.row].price - ((durations[indexPath.row].discount / 100) * durations[indexPath.row].price))"
+        selectedDurationIndex = indexPath.row
+        self.validPromoCode = false
+    }
+    
+    
+
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        if searchTimer != nil{
+            searchTimer?.invalidate()
+            searchTimer = nil
+        }
+        searchTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: false, block: { (timer) in
+            
+            if !textField.text!.hasNoCharchters() {
+               
+                self.validateCode(code: textField.text!)
+            }
+        })
+        
+        return true
+    }
+    
+    func validateCode(code: String){
+        
+        showLoaderInsideButton(view: imgCodeVerification, color: UIColor.gray)
+        btnSubscribe.isEnabled = false
+        let sm = SubscribtionModel()
+        sm.validateCode(code: code, complation: { (json, code) in
+            
+            hideLoaderFor(view: self.imgCodeVerification)
+            
+            if let statusCode = code as? Int{
+                
+                if statusCode == 200{
+                    
+                    if json.isValid {
+                        self.validPromoCode = true
+                        self.promoCodeId = json.promocode.id
+                        self.imgCodeVerification.image = #imageLiteral(resourceName: "CORRECT")
+                        self.lblPrice.text = "\(json.promocode.newPrice ?? 0)"
+                        
+                        
+                    }else{
+                        self.validPromoCode = false
+                        self.imgCodeVerification.image = #imageLiteral(resourceName: "ic_wrong")
+                        showAlert(title: "", message: json.msg, vc: self, closure: nil)
+                    }
+                    
+                }else{
+                    self.validPromoCode = false
+                    self.imgCodeVerification.image = #imageLiteral(resourceName: "ic_wrong")
+                    showAlert(title: "", message: json.msg ?? "Something went wrong!", vc: self, closure: nil)
+                }
+            }
+            
+        }) { (error, msg) in
+            
+            self.validPromoCode = false
+            hideLoaderFor(view: self.imgCodeVerification)
+            self.imgCodeVerification.image = #imageLiteral(resourceName: "ic_wrong")
+            showAlert(title: "", message: "Failed to check the code\n Please check your internet connection", vc: self, closure: nil)
+        }
+    }
+    
+    func createPackage(id :String, type: String){
+        
+        showLoaderFor(view: self.view)
+        btnSubscribe.isEnabled = false
+        let sm = SubscribtionModel()
+        sm.CreateUserPackage(type: type, id: id, complation: { (json, code) in
+            
+            hideLoaderFor(view: self.view)
+            self.btnSubscribe.isEnabled = true
+            
+            if let statusCode = code as? Int{
+                
+                if statusCode == 200 {
+                    
+                    if json.isSuccess{
+                        
+                        showAlert(title: "", message: "Package created successfully", vc: self, closure: {
+                            // handle
+                        })
+                    }else{
+                        
+                        showAlert(title: "", message: json.message ?? "Something went wrong", vc: self, closure: nil)
+                    }
+                }else{
+                    showAlert(title: "", message: json.message ?? "Something went wrong", vc: self, closure: nil)
+                }
+            }
+            
+            
+        }) { (error, msg) in
+            
+            self.btnSubscribe.isEnabled = true
+            hideLoaderFor(view: self.view)
+            showAlert(title: "", message: "Failed to subscribe\n Please check your internet connection", vc: self, closure: nil)
+        }
         
     }
-    
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

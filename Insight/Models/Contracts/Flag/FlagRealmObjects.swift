@@ -10,6 +10,8 @@ import RealmSwift
 
 class FlaggedQuestion: Object {
     
+    @objc dynamic var parentParentId = "" // unit
+    @objc dynamic var parentId = "" // section
     @objc dynamic var Id = ""
     @objc dynamic var flagValue = 0
     @objc dynamic var photoPath : String? = nil

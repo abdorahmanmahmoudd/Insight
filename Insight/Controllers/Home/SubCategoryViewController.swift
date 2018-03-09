@@ -11,6 +11,7 @@ import UIKit
 class SubCategoryViewController: ParentViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet var tableSubCategory: UITableView!
+    @IBOutlet var lblNoResults : UILabel!
     
     var homeItemId = 0
     var subCategory = [SubCategory]()
@@ -33,6 +34,9 @@ class SubCategoryViewController: ParentViewController, UITableViewDelegate, UITa
     func configuration(){
         
         self.title = titleText
+        if subCategory.count == 0 {
+            lblNoResults.isHidden = false
+        }
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -49,8 +53,9 @@ class SubCategoryViewController: ParentViewController, UITableViewDelegate, UITa
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        if !subCategory[indexPath.row].locked{
         
+        if !subCategory[indexPath.row].locked{
+            ParentViewController.currentQParentParentId = subCategory[indexPath.row].id
             selectedSubCategory = indexPath.row
             performSegue(withIdentifier: "SubSubCategorySegue", sender: nil)
         }
@@ -65,9 +70,31 @@ class SubCategoryViewController: ParentViewController, UITableViewDelegate, UITa
             if let des = segue.destination  as? SubSubCategoryViewController{
                 
                 des.subsubCaterogies = subCategory[selectedSubCategory].subSubCategory
-                des.flagFilter = self.flagFilter
                 des.subCategoryId = subCategory[selectedSubCategory].id
                 des.homeItemId = homeItemId
+                
+                if let flag = self.flagFilter{
+                    des.flagFilter = flag
+                    
+                    do {
+                        
+                        let flaggedQuestions = realm?.objects(FlaggedQuestion.self)
+                        
+                        des.subsubCaterogies = des.subsubCaterogies.filter({ (subSubCategory) -> Bool in
+                            
+                            if let questionsParentIDs = flaggedQuestions?.map ({ $0.parentId }) {
+                                
+                                return questionsParentIDs.contains(String(subSubCategory.id))
+                            }
+                            return false
+                        })
+                        
+                    }catch let err {
+                        
+                        showAlert(title: "", message: err.localizedDescription, vc: self, closure: nil)
+                    }
+                    
+                }
             }
         }
     }
