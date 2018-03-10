@@ -655,6 +655,48 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </containerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fao-AC-M8Y">
+                                <rect key="frame" x="340" y="637" width="19" height="22"/>
+                                <state key="normal" image="plus"/>
+                                <connections>
+                                    <action selector="btnOptionsClicked:" destination="bfP-Fh-L4n" eventType="touchUpInside" id="mM3-7a-vxh"/>
+                                </connections>
+                            </button>
+                            <view clipsSubviews="YES" alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uRG-RI-7aH">
+                                <rect key="frame" x="268" y="596" width="107" height="25"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Shuffle " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8zD-oh-Cch">
+                                        <rect key="frame" x="4" y="0.0" width="55" height="25"/>
+                                        <color key="backgroundColor" red="0.60728624129999997" green="0.65866427949999995" blue="0.70770941840000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="MavenPro-Regular" family="Maven Pro" pointSize="15"/>
+                                        <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <integer key="value" value="6"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="timer" translatesAutoresizingMaskIntoConstraints="NO" id="0dQ-v6-B0Q">
+                                        <rect key="frame" x="75.5" y="0.0" width="16" height="25"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstItem="0dQ-v6-B0Q" firstAttribute="top" secondItem="uRG-RI-7aH" secondAttribute="top" id="28d-Qb-hRV"/>
+                                    <constraint firstItem="0dQ-v6-B0Q" firstAttribute="leading" secondItem="8zD-oh-Cch" secondAttribute="trailing" constant="16" id="4Zj-c5-i0K"/>
+                                    <constraint firstAttribute="bottom" secondItem="0dQ-v6-B0Q" secondAttribute="bottom" id="6wJ-jq-R0R"/>
+                                    <constraint firstAttribute="bottom" secondItem="8zD-oh-Cch" secondAttribute="bottom" id="Mfq-SW-AYK"/>
+                                    <constraint firstItem="8zD-oh-Cch" firstAttribute="leading" secondItem="uRG-RI-7aH" secondAttribute="leading" constant="4" id="NMu-g6-lFO"/>
+                                    <constraint firstItem="8zD-oh-Cch" firstAttribute="top" secondItem="uRG-RI-7aH" secondAttribute="top" id="dkj-z5-Lxr"/>
+                                    <constraint firstAttribute="trailing" secondItem="0dQ-v6-B0Q" secondAttribute="trailing" constant="16" id="ec3-EE-qfI"/>
+                                    <constraint firstAttribute="height" constant="25" id="roB-Uz-yZu"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="W07-bV-WCr" appends="YES" id="Ymc-GS-mBL"/>
+                                </connections>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wkc-z3-EEs">
                                 <rect key="frame" x="0.0" y="64" width="375" height="66.5"/>
                                 <subviews>
@@ -720,11 +762,47 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view clipsSubviews="YES" alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nnt-5f-QMG">
+                                <rect key="frame" x="266.5" y="555" width="108" height="25"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Search " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PRM-Lh-I1j">
+                                        <rect key="frame" x="4" y="0.0" width="55" height="25"/>
+                                        <color key="backgroundColor" red="0.60728624129999997" green="0.65866427949999995" blue="0.70770941840000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="MavenPro-Regular" family="Maven Pro" pointSize="15"/>
+                                        <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <integer key="value" value="6"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Share" translatesAutoresizingMaskIntoConstraints="NO" id="PhG-aV-Csi">
+                                        <rect key="frame" x="75.5" y="0.0" width="17" height="25"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="PhG-aV-Csi" secondAttribute="bottom" id="3LN-OI-x5b"/>
+                                    <constraint firstItem="PRM-Lh-I1j" firstAttribute="leading" secondItem="Nnt-5f-QMG" secondAttribute="leading" constant="4" id="4y0-en-9YJ"/>
+                                    <constraint firstAttribute="trailing" secondItem="PhG-aV-Csi" secondAttribute="trailing" constant="16" id="Pk7-k2-Q47"/>
+                                    <constraint firstItem="PhG-aV-Csi" firstAttribute="leading" secondItem="PRM-Lh-I1j" secondAttribute="trailing" constant="16" id="Qf0-PV-NUX"/>
+                                    <constraint firstAttribute="bottom" secondItem="PRM-Lh-I1j" secondAttribute="bottom" id="d1v-MQ-oBp"/>
+                                    <constraint firstAttribute="height" constant="25" id="mCZ-Mn-fBj"/>
+                                    <constraint firstItem="PhG-aV-Csi" firstAttribute="top" secondItem="Nnt-5f-QMG" secondAttribute="top" id="tRB-9m-pSQ"/>
+                                    <constraint firstItem="PRM-Lh-I1j" firstAttribute="top" secondItem="Nnt-5f-QMG" secondAttribute="top" id="ycP-R2-bcc"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="cBD-oq-gaQ" appends="YES" id="asM-6v-lqE"/>
+                                </connections>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="wkc-z3-EEs" firstAttribute="height" secondItem="MH9-so-pqY" secondAttribute="height" multiplier="0.1" id="0lv-iQ-zAf"/>
                             <constraint firstAttribute="bottom" secondItem="wgy-ME-nQP" secondAttribute="bottom" id="2sa-hi-FK6"/>
+                            <constraint firstItem="aEr-lR-tjp" firstAttribute="bottom" secondItem="Fao-AC-M8Y" secondAttribute="bottom" constant="8" id="CEX-Bb-61e"/>
                             <constraint firstItem="WrU-65-ti9" firstAttribute="trailing" secondItem="aEr-lR-tjp" secondAttribute="trailing" id="Cc0-hk-PnR"/>
                             <constraint firstAttribute="bottom" secondItem="WrU-65-ti9" secondAttribute="bottom" id="D4v-nf-yES"/>
                             <constraint firstItem="WrU-65-ti9" firstAttribute="top" secondItem="PSs-d3-ekx" secondAttribute="bottom" constant="8" id="Ds6-B3-i8a"/>
@@ -732,10 +810,15 @@
                             <constraint firstItem="PSs-d3-ekx" firstAttribute="leading" secondItem="aEr-lR-tjp" secondAttribute="leading" constant="16" id="OnS-Fs-WyE"/>
                             <constraint firstItem="WrU-65-ti9" firstAttribute="leading" secondItem="aEr-lR-tjp" secondAttribute="leading" id="Sjn-WD-Si4"/>
                             <constraint firstItem="wgy-ME-nQP" firstAttribute="leading" secondItem="MH9-so-pqY" secondAttribute="leading" id="TyX-rz-aKh"/>
+                            <constraint firstItem="uRG-RI-7aH" firstAttribute="top" secondItem="Nnt-5f-QMG" secondAttribute="bottom" constant="16" id="Uxy-4l-LGo"/>
                             <constraint firstItem="wgy-ME-nQP" firstAttribute="trailing" secondItem="MH9-so-pqY" secondAttribute="trailing" id="X9i-1x-ESD"/>
+                            <constraint firstAttribute="trailing" secondItem="uRG-RI-7aH" secondAttribute="trailing" id="Yyn-7B-3j2"/>
                             <constraint firstItem="wkc-z3-EEs" firstAttribute="width" secondItem="MH9-so-pqY" secondAttribute="width" id="aLj-4B-dZk"/>
                             <constraint firstItem="aEr-lR-tjp" firstAttribute="trailing" secondItem="PSs-d3-ekx" secondAttribute="trailing" constant="16" id="bgW-mr-AnL"/>
                             <constraint firstItem="PSs-d3-ekx" firstAttribute="top" secondItem="wkc-z3-EEs" secondAttribute="bottom" constant="8" id="fBj-s8-fd4"/>
+                            <constraint firstItem="aEr-lR-tjp" firstAttribute="trailing" secondItem="Nnt-5f-QMG" secondAttribute="trailing" id="gvJ-V1-NKr"/>
+                            <constraint firstItem="aEr-lR-tjp" firstAttribute="trailing" secondItem="Fao-AC-M8Y" secondAttribute="trailing" constant="16" id="kbj-iZ-FFg"/>
+                            <constraint firstItem="Fao-AC-M8Y" firstAttribute="top" secondItem="uRG-RI-7aH" secondAttribute="bottom" constant="16" id="lwE-Qt-Yoo"/>
                             <constraint firstItem="wkc-z3-EEs" firstAttribute="centerX" secondItem="MH9-so-pqY" secondAttribute="centerX" id="p7z-Ox-dKd"/>
                             <constraint firstItem="wkc-z3-EEs" firstAttribute="top" secondItem="aEr-lR-tjp" secondAttribute="top" id="xkW-UI-ZYd"/>
                         </constraints>
@@ -748,10 +831,22 @@
                         <outlet property="imgTimer" destination="LRe-dP-Zje" id="YlE-kj-Ket"/>
                         <outlet property="lblTimer" destination="OcJ-z6-9FS" id="LyF-Vp-lB2"/>
                         <outlet property="lblTitle" destination="PSs-d3-ekx" id="ZKm-C3-R94"/>
+                        <outlet property="viewSearch" destination="Nnt-5f-QMG" id="jqS-0C-QbY"/>
+                        <outlet property="viewShuffle" destination="uRG-RI-7aH" id="0CS-nt-cJ5"/>
                         <segue destination="prM-Zh-Vis" kind="show" identifier="ShowResultSegue" id="47S-Dn-WLE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MDE-8f-XGg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="W07-bV-WCr">
+                    <connections>
+                        <action selector="viewShuffleTapped:" destination="bfP-Fh-L4n" id="IAW-vg-CGa"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="cBD-oq-gaQ">
+                    <connections>
+                        <action selector="viewSearchTapped:" destination="bfP-Fh-L4n" id="hfs-XZ-zIg"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2704.8000000000002" y="171.36431784107947"/>
         </scene>
@@ -831,13 +926,13 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Results" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="riy-3h-41T">
-                                <rect key="frame" x="41.5" y="274" width="112" height="23.5"/>
+                                <rect key="frame" x="42" y="274" width="112" height="23.5"/>
                                 <fontDescription key="fontDescription" name="MavenPro-Medium" family="Maven Pro" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="App Avg. Results" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LiQ-3r-7C8">
-                                <rect key="frame" x="202" y="274" width="154" height="23.5"/>
+                                <rect key="frame" x="201.5" y="274" width="154" height="23.5"/>
                                 <fontDescription key="fontDescription" name="MavenPro-Medium" family="Maven Pro" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -3944,6 +4039,7 @@
         <image name="Guide" width="108" height="105"/>
         <image name="HomeItemsBG1" width="165" height="165"/>
         <image name="Revision" width="110" height="84"/>
+        <image name="Share" width="17" height="17"/>
         <image name="Skills" width="92" height="94"/>
         <image name="Story" width="102" height="108"/>
         <image name="Units" width="102" height="102"/>
@@ -3958,6 +4054,7 @@
         <image name="icLogout" width="41" height="40"/>
         <image name="matchQuesTF-BG" width="30" height="30"/>
         <image name="play" width="17" height="20"/>
+        <image name="plus" width="19" height="18"/>
         <image name="timer" width="16" height="17"/>
         <image name="unlock" width="77" height="21"/>
         <image name="unlocked" width="36" height="36"/>

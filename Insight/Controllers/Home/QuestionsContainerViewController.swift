@@ -19,6 +19,8 @@ protocol GradedQuestion : class {
 
 class QuestionsContainerViewController: ParentViewController, GradedQuestion {
 
+    @IBOutlet var viewShuffle: UIView!
+    @IBOutlet var viewSearch: UIView!
     @IBOutlet var imgTimer: UIImageView!
     @IBOutlet var lblTimer: UILabel!
     @IBOutlet var lblTitle: UILabel!
@@ -838,4 +840,63 @@ class QuestionsContainerViewController: ParentViewController, GradedQuestion {
         self.navigationController?.popToRootViewController(animated: true)
         
     }
+    
+    var isAnimated = false
+    
+    @IBAction func btnOptionsClicked(_ sender: UIButton) {
+    
+        if !isAnimated{
+            
+            isAnimated = !isAnimated
+            
+            UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.2, delay: 0, options: UIViewAnimationOptions.curveEaseInOut, animations: {
+                
+                sender.transform = CGAffineTransform.identity.rotated(by: 2.75*CGFloat.pi)
+                
+            }, completion: { (animatingPosition) in
+                
+                if animatingPosition == UIViewAnimatingPosition.end {
+                    
+                    UIView.animate(withDuration: 0.2, animations: {
+                        
+                        self.viewSearch.alpha = 1
+                        self.viewShuffle.alpha = 1
+                    })
+                }
+                
+            })
+            
+        }else{
+            
+            isAnimated = !isAnimated
+            
+            UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.3, delay: 0, options: UIViewAnimationOptions.curveEaseIn, animations: {
+                
+                self.viewSearch.alpha = 0
+                self.viewShuffle.alpha = 0
+                
+            }, completion: { (animatingPosition) in
+                
+                if animatingPosition == UIViewAnimatingPosition.end {
+                    
+                    UIView.animate(withDuration: 0.2, animations: {
+                        
+                        sender.transform = CGAffineTransform.identity
+                    })
+                }
+                
+            })
+        }
+    }
+    
+    @IBAction func viewShuffleTapped(_ sender: UITapGestureRecognizer) {
+        
+        
+    }
+    @IBAction func viewSearchTapped(_ sender: UITapGestureRecognizer) {
+        
+        
+    }
+    
+    
 }
