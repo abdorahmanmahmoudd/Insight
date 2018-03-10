@@ -13,6 +13,11 @@ protocol CorrectedQuestion: class {
     func submitAnswers()
 }
 
+protocol AdvancedQuestion: class {
+    func shuffleQuestions()
+    func searchThroughQuestions()
+}
+
 protocol GradedQuestion : class {
     func updateScore(total : Int, score: Int)
 }
@@ -33,6 +38,7 @@ class QuestionsContainerViewController: ParentViewController, GradedQuestion {
     var currentQuestionIndex = 0
     var isNext = true
     weak var delegate : CorrectedQuestion?
+    weak var advancedQuestionDelegate: AdvancedQuestion?
     var questionTimer = Timer()
     var timerCounter = 0
     
@@ -292,6 +298,7 @@ class QuestionsContainerViewController: ParentViewController, GradedQuestion {
             
             vc.questions = subsubCategory!.questions[currentQuestionIndex].data
             self.delegate = vc
+            self.advancedQuestionDelegate = vc
             vc.containerDelegate = self
             vc.willMove(toParentViewController: self)
             
@@ -330,6 +337,7 @@ class QuestionsContainerViewController: ParentViewController, GradedQuestion {
             
             vc.questions = subsubCategory!.questions[currentQuestionIndex].data
             self.delegate = vc
+            self.advancedQuestionDelegate = vc
             vc.containerDelegate = self
             vc.willMove(toParentViewController: self)
             
@@ -367,6 +375,7 @@ class QuestionsContainerViewController: ParentViewController, GradedQuestion {
             
             vc.questions = subsubCategory!.questions[currentQuestionIndex].data
             self.delegate = vc
+            self.advancedQuestionDelegate = vc
             vc.containerDelegate = self
             vc.willMove(toParentViewController: self)
             
@@ -407,6 +416,7 @@ class QuestionsContainerViewController: ParentViewController, GradedQuestion {
             
             vc.questions = subsubCategory!.questions[currentQuestionIndex].data
             self.delegate = vc
+            self.advancedQuestionDelegate = vc
             vc.containerDelegate = self
             vc.willMove(toParentViewController: self)
             
@@ -442,6 +452,7 @@ class QuestionsContainerViewController: ParentViewController, GradedQuestion {
             
             vc.questions = subsubCategory!.questions[currentQuestionIndex].data
             self.delegate = vc
+            self.advancedQuestionDelegate = vc
             vc.containerDelegate = self
             vc.willMove(toParentViewController: self)
             
@@ -489,6 +500,7 @@ class QuestionsContainerViewController: ParentViewController, GradedQuestion {
         if let vc  = storyboard.instantiateViewController(withIdentifier: "QuestionMiniDialogVC") as? MiniDialogViewController {
             
             vc.questions = subsubCategory!.questions[currentQuestionIndex].data
+            self.advancedQuestionDelegate = vc
             vc.willMove(toParentViewController: self)
             
             DispatchQueue.main.async {
@@ -522,6 +534,7 @@ class QuestionsContainerViewController: ParentViewController, GradedQuestion {
             
             vc.questions = subsubCategory!.questions[currentQuestionIndex].data
             self.delegate = vc
+            self.advancedQuestionDelegate = vc
             vc.containerDelegate = self
             vc.willMove(toParentViewController: self)
             
@@ -569,6 +582,7 @@ class QuestionsContainerViewController: ParentViewController, GradedQuestion {
         if let vc  = storyboard.instantiateViewController(withIdentifier: "GeneralQuestionVC") as? GeneralQuestionViewController {
             
             vc.questions = subsubCategory!.questions[currentQuestionIndex].data
+            self.advancedQuestionDelegate = vc
             vc.willMove(toParentViewController: self)
             
             DispatchQueue.main.async{
@@ -604,6 +618,7 @@ class QuestionsContainerViewController: ParentViewController, GradedQuestion {
         if let vc  = storyboard.instantiateViewController(withIdentifier: "QuestionWritingVC") as? WritingViewController {
             
             vc.questions = subsubCategory!.questions[currentQuestionIndex].data
+            self.advancedQuestionDelegate = vc
             vc.willMove(toParentViewController: self)
             
             DispatchQueue.main.async{
@@ -641,6 +656,7 @@ class QuestionsContainerViewController: ParentViewController, GradedQuestion {
         if let vc  = storyboard.instantiateViewController(withIdentifier: "QuestionQuotationVC") as? QuotationViewController {
             
             vc.questions = subsubCategory!.questions[currentQuestionIndex].data
+            self.advancedQuestionDelegate = vc
             vc.willMove(toParentViewController: self)
             
             DispatchQueue.main.async{
@@ -677,6 +693,7 @@ class QuestionsContainerViewController: ParentViewController, GradedQuestion {
             
             vc.questions = subsubCategory!.questions[currentQuestionIndex].data
             self.delegate = vc
+            self.advancedQuestionDelegate = vc
             vc.containerDelegate = self
             vc.willMove(toParentViewController: self)
             
@@ -716,6 +733,7 @@ class QuestionsContainerViewController: ParentViewController, GradedQuestion {
             
             vc.questions = subsubCategory!.questions[currentQuestionIndex].data
             self.delegate = vc
+            self.advancedQuestionDelegate = vc
             vc.containerDelegate = self
             vc.willMove(toParentViewController: self)
             
@@ -891,11 +909,21 @@ class QuestionsContainerViewController: ParentViewController, GradedQuestion {
     
     @IBAction func viewShuffleTapped(_ sender: UITapGestureRecognizer) {
         
-        
+        if sender.state == .ended{
+            
+            if advancedQuestionDelegate != nil {
+                self.advancedQuestionDelegate?.shuffleQuestions()
+            }
+        }
     }
     @IBAction func viewSearchTapped(_ sender: UITapGestureRecognizer) {
         
-        
+        if sender.state == .ended{
+            
+            if advancedQuestionDelegate != nil {
+                self.advancedQuestionDelegate?.searchThroughQuestions()
+            }
+        }
     }
     
     

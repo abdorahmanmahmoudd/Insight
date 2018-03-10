@@ -8,8 +8,9 @@
 
 import UIKit
 
-class ComprehensionViewController: ParentViewController, UITableViewDelegate, UITableViewDataSource, UITextViewDelegate, CorrectedQuestion{
-
+class ComprehensionViewController: ParentViewController, UITableViewDelegate, UITableViewDataSource, UITextViewDelegate, CorrectedQuestion, AdvancedQuestion, UITextFieldDelegate{
+    
+    @IBOutlet var constraintHeightOfSearchView: NSLayoutConstraint!
     @IBOutlet var constraintHeightLblScore: NSLayoutConstraint!
     @IBOutlet var lblScore: UILabel!
     @IBOutlet var tableView: IntinsicTableView!
@@ -19,6 +20,9 @@ class ComprehensionViewController: ParentViewController, UITableViewDelegate, UI
     var showAnswers = false
     var isSubmitted = false
     weak var containerDelegate: QuestionsContainerViewController?
+    var isSearch = false
+    var tempQuestions = [QuestionData]()
+    var searchTimer : Timer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,6 +51,12 @@ class ComprehensionViewController: ParentViewController, UITableViewDelegate, UI
             btnShowAnswer.isHidden = true
             self.navigationController?.isNavigationBarHidden = false
             
+        }
+        
+        if isSearch{
+            constraintHeightOfSearchView.constant = 46
+        }else{
+            constraintHeightOfSearchView.constant = 0
         }
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.updateRow(_:)), name: NSNotification.Name("ComprehensionUpdateFlag"), object: nil)
@@ -247,6 +257,58 @@ class ComprehensionViewController: ParentViewController, UITableViewDelegate, UI
         lblScore.text = "\(correctAnswersCounter) / \(questionsCounter)"
         
         showAlert(title: "", message: "Your score: \(correctAnswersCounter)\nTotal score: \(questionsCounter)", vc: self, closure: nil)
+    }
+    
+    func shuffleQuestions(){
+        showLoaderFor(view: self.view)
+        self.questions.shuffle()
+        self.tableView.reloadData()
+        self.tableView.layoutIfNeeded()
+        hideLoaderFor(view: self.view)
+    }
+    
+    func searchThroughQuestions(){
+        
+        if let nav = self.parent?.navigationController {
+            
+            if let selfVC = self.storyboard?.instantiateViewController(withIdentifier: "QuestionComprehensionVC") as? ComprehensionViewController{
+                
+                selfVC.showAnswers = true
+                selfVC.isSearch = true
+                selfVC.questions = self.questions
+                selfVC.tempQuestions = self.questions
+                nav.pushViewController(selfVC, animated: true)
+            }
+        }
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        if searchTimer != nil{
+            searchTimer?.invalidate()
+            searchTimer = nil
+        }
+        searchTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: false, block: { (timer) in
+            showLoaderFor(view: self.view)
+            if let txt = textField.text?.trimmedText(){
+                
+                self.questions = self.tempQuestions.filter { (question) -> Bool in
+                    return question.content.html2String.lowercased().contains(txt)
+                }
+                self.tableView.reloadData()
+                self.tableView.layoutIfNeeded()
+                
+            }else{
+                
+                self.questions = self.tempQuestions
+                self.tableView.reloadData()
+                self.tableView.layoutIfNeeded()
+            }
+            hideLoaderFor(view: self.view)
+        })
+        
+        
+        return true
     }
     
 }

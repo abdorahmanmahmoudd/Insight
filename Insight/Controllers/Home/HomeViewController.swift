@@ -123,7 +123,9 @@ class HomeViewController: ParentViewController {
                     
                     if let _ = try? JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableContainers) as? [Any]{
                         
-                        self.saveContentFile(jsonData:  data)
+                        DispatchQueue.main.async {
+                            self.saveContentFile(jsonData:  data)
+                        }
                         
                     }
                     

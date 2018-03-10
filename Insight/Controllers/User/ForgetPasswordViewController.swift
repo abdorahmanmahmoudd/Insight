@@ -38,19 +38,67 @@ class ForgetPasswordViewController: ParentViewController {
     
     @IBAction func btnSendClicked(_ sender: UIButton) {
         
+        if tfEmail.text != nil && tfEmail.text!.isValidEmail(){
+            forgetPass(email: tfEmail.text!)
+        }
     }
 
-    func forgetPass(){
+    func forgetPass(email : String){
         
-        let um = UserModel()
+        showLoaderFor(view: self.view)
+        self.btnSend.isEnabled = false
+        tfEmail.isUserInteractionEnabled = false
         
-        um.ForgetPassword(email: tfEmail.text!, complation: { (json, data) in
+        let sm = ServerManager()
+        sm.httpConnect(with: ForgetPassURL, method: .post, paramters: ["email": email], authentication: nil, AdditionalHeaders: ["version": appVersion], complation:
+            { (json, code) in
+                
+                hideLoaderFor(view: self.view)
+                self.btnSend.isEnabled = true
+                self.tfEmail.isUserInteractionEnabled = true
+                
+                if let obj = json as? [String: Any], let _ = code{
+                    
+                    if let success = obj["isSuccess"] as? Bool{
+                        
+                        if success{
+                            
+                            showAlert(title: "", message: "You will recieve a code.", vc: self, closure: {
+                                self.performSegue(withIdentifier: "CodeSegue", sender: self)
+                            })
+                            
+                        }else{
+                            showAlert(title: "", message: "Can not send your request right now.\nPlease try again later.", vc: self, closure: nil)
+                        }
+                        
+                    }else if let msg = obj["message"] as? String{
+                        
+                        showAlert(title: "", message: msg, vc: self, closure: nil)
+                    }
+                }else{
+                    showAlert(title: "", message: "Something went wrong.", vc: self, closure: nil)
+                }
+        })
+        { (error, msg) in
             
+            hideLoaderFor(view: self.view)
+            self.tfEmail.isUserInteractionEnabled = true
+            self.btnSend.isEnabled = true
+            showAlert(title: "", message: "Failed to send request\n Please check your internet connection.", vc: self, closure: nil)
+        }
+    }
+    @IBAction func dismissKeyboardViewTapped(_ sender: UITapGestureRecognizer) {
+        
+        view.endEditing(true)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "CodeSegue"{
             
-            
-        }) { (error, msg) in
-            
-            
+            if let des = segue.destination as? CodeViewController{
+                
+                des.email = tfEmail.text!
+            }
         }
     }
     

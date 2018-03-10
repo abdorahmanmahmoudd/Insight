@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SafariServices
 
 enum subType: String{
     
@@ -61,6 +62,7 @@ class PackageViewController: ParentViewController, UICollectionViewDelegate, UIC
         viewPkgPrice.layer.borderWidth = 2
         viewPkgPrice.layer.borderColor = #colorLiteral(red: 1, green: 0.7244103551, blue: 0.2923497558, alpha: 1)
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard (_:)))
+        tapGesture.cancelsTouchesInView = false
         self.view.addGestureRecognizer(tapGesture)
         fillData()
         
@@ -149,12 +151,14 @@ class PackageViewController: ParentViewController, UICollectionViewDelegate, UIC
     
     func validateCode(code: String){
         
+        self.imgCodeVerification.image = UIImage()
         showLoaderInsideButton(view: imgCodeVerification, color: UIColor.gray)
         btnSubscribe.isEnabled = false
         let sm = SubscribtionModel()
         sm.validateCode(code: code, complation: { (json, code) in
             
             hideLoaderFor(view: self.imgCodeVerification)
+            self.btnSubscribe.isEnabled = true
             
             if let statusCode = code as? Int{
                 
@@ -170,7 +174,7 @@ class PackageViewController: ParentViewController, UICollectionViewDelegate, UIC
                     }else{
                         self.validPromoCode = false
                         self.imgCodeVerification.image = #imageLiteral(resourceName: "ic_wrong")
-                        showAlert(title: "", message: json.msg, vc: self, closure: nil)
+//                        showAlert(title: "", message: json.msg, vc: self, closure: nil)
                     }
                     
                 }else{
@@ -183,6 +187,7 @@ class PackageViewController: ParentViewController, UICollectionViewDelegate, UIC
         }) { (error, msg) in
             
             self.validPromoCode = false
+            self.btnSubscribe.isEnabled = true
             hideLoaderFor(view: self.imgCodeVerification)
             self.imgCodeVerification.image = #imageLiteral(resourceName: "ic_wrong")
             showAlert(title: "", message: "Failed to check the code\n Please check your internet connection", vc: self, closure: nil)
@@ -206,7 +211,20 @@ class PackageViewController: ParentViewController, UICollectionViewDelegate, UIC
                     if json.isSuccess{
                         
                         showAlert(title: "", message: "Package created successfully", vc: self, closure: {
-                            // handle
+                            
+                            let fawry = "\(fawryURL)?mobile=\(json.packageField.mobile!)&email=\(json.packageField.email!)&price=\(json.packageField.price!)&orderId=\(json.packageField.orderId!)&packageName=\(json.packageField.packageName!)"
+                            
+                            if let url = URL(string: fawry ){
+                                
+                                let svc = SFSafariViewController(url: url)
+                                svc.preferredBarTintColor = ColorMainBlue
+                                svc.preferredControlTintColor = .white
+                                if #available(iOS 11.0, *) {
+                                    svc.dismissButtonStyle = .close
+                                }
+                                self.present(svc, animated: true, completion: nil)
+                                
+                            }
                         })
                     }else{
                         

@@ -124,22 +124,6 @@ class UserModel {
         }
     }
     
-    func ForgetPassword(email: String, complation: @escaping (AuthRootClass?, Any?) -> (), errorHandler: @escaping (ErrorCode, Any?) -> ()){
-        
-        let sm = ServerManager()
-        sm.httpConnect(resource: UserModel.AuthResource, paramters: ["email" : email], authentication: nil, complation:
-            { (json, data) in
-                if let obj = json
-                {
-                    complation(obj, data)
-                }
-        })
-        { (error, msg) in
-            
-            errorHandler(error, msg)
-        }
-    }
-    
     func editProfile(name: String, phone: String, govern: String, email: String, school: String, complation: @escaping (GeneralResponse?, Any?) -> (), errorHandler: @escaping (ErrorCode, Any?) -> ()){
         
         let sm = ServerManager()

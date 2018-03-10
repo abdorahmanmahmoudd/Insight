@@ -17,6 +17,9 @@ let GetUserPackagesURL = "\(MainIP)userspackages"
 let ValidateCodeURL = "\(MainIP)promocodes/validate?code="
 let CreatePackageURL = "\(MainIP)userspackages"
 let FileSizeURL = "\(MainIP)filesize"
+let PassConfirmationCodeURL = "\(MainIP)auth/password/confirm"
+let UpdatePassURL = "\(MainIP)auth/password/update"
+let fawryURL = "\(MainIP)payment/fawry/view"
 
 
 //MARK: - Colors
