@@ -76,6 +76,7 @@ class QuestionMatchViewController: ParentViewController, UITableViewDelegate, UI
             shuffledAnswers.append(tempAnswersArray[rand])
             
             tempAnswersArray.remove(at: rand)
+            
         }
         tableView.reloadData()
     }
@@ -107,7 +108,8 @@ class QuestionMatchViewController: ParentViewController, UITableViewDelegate, UI
         
         if showAnswers {
             
-            cell.tfAnswerNumber.text = String(correctAnswersIndices[indexPath.row] + 1)
+            cell.tvAnswer.text = questions[indexPath.row].answer.html2String
+            cell.tfAnswerNumber.text = String(indexPath.row + 1)
             cell.tfAnswerNumber.isEnabled = false
         }
         

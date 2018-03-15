@@ -12,5 +12,7 @@ pod 'RealmSwift'
 pod 'UICircularProgressRing'
 pod 'CryptoSwift'
 pod 'IQKeyboardManagerSwift'
+pod 'Firebase/Core'
+pod 'Firebase/Messaging'
 
 end

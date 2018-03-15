@@ -68,7 +68,7 @@ class AddNoteViewController: ParentViewController, UITextViewDelegate {
         
         do {
             
-            if tvNote.text.trimmedText().characters.count > 0 {
+            if !tvNote.text.hasNoCharchters() {
                 
                 showLoaderFor(view: self.view)
                 
