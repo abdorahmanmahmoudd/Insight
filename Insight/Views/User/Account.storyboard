@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -34,19 +34,19 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ObN-kc-Bg1" userLabel="containerView">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="514.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="527"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V1T-4a-n71">
-                                                <rect key="frame" x="24" y="253.5" width="327" height="52.5"/>
+                                                <rect key="frame" x="24" y="261" width="327" height="55"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="School" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aqW-f8-QO8">
-                                                        <rect key="frame" x="58" y="16.5" width="212.5" height="21"/>
+                                                        <rect key="frame" x="58" y="16.5" width="212.5" height="22"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" name="MavenPro-Medium" family="Maven Pro" pointSize="18"/>
                                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                                     </textField>
                                                     <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icSchool" translatesAutoresizingMaskIntoConstraints="NO" id="zE7-UA-kmK">
-                                                        <rect key="frame" x="16" y="14.5" width="26" height="25"/>
+                                                        <rect key="frame" x="16" y="15" width="26" height="25"/>
                                                     </imageView>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -65,22 +65,32 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sr3-bN-zgQ">
-                                                <rect key="frame" x="24" y="330" width="327" height="52.5"/>
+                                                <rect key="frame" x="24" y="340" width="327" height="55"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="Governorate*" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jOe-Vc-2Mx">
-                                                        <rect key="frame" x="53" y="16" width="222.5" height="21"/>
+                                                        <rect key="frame" x="53" y="17" width="222.5" height="22"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" name="MavenPro-Medium" family="Maven Pro" pointSize="18"/>
                                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                                     </textField>
                                                     <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icLocation" translatesAutoresizingMaskIntoConstraints="NO" id="lin-sX-pxV">
-                                                        <rect key="frame" x="16" y="13.5" width="21" height="26"/>
+                                                        <rect key="frame" x="16" y="15" width="21" height="26"/>
                                                     </imageView>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f10-NV-SAC">
+                                                        <rect key="frame" x="0.0" y="0.0" width="327" height="55"/>
+                                                        <connections>
+                                                            <action selector="btnOpenPickerClicked:" destination="VQC-ON-IBo" eventType="touchUpInside" id="r0h-zo-vkt"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="f10-NV-SAC" secondAttribute="trailing" id="00u-do-lGo"/>
+                                                    <constraint firstItem="f10-NV-SAC" firstAttribute="leading" secondItem="Sr3-bN-zgQ" secondAttribute="leading" id="560-nB-Ipv"/>
                                                     <constraint firstItem="lin-sX-pxV" firstAttribute="centerY" secondItem="jOe-Vc-2Mx" secondAttribute="centerY" id="BZJ-j7-CQg"/>
+                                                    <constraint firstItem="f10-NV-SAC" firstAttribute="top" secondItem="Sr3-bN-zgQ" secondAttribute="top" id="HVk-hG-dP5"/>
                                                     <constraint firstItem="jOe-Vc-2Mx" firstAttribute="centerX" secondItem="Sr3-bN-zgQ" secondAttribute="centerX" id="Hlk-z3-Xei"/>
+                                                    <constraint firstAttribute="bottom" secondItem="f10-NV-SAC" secondAttribute="bottom" id="Oya-Zl-e43"/>
                                                     <constraint firstItem="jOe-Vc-2Mx" firstAttribute="leading" secondItem="lin-sX-pxV" secondAttribute="trailing" constant="16" id="TOz-kD-r8S"/>
                                                     <constraint firstAttribute="height" secondItem="jOe-Vc-2Mx" secondAttribute="height" multiplier="2.5" id="rMp-UR-DNG"/>
                                                     <constraint firstItem="lin-sX-pxV" firstAttribute="leading" secondItem="Sr3-bN-zgQ" secondAttribute="leading" constant="16" id="tnf-ls-oqM"/>
@@ -93,16 +103,16 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="68T-8B-FBe">
-                                                <rect key="frame" x="24" y="177" width="327" height="52.5"/>
+                                                <rect key="frame" x="24" y="182" width="327" height="55"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="Email*" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2G0-Yp-Bez">
-                                                        <rect key="frame" x="46" y="16.5" width="236.5" height="21"/>
+                                                        <rect key="frame" x="46" y="16.5" width="236.5" height="22"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" name="MavenPro-Medium" family="Maven Pro" pointSize="18"/>
                                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                                     </textField>
                                                     <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icMail" translatesAutoresizingMaskIntoConstraints="NO" id="z9o-kH-BkS">
-                                                        <rect key="frame" x="16" y="22" width="14" height="10"/>
+                                                        <rect key="frame" x="16" y="22.5" width="14" height="10"/>
                                                     </imageView>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -121,16 +131,16 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1fe-fd-ogD">
-                                                <rect key="frame" x="24" y="100.5" width="327" height="52.5"/>
+                                                <rect key="frame" x="24" y="103" width="327" height="55"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="Phone number*" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Prk-qz-6tm">
-                                                        <rect key="frame" x="46" y="16.5" width="236.5" height="21"/>
+                                                        <rect key="frame" x="46" y="16.5" width="236.5" height="22"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" name="MavenPro-Medium" family="Maven Pro" pointSize="18"/>
-                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="phonePad" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                                     </textField>
                                                     <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icPhone" translatesAutoresizingMaskIntoConstraints="NO" id="1nS-zv-y6S">
-                                                        <rect key="frame" x="16" y="20.5" width="14" height="13"/>
+                                                        <rect key="frame" x="16" y="21" width="14" height="13"/>
                                                     </imageView>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -149,16 +159,16 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i5C-kf-DbH">
-                                                <rect key="frame" x="24" y="24" width="327" height="52.5"/>
+                                                <rect key="frame" x="24" y="24" width="327" height="55"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="Name*" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hVC-zD-dvi">
-                                                        <rect key="frame" x="52" y="16.5" width="224" height="21"/>
+                                                        <rect key="frame" x="52" y="16.5" width="224" height="22"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" name="MavenPro-Medium" family="Maven Pro" pointSize="18"/>
                                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                                     </textField>
                                                     <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icName" translatesAutoresizingMaskIntoConstraints="NO" id="En6-Id-J7H">
-                                                        <rect key="frame" x="16" y="17" width="20" height="20"/>
+                                                        <rect key="frame" x="16" y="17.5" width="20" height="20"/>
                                                     </imageView>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -177,7 +187,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QcF-Fb-uyR">
-                                                <rect key="frame" x="84.5" y="406.5" width="205" height="42"/>
+                                                <rect key="frame" x="81" y="419" width="212" height="42"/>
                                                 <fontDescription key="fontDescription" name="MavenPro-Bold" family="Maven Pro" pointSize="25"/>
                                                 <state key="normal" title="Change Password">
                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -187,7 +197,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W0f-pS-lOE">
-                                                <rect key="frame" x="107" y="472.5" width="160" height="34"/>
+                                                <rect key="frame" x="107" y="485" width="160" height="34"/>
                                                 <fontDescription key="fontDescription" name="MavenPro-Bold" family="Maven Pro" pointSize="18"/>
                                                 <state key="normal" title="Save" backgroundImage="button-blueBorder">
                                                     <color key="titleColor" red="0.20392156862745098" green="0.59607843137254901" blue="0.85882352941176465" alpha="1" colorSpace="calibratedRGB"/>
@@ -196,16 +206,29 @@
                                                     <action selector="btnSaveClicked:" destination="VQC-ON-IBo" eventType="touchUpInside" id="olK-bh-tNy"/>
                                                 </connections>
                                             </button>
+                                            <pickerView clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gIc-7a-TIu">
+                                                <rect key="frame" x="24" y="403" width="327" height="0.0"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" id="mwU-5y-LJo"/>
+                                                </constraints>
+                                                <connections>
+                                                    <outlet property="dataSource" destination="VQC-ON-IBo" id="roP-Dt-qJM"/>
+                                                    <outlet property="delegate" destination="VQC-ON-IBo" id="CK1-3k-lgp"/>
+                                                </connections>
+                                            </pickerView>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="68T-8B-FBe" firstAttribute="leading" secondItem="ObN-kc-Bg1" secondAttribute="leading" constant="24" id="0j6-xW-7cP"/>
-                                            <constraint firstItem="QcF-Fb-uyR" firstAttribute="top" secondItem="Sr3-bN-zgQ" secondAttribute="bottom" constant="24" id="3Tc-jf-Gbt"/>
                                             <constraint firstItem="1fe-fd-ogD" firstAttribute="leading" secondItem="ObN-kc-Bg1" secondAttribute="leading" constant="24" id="4cx-kc-le9"/>
+                                            <constraint firstItem="gIc-7a-TIu" firstAttribute="width" secondItem="Sr3-bN-zgQ" secondAttribute="width" id="4mV-J4-ASb"/>
                                             <constraint firstItem="68T-8B-FBe" firstAttribute="top" secondItem="1fe-fd-ogD" secondAttribute="bottom" constant="24" id="58V-Uf-Ig5"/>
                                             <constraint firstItem="V1T-4a-n71" firstAttribute="top" secondItem="68T-8B-FBe" secondAttribute="bottom" constant="24" id="A3l-mC-lH1"/>
                                             <constraint firstItem="i5C-kf-DbH" firstAttribute="top" secondItem="ObN-kc-Bg1" secondAttribute="top" constant="24" id="Ap1-wa-2YB"/>
+                                            <constraint firstItem="gIc-7a-TIu" firstAttribute="top" secondItem="Sr3-bN-zgQ" secondAttribute="bottom" constant="8" id="CHz-m4-kdk"/>
                                             <constraint firstAttribute="trailing" secondItem="i5C-kf-DbH" secondAttribute="trailing" constant="24" id="CIv-pb-vZu"/>
+                                            <constraint firstItem="gIc-7a-TIu" firstAttribute="centerX" secondItem="ObN-kc-Bg1" secondAttribute="centerX" id="Cpc-HP-gcp"/>
                                             <constraint firstItem="Sr3-bN-zgQ" firstAttribute="leading" secondItem="ObN-kc-Bg1" secondAttribute="leading" constant="24" id="CxW-hc-lRQ"/>
                                             <constraint firstAttribute="trailing" secondItem="Sr3-bN-zgQ" secondAttribute="trailing" constant="24" id="DyC-Pl-Iyk"/>
                                             <constraint firstAttribute="trailing" secondItem="68T-8B-FBe" secondAttribute="trailing" constant="24" id="KdL-22-Un9"/>
@@ -216,6 +239,7 @@
                                             <constraint firstAttribute="bottom" secondItem="W0f-pS-lOE" secondAttribute="bottom" constant="8" id="W5A-N8-pCL"/>
                                             <constraint firstAttribute="trailing" secondItem="V1T-4a-n71" secondAttribute="trailing" constant="24" id="Y3c-R3-jgB"/>
                                             <constraint firstItem="Sr3-bN-zgQ" firstAttribute="top" secondItem="V1T-4a-n71" secondAttribute="bottom" constant="24" id="ZVk-Wn-5Eu"/>
+                                            <constraint firstItem="QcF-Fb-uyR" firstAttribute="top" secondItem="gIc-7a-TIu" secondAttribute="bottom" constant="16" id="akP-OW-K7G"/>
                                             <constraint firstItem="W0f-pS-lOE" firstAttribute="top" secondItem="QcF-Fb-uyR" secondAttribute="bottom" constant="24" id="gXk-xq-TNf"/>
                                             <constraint firstAttribute="trailing" secondItem="1fe-fd-ogD" secondAttribute="trailing" constant="24" id="jYC-pI-5NO"/>
                                             <constraint firstItem="QcF-Fb-uyR" firstAttribute="centerX" secondItem="ObN-kc-Bg1" secondAttribute="centerX" id="mLK-r5-ENN"/>
@@ -247,6 +271,8 @@
                     <connections>
                         <outlet property="btnChangePassword" destination="QcF-Fb-uyR" id="fSj-Xc-349"/>
                         <outlet property="btnSave" destination="W0f-pS-lOE" id="7gH-mk-mOT"/>
+                        <outlet property="constraintHeightOfPickerView" destination="mwU-5y-LJo" id="w1Q-Cv-Yiy"/>
+                        <outlet property="pickerView" destination="gIc-7a-TIu" id="p23-PE-jdB"/>
                         <outlet property="tfEmail" destination="2G0-Yp-Bez" id="3tQ-hn-yjG"/>
                         <outlet property="tfGovernorate" destination="jOe-Vc-2Mx" id="EUs-XB-5hU"/>
                         <outlet property="tfName" destination="hVC-zD-dvi" id="q4I-0b-tdn"/>
@@ -273,19 +299,19 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZDJ-T6-SVn" userLabel="containerView">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="295.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="303"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jcv-yP-3nl">
-                                                <rect key="frame" x="24" y="177" width="327" height="52.5"/>
+                                                <rect key="frame" x="24" y="182" width="327" height="55"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="Confirm password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1bS-zl-I42">
-                                                        <rect key="frame" x="52" y="16.5" width="224.5" height="21"/>
+                                                        <rect key="frame" x="52" y="16.5" width="224.5" height="22"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" name="MavenPro-Medium" family="Maven Pro" pointSize="18"/>
                                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                                     </textField>
                                                     <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icLock" translatesAutoresizingMaskIntoConstraints="NO" id="ZLx-7c-z9j">
-                                                        <rect key="frame" x="16" y="17" width="20" height="20"/>
+                                                        <rect key="frame" x="16" y="17.5" width="20" height="20"/>
                                                     </imageView>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -304,16 +330,16 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5be-DT-Fwr">
-                                                <rect key="frame" x="24" y="100.5" width="327" height="52.5"/>
+                                                <rect key="frame" x="24" y="103" width="327" height="55"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="New password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NKm-S2-SLc">
-                                                        <rect key="frame" x="52" y="16.5" width="224.5" height="21"/>
+                                                        <rect key="frame" x="52" y="16.5" width="224.5" height="22"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" name="MavenPro-Medium" family="Maven Pro" pointSize="18"/>
                                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                                     </textField>
                                                     <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icLock" translatesAutoresizingMaskIntoConstraints="NO" id="wTL-3f-iwQ">
-                                                        <rect key="frame" x="16" y="17" width="20" height="20"/>
+                                                        <rect key="frame" x="16" y="17.5" width="20" height="20"/>
                                                     </imageView>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -332,16 +358,16 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I2E-u0-aDP">
-                                                <rect key="frame" x="24" y="24" width="327" height="52.5"/>
+                                                <rect key="frame" x="24" y="24" width="327" height="55"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="Current password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e0K-PB-4SW">
-                                                        <rect key="frame" x="52" y="16.5" width="224" height="21"/>
+                                                        <rect key="frame" x="52" y="16.5" width="224" height="22"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" name="MavenPro-Medium" family="Maven Pro" pointSize="18"/>
                                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                                     </textField>
                                                     <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icLock" translatesAutoresizingMaskIntoConstraints="NO" id="3zr-68-IGL">
-                                                        <rect key="frame" x="16" y="17" width="20" height="20"/>
+                                                        <rect key="frame" x="16" y="17.5" width="20" height="20"/>
                                                     </imageView>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -360,7 +386,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YWh-KN-Q8W">
-                                                <rect key="frame" x="107" y="253.5" width="160" height="34"/>
+                                                <rect key="frame" x="107" y="261" width="160" height="34"/>
                                                 <fontDescription key="fontDescription" name="MavenPro-Bold" family="Maven Pro" pointSize="18"/>
                                                 <state key="normal" title="Save" backgroundImage="button-blueBorder">
                                                     <color key="titleColor" red="0.20392156859999999" green="0.59607843140000005" blue="0.85882352939999995" alpha="1" colorSpace="calibratedRGB"/>

@@ -8,8 +8,10 @@
 
 import UIKit
 
-class UserAccountViewController: ParentViewController {
+class UserAccountViewController: ParentViewController, UIPickerViewDataSource, UIPickerViewDelegate {
 
+    @IBOutlet var constraintHeightOfPickerView: NSLayoutConstraint!
+    @IBOutlet var pickerView: UIPickerView!
     @IBOutlet var btnSave: UIButton!
     @IBOutlet var btnChangePassword: UIButton!
     @IBOutlet var tfGovernorate: UITextField!
@@ -19,6 +21,8 @@ class UserAccountViewController: ParentViewController {
     @IBOutlet var tfName: UITextField!
     
     var isKeyboard = false
+    
+    var governorates = ["Alexandria", "Aswan", "Asyut", "Beheira", "Beni Suef", "Cairo", "Dakahlia", "Damietta", "Faiyum", "Gharbia", "Giza", "Ismailia", "Kafr El Sheikh", "Luxor", "Matruh", "Minya", "Monufia", "New Valley", "North Sinai", "Port Said", "Qalyubia", "Qena", "Red Sea", "Sharqia", "Sohag", "South Sinai", "Suez"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,6 +69,22 @@ class UserAccountViewController: ParentViewController {
 //            }
 //        }
 //    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return governorates.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return governorates[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        tfGovernorate.text = governorates[row]
+    }
     
     @objc func dismissKeyboard (_ sender: UITapGestureRecognizer) {
         view.endEditing(true)
@@ -219,5 +239,15 @@ class UserAccountViewController: ParentViewController {
         }
     }
     
-
+    @IBAction func btnOpenPickerClicked(_ sender: UIButton) {
+        
+        if constraintHeightOfPickerView.constant == 0 {
+            
+            constraintHeightOfPickerView.constant = 162
+        }else{
+            
+           constraintHeightOfPickerView.constant == 0
+        }
+    }
+    
 }

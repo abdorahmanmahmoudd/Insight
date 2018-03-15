@@ -90,7 +90,7 @@ class ResultsViewController: ParentViewController {
                         
                         if object.isSuccess && object.data.average != nil{
                             
-                            self.appAvg = CGFloat.init(Float.init(object.data.average)!)
+                            self.appAvg = CGFloat.init(Int(Float.init(object.data.average)!))
                             self.startAnimation()
 
                         }

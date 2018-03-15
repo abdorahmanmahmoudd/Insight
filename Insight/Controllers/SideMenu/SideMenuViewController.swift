@@ -25,6 +25,12 @@ class SideMenuViewController: UIViewController ,UITableViewDelegate, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
 		reset()
+        NotificationCenter.default.addObserver(self, selector: #selector(self.updateFlagCounter(_:)), name: NSNotification.Name("UpdateFlagCounter"), object: nil)
+    }
+    
+    @objc func updateFlagCounter(_ notification: NSNotification){
+        
+        tableView.reloadRows(at: [IndexPath.init(row: 3, section: 0)], with: .none)
 
     }
 	
@@ -200,10 +206,15 @@ class SideMenuViewController: UIViewController ,UITableViewDelegate, UITableView
             let lbl = UILabel.init(frame: CGRect.init(origin: CGPoint.zero, size: CGSize.init(width: (0.2 * cell.bounds.width), height: cell.bounds.height)))
             lbl.text = "\(flaggedQuestionsCounter)"
             lbl.font = getFont(17, MavenProMedium)
-            
             let view = UIView.init(frame: CGRect.init(origin: CGPoint.init(x: (cell.contentView.bounds.maxX * 0.75) - lbl.bounds.width, y: 0) , size: CGSize.init(width: (0.2 * cell.bounds.width), height: cell.bounds.height)))
+            view.tag = 100
             view.addSubview(lbl)
-            
+            for view in cell.contentView.subviews{
+                
+                if view.tag == 100{
+                    view.removeFromSuperview()
+                }
+            }
             cell.contentView.addSubview(view)
         }
         

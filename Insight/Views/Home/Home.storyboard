@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nKY-am-cXf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nKY-am-cXf">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -74,7 +74,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Student Evaluation Guide" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="12" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2lH-Mb-X0k">
-                                        <rect key="frame" x="0.0" y="124" width="150" height="35"/>
+                                        <rect key="frame" x="0.0" y="123.5" width="150" height="35.5"/>
                                         <fontDescription key="fontDescription" name="MavenPro-Bold" family="Maven Pro" pointSize="15"/>
                                         <color key="textColor" red="0.54117647059999996" green="0.54117647059999996" blue="0.54117647059999996" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -313,7 +313,7 @@
                                                     <rect key="frame" x="0.0" y="2" width="375" height="63"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="12" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Gs-XR-OSj">
-                                                    <rect key="frame" x="48" y="8" width="279" height="47"/>
+                                                    <rect key="frame" x="55" y="11" width="265" height="41"/>
                                                     <fontDescription key="fontDescription" name="MavenPro-Medium" family="Maven Pro" pointSize="22"/>
                                                     <color key="textColor" red="1" green="0.6705882353" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -343,7 +343,7 @@
                                 </connections>
                             </tableView>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Results" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZOa-Q0-xO2">
-                                <rect key="frame" x="145.5" y="323" width="83.5" height="20"/>
+                                <rect key="frame" x="145" y="323" width="84.5" height="20"/>
                                 <fontDescription key="fontDescription" name="MavenPro-Medium" family="Maven Pro" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -428,7 +428,7 @@
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Egt-rE-C4e" customClass="flagBtn" customModule="Insight" customModuleProvider="target">
-                                                                    <rect key="frame" x="345" y="11.5" width="22" height="22"/>
+                                                                    <rect key="frame" x="345" y="14.5" width="22" height="22"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="22" id="R9p-Bm-vpp"/>
                                                                         <constraint firstAttribute="height" constant="22" id="wqg-Qv-doW"/>
@@ -436,7 +436,7 @@
                                                                     <state key="normal" image="flag-noBG"/>
                                                                 </button>
                                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" scrollEnabled="NO" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="834-Sn-kOE">
-                                                                    <rect key="frame" x="16" y="3.5" width="72.5" height="37"/>
+                                                                    <rect key="frame" x="23" y="3.5" width="72.5" height="37"/>
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                     <attributedString key="attributedText">
                                                                         <fragment content="content">
@@ -450,7 +450,7 @@
                                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                                 </textView>
                                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="evO-Ze-sNN">
-                                                                    <rect key="frame" x="96.5" y="5.5" width="240.5" height="33"/>
+                                                                    <rect key="frame" x="103.5" y="5.5" width="233.5" height="33"/>
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                     <attributedString key="attributedText">
                                                                         <fragment content=" ">
@@ -467,7 +467,7 @@
                                                                     </connections>
                                                                 </textView>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6SG-IR-zrG">
-                                                                    <rect key="frame" x="97" y="38" width="240.5" height="1"/>
+                                                                    <rect key="frame" x="104" y="38" width="233.5" height="1"/>
                                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="1" id="lMy-EH-y0g"/>
@@ -632,7 +632,7 @@
                                 </connections>
                             </tableView>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Results" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VLh-fE-Ees">
-                                <rect key="frame" x="145.5" y="323.5" width="83.5" height="20"/>
+                                <rect key="frame" x="145" y="323.5" width="84.5" height="20"/>
                                 <fontDescription key="fontDescription" name="MavenPro-Medium" family="Maven Pro" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -683,18 +683,28 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </containerView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fao-AC-M8Y">
-                                <rect key="frame" x="340" y="637" width="19" height="22"/>
-                                <state key="normal" image="plus"/>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fao-AC-M8Y">
+                                <rect key="frame" x="329" y="629" width="30" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="gXj-rO-6XY"/>
+                                    <constraint firstAttribute="height" constant="30" id="hUz-UM-WzX"/>
+                                </constraints>
+                                <state key="normal" image="add"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="12"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="btnOptionsClicked:" destination="bfP-Fh-L4n" eventType="touchUpInside" id="mM3-7a-vxh"/>
                                 </connections>
                             </button>
                             <view clipsSubviews="YES" alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uRG-RI-7aH">
-                                <rect key="frame" x="268" y="596" width="107" height="25"/>
+                                <rect key="frame" x="252" y="583" width="123" height="30"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Shuffle " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8zD-oh-Cch">
-                                        <rect key="frame" x="4" y="0.0" width="55" height="25"/>
+                                        <rect key="frame" x="4" y="0.0" width="57" height="30"/>
                                         <color key="backgroundColor" red="0.60728624129999997" green="0.65866427949999995" blue="0.70770941840000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="MavenPro-Regular" family="Maven Pro" pointSize="15"/>
                                         <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -705,8 +715,18 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="timer" translatesAutoresizingMaskIntoConstraints="NO" id="0dQ-v6-B0Q">
-                                        <rect key="frame" x="75.5" y="0.0" width="16" height="25"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ShuffleIc" translatesAutoresizingMaskIntoConstraints="NO" id="0dQ-v6-B0Q">
+                                        <rect key="frame" x="77.5" y="0.0" width="30" height="30"/>
+                                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="aa3-K3-dk1"/>
+                                            <constraint firstAttribute="height" constant="30" id="b7F-Zd-uG3"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <integer key="value" value="12"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -719,7 +739,6 @@
                                     <constraint firstItem="8zD-oh-Cch" firstAttribute="leading" secondItem="uRG-RI-7aH" secondAttribute="leading" constant="4" id="NMu-g6-lFO"/>
                                     <constraint firstItem="8zD-oh-Cch" firstAttribute="top" secondItem="uRG-RI-7aH" secondAttribute="top" id="dkj-z5-Lxr"/>
                                     <constraint firstAttribute="trailing" secondItem="0dQ-v6-B0Q" secondAttribute="trailing" constant="16" id="ec3-EE-qfI"/>
-                                    <constraint firstAttribute="height" constant="25" id="roB-Uz-yZu"/>
                                 </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="W07-bV-WCr" appends="YES" id="Ymc-GS-mBL"/>
@@ -746,13 +765,13 @@
                                         </state>
                                     </button>
                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OcJ-z6-9FS">
-                                        <rect key="frame" x="331.5" y="26" width="35.5" height="16.5"/>
+                                        <rect key="frame" x="325" y="26" width="42" height="16.5"/>
                                         <fontDescription key="fontDescription" name="MavenPro-Regular" family="Maven Pro" pointSize="14"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView hidden="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="timer" translatesAutoresizingMaskIntoConstraints="NO" id="LRe-dP-Zje">
-                                        <rect key="frame" x="311.5" y="26" width="16" height="17"/>
+                                        <rect key="frame" x="305" y="26" width="16" height="17"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8G8-tu-Ohh">
                                         <rect key="frame" x="27.5" y="22.5" width="21" height="22"/>
@@ -791,10 +810,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view clipsSubviews="YES" alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nnt-5f-QMG">
-                                <rect key="frame" x="266.5" y="555" width="108" height="25"/>
+                                <rect key="frame" x="253.5" y="537" width="121" height="30"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Search " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PRM-Lh-I1j">
-                                        <rect key="frame" x="4" y="0.0" width="55" height="25"/>
+                                        <rect key="frame" x="4" y="0.0" width="55" height="30"/>
                                         <color key="backgroundColor" red="0.60728624129999997" green="0.65866427949999995" blue="0.70770941840000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="MavenPro-Regular" family="Maven Pro" pointSize="15"/>
                                         <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -805,8 +824,18 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Share" translatesAutoresizingMaskIntoConstraints="NO" id="PhG-aV-Csi">
-                                        <rect key="frame" x="75.5" y="0.0" width="17" height="25"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="searchIc" translatesAutoresizingMaskIntoConstraints="NO" id="PhG-aV-Csi">
+                                        <rect key="frame" x="75.5" y="0.0" width="30" height="30"/>
+                                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="6MG-nR-ArF"/>
+                                            <constraint firstAttribute="height" constant="30" id="Sqx-ou-L3d"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <integer key="value" value="12"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -817,7 +846,6 @@
                                     <constraint firstAttribute="trailing" secondItem="PhG-aV-Csi" secondAttribute="trailing" constant="16" id="Pk7-k2-Q47"/>
                                     <constraint firstItem="PhG-aV-Csi" firstAttribute="leading" secondItem="PRM-Lh-I1j" secondAttribute="trailing" constant="16" id="Qf0-PV-NUX"/>
                                     <constraint firstAttribute="bottom" secondItem="PRM-Lh-I1j" secondAttribute="bottom" id="d1v-MQ-oBp"/>
-                                    <constraint firstAttribute="height" constant="25" id="mCZ-Mn-fBj"/>
                                     <constraint firstItem="PhG-aV-Csi" firstAttribute="top" secondItem="Nnt-5f-QMG" secondAttribute="top" id="tRB-9m-pSQ"/>
                                     <constraint firstItem="PRM-Lh-I1j" firstAttribute="top" secondItem="Nnt-5f-QMG" secondAttribute="top" id="ycP-R2-bcc"/>
                                 </constraints>
@@ -954,13 +982,13 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Results" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="riy-3h-41T">
-                                <rect key="frame" x="42" y="274" width="112" height="23.5"/>
+                                <rect key="frame" x="41.5" y="274" width="112" height="23.5"/>
                                 <fontDescription key="fontDescription" name="MavenPro-Medium" family="Maven Pro" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="App Avg. Results" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LiQ-3r-7C8">
-                                <rect key="frame" x="201.5" y="274" width="154" height="23.5"/>
+                                <rect key="frame" x="202" y="274" width="154" height="23.5"/>
                                 <fontDescription key="fontDescription" name="MavenPro-Medium" family="Maven Pro" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -1065,7 +1093,7 @@
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0LB-Sv-JB2">
-                                                                    <rect key="frame" x="8" y="0.0" width="321" height="36.5"/>
+                                                                    <rect key="frame" x="8" y="0.0" width="314" height="36.5"/>
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                     <attributedString key="attributedText">
                                                                         <fragment content="content">
@@ -1097,7 +1125,7 @@
                                                                     </connections>
                                                                 </textView>
                                                                 <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7aY-mv-eGP" customClass="flagBtn" customModule="Insight" customModuleProvider="target">
-                                                                    <rect key="frame" x="337" y="8" width="22" height="22"/>
+                                                                    <rect key="frame" x="330" y="11" width="22" height="22"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="22" id="AbV-HI-bGr"/>
                                                                         <constraint firstAttribute="height" constant="22" id="as0-GI-GBP"/>
@@ -1306,7 +1334,7 @@
                                                                     </connections>
                                                                 </textView>
                                                                 <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LB7-NR-rJx" customClass="flagBtn" customModule="Insight" customModuleProvider="target">
-                                                                    <rect key="frame" x="8" y="16" width="12" height="20"/>
+                                                                    <rect key="frame" x="8" y="19" width="12" height="14"/>
                                                                     <state key="normal" image="flag-blacked"/>
                                                                 </button>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cjF-F2-28f">
@@ -1456,7 +1484,7 @@
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fLP-Fv-bsE">
-                                                                    <rect key="frame" x="24" y="21" width="28" height="28"/>
+                                                                    <rect key="frame" x="31" y="21" width="28" height="28"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="28" id="sAf-4Z-h4I"/>
                                                                         <constraint firstAttribute="height" constant="28" id="sKC-yz-IjE"/>
@@ -1468,14 +1496,14 @@
                                                                         <action selector="btnPlayClicked:" destination="x1y-Uo-clf" eventType="touchUpInside" id="Xwd-zG-N5F"/>
                                                                     </connections>
                                                                 </button>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="content" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T65-DU-L7b">
-                                                                    <rect key="frame" x="60" y="0.0" width="307" height="18"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="content" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T65-DU-L7b">
+                                                                    <rect key="frame" x="67" y="0.0" width="300" height="18"/>
                                                                     <fontDescription key="fontDescription" name="MavenPro-Bold" family="Maven Pro" pointSize="15"/>
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="ZLi-tu-lb9">
-                                                                    <rect key="frame" x="58" y="24" width="311" height="31"/>
+                                                                <slider opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="ZLi-tu-lb9">
+                                                                    <rect key="frame" x="65" y="24" width="304" height="31"/>
                                                                     <color key="tintColor" red="1" green="0.6705882353" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <connections>
                                                                         <action selector="sliderValueChanged:" destination="x1y-Uo-clf" eventType="valueChanged" id="J3R-h5-yX0"/>
@@ -1854,7 +1882,7 @@
                                                                                                 </constraints>
                                                                                             </imageView>
                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ShK-LO-eU5">
-                                                                                                <rect key="frame" x="46" y="8" width="281" height="27.5"/>
+                                                                                                <rect key="frame" x="46" y="11" width="274" height="22"/>
                                                                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                                                                                 <color key="textColor" red="0.027450980390000001" green="0.14117647059999999" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
                                                                                                 <nil key="highlightedColor"/>
@@ -2295,7 +2323,7 @@
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HtP-T5-AGl">
-                                                                    <rect key="frame" x="16" y="16" width="313" height="36.5"/>
+                                                                    <rect key="frame" x="23" y="19" width="299" height="36.5"/>
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                     <attributedString key="attributedText">
                                                                         <fragment content="content">
@@ -2310,7 +2338,7 @@
                                                                     <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES"/>
                                                                 </textView>
                                                                 <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Shr-AL-qAa" customClass="flagBtn" customModule="Insight" customModuleProvider="target">
-                                                                    <rect key="frame" x="337" y="16" width="22" height="22"/>
+                                                                    <rect key="frame" x="330" y="19" width="22" height="22"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="22" id="ZG1-TX-RQz"/>
                                                                         <constraint firstAttribute="width" constant="22" id="bSm-LU-zzI"/>
@@ -2318,40 +2346,40 @@
                                                                     <state key="normal" image="flag-noBG"/>
                                                                 </button>
                                                                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3qs-oU-Eym">
-                                                                    <rect key="frame" x="8" y="60" width="359" height="220"/>
+                                                                    <rect key="frame" x="8" y="63" width="359" height="220"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Place:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cjG-t4-h2H">
-                                                                            <rect key="frame" x="8" y="16" width="47" height="20"/>
+                                                                            <rect key="frame" x="8" y="16" width="49.5" height="20"/>
                                                                             <fontDescription key="fontDescription" name="MavenPro-Medium" family="Maven Pro" pointSize="17"/>
                                                                             <color key="textColor" red="0.54117647058823526" green="0.54117647058823526" blue="0.54117647058823526" alpha="1" colorSpace="calibratedRGB"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Speaker A:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gj9-S4-2bk">
-                                                                            <rect key="frame" x="8" y="58" width="83.5" height="20"/>
+                                                                            <rect key="frame" x="8" y="58" width="86.5" height="20"/>
                                                                             <fontDescription key="fontDescription" name="MavenPro-Medium" family="Maven Pro" pointSize="17"/>
                                                                             <color key="textColor" red="0.54117647059999996" green="0.54117647059999996" blue="0.54117647059999996" alpha="1" colorSpace="calibratedRGB"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Speaker B:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GaP-ue-zV3">
-                                                                            <rect key="frame" x="8" y="100.5" width="84.5" height="20"/>
+                                                                            <rect key="frame" x="8" y="100.5" width="86" height="20"/>
                                                                             <fontDescription key="fontDescription" name="MavenPro-Medium" family="Maven Pro" pointSize="17"/>
                                                                             <color key="textColor" red="0.54117647059999996" green="0.54117647059999996" blue="0.54117647059999996" alpha="1" colorSpace="calibratedRGB"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Function A:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wgQ-aC-Lbc">
-                                                                            <rect key="frame" x="8" y="143" width="87" height="34.5"/>
+                                                                            <rect key="frame" x="8" y="143" width="91.5" height="34.5"/>
                                                                             <fontDescription key="fontDescription" name="MavenPro-Medium" family="Maven Pro" pointSize="17"/>
                                                                             <color key="textColor" red="0.54117647059999996" green="0.54117647059999996" blue="0.54117647059999996" alpha="1" colorSpace="calibratedRGB"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Function B:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dd9-P7-J7h">
-                                                                            <rect key="frame" x="8" y="185.5" width="87.5" height="20"/>
+                                                                            <rect key="frame" x="8" y="185.5" width="91.5" height="20"/>
                                                                             <fontDescription key="fontDescription" name="MavenPro-Medium" family="Maven Pro" pointSize="17"/>
                                                                             <color key="textColor" red="0.54117647059999996" green="0.54117647059999996" blue="0.54117647059999996" alpha="1" colorSpace="calibratedRGB"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nN1-6q-KLI">
-                                                                            <rect key="frame" x="62.5" y="8" width="288.5" height="34"/>
+                                                                            <rect key="frame" x="65" y="8" width="286" height="34"/>
                                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                             <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                             <attributedString key="attributedText">
@@ -2369,7 +2397,7 @@
                                                                             </connections>
                                                                         </textView>
                                                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v9H-9F-NlV">
-                                                                            <rect key="frame" x="99" y="50" width="252" height="34.5"/>
+                                                                            <rect key="frame" x="102" y="50" width="249" height="34.5"/>
                                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                             <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                             <attributedString key="attributedText">
@@ -2387,7 +2415,7 @@
                                                                             </connections>
                                                                         </textView>
                                                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yYg-u5-GM6">
-                                                                            <rect key="frame" x="100.5" y="92.5" width="250.5" height="34.5"/>
+                                                                            <rect key="frame" x="102" y="92.5" width="249" height="34.5"/>
                                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                             <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                             <attributedString key="attributedText">
@@ -2405,7 +2433,7 @@
                                                                             </connections>
                                                                         </textView>
                                                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8On-fn-TxC">
-                                                                            <rect key="frame" x="103" y="135" width="248" height="34.5"/>
+                                                                            <rect key="frame" x="107.5" y="135" width="243.5" height="34.5"/>
                                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                             <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                             <attributedString key="attributedText">
@@ -2423,7 +2451,7 @@
                                                                             </connections>
                                                                         </textView>
                                                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i1F-am-jMh">
-                                                                            <rect key="frame" x="103.5" y="177.5" width="247.5" height="34.5"/>
+                                                                            <rect key="frame" x="107.5" y="177.5" width="243.5" height="34.5"/>
                                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                             <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                             <attributedString key="attributedText">
@@ -2478,7 +2506,7 @@
                                                                     </userDefinedRuntimeAttributes>
                                                                 </view>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q0c-2I-6Aq">
-                                                                    <rect key="frame" x="107.5" y="288" width="160" height="34"/>
+                                                                    <rect key="frame" x="107.5" y="291" width="160" height="34"/>
                                                                     <fontDescription key="fontDescription" name="MavenPro-Regular" family="Maven Pro" pointSize="18"/>
                                                                     <state key="normal" title="SHOW ANSWER" backgroundImage="button-blueBG">
                                                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2618,7 +2646,7 @@
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Orc-Is-NZO" customClass="BorderedTV" customModule="Insight" customModuleProvider="target">
-                                                                    <rect key="frame" x="56.5" y="16" width="112.5" height="33"/>
+                                                                    <rect key="frame" x="56.5" y="19" width="112.5" height="33"/>
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                     <attributedString key="attributedText">
                                                                         <fragment content=" ">
@@ -2635,7 +2663,7 @@
                                                                     </connections>
                                                                 </textView>
                                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tGl-lE-qs5" customClass="BorderedTV" customModule="Insight" customModuleProvider="target">
-                                                                    <rect key="frame" x="185" y="16" width="112.5" height="33"/>
+                                                                    <rect key="frame" x="185" y="19" width="112.5" height="33"/>
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                     <attributedString key="attributedText">
                                                                         <fragment content=" ">
@@ -2652,7 +2680,7 @@
                                                                     </connections>
                                                                 </textView>
                                                                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZYU-Je-zhq">
-                                                                    <rect key="frame" x="301.5" y="18" width="30" height="30"/>
+                                                                    <rect key="frame" x="301.5" y="21" width="30" height="30"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="30" id="0M5-jw-azs"/>
                                                                         <constraint firstAttribute="height" constant="30" id="Rkm-g4-1wM"/>
@@ -2817,8 +2845,8 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="375" height="162"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
-                                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="w7r-vM-IR3">
-                                                                    <rect key="frame" x="16" y="16" width="313" height="36.5"/>
+                                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" scrollEnabled="NO" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="w7r-vM-IR3">
+                                                                    <rect key="frame" x="23" y="16" width="299" height="36.5"/>
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                     <attributedString key="attributedText">
                                                                         <fragment content=" ">
@@ -2832,15 +2860,15 @@
                                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                                 </textView>
                                                                 <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rIf-gw-O0S" customClass="flagBtn" customModule="Insight" customModuleProvider="target">
-                                                                    <rect key="frame" x="337" y="16" width="22" height="22"/>
+                                                                    <rect key="frame" x="330" y="19" width="22" height="22"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="22" id="E0g-et-n0d"/>
                                                                         <constraint firstAttribute="height" constant="22" id="v9f-L5-zfE"/>
                                                                     </constraints>
                                                                     <state key="normal" image="flag-noBG"/>
                                                                 </button>
-                                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wex-Hk-45x">
-                                                                    <rect key="frame" x="16" y="60" width="343" height="36.5"/>
+                                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wex-Hk-45x">
+                                                                    <rect key="frame" x="23" y="60" width="329" height="36.5"/>
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                     <attributedString key="attributedText">
                                                                         <fragment content=" ">
@@ -2856,7 +2884,7 @@
                                                                         <outlet property="delegate" destination="bXl-yF-vPd" id="9yG-eh-iAN"/>
                                                                     </connections>
                                                                 </textView>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9lA-KC-xlF">
+                                                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9lA-KC-xlF">
                                                                     <rect key="frame" x="107.5" y="112.5" width="160" height="34"/>
                                                                     <fontDescription key="fontDescription" name="MavenPro-Regular" family="Maven Pro" pointSize="18"/>
                                                                     <state key="normal" title="SHOW ANSWER" backgroundImage="button-blueBG">
@@ -2866,8 +2894,8 @@
                                                                         <action selector="btnShowAnswerClicked:" destination="v1U-FE-NNt" eventType="touchUpInside" id="G12-ek-iya"/>
                                                                     </connections>
                                                                 </button>
-                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bhf-iL-yhD">
-                                                                    <rect key="frame" x="16" y="97.5" width="343" height="1"/>
+                                                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bhf-iL-yhD">
+                                                                    <rect key="frame" x="23" y="97.5" width="329" height="1"/>
                                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="1" id="wBz-zK-E5A"/>
@@ -2999,7 +3027,7 @@
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kHt-gJ-gv3">
-                                                                    <rect key="frame" x="16" y="16" width="313" height="36.5"/>
+                                                                    <rect key="frame" x="23" y="19" width="299" height="32"/>
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                     <attributedString key="attributedText">
                                                                         <fragment content="content">
@@ -3013,7 +3041,7 @@
                                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                                 </textView>
                                                                 <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zgZ-xW-k1H" customClass="flagBtn" customModule="Insight" customModuleProvider="target">
-                                                                    <rect key="frame" x="337" y="16" width="22" height="22"/>
+                                                                    <rect key="frame" x="330" y="19" width="22" height="22"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="22" id="iY6-HR-lz9"/>
                                                                         <constraint firstAttribute="height" constant="22" id="pkZ-Ho-fe6"/>
@@ -3141,7 +3169,7 @@
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hpN-tz-dCy">
-                                                                    <rect key="frame" x="16" y="16" width="343" height="36.5"/>
+                                                                    <rect key="frame" x="23" y="19" width="329" height="36.5"/>
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                     <attributedString key="attributedText">
                                                                         <fragment content=" ">
@@ -3155,7 +3183,7 @@
                                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                                 </textView>
                                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="p2d-gw-P6G">
-                                                                    <rect key="frame" x="16" y="60" width="343" height="36.5"/>
+                                                                    <rect key="frame" x="23" y="63" width="329" height="36.5"/>
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                     <attributedString key="attributedText">
                                                                         <fragment content=" ">
@@ -3172,14 +3200,14 @@
                                                                     </connections>
                                                                 </textView>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9hy-FX-Urk">
-                                                                    <rect key="frame" x="107.5" y="104" width="160" height="34"/>
+                                                                    <rect key="frame" x="107.5" y="107" width="160" height="34"/>
                                                                     <fontDescription key="fontDescription" name="MavenPro-Regular" family="Maven Pro" pointSize="18"/>
                                                                     <state key="normal" title="SHOW ANSWER" backgroundImage="button-blueBG">
                                                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                     </state>
                                                                 </button>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y92-Dl-1HM">
-                                                                    <rect key="frame" x="15.5" y="95" width="343" height="1"/>
+                                                                    <rect key="frame" x="22.5" y="98" width="329" height="1"/>
                                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="1" id="Jit-Iz-KSC"/>
@@ -3312,7 +3340,7 @@
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" scrollEnabled="NO" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tsz-IB-LiP">
-                                                                    <rect key="frame" x="16" y="16" width="237" height="36.5"/>
+                                                                    <rect key="frame" x="23" y="19" width="230" height="36.5"/>
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                     <attributedString key="attributedText">
                                                                         <fragment content=" ">
@@ -3326,7 +3354,7 @@
                                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                                 </textView>
                                                                 <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sgu-sX-1eR" customClass="flagBtn" customModule="Insight" customModuleProvider="target">
-                                                                    <rect key="frame" x="345" y="20" width="22" height="22"/>
+                                                                    <rect key="frame" x="345" y="23" width="22" height="22"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="22" id="cRr-3Z-1hz"/>
                                                                         <constraint firstAttribute="width" constant="22" id="euU-6t-O0t"/>
@@ -3334,7 +3362,7 @@
                                                                     <state key="normal" image="flag-noBG"/>
                                                                 </button>
                                                                 <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="npd-oq-2Oa">
-                                                                    <rect key="frame" x="299" y="16" width="30" height="30"/>
+                                                                    <rect key="frame" x="299" y="19" width="30" height="30"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="30" id="bBb-Sw-ah4"/>
                                                                         <constraint firstAttribute="width" constant="30" id="kh4-Nk-GHn"/>
@@ -3348,7 +3376,7 @@
                                                                     </connections>
                                                                 </button>
                                                                 <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yUQ-H7-yAl">
-                                                                    <rect key="frame" x="261" y="16" width="30" height="30"/>
+                                                                    <rect key="frame" x="261" y="19" width="30" height="30"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="30" id="M9E-tB-27E"/>
                                                                         <constraint firstAttribute="width" constant="30" id="ueY-1H-QSU"/>
@@ -3362,7 +3390,7 @@
                                                                     </connections>
                                                                 </button>
                                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pIz-FO-qeO">
-                                                                    <rect key="frame" x="16" y="60" width="343" height="74"/>
+                                                                    <rect key="frame" x="23" y="63" width="329" height="68"/>
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                     <attributedString key="attributedText">
                                                                         <fragment content=" ">
@@ -3379,7 +3407,7 @@
                                                                     </connections>
                                                                 </textView>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sXd-6Z-811">
-                                                                    <rect key="frame" x="15.5" y="133" width="343" height="1"/>
+                                                                    <rect key="frame" x="23" y="130" width="329" height="1"/>
                                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="1" id="uQr-J1-fZ7"/>
@@ -3647,7 +3675,7 @@
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1xE-YS-Dnj">
-                                                                    <rect key="frame" x="16" y="16" width="343" height="36.5"/>
+                                                                    <rect key="frame" x="23" y="19" width="329" height="36.5"/>
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                     <attributedString key="attributedText">
                                                                         <fragment content=" ">
@@ -3661,7 +3689,7 @@
                                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                                 </textView>
                                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PZb-hA-Igv">
-                                                                    <rect key="frame" x="16" y="60" width="343" height="36.5"/>
+                                                                    <rect key="frame" x="23" y="63" width="329" height="36.5"/>
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                     <attributedString key="attributedText">
                                                                         <fragment content=" ">
@@ -3678,7 +3706,7 @@
                                                                     </connections>
                                                                 </textView>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qgp-je-iJk">
-                                                                    <rect key="frame" x="15.5" y="95.5" width="343" height="1"/>
+                                                                    <rect key="frame" x="22.5" y="98.5" width="329" height="1"/>
                                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="1" id="es6-Pk-T3i"/>
@@ -3750,7 +3778,7 @@
                                                                                                         </constraints>
                                                                                                     </imageView>
                                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8kW-oj-W5M">
-                                                                                                        <rect key="frame" x="46" y="8" width="281" height="27.5"/>
+                                                                                                        <rect key="frame" x="46" y="11" width="274" height="22"/>
                                                                                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                                                                                         <color key="textColor" red="0.027450980390000001" green="0.14117647059999999" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
                                                                                                         <nil key="highlightedColor"/>
@@ -4372,10 +4400,11 @@
         <image name="Guide" width="108" height="105"/>
         <image name="HomeItemsBG1" width="165" height="165"/>
         <image name="Revision" width="110" height="84"/>
-        <image name="Share" width="17" height="17"/>
+        <image name="ShuffleIc" width="22" height="20"/>
         <image name="Skills" width="92" height="94"/>
         <image name="Story" width="102" height="108"/>
         <image name="Units" width="102" height="102"/>
+        <image name="add" width="22" height="22"/>
         <image name="background" width="374" height="644"/>
         <image name="button-blueBG" width="160" height="34"/>
         <image name="button-noBG-left" width="160" height="34"/>
@@ -4387,7 +4416,7 @@
         <image name="icLogout" width="41" height="40"/>
         <image name="matchQuesTF-BG" width="30" height="30"/>
         <image name="play" width="17" height="20"/>
-        <image name="plus" width="19" height="18"/>
+        <image name="searchIc" width="24" height="26"/>
         <image name="timer" width="16" height="17"/>
         <image name="unlock" width="77" height="21"/>
         <image name="unlocked" width="36" height="36"/>

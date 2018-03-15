@@ -135,6 +135,7 @@ class EditFlagViewController: ParentViewController, UITableViewDelegate, UITable
                 realm?.add(q, update: true)
             }
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: notificationName ), object: nil, userInfo: ["indexPath":indexPath])
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "UpdateFlagCounter" ), object: nil, userInfo:nil)
             self.flagSelected = true
             
         }catch let err {
@@ -206,6 +207,7 @@ class EditFlagViewController: ParentViewController, UITableViewDelegate, UITable
                 print("\(realm!.objects(FlaggedQuestion.self))")
                 
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: notificationName ), object: nil, userInfo: ["indexPath":indexPath])
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "UpdateFlagCounter" ), object: nil, userInfo:nil)
                 
             }
             

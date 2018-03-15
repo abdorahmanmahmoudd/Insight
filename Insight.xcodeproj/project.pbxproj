@@ -94,6 +94,7 @@
 		BD628E892028A6160007BEE4 /* QuestionMatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD628E882028A6160007BEE4 /* QuestionMatchViewController.swift */; };
 		BD628E8B2028A62B0007BEE4 /* QuestionMatchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD628E8A2028A62B0007BEE4 /* QuestionMatchTableViewCell.swift */; };
 		BD7E3991204D6B7C0092A02E /* LogoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7E3990204D6B7C0092A02E /* LogoutViewController.swift */; };
+		BD87A37820571E7300F2B6C9 /* SubscribtionRealmObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD87A37720571E7300F2B6C9 /* SubscribtionRealmObjects.swift */; };
 		BD96771D202346950078B0A3 /* SubSubCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD96771C202346950078B0A3 /* SubSubCategoryTableViewCell.swift */; };
 		BD96771F2023478B0078B0A3 /* SubCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD96771E2023478B0078B0A3 /* SubCategoryViewController.swift */; };
 		BD96772120234A5C0078B0A3 /* SubCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD96772020234A5C0078B0A3 /* SubCategoryTableViewCell.swift */; };
@@ -232,6 +233,7 @@
 		BD628E882028A6160007BEE4 /* QuestionMatchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionMatchViewController.swift; sourceTree = "<group>"; };
 		BD628E8A2028A62B0007BEE4 /* QuestionMatchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionMatchTableViewCell.swift; sourceTree = "<group>"; };
 		BD7E3990204D6B7C0092A02E /* LogoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutViewController.swift; sourceTree = "<group>"; };
+		BD87A37720571E7300F2B6C9 /* SubscribtionRealmObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribtionRealmObjects.swift; sourceTree = "<group>"; };
 		BD96771C202346950078B0A3 /* SubSubCategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubSubCategoryTableViewCell.swift; sourceTree = "<group>"; };
 		BD96771E2023478B0078B0A3 /* SubCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubCategoryViewController.swift; sourceTree = "<group>"; };
 		BD96772020234A5C0078B0A3 /* SubCategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubCategoryTableViewCell.swift; sourceTree = "<group>"; };
@@ -421,6 +423,7 @@
 				BDABFA82204DFE1D00051A2B /* PackagesDuration.swift */,
 				BD1D28D2204C2E4D0088869A /* PackageRootClass.swift */,
 				BD1D28D3204C2E4D0088869A /* PackageUnlocked.swift */,
+				BD87A37720571E7300F2B6C9 /* SubscribtionRealmObjects.swift */,
 			);
 			path = Subscribtion;
 			sourceTree = "<group>";
@@ -904,6 +907,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Insight/Pods-Insight-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SpinKit/SpinKit.framework",
@@ -913,6 +917,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SpinKit.framework",
@@ -980,6 +985,7 @@
 				BD542A4A20515ED500FE3674 /* SubscribedPackageResponse.swift in Sources */,
 				BDAA5818202D18C600C32AA9 /* TrueFalseTableViewCell.swift in Sources */,
 				BD27EEDE201FF02D007872E0 /* SignInViewController.swift in Sources */,
+				BD87A37820571E7300F2B6C9 /* SubscribtionRealmObjects.swift in Sources */,
 				BD1B1ED22021349D0000D813 /* SideMenuDismissalInteractionController.swift in Sources */,
 				BD1B1EB12020F61C0000D813 /* Extensions.swift in Sources */,
 				BD39AD432027449A00DC03B3 /* QuestionCompleteTableViewCell.swift in Sources */,

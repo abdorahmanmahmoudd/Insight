@@ -8,8 +8,10 @@
 
 import UIKit
 
-class SignUpViewController: ParentViewController {
+class SignUpViewController: ParentViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
+    @IBOutlet var constraintHeightOfPickerView: NSLayoutConstraint!
+    @IBOutlet var pickerView: UIPickerView!
     @IBOutlet var btnHaveAccount: UIButton!
     @IBOutlet var btnSignUp: UIButton!
     @IBOutlet var tfEmail: UITextField!
@@ -19,6 +21,8 @@ class SignUpViewController: ParentViewController {
     @IBOutlet var tfConfirmPass: UITextField!
     @IBOutlet var tfPass: UITextField!
     @IBOutlet var tfName: UITextField!
+    
+    var governorates = ["Alexandria", "Aswan", "Asyut", "Beheira", "Beni Suef", "Cairo", "Dakahlia", "Damietta", "Faiyum", "Gharbia", "Giza", "Ismailia", "Kafr El Sheikh", "Luxor", "Matruh", "Minya", "Monufia", "New Valley", "North Sinai", "Port Said", "Qalyubia", "Qena", "Red Sea", "Sharqia", "Sohag", "South Sinai", "Suez"]
     
     weak var delegate : AuthenticationViewController?
     
@@ -49,6 +53,22 @@ class SignUpViewController: ParentViewController {
             
             delegate?.initSignInView()
         }
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return governorates.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return governorates[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        self.tfGovern.text = governorates[row]
     }
 
     func dataIsValid() -> Bool{
@@ -88,7 +108,7 @@ class SignUpViewController: ParentViewController {
         }else if tfGovern.text != nil && tfGovern.text!.hasNoCharchters() {
             
             isValid = false
-            showAlert(title: "", message: "Please enter your governorate", vc: self, closure: nil)
+            showAlert(title: "", message: "Please select your governorate", vc: self, closure: nil)
             
         }else if tfEmail.text != nil && tfEmail.text!.hasNoCharchters(){
             
@@ -163,6 +183,19 @@ class SignUpViewController: ParentViewController {
             self.present(vc, animated: true, completion: nil)
         }
         
+    }
+    @IBAction func btnOpenGovernsClicked(_ sender: UIButton) {
+        
+        if constraintHeightOfPickerView.constant == 0{
+            
+            constraintHeightOfPickerView.constant = 169
+            
+        }else{
+            
+            constraintHeightOfPickerView.constant = 0
+        }
+        
+        self.view.layoutIfNeeded()
     }
     
 }

@@ -11,5 +11,6 @@ pod 'SpinKit'
 pod 'RealmSwift'
 pod 'UICircularProgressRing'
 pod 'CryptoSwift'
+pod 'IQKeyboardManagerSwift'
 
 end

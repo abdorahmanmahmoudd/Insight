@@ -17,6 +17,7 @@ class HomeViewController: ParentViewController {
     var flagFilter: Flag?
     var homeTitle = "Home"
 //    var cameFromFlag = false
+    var userPackages = [PackageRootClass]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -271,45 +272,16 @@ class HomeViewController: ParentViewController {
                 if let flag = self.flagFilter{
                     des.flagFilter = flag
                     
-                    do {
-                        
-                        let flaggedQuestions = realm?.objects(FlaggedQuestion.self)
+                    if let flaggedQuestions = realm?.objects(FlaggedQuestion.self){
                         
                         des.subCategory = des.subCategory.filter({ (subCategory) -> Bool in
                             
-                            if let questionsParentParentIDs = flaggedQuestions?.map ({ $0.parentParentId }) {
-                                
-                                return questionsParentParentIDs.contains(String(subCategory.id))
-                            }
-                            return false
+                            let questionsParentParentIDs = flaggedQuestions.map ({ $0.parentParentId })
+                            
+                            return questionsParentParentIDs.contains(String(subCategory.id))
+                            
                         })
-                        
-//                        des.subCategory = des.subCategory.filter({ (subCategory) -> Bool in
-//
-//                            return subCategory.subSubCategory.filter({ (subsub) -> Bool in
-//
-//                                var filteredQuestions = [QuestionData]()
-//
-//                                if let questionsIDs = flaggedQuestions?.map ({ $0.Id }) {
-//
-//                                    for i in 0..<subsub.questions.count{
-//
-//                                        filteredQuestions = subsub.questions[i].data.filter({ (question) -> Bool in
-//                                            return questionsIDs.contains(String(question.id))
-//                                        })
-//                                    }
-//                                }
-//
-//                                return filteredQuestions.count > 0 ? true : false
-//
-//                            }).count > 0 ? true : false
-//                        })
-                        
-                    }catch let err {
-                        
-                        showAlert(title: "", message: err.localizedDescription, vc: self, closure: nil)
                     }
-                    
                 }
             }
         }
@@ -346,7 +318,7 @@ class HomeViewController: ParentViewController {
             
             let dec = try AES(key: Array(ENCRYPTION_KEY.utf8), blockMode: .CBC(iv: Array(iv.utf8))).decrypt(Array(input.utf8))
             
-            let decData = Data(bytes: dec)
+            _ = Data(bytes: dec)
             
             if let inputData = NSData.init(base64Encoded: input, options: .init(rawValue: 0)) as Data?{
                 
@@ -362,7 +334,7 @@ class HomeViewController: ParentViewController {
                     
                     let decrytedStr = String.init(data: decryptedData, encoding: String.Encoding.utf8)
                     
-                    print("\(decrytedStr)")
+                    print("\(String(describing: decrytedStr))")
                     
                     return decrytedStr
                 }
@@ -379,7 +351,85 @@ class HomeViewController: ParentViewController {
         }
         
         return nil
+    }
+    
+    func getUserPackages(){
         
+        showLoaderFor(view: self.view)
+        let sm = SubscribtionModel()
+        sm.getUserPackages(complation: { (json, statusCode) in
+            
+            hideLoaderFor(view: self.view)
+            
+            if let code = statusCode as? Int{
+                
+                if code == 200{
+                    
+                    if json.count > 0{
+                        
+                        self.userPackages = json
+                        self.upsertUserPackages()
+                    }
+                    else {
+                        
+                    }
+                }else {
+                    
+                }
+            }
+            
+        }) { (error, msg) in
+            
+            hideLoaderFor(view: self.view)
+            print("\(String(describing: msg))")
+        }
+    }
+    
+    func upsertUserPackages(){
+        
+        for package in userPackages{
+            
+            if package.all{
+                
+                var pkg = UserPackageItem()
+                pkg.PackageId = package.id
+                pkg.all = true
+                //TODO: save package expiry date
+                
+                do {
+                    
+                    try realm?.write {
+                        realm?.add(pkg, update: true)
+                    }
+                    
+                }catch let err {
+                    
+                    showAlert(title: "", message: err.localizedDescription, vc: self, closure: nil)
+                }
+                
+            }else{
+                
+                var pkgs = [UserPackageItem]()
+                
+                for i in 0..<package.unlocked.count{
+                    let pkg = UserPackageItem()
+                    pkg.PackageId = package.id
+                    pkg.categoryId = package.unlocked[i].categoryId
+                    //TODO: save package expiry date
+                    
+                    do {
+                        
+                        try realm?.write {
+                            realm?.add(pkg, update: true)
+                        }
+                        
+                    }catch let err {
+                        
+                        showAlert(title: "", message: err.localizedDescription, vc: self, closure: nil)
+                    }
+                }
+            }
+        }
     }
 
 }

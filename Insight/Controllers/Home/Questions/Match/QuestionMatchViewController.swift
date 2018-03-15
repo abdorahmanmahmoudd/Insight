@@ -37,7 +37,15 @@ class QuestionMatchViewController: ParentViewController, UITableViewDelegate, UI
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if showAnswers{
+            
+            self.navigationController?.isNavigationBarHidden = false
+            
+        }
+    }
     func configuration(){
         
         tableView.estimatedRowHeight = 300
