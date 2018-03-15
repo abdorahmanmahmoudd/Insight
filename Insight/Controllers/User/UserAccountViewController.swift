@@ -246,7 +246,7 @@ class UserAccountViewController: ParentViewController, UIPickerViewDataSource, U
             constraintHeightOfPickerView.constant = 162
         }else{
             
-           constraintHeightOfPickerView.constant == 0
+           constraintHeightOfPickerView.constant = 0
         }
     }
     
