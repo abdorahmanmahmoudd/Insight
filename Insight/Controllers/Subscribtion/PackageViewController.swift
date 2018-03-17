@@ -32,6 +32,7 @@ class PackageViewController: ParentViewController, UICollectionViewDelegate, UIC
     var selectedDurationIndex = Int()
     var validPromoCode = false
     var promoCodeId = Int()
+    var discountRatio = Int()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -100,6 +101,7 @@ class PackageViewController: ParentViewController, UICollectionViewDelegate, UIC
             }
             
             self.collectionViewDurtions.reloadData()
+            
         }
     }
     
@@ -125,9 +127,17 @@ class PackageViewController: ParentViewController, UICollectionViewDelegate, UIC
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         //handle selection
-        lblPrice.text = "\(durations[indexPath.row].price - ((durations[indexPath.row].discount / 100) * durations[indexPath.row].price))"
+        
+        if validPromoCode{
+            
+            let finalPrice = (discountRatio / 100) * (durations[indexPath.row].price ?? 0)
+            self.lblPrice.text = "\(finalPrice)"
+        }else{
+            
+            lblPrice.text = "\(durations[indexPath.row].price - ((durations[indexPath.row].discount / 100) * durations[indexPath.row].price))"
+        }
         selectedDurationIndex = indexPath.row
-        self.validPromoCode = false
+//        self.validPromoCode = false
     }
     
     
@@ -168,8 +178,9 @@ class PackageViewController: ParentViewController, UICollectionViewDelegate, UIC
                         self.validPromoCode = true
                         self.promoCodeId = json.promocode.id
                         self.imgCodeVerification.image = #imageLiteral(resourceName: "CORRECT")
-                        self.lblPrice.text = "\(json.promocode.newPrice ?? 0)"
-                        
+                        self.discountRatio = json.promocode.discount
+                        let finalPrice = (json.promocode.discount / 100) * (self.durations[self.selectedDurationIndex].price ?? 0)
+                        self.lblPrice.text = "\(finalPrice)"
                         
                     }else{
                         self.validPromoCode = false

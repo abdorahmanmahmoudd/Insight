@@ -184,7 +184,7 @@ class HomeViewController: ParentViewController {
                     
                     }
                     
-                    self.enableViewsInteraction()
+                    self.getUserPackages()
                     
                 }else {
                     
@@ -223,7 +223,7 @@ class HomeViewController: ParentViewController {
                         self.insightContent.append(InsightContentRootClass.init(fromDictionary: i))
                     }
                 }
-                self.enableViewsInteraction()
+                self.getUserPackages()
                 
             }catch let err{
                 
@@ -248,7 +248,7 @@ class HomeViewController: ParentViewController {
         
         for view in viewsHome{
             
-            view.isUserInteractionEnabled = true
+             view.isUserInteractionEnabled = true
         }
     }
     @IBAction func btnItemClicked(_ sender: UIButton) {
@@ -270,6 +270,7 @@ class HomeViewController: ParentViewController {
                 des.homeItemId = insightContent[((sender as? UIButton)?.tag)! - 1 ].id
                 
                 if let flag = self.flagFilter{
+                    
                     des.flagFilter = flag
                     
                     if let flaggedQuestions = realm?.objects(FlaggedQuestion.self){
@@ -283,6 +284,22 @@ class HomeViewController: ParentViewController {
                         })
                     }
                 }
+//                else{
+//                    // handle unlocked sub categories of the selected category
+//
+//                    let categoryIds = userPackages.map ({ $0.packageField.id })
+//
+//                    if let catId = insightContent[view.tag - 1].id{
+//
+//                        if categoryIds.contains(where: { (id) -> Bool in
+//                            return id == catId
+//                        }){
+//
+//                            view.isUserInteractionEnabled = true // enable unlocked categories only
+//                        }
+//                    }
+//
+//                }
             }
         }
     }
@@ -371,7 +388,7 @@ class HomeViewController: ParentViewController {
                         self.upsertUserPackages()
                     }
                     else {
-                        
+                                                
                     }
                 }else {
                     
@@ -387,49 +404,60 @@ class HomeViewController: ParentViewController {
     
     func upsertUserPackages(){
         
-        for package in userPackages{
-            
-            if package.all{
+        do{
+            for package in userPackages{
                 
-                var pkg = UserPackageItem()
-                pkg.PackageId = package.id
-                pkg.all = true
-                //TODO: save package expiry date
-                
-                do {
+                if package.packageField.all{
+                    
+                    let pkg = UserPackageItem()
+                    pkg.PackageId = package.packageField.id
+                    pkg.all = package.packageField.all
+                    pkg.expiryDate = package.expiredAt
                     
                     try realm?.write {
                         realm?.add(pkg, update: true)
                     }
                     
-                }catch let err {
+                }else{
                     
-                    showAlert(title: "", message: err.localizedDescription, vc: self, closure: nil)
-                }
-                
-            }else{
-                
-                var pkgs = [UserPackageItem]()
-                
-                for i in 0..<package.unlocked.count{
-                    let pkg = UserPackageItem()
-                    pkg.PackageId = package.id
-                    pkg.categoryId = package.unlocked[i].categoryId
-                    //TODO: save package expiry date
-                    
-                    do {
+                    for i in 0..<package.packageField.unlocked.count{
+                        
+                        let pkg = UserPackageItem()
+                        pkg.PackageId = package.packageField.id
+                        pkg.categoryId = package.packageField.unlocked[i].categoryId
+                        pkg.allSubCategories = package.packageField.unlocked[i].all
+                        pkg.expiryDate = package.expiredAt
+                        if !package.packageField.unlocked[i].all{
+                            
+//                            for subsubCategory in package.packageField.unlocked[i].unlockedSubCategory{
+//
+//                                //unlockedSubCategory is any object so backend needs to changes that if its required.
+//                            }
+                        }
                         
                         try realm?.write {
                             realm?.add(pkg, update: true)
                         }
                         
-                    }catch let err {
-                        
-                        showAlert(title: "", message: err.localizedDescription, vc: self, closure: nil)
                     }
                 }
             }
+            //delete expired packages
+            if let packages = realm?.objects(UserPackageItem.self){
+                for package in packages{
+                    
+                    if TimeInterval(package.expiryDate)  <= Date().timeIntervalSince1970{
+                        
+                        realm?.delete(package)
+                    }
+                }
+            }
+
+            self.enableViewsInteraction()
+            
+        }catch let err {
+            
+            showAlert(title: "", message: err.localizedDescription, vc: self, closure: nil)
         }
     }
-
 }

@@ -527,7 +527,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cys-Y4-YPp">
                                 <rect key="frame" x="32" y="320" width="311" height="55"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="Governorate*" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hvD-6u-8eI">
+                                    <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="Governorate*" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hvD-6u-8eI">
                                         <rect key="frame" x="53" y="17" width="206.5" height="22"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="MavenPro-Medium" family="Maven Pro" pointSize="18"/>

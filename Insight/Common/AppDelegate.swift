@@ -48,6 +48,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate,UNUserN
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
         
 //        UserModel.getInstance.saveUserToken(token: fcmToken)
+        firebaseToken = fcmToken
     }
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any],

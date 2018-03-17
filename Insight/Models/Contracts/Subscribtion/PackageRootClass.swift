@@ -12,6 +12,10 @@ class PackageRootClass : NSObject, NSCoding{
 	var name : String!
 	var packagesDurations : [PackagesDuration]!
 	var unlocked : [PackageUnlocked]!
+    var packageField : Package!
+    var price : Int!
+    var promocode : Promocode!
+    var expiredAt : Int!
 
 
 	/**
@@ -29,12 +33,20 @@ class PackageRootClass : NSObject, NSCoding{
             }
         }
 		unlocked = [PackageUnlocked]()
+        price = dictionary["price"] as? Int
+        expiredAt = dictionary["expired_at"] as? Int
 		if let unlockedArray = dictionary["unlocked"] as? [[String:Any]]{
 			for dic in unlockedArray{
 				let value = PackageUnlocked(fromDictionary: dic)
 				unlocked.append(value)
 			}
 		}
+        if let promocodeData = dictionary["promocode"] as? [String:Any]{
+            promocode = Promocode(fromDictionary: promocodeData)
+        }
+        if let packageFieldData = dictionary["package"] as? [String:Any]{
+            packageField = Package(fromDictionary: packageFieldData)
+        }
 	}
 
 	/**
@@ -66,6 +78,18 @@ class PackageRootClass : NSObject, NSCoding{
 			}
 			dictionary["unlocked"] = dictionaryElements
 		}
+        if expiredAt != nil{
+            dictionary["expired_at"] = expiredAt
+        }
+        if price != nil{
+            dictionary["price"] = price
+        }
+        if promocode != nil{
+            dictionary["promocode"] = promocode.toDictionary()
+        }
+        if packageField != nil{
+            dictionary["package"] = packageField.toDictionary()
+        }
 		return dictionary
 	}
 
@@ -80,7 +104,10 @@ class PackageRootClass : NSObject, NSCoding{
          name = aDecoder.decodeObject(forKey: "name") as? String
          packagesDurations = aDecoder.decodeObject(forKey :"packages_durations") as? [PackagesDuration]
          unlocked = aDecoder.decodeObject(forKey :"unlocked") as? [PackageUnlocked]
-
+        price = aDecoder.decodeObject(forKey: "price") as? Int
+        expiredAt = aDecoder.decodeObject(forKey: "expired_at") as? Int
+        promocode = aDecoder.decodeObject(forKey: "promocode") as? Promocode
+        packageField = aDecoder.decodeObject(forKey: "package") as? Package
 	}
 
     /**
@@ -104,7 +131,18 @@ class PackageRootClass : NSObject, NSCoding{
 		if unlocked != nil{
 			aCoder.encode(unlocked, forKey: "unlocked")
 		}
-
+        if price != nil{
+            aCoder.encode(price, forKey: "price")
+        }
+        if expiredAt != nil{
+            aCoder.encode(expiredAt, forKey: "expired_at")
+        }
+        if promocode != nil{
+            aCoder.encode(promocode, forKey: "promocode")
+        }
+        if packageField != nil{
+            aCoder.encode(packageField, forKey: "package")
+        }
 	}
 
 }

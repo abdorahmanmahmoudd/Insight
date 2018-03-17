@@ -44,6 +44,7 @@ class SubscribeViewController: ParentViewController, UICollectionViewDelegate, U
         self.title = "Subscribe"
         addSideMenuBtn()
         collectionViewPackages.register(UINib.init(nibName: "Package", bundle: Bundle.main), forCellWithReuseIdentifier: "PackageView")
+        collectionViewUserPackages.register(UINib.init(nibName: "Package", bundle: Bundle.main), forCellWithReuseIdentifier: "PackageView")
         
         viewNoCurrentPkg.layer.borderWidth = 2
         viewNoCurrentPkg.layer.borderColor = #colorLiteral(red: 1, green: 0.7244103551, blue: 0.2923497558, alpha: 1)
@@ -79,8 +80,8 @@ class SubscribeViewController: ParentViewController, UICollectionViewDelegate, U
         if collectionView == collectionViewUserPackages{
             
             cell.lblPgkName.text = "Package"
-            cell.lblPkgTitle.text = userPackages[indexPath.row].name
-            if userPackages[indexPath.row].all {
+            cell.lblPkgTitle.text = userPackages[indexPath.row].packageField.name
+            if userPackages[indexPath.row].packageField.all {
                 
                 cell.lblPkgCategories.text = "All Categories"
                 cell.lblPkgUnits.text = "All Units"
@@ -95,6 +96,7 @@ class SubscribeViewController: ParentViewController, UICollectionViewDelegate, U
                     }
                 }
             }
+            cell.btnSubscribe.isHidden = true
 
             
         }else if collectionView == collectionViewPackages{
@@ -118,7 +120,7 @@ class SubscribeViewController: ParentViewController, UICollectionViewDelegate, U
                     }
                 }
             }
-            
+            cell.btnSubscribe.isHidden = false
         }
         return cell
     }

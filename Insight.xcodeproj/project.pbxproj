@@ -102,6 +102,7 @@
 		BD9A4B5E2027682100DCCAE6 /* QuestionDictationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9A4B5D2027682100DCCAE6 /* QuestionDictationViewController.swift */; };
 		BD9A4B61202775B800DCCAE6 /* QuestionListeningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9A4B60202775B800DCCAE6 /* QuestionListeningViewController.swift */; };
 		BD9A4B63202775D200DCCAE6 /* QuestionListeningTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9A4B62202775D200DCCAE6 /* QuestionListeningTableViewCell.swift */; };
+		BD9CC0C1205D4987003CE769 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9CC0C0205D4987003CE769 /* Package.swift */; };
 		BDA2B4072040BCA700F36AB2 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA2B4062040BCA700F36AB2 /* ResultsViewController.swift */; };
 		BDA2B4082040D0C800F36AB2 /* MavenPro-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BD1B1EA62020ED710000D813 /* MavenPro-Black.ttf */; };
 		BDA2B4092040D0CB00F36AB2 /* MavenPro-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BD1B1EA42020ED700000D813 /* MavenPro-Bold.ttf */; };
@@ -241,6 +242,7 @@
 		BD9A4B5D2027682100DCCAE6 /* QuestionDictationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionDictationViewController.swift; sourceTree = "<group>"; };
 		BD9A4B60202775B800DCCAE6 /* QuestionListeningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionListeningViewController.swift; sourceTree = "<group>"; };
 		BD9A4B62202775D200DCCAE6 /* QuestionListeningTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionListeningTableViewCell.swift; sourceTree = "<group>"; };
+		BD9CC0C0205D4987003CE769 /* Package.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Package.swift; path = ../../../../../Package.swift; sourceTree = "<group>"; };
 		BDA2B4062040BCA700F36AB2 /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 		BDA2B40C20417B8F00F36AB2 /* AddMediaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMediaViewController.swift; sourceTree = "<group>"; };
 		BDA2B40E20417E3800F36AB2 /* AddPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoViewController.swift; sourceTree = "<group>"; };
@@ -416,6 +418,7 @@
 		BD1D28D1204C2E110088869A /* Subscribtion */ = {
 			isa = PBXGroup;
 			children = (
+				BD9CC0C0205D4987003CE769 /* Package.swift */,
 				BD542A4B205165AD00FE3674 /* Promocode.swift */,
 				BD542A4C205165AE00FE3674 /* PromoCodeResponse.swift */,
 				BD542A4720515ED500FE3674 /* SubscribedPackage.swift */,
@@ -1043,6 +1046,7 @@
 				BD1B1EB52020F6F80000D813 /* GeneralMethods.swift in Sources */,
 				BD7E3991204D6B7C0092A02E /* LogoutViewController.swift in Sources */,
 				BDAA57F8202CEF9900C32AA9 /* MistakesViewController.swift in Sources */,
+				BD9CC0C1205D4987003CE769 /* Package.swift in Sources */,
 				BD1B1ED62021349D0000D813 /* Storyboard.swift in Sources */,
 				BDD184E2201FA0E1006EBAB9 /* AuthenticationViewController.swift in Sources */,
 				BDAA5809202CFAAF00C32AA9 /* GeneralQuestionTableViewCell.swift in Sources */,

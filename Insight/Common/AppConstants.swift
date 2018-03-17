@@ -20,6 +20,7 @@ let FileSizeURL = "\(MainIP)filesize"
 let PassConfirmationCodeURL = "\(MainIP)auth/password/confirm"
 let UpdatePassURL = "\(MainIP)auth/password/update"
 let fawryURL = "\(MainIP)payment/fawry/view"
+let RefreshTokenURL = "\(MainIP)auth/refresh"
 
 
 //MARK: - Colors
@@ -48,6 +49,7 @@ let MavenProBold = "mavenPro-Bold"
 let jsonContentFileDirectory = "InsightContentFile.json"
 let InsightAppNoteKey = "InsightAppNoteKey"
 let InsightFileSizeKey = "InsightFileSize"
+var firebaseToken = ""
 
 let questionTimerUnit = 30
 

@@ -93,6 +93,8 @@ class SubscribtionModel{
             
             errorHandler(error, msg)
         }
+        
+        SubscribtionModel.ValidateCodeResource.url = ValidateCodeURL
     }
     
     

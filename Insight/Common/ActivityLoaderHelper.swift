@@ -55,7 +55,7 @@ func showLoaderForCustomView(view:UIView, color:UIColor)
     view.addSubview(spinner!)
     let halfButtonHeight = view.frame.size.height / 2;
     let buttonWidth = view.frame.size.width / 2;
-    spinner?.center = CGPoint(x: buttonWidth - (spinner?.frame.width)! , y: halfButtonHeight - (spinner?.frame.height)!)
+    spinner?.center = CGPoint(x: buttonWidth + (spinner?.frame.width)! , y: halfButtonHeight + (spinner?.frame.height)!)
     
 }
 
