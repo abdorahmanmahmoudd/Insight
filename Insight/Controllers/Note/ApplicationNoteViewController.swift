@@ -41,7 +41,7 @@ class ApplicationNoteViewController: ParentViewController, UITextViewDelegate {
     
     @IBAction func btnSaveClicked(_ sender: UIButton) {
         
-        if tvNote.text.trimmedText().characters.count > 0 {
+        if !tvNote.text.hasNoCharchters() {
             
             showLoaderFor(view: self.view)
             
@@ -51,6 +51,7 @@ class ApplicationNoteViewController: ParentViewController, UITextViewDelegate {
             UserDefaults.standard.synchronize()
             
             hideLoaderFor(view: self.view)
+            self.dismiss(animated: true, completion: nil)
         }
         
     }

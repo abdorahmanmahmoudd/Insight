@@ -54,6 +54,10 @@ class ParentViewController: UIViewController {
         
         SideMenuManager.shared.show(from: self.navigationController!)
     }
+    
+    func resetToHome(){
+        SideMenuManager.shared.reset()
+    }
 
     //MARK: - progress hud
 //    func showLoading()

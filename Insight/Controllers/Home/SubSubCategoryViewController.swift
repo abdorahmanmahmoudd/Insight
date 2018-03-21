@@ -93,6 +93,10 @@ class SubSubCategoryViewController: ParentViewController, UITableViewDelegate, U
                                 
                                 subsubCaterogies[selectedSubSubCategory].questions[i].data = filteredQuestions
                             }
+                            subsubCaterogies[selectedSubSubCategory].questions = subsubCaterogies[selectedSubSubCategory].questions.filter({ (question) -> Bool in
+                                return question.data.count > 0
+                            })
+                            
                             des.subsubCategory = subsubCaterogies[selectedSubSubCategory]
                             
                         } else {

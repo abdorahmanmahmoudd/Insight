@@ -10,6 +10,9 @@ import UIKit
 
 class AddMediaViewController: ParentViewController {
     
+    @IBOutlet var btnAddVoice: UIButton!
+    @IBOutlet var btnAddNote: UIButton!
+    @IBOutlet var btnAddPhoto: UIButton!
     @IBOutlet var btnRemoveFlaggedQuestion: UIButton!
     
     var removeBtnHidden = false
@@ -38,6 +41,12 @@ class AddMediaViewController: ParentViewController {
         
         self.title = "Add Media"
         btnRemoveFlaggedQuestion.isHidden = removeBtnHidden
+        if !removeBtnHidden { // means that flagged questions selected
+            
+            btnAddNote.setTitle("Note", for: .normal)
+            btnAddPhoto.setTitle("Photo", for: .normal)
+            btnAddVoice.setTitle("Voice note", for: .normal)
+        }
     }
     
     @IBAction func btnAddPhotoClicked(_ sender: UIButton) {

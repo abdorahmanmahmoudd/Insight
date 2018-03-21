@@ -254,13 +254,13 @@ class QuestionMcqViewController: ParentViewController, UITableViewDelegate, UITa
                     return question.content.html2String.lowercased().contains(txt)
                 }
                 self.tableQuestions.reloadData()
-                self.tableQuestions.layoutIfNeeded()
+//                self.tableQuestions.layoutIfNeeded()
                 
             }else{
                 
                 self.questions = self.tempQuestions
                 self.tableQuestions.reloadData()
-                self.tableQuestions.layoutIfNeeded()
+//                self.tableQuestions.layoutIfNeeded()
             }
             hideLoaderFor(view: self.view)
         })

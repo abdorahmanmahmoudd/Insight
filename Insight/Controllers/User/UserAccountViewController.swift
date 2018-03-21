@@ -219,7 +219,7 @@ class UserAccountViewController: ParentViewController, UIPickerViewDataSource, U
                     
                 }else if statusCode == 400{ //taken mobile or email
                     
-                    showAlert(title: "", message: "Number or Email already exists", vc: self, closure: nil)
+                    showAlert(title: "", message: "Mobile or mail already taken", vc: self, closure: nil)
                     
                 }else {
                     

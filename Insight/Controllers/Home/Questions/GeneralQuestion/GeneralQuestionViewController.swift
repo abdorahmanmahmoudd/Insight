@@ -33,7 +33,7 @@ class GeneralQuestionViewController: ParentViewController , UITableViewDelegate,
     func configuration(){
         
         tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 150
+        tableView.estimatedRowHeight = 300
         if isSearch{
             constraintHeightOfSearchView.constant = 46
             self.navigationController?.isNavigationBarHidden = false
@@ -76,10 +76,10 @@ class GeneralQuestionViewController: ParentViewController , UITableViewDelegate,
         return cell
     }
 
-    func textViewDidChange(_ textView: UITextView) {
-        tableView.beginUpdates()
-        tableView.endUpdates()
-    }
+//    func textViewDidChange(_ textView: UITextView) {
+//        tableView.beginUpdates()
+//        tableView.endUpdates()
+//    }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
         textView.text.removeAll()
@@ -151,13 +151,13 @@ class GeneralQuestionViewController: ParentViewController , UITableViewDelegate,
                     return question.content.html2String.lowercased().contains(txt)
                 }
                 self.tableView.reloadData()
-                self.tableView.layoutIfNeeded()
+//                self.tableView.layoutIfNeeded()
                 
             }else{
                 
                 self.questions = self.tempQuestions
                 self.tableView.reloadData()
-                self.tableView.layoutIfNeeded()
+//                self.tableView.layoutIfNeeded()
             }
             hideLoaderFor(view: self.view)
         })

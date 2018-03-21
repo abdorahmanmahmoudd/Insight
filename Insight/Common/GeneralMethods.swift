@@ -29,11 +29,11 @@ func showAlert(title:String, message:String, vc:UIViewController, closure:(()->(
 func showYesNoAlert(title:String, message:String, vc:UIViewController, closure:((Bool)->())?)
 {
     let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
-    let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default)
+    let okAction = UIAlertAction(title: "Yes", style: UIAlertActionStyle.default)
     { (result : UIAlertAction) -> Void in
         closure?(true)
     }
-    let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default)
+    let cancelAction = UIAlertAction(title: "No", style: UIAlertActionStyle.default)
     { (result : UIAlertAction) -> Void in
         closure?(false)
     }

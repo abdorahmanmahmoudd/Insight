@@ -67,8 +67,11 @@ class ResultsViewController: ParentViewController {
     }
     
     @IBAction func btnDoneClicked(_ sender: UIButton) {
-        
-        self.navigationController?.popToRootViewController(animated: true)
+        if updateServer{
+            self.navigationController?.popToRootViewController(animated: true)
+        }else{
+            self.dismiss(animated: true, completion: nil)
+        }
     }
     
     func sendScoreToServer(){
@@ -169,7 +172,7 @@ class ResultsViewController: ParentViewController {
             
             self.btnDone.isEnabled = true
             hideLoaderFor(view: self.view)
-            showAlert(title: "Error", message: "Failed to send user score \n Please check your internet connection", vc: self, closure: nil)
+            showAlert(title: "Error", message: "Failed to get user score \n Please check your internet connection", vc: self, closure: nil)
         }
     }
     

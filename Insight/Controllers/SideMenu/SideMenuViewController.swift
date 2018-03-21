@@ -124,16 +124,17 @@ class SideMenuViewController: UIViewController ,UITableViewDelegate, UITableView
         return viewController
     }
     
-    func navigate(to viewController: UIViewController, isLogOut: Bool = false, isShare: Bool = false) {
+    func navigate(to viewController: UIViewController, isLogOut: Bool = false, toBePresented: Bool = false) {
         guard let delegate = self.delegate else {
             return
         }
         DispatchQueue.main.async {
             self.dismiss(animated: true) {
-                if isShare{
+                if toBePresented{
                     delegate.present(viewController, animated: true, completion: nil)
                     
                 }else if isLogOut {
+                    
                     viewController.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
                     viewController.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
                     delegate.present(viewController, animated: true, completion: nil)
@@ -151,11 +152,11 @@ class SideMenuViewController: UIViewController ,UITableViewDelegate, UITableView
         guard indexPath.row != selectedIndex else {
             return
         }
-        if indexPath.row == 8{
-            self.navigate(to: self.getViewController(for: indexPath.row ), isLogOut: false, isShare: true)
+        if indexPath.row == 8 || indexPath.row == 4 || indexPath.row == 5{
+            self.navigate(to: self.getViewController(for: indexPath.row ), isLogOut: false, toBePresented: true)
             
         }else if indexPath.row == 9 {
-            self.navigate(to: self.getViewController(for: indexPath.row ), isLogOut: true, isShare: false)
+            self.navigate(to: self.getViewController(for: indexPath.row ), isLogOut: true, toBePresented: false)
             
         }else{
             selectedIndex = indexPath.row
@@ -179,7 +180,8 @@ class SideMenuViewController: UIViewController ,UITableViewDelegate, UITableView
     
 	func reset() {
 		selectedIndex = 0
-		tableView?.selectRow(at: IndexPath(row: selectedIndex, section: 0), animated: false, scrollPosition: .none)
+        self.navigate(to: self.getViewController(for: selectedIndex ))
+//        tableView?.selectRow(at: IndexPath(row: selectedIndex, section: 0), animated: false, scrollPosition: .none)
 	}
 
     

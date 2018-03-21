@@ -20,7 +20,7 @@ class ScoreModel {
         return nil
     }
     
-    static var GetScoreResource = Resource<GeneralResponse>.init(url: UpdateScoreURL, httpmethod: .get) { (json) -> GeneralResponse? in
+    static var GetScoreResource = Resource<GeneralResponse>.init(url: GetScoreURL, httpmethod: .get) { (json) -> GeneralResponse? in
         
         if let jsonObj = json as? [String : Any]
         {

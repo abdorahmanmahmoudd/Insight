@@ -79,10 +79,10 @@ class MiniDialogViewController: ParentViewController , UITableViewDelegate, UITa
         return cell
     }
     
-    func textViewDidChange(_ textView: UITextView) {
-        tableView.beginUpdates()
-        tableView.endUpdates()
-    }
+//    func textViewDidChange(_ textView: UITextView) {
+//        tableView.beginUpdates()
+//        tableView.endUpdates()
+//    }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
         textView.text.removeAll()
@@ -158,13 +158,13 @@ class MiniDialogViewController: ParentViewController , UITableViewDelegate, UITa
                     return question.content.html2String.lowercased().contains(txt)
                 }
                 self.tableView.reloadData()
-                self.tableView.layoutIfNeeded()
+//                self.tableView.layoutIfNeeded()
                 
             }else{
                 
                 self.questions = self.tempQuestions
                 self.tableView.reloadData()
-                self.tableView.layoutIfNeeded()
+//                self.tableView.layoutIfNeeded()
             }
             hideLoaderFor(view: self.view)
         })

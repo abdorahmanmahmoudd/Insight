@@ -69,6 +69,7 @@
 		BD3DA3FF202AFBEE00CCB7B0 /* MiniDialogTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3DA3FE202AFBEE00CCB7B0 /* MiniDialogTableViewCell.swift */; };
 		BD3DA401202B009500CCB7B0 /* Mistake.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3DA400202B009500CCB7B0 /* Mistake.swift */; };
 		BD3DB17920384894002A632D /* GeneralQuestionAnswersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3DB17820384894002A632D /* GeneralQuestionAnswersViewController.swift */; };
+		BD3FCDB1205EE531001E9B24 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BD3FCDB0205EE530001E9B24 /* GoogleService-Info.plist */; };
 		BD40FD90203C53B6001E159C /* Flag.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD40FD8F203C53B6001E159C /* Flag.storyboard */; };
 		BD40FD92203C5820001E159C /* FlagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD40FD91203C5820001E159C /* FlagViewController.swift */; };
 		BD40FD94203C5D84001E159C /* FlagTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD40FD93203C5D84001E159C /* FlagTableViewCell.swift */; };
@@ -209,6 +210,7 @@
 		BD3DA3FE202AFBEE00CCB7B0 /* MiniDialogTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniDialogTableViewCell.swift; sourceTree = "<group>"; };
 		BD3DA400202B009500CCB7B0 /* Mistake.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mistake.swift; sourceTree = "<group>"; };
 		BD3DB17820384894002A632D /* GeneralQuestionAnswersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralQuestionAnswersViewController.swift; sourceTree = "<group>"; };
+		BD3FCDB0205EE530001E9B24 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BD40FD8F203C53B6001E159C /* Flag.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Flag.storyboard; sourceTree = "<group>"; };
 		BD40FD91203C5820001E159C /* FlagViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlagViewController.swift; sourceTree = "<group>"; };
 		BD40FD93203C5D84001E159C /* FlagTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlagTableViewCell.swift; sourceTree = "<group>"; };
@@ -674,6 +676,7 @@
 		BDD184BE201F9ABD006EBAB9 /* Insight */ = {
 			isa = PBXGroup;
 			children = (
+				BD3FCDB0205EE530001E9B24 /* GoogleService-Info.plist */,
 				BDAA1AFC204ECBEE00D02E01 /* Insight.entitlements */,
 				BDD184CB201F9ABD006EBAB9 /* Info.plist */,
 				BDD184D1201F9ACD006EBAB9 /* Common */,
@@ -889,6 +892,7 @@
 				BD1B1EDB2021389F0000D813 /* SideMenuViewController.storyboard in Resources */,
 				BD27EEE0201FF353007872E0 /* LaunchScreen.storyboard in Resources */,
 				BD1D28DD204C39DB0088869A /* Package.xib in Resources */,
+				BD3FCDB1205EE531001E9B24 /* GoogleService-Info.plist in Resources */,
 				BD542A3D20509B0300FE3674 /* Information.storyboard in Resources */,
 				BD0E781A203AE289001003B5 /* Account.storyboard in Resources */,
 				BD436721205063CC0038345A /* Note.storyboard in Resources */,

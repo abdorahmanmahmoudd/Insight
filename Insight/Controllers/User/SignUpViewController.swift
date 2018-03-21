@@ -154,7 +154,7 @@ class SignUpViewController: ParentViewController, UIPickerViewDelegate, UIPicker
                     
                 }else if statusCode == 400{ // bad request
                     
-                    showAlert(title: "", message: "Taken mobile number or email"  , vc: self, closure: nil)
+                    showAlert(title: "", message: "Mobile or mail already taken"  , vc: self, closure: nil)
                     
                 }else { // unknown error
                     

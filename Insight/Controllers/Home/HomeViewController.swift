@@ -127,23 +127,27 @@ class HomeViewController: ParentViewController {
                         DispatchQueue.main.async {
                             self.saveContentFile(jsonData:  data)
                         }
-                        
-                    }
                     
                     //decode
-                    //                    let dataString = String.init(data: data, encoding: .utf8)
-                    //                    if let decodedStr = self.decode(data: dataString!){
-                    //                        if let jsonData = try? JSONSerialization.data(withJSONObject: decodedStr, options:[]){
-                    //
-                    //                            if let jsonStr = String.init(data: jsonData, encoding: String.Encoding.utf8){
-                    //
-                    //                                self.saveContentFile(jsonData:  jsonData)
-                    //
-                    //                            }
-                    //                        }
-                    //                    }
+                    
+//                    let dataString = String.init(data: data, encoding: String.Encoding.utf8)
+//
+//                    if let decodedStr = self.decode(data: dataString!){
+//
+//                        if let jsonData = try? JSONSerialization.data(withJSONObject: decodedStr, options:[]){
+//
+//                            if let jsonStr = String.init(data: jsonData, encoding: String.Encoding.utf8){
+//
+//                                DispatchQueue.main.async {
+//                                    self.saveContentFile(jsonData:  data)
+//                                }
+//
+//                            }
+//                        }
+//                    }
                 }
-                
+                }
+        
                 OperationQueue.main.addOperation {
                     hideLoaderFor(view: self.view)
                 }
@@ -320,20 +324,70 @@ class HomeViewController: ParentViewController {
 //            cipher.init(Cipher.DECRYPT_MODE, skeySpec, iv);
 //            byte[] decodedEncryptedData = Base64.decode(parts[0], Base64.DEFAULT);
 //            byte[] original = cipher.doFinal(decodedEncryptedData);
+        
+//        public static function encrypt($key, $iv, $data) {
+//
+//            $OPENSSL_CIPHER_NAME = "aes-128-cbc"; //Name of OpenSSL Cipher
+//            $CIPHER_KEY_LEN = 16; //128 bits
+//
+//            if (strlen($key) < $CIPHER_KEY_LEN) {
+//                $key = str_pad("$key", $CIPHER_KEY_LEN, "0"); //0 pad to len 16
+//            } else if (strlen($key) > $CIPHER_KEY_LEN) {
+//                $key = substr($str, 0, $CIPHER_KEY_LEN); //truncate to 16 bytes
+//            }
+//
+//            $encodedEncryptedData = base64_encode(openssl_encrypt($data, $OPENSSL_CIPHER_NAME, $key, OPENSSL_RAW_DATA, $iv));
+//            $encodedIV = base64_encode($iv);
+//            $encryptedPayload = $encodedEncryptedData.":".$encodedIV;
+//
+//            return $encryptedPayload;
+//
+//        }
+//
+//        /**
+//         * Decrypt data using AES Cipher (CBC) with 128 bit key
+//         *
+//         * @param type $key - key to use should be 16 bytes long (128 bits)
+//         * @param type $data - data to be decrypted in base64 encoding with iv attached at the end after a :
+//         * @return decrypted data
+//         */
+//        public static function decrypt($key, $data) {
+//
+//            $OPENSSL_CIPHER_NAME = "aes-128-cbc"; //Name of OpenSSL Cipher
+//            $CIPHER_KEY_LEN = 16; //128 bits
+//
+//            if (strlen($key) < $CIPHER_KEY_LEN) {
+//                $key = str_pad("$key", $CIPHER_KEY_LEN, "0"); //0 pad to len 16
+//            } else if (strlen($key) > $CIPHER_KEY_LEN) {
+//                $key = substr($str, 0, $CIPHER_KEY_LEN); //truncate to 16 bytes
+//            }
+//
+//            $parts = explode(':', $data); //Separate Encrypted data from iv.
+//            $decryptedData = openssl_decrypt(base64_decode($parts[0]), $OPENSSL_CIPHER_NAME, $key, OPENSSL_RAW_DATA, base64_decode($parts[1]));
+//
+//            return $decryptedData;
+//        }
 
         do {
-            
 //            let CIPHER_NAME = "AES/CBC/PKCS5PADDING"
             let ENCRYPTION_KEY = "0123456789abcdef"
             var parts = data.split(separator: ":")
             
-            let input = String(parts[0])
+            var input = String(parts[0])
             var iv = String(parts[1])
 //            print(part0)
             iv.removeLast(1)
             iv = iv.base64Decoded()
+            input.removeFirst(1)
             
-            let dec = try AES(key: Array(ENCRYPTION_KEY.utf8), blockMode: .CBC(iv: Array(iv.utf8))).decrypt(Array(input.utf8))
+//            let decodedData = NSData(base64Encoded: input, options:NSData.Base64DecodingOptions.init(rawValue: 0))
+//            let decodedString = NSString(data: decodedData! as Data, encoding: String.Encoding.utf8.rawValue) as? String
+//            print(decodedString)
+            try testEnc()
+            
+//            let dex = try AES(key: ENCRYPTION_KEY.bytes, blockMode: BlockMode.CBC(iv: iv.bytes)).decrypt(input.bytes)
+            let dec = try AES(key: Array(ENCRYPTION_KEY.utf8), blockMode: .CBC(iv: Array(iv.utf8)), padding: Padding.pkcs5).decrypt(Array(input.utf8))
+            
             
             _ = Data(bytes: dec)
             
@@ -368,6 +422,24 @@ class HomeViewController: ParentViewController {
         }
         
         return nil
+    }
+    
+    func testEnc() throws {
+        
+        let ivKey = "fedcba9876543210"
+        let message = "Test Message"
+        let password = "0123456789abcdef"
+        
+        do {
+            let messageArray = Array(message.utf8)
+            let encrypted = try AES(key: password.bytes, blockMode: .CBC(iv: Array(ivKey.utf8)), padding: .pkcs5).encrypt(messageArray)
+            let encryptedString = String.init(bytes: encrypted, encoding: .utf8)
+            let decrypted = try AES(key: password.bytes, blockMode: .CBC(iv: Array(ivKey.utf8)), padding: .pkcs5).decrypt(encrypted)
+            let decryptedString = String.init(bytes: decrypted, encoding: .utf8)
+            assert(message == decryptedString)
+        } catch {
+            print(error)
+        }
     }
     
     func getUserPackages(){
@@ -446,9 +518,11 @@ class HomeViewController: ParentViewController {
             if let packages = realm?.objects(UserPackageItem.self){
                 for package in packages{
                     
-                    if TimeInterval(package.expiryDate)  <= Date().timeIntervalSince1970{
+                    if TimeInterval(package.expiryDate)  >= Date().timeIntervalSince1970{
                         
-                        realm?.delete(package)
+                        try realm?.write {
+                            realm?.delete(package)
+                        }
                     }
                 }
             }

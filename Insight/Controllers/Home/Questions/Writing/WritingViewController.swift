@@ -124,13 +124,13 @@ class WritingViewController: ParentViewController,UITableViewDelegate, UITableVi
                     return question.content.html2String.lowercased().contains(txt)
                 }
                 self.tableView.reloadData()
-                self.tableView.layoutIfNeeded()
+//                self.tableView.layoutIfNeeded()
                 
             }else{
                 
                 self.questions = self.tempQuestions
                 self.tableView.reloadData()
-                self.tableView.layoutIfNeeded()
+//                self.tableView.layoutIfNeeded()
             }
             hideLoaderFor(view: self.view)
         })
