@@ -266,6 +266,10 @@ class QuestionsContainerViewController: ParentViewController, GradedQuestion {
                     self.initDerivativesQuestionView()
                     break
                     
+                case QuestionTypes.vocabulary.rawValue?:
+                    self.initVocabularyQuestionView()
+                    break
+                    
                 default:
                     showAlert(title: "Warning", message: "Unexpected question type!", vc: self, closure: {
                         
@@ -282,6 +286,11 @@ class QuestionsContainerViewController: ParentViewController, GradedQuestion {
                     
                 }
             }
+        }else{
+            
+            showAlert(title: "", message: "This question is corrupted", vc: self, closure: {
+                self.navigationController?.popViewController(animated: true)
+            })
         }
         
     }
@@ -788,6 +797,44 @@ class QuestionsContainerViewController: ParentViewController, GradedQuestion {
                 self.btnNextOrSubmit.setTitle("Submit", for: .normal)
                 self.btnNextOrSubmit.removeTarget(nil, action: #selector(self.nextQuestion), for: .touchUpInside)
                 self.btnNextOrSubmit.addTarget(nil, action: #selector(self.submitQuestion), for: .touchUpInside)
+                
+                hideLoaderFor(view: self.view)
+                self.btnPrevious.isEnabled = true
+                self.btnNextOrSubmit.isEnabled = true
+            }
+            
+            self.addChildViewController(vc)
+            vc.didMove(toParentViewController: self)
+            
+        }
+    }
+    
+    func initVocabularyQuestionView(){
+        
+        DispatchQueue.main.async {
+            self.lblTimer.isHidden = true
+            self.imgTimer.isHidden = true
+        }
+        let storyboard = UIStoryboard.init(name: "Home", bundle: Bundle.main)
+        if let vc  = storyboard.instantiateViewController(withIdentifier: "QuestionVocabularyVC") as? VocabularyViewController {
+            
+            vc.questions = subsubCategory!.questions[currentQuestionIndex].data
+            self.advancedQuestionDelegate = vc
+            vc.containerDelegate = self
+            vc.willMove(toParentViewController: self)
+            
+            DispatchQueue.main.async{
+                vc.view.translatesAutoresizingMaskIntoConstraints = false
+                
+                self.containerViewQuestion.addSubview(vc.view)
+                vc.view.leadingAnchor.constraint(equalTo: self.containerViewQuestion.leadingAnchor).isActive = true
+                vc.view.trailingAnchor.constraint(equalTo: self.containerViewQuestion.trailingAnchor).isActive = true
+                vc.view.topAnchor.constraint(equalTo: self.containerViewQuestion.topAnchor).isActive = true
+                vc.view.bottomAnchor.constraint(equalTo: self.containerViewQuestion.bottomAnchor).isActive = true
+                
+                self.btnNextOrSubmit.setTitle("Next", for: .normal)
+                self.btnNextOrSubmit.removeTarget(nil, action: #selector(self.submitQuestion), for: .touchUpInside)
+                self.btnNextOrSubmit.addTarget(nil, action: #selector(self.nextQuestion), for: .touchUpInside)
                 
                 hideLoaderFor(view: self.view)
                 self.btnPrevious.isEnabled = true

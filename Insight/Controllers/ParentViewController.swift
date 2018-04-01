@@ -8,6 +8,8 @@
 
 import UIKit
 import RealmSwift
+import IQKeyboardManagerSwift
+
 
 class ParentViewController: UIViewController {
     
@@ -52,6 +54,7 @@ class ParentViewController: UIViewController {
     
     @objc func openSideMenu(){
         
+        IQKeyboardManager.sharedManager().resignFirstResponder()
         SideMenuManager.shared.show(from: self.navigationController!)
     }
     

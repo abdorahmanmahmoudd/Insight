@@ -18,6 +18,8 @@
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>FirebaseAppDelegateProxyEnabled</key>
+	<false/>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
@@ -29,10 +31,10 @@
 	<string>Allow Insight to access Media library</string>
 	<key>NSCameraUsageDescription</key>
 	<string>Allow Insight to access camera</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Allow Insight to acces photo library</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>Allow Insight to access microphone</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Allow Insight to acces photo library</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>MavenPro-Black</string>
@@ -66,8 +68,6 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
-	<false/>
-	<key>FirebaseAppDelegateProxyEnabled</key>
 	<false/>
 </dict>
 </plist>

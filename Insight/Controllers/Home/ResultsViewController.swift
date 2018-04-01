@@ -55,7 +55,6 @@ class ResultsViewController: ParentViewController {
             
             selectedIndex = 5
             addSideMenuBtn()
-            getScore()
         }
         
     }
@@ -70,7 +69,9 @@ class ResultsViewController: ParentViewController {
         if updateServer{
             self.navigationController?.popToRootViewController(animated: true)
         }else{
-            self.dismiss(animated: true, completion: nil)
+            let sb = UIStoryboard.init(name: "Home", bundle: Bundle.main)
+            let viewController = sb.instantiateViewController(withIdentifier: "HomeVC")
+            self.navigationController?.setViewControllers([viewController], animated: true)
         }
     }
     
@@ -130,51 +131,7 @@ class ResultsViewController: ParentViewController {
         }
     }
     
-    func getScore(){
-        
-        btnDone.isEnabled = false
-        showLoaderFor(view: self.view)
-        
-        let sm = ScoreModel()
-        sm.getScore( complation: { (json, code) in
-            
-            self.btnDone.isEnabled = true
-            hideLoaderFor(view: self.view)
-            
-            if let statusCode = code as? Int{
-                
-                if statusCode == 200{
-                    
-                    if let object = json{
-                        // TODO: set values
-                        self.startAnimation()
-                    }
-                    
-                }else if statusCode == 452{ //token expired
-                    
-                    showAlert(title: "", message: "Token expired", vc: self, closure: nil)
-                    
-                }else if statusCode == 456{ //account blocked
-                    
-                    showAlert(title: "", message: "Accout blocked", vc: self, closure: nil)
-                    
-                }else if statusCode == 451{ //force update
-                    
-                    showAlert(title: "", message: "Please update", vc: self, closure: nil)
-                    
-                }else{
-                    
-                    showAlert(title: "", message: "Error code \(statusCode)"  , vc: self, closure: nil)
-                }
-            }
-            
-        }) { (error, msg) in
-            
-            self.btnDone.isEnabled = true
-            hideLoaderFor(view: self.view)
-            showAlert(title: "Error", message: "Failed to get user score \n Please check your internet connection", vc: self, closure: nil)
-        }
-    }
+
     
 
 }

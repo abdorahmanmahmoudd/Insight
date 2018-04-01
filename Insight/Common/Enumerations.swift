@@ -58,6 +58,7 @@ enum QuestionTypes : String {
     case TrueFalse = "TrueFalse"
     case Comprehension = "Reading"
     case derivatives = "Derivatives"
+    case vocabulary = "Vocabulary"
 }
 
 enum Flag : Int{

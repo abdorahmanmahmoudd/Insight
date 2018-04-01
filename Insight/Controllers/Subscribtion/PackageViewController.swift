@@ -130,7 +130,7 @@ class PackageViewController: ParentViewController, UICollectionViewDelegate, UIC
         
         if validPromoCode{
             
-            let finalPrice = (discountRatio / 100) * (durations[indexPath.row].price ?? 0)
+            let finalPrice = (durations[indexPath.row].price ?? 0) - (discountRatio / 100) * (durations[indexPath.row].price ?? 0)
             self.lblPrice.text = "\(finalPrice)"
         }else{
             
@@ -179,7 +179,7 @@ class PackageViewController: ParentViewController, UICollectionViewDelegate, UIC
                         self.promoCodeId = json.promocode.id
                         self.imgCodeVerification.image = #imageLiteral(resourceName: "CORRECT")
                         self.discountRatio = json.promocode.discount
-                        let finalPrice = (json.promocode.discount / 100) * (self.durations[self.selectedDurationIndex].price ?? 0)
+                        let finalPrice = (self.durations[self.selectedDurationIndex].price ?? 0) - ((json.promocode.discount / 100) * (self.durations[self.selectedDurationIndex].price ?? 0))
                         self.lblPrice.text = "\(finalPrice)"
                         
                     }else{
@@ -223,19 +223,28 @@ class PackageViewController: ParentViewController, UICollectionViewDelegate, UIC
                         
                         showAlert(title: "", message: "Package created successfully", vc: self, closure: {
                             
-                            let fawry = "\(fawryURL)?mobile=\(json.packageField.mobile!)&email=\(json.packageField.email!)&price=\(json.packageField.price!)&orderId=\(json.packageField.orderId!)&packageName=\(json.packageField.packageName!)"
-                            
-                            if let url = URL(string: fawry ){
+                            if self.lblPrice.text != nil && self.lblPrice.text!.trimmedText() != "0" {
+                                let fawry = "\(fawryURL)?mobile=\(json.packageField.mobile!)&email=\(json.packageField.email!)&price=\(json.packageField.price!)&orderId=\(json.packageField.orderId!)&packageName=\(json.packageField.packageName!)"
                                 
-                                let svc = SFSafariViewController(url: url)
-                                svc.preferredBarTintColor = ColorMainBlue
-                                svc.preferredControlTintColor = .white
-                                if #available(iOS 11.0, *) {
-                                    svc.dismissButtonStyle = .close
+                                if let url = URL(string: fawry ){
+                                    
+                                    let svc = SFSafariViewController(url: url)
+                                    svc.preferredBarTintColor = ColorMainBlue
+                                    svc.preferredControlTintColor = .white
+                                    if #available(iOS 11.0, *) {
+                                        svc.dismissButtonStyle = .close
+                                    }
+                                    self.present(svc, animated: true, completion: nil)
+                                    
                                 }
-                                self.present(svc, animated: true, completion: nil)
+                            }else{
+                                
+                                let sb = UIStoryboard.init(name: "Home", bundle: Bundle.main)
+                                let viewController = sb.instantiateViewController(withIdentifier: "HomeVC")
+                                self.navigationController?.setViewControllers([viewController], animated: true)
                                 
                             }
+                            
                         })
                     }else{
                         

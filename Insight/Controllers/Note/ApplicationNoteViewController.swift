@@ -41,18 +41,19 @@ class ApplicationNoteViewController: ParentViewController, UITextViewDelegate {
     
     @IBAction func btnSaveClicked(_ sender: UIButton) {
         
-        if !tvNote.text.hasNoCharchters() {
-            
-            showLoaderFor(view: self.view)
-            
-            let text = tvNote.text
-            
-            UserDefaults.standard.set(text, forKey: UserModel.getInstance.getUser()?.user.email ?? InsightAppNoteKey)
-            UserDefaults.standard.synchronize()
-            
-            hideLoaderFor(view: self.view)
-            self.dismiss(animated: true, completion: nil)
-        }
+        showLoaderFor(view: self.view)
+        
+        let text = tvNote.text
+        
+        UserDefaults.standard.set(text, forKey: UserModel.getInstance.getUser()?.user.email ?? InsightAppNoteKey)
+        UserDefaults.standard.synchronize()
+        
+        hideLoaderFor(view: self.view)
+        
+        
+        let sb = UIStoryboard.init(name: "Home", bundle: Bundle.main)
+        let viewController = sb.instantiateViewController(withIdentifier: "HomeVC")
+        self.navigationController?.setViewControllers([viewController], animated: true)
         
     }
     

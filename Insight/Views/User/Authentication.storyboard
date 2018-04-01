@@ -12,6 +12,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue</string>
+        </array>
         <array key="MavenPro-Bold.ttf">
             <string>MavenPro-Bold</string>
         </array>
@@ -184,15 +187,28 @@
                                     <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icLock" translatesAutoresizingMaskIntoConstraints="NO" id="xbD-A6-Xtz">
                                         <rect key="frame" x="16" y="17.5" width="20" height="20"/>
                                     </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wml-ZJ-e8X">
+                                        <rect key="frame" x="267" y="12" width="36" height="30"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                        <state key="normal" title="show">
+                                            <color key="titleColor" red="0.027450980390000001" green="0.14117647059999999" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnShowPassClicked:" destination="KwL-ez-V0o" eventType="touchUpInside" id="tOX-Wm-VQN"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="Wml-ZJ-e8X" firstAttribute="centerY" secondItem="Hk6-QO-ui2" secondAttribute="centerY" id="2Gj-kU-JNU"/>
                                     <constraint firstItem="dWu-XA-IGE" firstAttribute="leading" secondItem="xbD-A6-Xtz" secondAttribute="trailing" constant="16" id="7pz-uZ-tLB"/>
                                     <constraint firstAttribute="height" secondItem="dWu-XA-IGE" secondAttribute="height" multiplier="2.5" id="8Zp-3w-QYv"/>
                                     <constraint firstItem="dWu-XA-IGE" firstAttribute="centerY" secondItem="Hk6-QO-ui2" secondAttribute="centerY" id="B0c-kj-pEM"/>
                                     <constraint firstItem="xbD-A6-Xtz" firstAttribute="leading" secondItem="Hk6-QO-ui2" secondAttribute="leading" constant="16" id="ZJU-Gp-Szd"/>
                                     <constraint firstItem="dWu-XA-IGE" firstAttribute="centerX" secondItem="Hk6-QO-ui2" secondAttribute="centerX" id="jCE-Dy-Eg1"/>
                                     <constraint firstItem="xbD-A6-Xtz" firstAttribute="centerY" secondItem="dWu-XA-IGE" secondAttribute="centerY" id="mYE-KO-uqd"/>
+                                    <constraint firstAttribute="trailing" secondItem="Wml-ZJ-e8X" secondAttribute="trailing" constant="8" id="nlj-0i-8PZ"/>
+                                    <constraint firstItem="Wml-ZJ-e8X" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="dWu-XA-IGE" secondAttribute="trailing" constant="2" id="y7p-uu-rLc"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -765,7 +781,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GbR-sB-KRt">
                                 <rect key="frame" x="107.5" y="147" width="160" height="34"/>
                                 <fontDescription key="fontDescription" name="MavenPro-Bold" family="Maven Pro" pointSize="18"/>
-                                <state key="normal" title="Enter" backgroundImage="button-blueBG">
+                                <state key="normal" title="Save" backgroundImage="button-blueBG">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>

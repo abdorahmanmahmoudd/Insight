@@ -12,7 +12,7 @@ class LogoutViewController: ParentViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        print("did load")
         // Do any additional setup after loading the view.
     }
 

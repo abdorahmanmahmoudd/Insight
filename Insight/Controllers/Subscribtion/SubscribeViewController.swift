@@ -68,7 +68,7 @@ class SubscribeViewController: ParentViewController, UICollectionViewDelegate, U
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        let size = CGSize.init(width: collectionView.frame.size.width - 8, height: collectionView.frame.size.height - 8)
+        let size = CGSize.init(width: collectionView.frame.size.width - 24, height: collectionView.frame.size.height - 8)
         return size
     }
     

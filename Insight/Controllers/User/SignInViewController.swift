@@ -28,10 +28,15 @@ class SignInViewController: ParentViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    
-    @IBAction func btnForgetClicked(_ sender: UIButton) {
+    @IBAction func btnShowPassClicked(_ sender: UIButton) {
         
-        
+        if sender.currentTitle == "hide"{
+            txtFieldPass.isSecureTextEntry = true
+            sender.setTitle("show", for: .normal)
+        }else{
+            txtFieldPass.isSecureTextEntry = false
+            sender.setTitle("hide", for: .normal)
+        }
     }
     
     @IBAction func btnSignInClicked(_ sender: UIButton) {
@@ -90,7 +95,7 @@ class SignInViewController: ParentViewController {
                     }
                 }else if statusCode == 401{ //unauthorized
                     
-                    showAlert(title: "", message: "Unauthorized to log in", vc: self, closure: nil)
+                    showAlert(title: "", message: "Invalid mobile or password", vc: self, closure: nil)
                 }else{
                     
                     showAlert(title: "", message: "Error code \(statusCode)"  , vc: self, closure: nil)

@@ -10,7 +10,7 @@ import UIKit
 import CryptoSwift
 
 
-class HomeViewController: ParentViewController {
+class HomeViewController: ParentViewController, URLSessionTaskDelegate, URLSessionDataDelegate, URLSessionDelegate {
     
     @IBOutlet var viewsHome: [UIView]!
     var insightContent = [InsightContentRootClass]()
@@ -54,6 +54,8 @@ class HomeViewController: ParentViewController {
             homeTitle = flagFilter?.string ?? "Home"
         }
         self.title = homeTitle
+        
+        self.progress.alpha = 0.0
 
     }
 
@@ -112,47 +114,87 @@ class HomeViewController: ParentViewController {
     }
     
     
+    @IBOutlet weak var progress: UIProgressView!
+    
+    var buffer:NSMutableData = NSMutableData()
+    var session:URLSession?
+    var dataTask:URLSessionDataTask?
+    var expectedContentLength = 0
+    
+    func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive data: Data) {
+        buffer.append(data)
+        let percentageDownloaded = Float(buffer.length) / Float(expectedContentLength)
+        progress.progress =  percentageDownloaded
+    }
+    
+    func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive response: URLResponse, completionHandler: @escaping (URLSession.ResponseDisposition) -> Void) {
+        //here you can get full lenth of your content
+        expectedContentLength = Int(response.expectedContentLength)
+        print(expectedContentLength)
+        completionHandler(URLSession.ResponseDisposition.allow)
+    }
+    
+    func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
+        //use buffer here. Download is done
+        progress.progress = 1.0   // download 100% complete
+        if let err = error {
+            showAlert(title: "Try again", message: err.localizedDescription, vc: self, closure: {
+                if let url = URL.init(string: contentJsonURL){
+                    
+                    self.progress.progress = 0.0
+                    self.progress.alpha = 1.0
+                    let configuration = URLSessionConfiguration.default
+                    let mainqueue = OperationQueue.main
+                    self.session = URLSession(configuration: configuration, delegate:self, delegateQueue: mainqueue)
+                    self.dataTask = session.dataTask(with: URLRequest.init(url: url))
+                    self.dataTask?.resume()
+                }
+            })
+        }else{
+            
+            self.progress.alpha = 0.0
+            
+            if let data = self.buffer as? Data{
+                
+                if let _ = try? JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableContainers) as? [Any]{
+                    
+//                    DispatchQueue.main.async {
+                        self.saveContentFile(jsonData:  data)
+//                    }
+                    
+                    //                    var txt = "kqEuUlEx3UA+uc+l27QByQ==:ZmVkY2JhOTg3NjU0MzIxMA=="
+                    //decode
+                    
+                    //                    let dataString = String.init(data: data, encoding: String.Encoding.utf8)
+                    //
+                    //                    if let decodedStr = self.decode(data: dataString!){
+                    //
+                    //                        if let jsonData = try? JSONSerialization.data(withJSONObject: decodedStr, options:[]){
+                    //
+                    //                            if let jsonStr = String.init(data: jsonData, encoding: String.Encoding.utf8){
+                    //
+                    //                                DispatchQueue.main.async {
+                    //                                    self.saveContentFile(jsonData:  data)
+                    //                                }
+                    //                            }
+                    //                        }
+                    //                    }
+                }
+            }
+        }
+    }
+    
     func fetchContentFile(){
         
         if let url = URL.init(string: contentJsonURL){
             
-            showLoaderFor(view: self.view)
-        
-            URLSession.shared.dataTask(with: url, completionHandler: { (data, urlResponse, error) in
-                
-                if let data = data{
-                    
-                    if let _ = try? JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableContainers) as? [Any]{
-                        
-                        DispatchQueue.main.async {
-                            self.saveContentFile(jsonData:  data)
-                        }
-                    
-                    //decode
-                    
-//                    let dataString = String.init(data: data, encoding: String.Encoding.utf8)
-//
-//                    if let decodedStr = self.decode(data: dataString!){
-//
-//                        if let jsonData = try? JSONSerialization.data(withJSONObject: decodedStr, options:[]){
-//
-//                            if let jsonStr = String.init(data: jsonData, encoding: String.Encoding.utf8){
-//
-//                                DispatchQueue.main.async {
-//                                    self.saveContentFile(jsonData:  data)
-//                                }
-//
-//                            }
-//                        }
-//                    }
-                }
-                }
-        
-                OperationQueue.main.addOperation {
-                    hideLoaderFor(view: self.view)
-                }
-                
-            }).resume()
+            progress.progress = 0.0
+            progress.alpha = 1.0
+            let configuration = URLSessionConfiguration.default
+            let mainqueue = OperationQueue.main
+            session = URLSession(configuration: configuration, delegate:self, delegateQueue: mainqueue)
+            dataTask = session?.dataTask(with: URLRequest.init(url: url))
+            dataTask?.resume()
         }
         
     }
@@ -182,10 +224,8 @@ class HomeViewController: ParentViewController {
                     for item in json as! [Any]{
                         
                         if let i = item as? [String: Any]{
-                    
                             self.insightContent.append(InsightContentRootClass.init(fromDictionary: i))
                         }
-                    
                     }
                     
                     self.getUserPackages()
@@ -237,7 +277,6 @@ class HomeViewController: ParentViewController {
             }
             
 //            let fm = FileManager.init()
-            
 //            if fm.fileExists(atPath: savingPath.absoluteString){
 //
 //                print("File Saved!")
@@ -258,7 +297,18 @@ class HomeViewController: ParentViewController {
     @IBAction func btnItemClicked(_ sender: UIButton) {
         
         print(sender.tag)
-        performSegue(withIdentifier: "SubCategorySegue", sender: sender)
+        if userPackages.count > 0{
+            performSegue(withIdentifier: "SubCategorySegue", sender: sender)
+        }else{
+            showYesNoAlert(title: "", message: "Please subscribe to open categories", vc: self, closure: { (yes) in
+                if yes{
+                    
+                    let sb = UIStoryboard.init(name: "Subscribtion", bundle: Bundle.main)
+                    let viewController = sb.instantiateViewController(withIdentifier: "SubscribeVC")
+                    self.navigationController?.setViewControllers([viewController], animated: true)
+                }
+            })
+        }
         
     }
     
@@ -370,24 +420,25 @@ class HomeViewController: ParentViewController {
 
         do {
 //            let CIPHER_NAME = "AES/CBC/PKCS5PADDING"
+            let ivKey = "fedcba9876543210"
             let ENCRYPTION_KEY = "0123456789abcdef"
             var parts = data.split(separator: ":")
-            
             var input = String(parts[0])
-            var iv = String(parts[1])
+//            var iv = String(parts[1])
 //            print(part0)
-            iv.removeLast(1)
-            iv = iv.base64Decoded()
-            input.removeFirst(1)
+//            iv.removeLast(1)
+//            iv = iv.base64Decoded()
+//            input.removeFirst(1)
             
 //            let decodedData = NSData(base64Encoded: input, options:NSData.Base64DecodingOptions.init(rawValue: 0))
 //            let decodedString = NSString(data: decodedData! as Data, encoding: String.Encoding.utf8.rawValue) as? String
 //            print(decodedString)
             try testEnc()
             
-//            let dex = try AES(key: ENCRYPTION_KEY.bytes, blockMode: BlockMode.CBC(iv: iv.bytes)).decrypt(input.bytes)
-            let dec = try AES(key: Array(ENCRYPTION_KEY.utf8), blockMode: .CBC(iv: Array(iv.utf8)), padding: Padding.pkcs5).decrypt(Array(input.utf8))
+//            let dex = try AES(key: ENCRYPTION_KEY.bytes, blockMode: BlockMode.CBC(iv: Array(iv.utf8))).decrypt(input.bytes)
+            let dec = try AES(key: ENCRYPTION_KEY.bytes, blockMode: .CBC(iv: ivKey.bytes), padding: Padding.pkcs7).encrypt(data.bytes)
             
+            let encryptedString = String.init(bytes: dec, encoding: .utf8)
             
             _ = Data(bytes: dec)
             
@@ -397,7 +448,7 @@ class HomeViewController: ParentViewController {
                     
                     print(inputBase64)
                     
-                    let aes = try AES.init(key: ENCRYPTION_KEY, iv: iv)
+                    let aes = try AES.init(key: ENCRYPTION_KEY, iv: ivKey)
                     
                     let decryptResult = try aes.decrypt(inputBase64.bytes)
                     
@@ -460,17 +511,19 @@ class HomeViewController: ParentViewController {
                         self.upsertUserPackages()
                     }
                     else {
-                                                
+                        self.upsertUserPackages()
                     }
                 }else {
-                    
+                    self.upsertUserPackages()
                 }
             }
             
         }) { (error, msg) in
             
+            self.enableViewsInteraction()
             hideLoaderFor(view: self.view)
             print("\(String(describing: msg))")
+            showAlert(title: "Error", message: "Cannot get user package\n Please check your internet connection", vc: self, closure: nil)
         }
     }
     

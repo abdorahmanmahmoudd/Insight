@@ -76,10 +76,10 @@ class GeneralQuestionViewController: ParentViewController , UITableViewDelegate,
         return cell
     }
 
-//    func textViewDidChange(_ textView: UITextView) {
-//        tableView.beginUpdates()
-//        tableView.endUpdates()
-//    }
+    func textViewDidChange(_ textView: UITextView) {
+        tableView.beginUpdates()
+        tableView.endUpdates()
+    }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
         textView.text.removeAll()

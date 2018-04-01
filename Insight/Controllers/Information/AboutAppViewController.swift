@@ -7,8 +7,10 @@
 //
 
 import UIKit
+import SafariServices
+import MessageUI
 
-class AboutAppViewController: ParentViewController {
+class AboutAppViewController: ParentViewController , MFMailComposeViewControllerDelegate{
 
     
     @IBOutlet var tvParagraph : UITextView!
@@ -35,5 +37,32 @@ class AboutAppViewController: ParentViewController {
         self.tvParagraph.attributedText = htmlText.html2AttributedString
     }
 
+    @IBAction func btnEmailClicked(_ sender: UIButton) {
+        
+        if MFMailComposeViewController.canSendMail() {
+            let mail = MFMailComposeViewController()
+            mail.mailComposeDelegate = self
+            mail.setToRecipients(["info@insight-academy.site"])
+            present(mail, animated: true)
+        }
 
+    }
+ 
+    @IBAction func btnFbClicked(_ sender: UIButton) {
+        
+        if let url = URL(string: "https://www.facebook.com/InsightAcademy" ){
+            
+            let svc = SFSafariViewController(url: url)
+            svc.preferredBarTintColor = ColorMainBlue
+            svc.preferredControlTintColor = .white
+            if #available(iOS 11.0, *) {
+                svc.dismissButtonStyle = .close
+            }
+            self.present(svc, animated: true, completion: nil)
+        }
+    }
+    
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
+    }
 }

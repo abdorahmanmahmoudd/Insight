@@ -33,6 +33,7 @@ class SideMenuViewController: UIViewController ,UITableViewDelegate, UITableView
         tableView.reloadRows(at: [IndexPath.init(row: 3, section: 0)], with: .none)
 
     }
+    
 	
 	func performAnimation() {
         
@@ -52,7 +53,7 @@ class SideMenuViewController: UIViewController ,UITableViewDelegate, UITableView
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
-
+        performAnimation()
 	}
 	
     func getViewController(for index: Int) -> UIViewController {
@@ -86,8 +87,8 @@ class SideMenuViewController: UIViewController ,UITableViewDelegate, UITableView
             
         }else if index == 5{
             
-            let sb = UIStoryboard.init(name: "Home", bundle: Bundle.main)
-            viewController = sb.instantiateViewController(withIdentifier: "ResultsVC")
+            let sb = UIStoryboard.init(name: "Score", bundle: Bundle.main)
+            viewController = sb.instantiateViewController(withIdentifier: "UserScoresVC")
         }else if index == 6{
             
             let sb = UIStoryboard.init(name: "Information", bundle: Bundle.main)
@@ -152,7 +153,7 @@ class SideMenuViewController: UIViewController ,UITableViewDelegate, UITableView
         guard indexPath.row != selectedIndex else {
             return
         }
-        if indexPath.row == 8 || indexPath.row == 4 || indexPath.row == 5{
+        if indexPath.row == 8{
             self.navigate(to: self.getViewController(for: indexPath.row ), isLogOut: false, toBePresented: true)
             
         }else if indexPath.row == 9 {

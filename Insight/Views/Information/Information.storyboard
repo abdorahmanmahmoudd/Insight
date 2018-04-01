@@ -42,26 +42,24 @@
                                                     <outlet property="delegate" destination="oys-BF-0kX" id="1B9-9o-OES"/>
                                                 </connections>
                                             </textView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="7Hs-Lr-IrL">
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="7Hs-Lr-IrL">
                                                 <rect key="frame" x="16" y="569" width="343" height="50"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9m5-c8-hVv">
-                                                        <rect key="frame" x="0.0" y="0.0" width="68" height="50"/>
-                                                        <state key="normal" backgroundImage="facebook"/>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Rs-JC-9tC">
-                                                        <rect key="frame" x="92" y="0.0" width="67.5" height="50"/>
-                                                        <state key="normal" image="twitter"/>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kue-e9-FSX">
-                                                        <rect key="frame" x="183.5" y="0.0" width="68" height="50"/>
-                                                        <state key="normal" image="youtube-play"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="167.5" height="50"/>
+                                                        <state key="normal" image="facebook"/>
+                                                        <connections>
+                                                            <action selector="btnFbClicked:" destination="oys-BF-0kX" eventType="touchUpInside" id="Knj-Bs-Jbj"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lAm-A1-F0Z">
-                                                        <rect key="frame" x="275.5" y="0.0" width="67.5" height="50"/>
-                                                        <state key="normal" image="Group 13">
+                                                        <rect key="frame" x="175.5" y="0.0" width="167.5" height="50"/>
+                                                        <state key="normal" image="ic_mail">
                                                             <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="btnEmailClicked:" destination="oys-BF-0kX" eventType="touchUpInside" id="AUs-Jj-Ruj"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
@@ -148,26 +146,38 @@
                                                     <outlet property="delegate" destination="M7E-43-GFx" id="lKe-mW-nmf"/>
                                                 </connections>
                                             </textView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="125-oL-NPE">
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="125-oL-NPE">
                                                 <rect key="frame" x="16" y="526.5" width="343" height="50"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dxg-g6-EX3">
-                                                        <rect key="frame" x="0.0" y="0.0" width="68" height="50"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="80" height="50"/>
                                                         <state key="normal" image="facebook"/>
+                                                        <connections>
+                                                            <action selector="btnFbClicked:" destination="M7E-43-GFx" eventType="touchUpInside" id="Qkz-qQ-HeE"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tmj-AU-Epz">
-                                                        <rect key="frame" x="92" y="0.0" width="67.5" height="50"/>
-                                                        <state key="normal" image="twitter"/>
+                                                        <rect key="frame" x="88" y="0.0" width="79.5" height="50"/>
+                                                        <state key="normal" image="ic_linkedin"/>
+                                                        <connections>
+                                                            <action selector="btnLinkedInClicked:" destination="M7E-43-GFx" eventType="touchUpInside" id="i1e-ZA-K5v"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="85w-fc-fZj">
-                                                        <rect key="frame" x="183.5" y="0.0" width="68" height="50"/>
-                                                        <state key="normal" title="Button" image="youtube-play"/>
+                                                        <rect key="frame" x="175.5" y="0.0" width="80" height="50"/>
+                                                        <state key="normal" image="ic_web"/>
+                                                        <connections>
+                                                            <action selector="btnWebsiteClicked:" destination="M7E-43-GFx" eventType="touchUpInside" id="534-1r-p6J"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4UD-bl-2Tb">
-                                                        <rect key="frame" x="275.5" y="0.0" width="67.5" height="50"/>
-                                                        <state key="normal" title="facebook" image="Group 13">
+                                                        <rect key="frame" x="263.5" y="0.0" width="79.5" height="50"/>
+                                                        <state key="normal" image="ic_mail">
                                                             <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="btnEmailClicked:" destination="M7E-43-GFx" eventType="touchUpInside" id="bYp-G8-uBR"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
@@ -219,10 +229,10 @@
     </scenes>
     <resources>
         <image name="ClueApps" width="122" height="155"/>
-        <image name="Group 13" width="122" height="155"/>
-        <image name="facebook" width="88" height="88"/>
+        <image name="facebook" width="30" height="30"/>
+        <image name="ic_linkedin" width="30" height="30"/>
+        <image name="ic_mail" width="30" height="30"/>
+        <image name="ic_web" width="30" height="30"/>
         <image name="logo-whiteBG" width="192" height="159"/>
-        <image name="twitter" width="88" height="88"/>
-        <image name="youtube-play" width="88" height="90"/>
     </resources>
 </document>

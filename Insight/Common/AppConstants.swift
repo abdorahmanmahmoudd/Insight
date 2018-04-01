@@ -3,7 +3,8 @@ import UIKit
 
 
 //let contentJsonURL = "http://www.insight-academy.site/insight.json"
-let contentJsonURL = "http://www.mtech-ins.com/insightios.json"
+//let contentJsonURL = "http://www.mtech-ins.com/insightios.json"
+let contentJsonURL = "http://www.insight-academy.site/insight_ios.json"
 let MainIP = "http://www.insight-academy.site/api/v1/"
 let SignUpURL = "\(MainIP)auth/signup"
 let SignInURL = "\(MainIP)auth/login"

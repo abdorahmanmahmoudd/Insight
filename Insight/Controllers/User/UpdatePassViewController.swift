@@ -77,7 +77,6 @@ class UpdatePassViewController: UIViewController {
                             if isSuccess{
                                 
                                 showAlert(title: "", message: "Password changed successfully", vc: self, closure: {
-                                    
                                     self.dismiss(animated: true, completion:nil)
                                 })
                                 

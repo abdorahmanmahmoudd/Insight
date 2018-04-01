@@ -85,6 +85,11 @@ class SignUpViewController: ParentViewController, UIPickerViewDelegate, UIPicker
             isValid = false
             showAlert(title: "", message: "Please enter password", vc: self, closure: nil)
             
+        }else if tfPass.text!.count < 6{
+            
+            isValid = false
+            showAlert(title: "", message: "You must enter 6 characters at least", vc: self, closure: nil)
+            
         }else if tfConfirmPass.text != nil && tfConfirmPass.text!.hasNoCharchters(){
             
             isValid = false
