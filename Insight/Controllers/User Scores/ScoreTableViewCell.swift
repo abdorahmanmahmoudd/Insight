@@ -10,8 +10,7 @@ import UIKit
 
 class ScoreTableViewCell: UITableViewCell {
 
-    @IBOutlet var lblAvgScore: UILabel!
-    @IBOutlet var lblScores: UILabel!
+    
     @IBOutlet var lblSection: UILabel!
     @IBOutlet var lblUnit: UILabel!
     @IBOutlet var lblCategory: UILabel!

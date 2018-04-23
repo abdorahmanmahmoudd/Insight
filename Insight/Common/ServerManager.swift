@@ -49,6 +49,8 @@ class ServerManager: NSObject
                 headers[header.key] = header.value
             }
         }
+        headers["version"] = appVersion
+        headers["platform"] = "ios"
         request = Alamofire.request(url, method: resource.httpmethod, parameters: paramters, encoding: JSONEncoding.default, headers: headers).validate(statusCode: 200..<500).responseJSON
             { response in
                 switch response.result
@@ -95,6 +97,8 @@ class ServerManager: NSObject
                 headers[header.key] = header.value
             }
         }
+        headers["version"] = appVersion
+        headers["platform"] = "ios"
         request = Alamofire.request(URL, method: method, parameters: paramters, encoding: JSONEncoding.default, headers: headers).validate(statusCode: 200..<500).responseJSON
             { response in
                 switch response.result
@@ -103,9 +107,28 @@ class ServerManager: NSObject
                     let value = response.result.value
                     //print(value!)
                     let statusCode = response.response?.statusCode
-                    DispatchQueue.main.async
-                        {
-                            complation(value, statusCode)
+                    if statusCode == 452{  // token expired
+
+                        let um = UserModel()
+                        um.refreshToken(complation: { (code, data) in
+                            
+                            if let obj = data as? [String:Any]{
+                                
+                                if let token = obj["token"] as? String{
+                                    
+                                    UserModel.getInstance.getUser()?.token = token
+                                }
+                            }
+
+                        }, errorHandler: { (errorCode, msg) in
+                            errorHandler(errorCode,msg)
+                        })
+
+                    }else{
+                        DispatchQueue.main.async
+                            {
+                                complation(value, statusCode)
+                        }
                     }
                 case .failure(let error):
                     //print(error._code)
@@ -140,6 +163,8 @@ class ServerManager: NSObject
                 headers[header.key] = header.value
             }
         }
+        headers["version"] = appVersion
+        headers["platform"] = "ios"
         Alamofire.upload(multipartFormData: { (multiPartFormData) in
             
             if let params = paramters{

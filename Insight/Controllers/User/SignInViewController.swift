@@ -41,7 +41,6 @@ class SignInViewController: ParentViewController {
     
     @IBAction func btnSignInClicked(_ sender: UIButton) {
         if dataIsValid(){
-
             signIn()
         }
     }
@@ -96,7 +95,11 @@ class SignInViewController: ParentViewController {
                 }else if statusCode == 401{ //unauthorized
                     
                     showAlert(title: "", message: "Invalid mobile or password", vc: self, closure: nil)
-                }else{
+                }else if statusCode == 426{ //update
+                    
+                    showAlert(title: "", message: "Please update the application from the store", vc: self, closure: nil)
+                }
+                else{
                     
                     showAlert(title: "", message: "Error code \(statusCode)"  , vc: self, closure: nil)
                 }

@@ -17,7 +17,6 @@
 		BD1478BA202330E00090A481 /* SubCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1478B5202330E00090A481 /* SubCategory.swift */; };
 		BD1478BB202330E00090A481 /* SubSubCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1478B6202330E00090A481 /* SubSubCategory.swift */; };
 		BD1478BC202330E00090A481 /* InsightContentRootClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1478B7202330E00090A481 /* InsightContentRootClass.swift */; };
-		BD17281C206D4C6E00BA4D34 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BD17281B206D4C6D00BA4D34 /* GoogleService-Info.plist */; };
 		BD172820206D4DCB00BA4D34 /* ScoreSubSubCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD17281D206D4DCB00BA4D34 /* ScoreSubSubCategory.swift */; };
 		BD172821206D4DCB00BA4D34 /* ScoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD17281E206D4DCB00BA4D34 /* ScoreData.swift */; };
 		BD172822206D4DCB00BA4D34 /* ScoreRootClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD17281F206D4DCB00BA4D34 /* ScoreRootClass.swift */; };
@@ -82,6 +81,7 @@
 		BD4367242050644D0038345A /* ApplicationNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4367232050644D0038345A /* ApplicationNoteViewController.swift */; };
 		BD47F1CE202353E900ABEBF5 /* Enumerations.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD47F1CD202353E900ABEBF5 /* Enumerations.swift */; };
 		BD47F1D02023762900ABEBF5 /* SubSubCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD47F1CF2023762900ABEBF5 /* SubSubCategoryViewController.swift */; };
+		BD4BE53A2073F4D600AA1C32 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BD4BE5392073F4D600AA1C32 /* GoogleService-Info.plist */; };
 		BD4EB7A120444150001B3DD7 /* ScoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4EB7A020444150001B3DD7 /* ScoreModel.swift */; };
 		BD4EB7A5204442DA001B3DD7 /* UpdateScoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4EB7A3204442DA001B3DD7 /* UpdateScoreData.swift */; };
 		BD4EB7A6204442DA001B3DD7 /* UpdateScoreRootClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4EB7A4204442DA001B3DD7 /* UpdateScoreRootClass.swift */; };
@@ -99,8 +99,12 @@
 		BD5853D82069567100025968 /* ScoresViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5853D72069567100025968 /* ScoresViewController.swift */; };
 		BD5853DB2069573900025968 /* Score.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD5853DA2069573900025968 /* Score.storyboard */; };
 		BD5853DD20695C1100025968 /* ScoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5853DC20695C1100025968 /* ScoreTableViewCell.swift */; };
+		BD5C16BF208DAA4E00D58D8C /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD5C16BE208DAA4E00D58D8C /* StoreKit.framework */; };
 		BD628E892028A6160007BEE4 /* QuestionMatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD628E882028A6160007BEE4 /* QuestionMatchViewController.swift */; };
 		BD628E8B2028A62B0007BEE4 /* QuestionMatchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD628E8A2028A62B0007BEE4 /* QuestionMatchTableViewCell.swift */; };
+		BD6DD836208D085500597670 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6DD835208D085500597670 /* WebViewController.swift */; };
+		BD6DD839208D948200597670 /* UnlockedSubSubCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6DD837208D948100597670 /* UnlockedSubSubCategory.swift */; };
+		BD6DD83A208D948200597670 /* UnlockedSubCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6DD838208D948100597670 /* UnlockedSubCategory.swift */; };
 		BD7E3991204D6B7C0092A02E /* LogoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7E3990204D6B7C0092A02E /* LogoutViewController.swift */; };
 		BD87A37820571E7300F2B6C9 /* SubscribtionRealmObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD87A37720571E7300F2B6C9 /* SubscribtionRealmObjects.swift */; };
 		BD96771D202346950078B0A3 /* SubSubCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD96771C202346950078B0A3 /* SubSubCategoryTableViewCell.swift */; };
@@ -159,7 +163,6 @@
 		BD1478B5202330E00090A481 /* SubCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubCategory.swift; sourceTree = "<group>"; };
 		BD1478B6202330E00090A481 /* SubSubCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubSubCategory.swift; sourceTree = "<group>"; };
 		BD1478B7202330E00090A481 /* InsightContentRootClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsightContentRootClass.swift; sourceTree = "<group>"; };
-		BD17281B206D4C6D00BA4D34 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BD17281D206D4DCB00BA4D34 /* ScoreSubSubCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreSubSubCategory.swift; sourceTree = "<group>"; };
 		BD17281E206D4DCB00BA4D34 /* ScoreData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreData.swift; sourceTree = "<group>"; };
 		BD17281F206D4DCB00BA4D34 /* ScoreRootClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreRootClass.swift; sourceTree = "<group>"; };
@@ -230,6 +233,7 @@
 		BD4367232050644D0038345A /* ApplicationNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationNoteViewController.swift; sourceTree = "<group>"; };
 		BD47F1CD202353E900ABEBF5 /* Enumerations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enumerations.swift; sourceTree = "<group>"; };
 		BD47F1CF2023762900ABEBF5 /* SubSubCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubSubCategoryViewController.swift; sourceTree = "<group>"; };
+		BD4BE5392073F4D600AA1C32 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		BD4EB7A020444150001B3DD7 /* ScoreModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreModel.swift; sourceTree = "<group>"; };
 		BD4EB7A3204442DA001B3DD7 /* UpdateScoreData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateScoreData.swift; sourceTree = "<group>"; };
 		BD4EB7A4204442DA001B3DD7 /* UpdateScoreRootClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateScoreRootClass.swift; sourceTree = "<group>"; };
@@ -247,8 +251,12 @@
 		BD5853D72069567100025968 /* ScoresViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoresViewController.swift; sourceTree = "<group>"; };
 		BD5853DA2069573900025968 /* Score.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Score.storyboard; sourceTree = "<group>"; };
 		BD5853DC20695C1100025968 /* ScoreTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreTableViewCell.swift; sourceTree = "<group>"; };
+		BD5C16BE208DAA4E00D58D8C /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		BD628E882028A6160007BEE4 /* QuestionMatchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionMatchViewController.swift; sourceTree = "<group>"; };
 		BD628E8A2028A62B0007BEE4 /* QuestionMatchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionMatchTableViewCell.swift; sourceTree = "<group>"; };
+		BD6DD835208D085500597670 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		BD6DD837208D948100597670 /* UnlockedSubSubCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnlockedSubSubCategory.swift; sourceTree = "<group>"; };
+		BD6DD838208D948100597670 /* UnlockedSubCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnlockedSubCategory.swift; sourceTree = "<group>"; };
 		BD7E3990204D6B7C0092A02E /* LogoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutViewController.swift; sourceTree = "<group>"; };
 		BD87A37720571E7300F2B6C9 /* SubscribtionRealmObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribtionRealmObjects.swift; sourceTree = "<group>"; };
 		BD96771C202346950078B0A3 /* SubSubCategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubSubCategoryTableViewCell.swift; sourceTree = "<group>"; };
@@ -299,6 +307,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				37CF4B43B70845F6FFD7E7DB /* Pods_Insight.framework in Frameworks */,
+				BD5C16BF208DAA4E00D58D8C /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -418,6 +427,7 @@
 				BD1D28DA204C34930088869A /* PackageViewController.swift */,
 				BD1D28DE204C3AE00088869A /* PackageView.swift */,
 				BDABFA84204E06E700051A2B /* DurationCollectionViewCell.swift */,
+				BD6DD835208D085500597670 /* WebViewController.swift */,
 			);
 			path = Subscribtion;
 			sourceTree = "<group>";
@@ -442,6 +452,8 @@
 				BDABFA82204DFE1D00051A2B /* PackagesDuration.swift */,
 				BD1D28D2204C2E4D0088869A /* PackageRootClass.swift */,
 				BD1D28D3204C2E4D0088869A /* PackageUnlocked.swift */,
+				BD6DD838208D948100597670 /* UnlockedSubCategory.swift */,
+				BD6DD837208D948100597670 /* UnlockedSubSubCategory.swift */,
 				BD87A37720571E7300F2B6C9 /* SubscribtionRealmObjects.swift */,
 			);
 			path = Subscribtion;
@@ -719,7 +731,7 @@
 		BDD184BE201F9ABD006EBAB9 /* Insight */ = {
 			isa = PBXGroup;
 			children = (
-				BD17281B206D4C6D00BA4D34 /* GoogleService-Info.plist */,
+				BD4BE5392073F4D600AA1C32 /* GoogleService-Info.plist */,
 				BDAA1AFC204ECBEE00D02E01 /* Insight.entitlements */,
 				BDD184CB201F9ABD006EBAB9 /* Info.plist */,
 				BDD184D1201F9ACD006EBAB9 /* Common */,
@@ -850,6 +862,7 @@
 		C29C5D27A43A6BF75CD0E3F4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BD5C16BE208DAA4E00D58D8C /* StoreKit.framework */,
 				A6BB51FC6CCE498E490B9F12 /* Pods_Insight.framework */,
 			);
 			name = Frameworks;
@@ -867,7 +880,6 @@
 				BDD184B9201F9ABD006EBAB9 /* Frameworks */,
 				BDD184BA201F9ABD006EBAB9 /* Resources */,
 				8E301A690CCBD4F88CB39098 /* [CP] Embed Pods Frameworks */,
-				D0E769763D7E033DCE9C0597 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -894,6 +906,9 @@
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.InAppPurchase = {
 								enabled = 1;
 							};
 							com.apple.Push = {
@@ -937,12 +952,12 @@
 				BDA2B40B2040D0D000F36AB2 /* MavenPro-Regular.ttf in Resources */,
 				BD1B1EDB2021389F0000D813 /* SideMenuViewController.storyboard in Resources */,
 				BD27EEE0201FF353007872E0 /* LaunchScreen.storyboard in Resources */,
-				BD17281C206D4C6E00BA4D34 /* GoogleService-Info.plist in Resources */,
 				BD1D28DD204C39DB0088869A /* Package.xib in Resources */,
 				BD542A3D20509B0300FE3674 /* Information.storyboard in Resources */,
 				BD0E781A203AE289001003B5 /* Account.storyboard in Resources */,
 				BD436721205063CC0038345A /* Note.storyboard in Resources */,
 				BD1D28CE204C267A0088869A /* Subscribtion.storyboard in Resources */,
+				BD4BE53A2073F4D600AA1C32 /* GoogleService-Info.plist in Resources */,
 				BD40FD90203C53B6001E159C /* Flag.storyboard in Resources */,
 				BD5378E8202FA5B7005BDE85 /* QuestionGeneralHeader.xib in Resources */,
 			);
@@ -985,21 +1000,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Insight/Pods-Insight-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D0E769763D7E033DCE9C0597 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Insight/Pods-Insight-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E427E62252327947A8255228 /* [CP] Check Pods Manifest.lock */ = {
@@ -1078,6 +1078,7 @@
 				BD3DB17920384894002A632D /* GeneralQuestionAnswersViewController.swift in Sources */,
 				BDA2B40D20417B8F00F36AB2 /* AddMediaViewController.swift in Sources */,
 				BD1478BC202330E00090A481 /* InsightContentRootClass.swift in Sources */,
+				BD6DD839208D948200597670 /* UnlockedSubSubCategory.swift in Sources */,
 				BDAA580E202D118400C32AA9 /* WritingViewController.swift in Sources */,
 				BDE45FF22037A69A0078C557 /* MiniDialogAnswersViewController.swift in Sources */,
 				BDBAD6B82067EECA00CEE6C2 /* Package.swift in Sources */,
@@ -1098,6 +1099,7 @@
 				BDABD3B020485BF300E2E5A7 /* DerivativesViewController.swift in Sources */,
 				BD5853D82069567100025968 /* ScoresViewController.swift in Sources */,
 				BD1B1EB52020F6F80000D813 /* GeneralMethods.swift in Sources */,
+				BD6DD836208D085500597670 /* WebViewController.swift in Sources */,
 				BD7E3991204D6B7C0092A02E /* LogoutViewController.swift in Sources */,
 				BDAA57F8202CEF9900C32AA9 /* MistakesViewController.swift in Sources */,
 				BD1B1ED62021349D0000D813 /* Storyboard.swift in Sources */,
@@ -1130,6 +1132,7 @@
 				BD263C302045AF3E00EB5B1F /* Freewriting.swift in Sources */,
 				BD3DA401202B009500CCB7B0 /* Mistake.swift in Sources */,
 				BD39AD4520275A7000DC03B3 /* QuestionAntonymTableViewCell.swift in Sources */,
+				BD6DD83A208D948200597670 /* UnlockedSubCategory.swift in Sources */,
 				BD1B1EAD2020F6090000D813 /* AppConstants.swift in Sources */,
 				BD1B1EAB2020F5EF0000D813 /* ServerManager.swift in Sources */,
 				BD40FD94203C5D84001E159C /* FlagTableViewCell.swift in Sources */,
@@ -1270,13 +1273,13 @@
 				INFOPLIST_FILE = Insight/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.academy.insight;
+				PRODUCT_BUNDLE_IDENTIFIER = com.insight.academy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Insight/Common/Insight-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1293,12 +1296,12 @@
 				INFOPLIST_FILE = Insight/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.academy.insight;
+				PRODUCT_BUNDLE_IDENTIFIER = com.insight.academy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Insight/Common/Insight-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

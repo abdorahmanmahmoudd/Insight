@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class FlagViewController: ParentViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -57,7 +58,23 @@ class FlagViewController: ParentViewController, UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         selectedFilter = Flag(rawValue: indexPath.row + 1)
-        performSegue(withIdentifier: "HomeSegue", sender: nil)
+        
+        do {
+            
+            let query = NSPredicate.init(format: "flagValue = %d", selectedFilter!.rawValue)
+            
+            if let flaggedQuestions = realm?.objects(FlaggedQuestion.self).filter(query){
+                
+                if flaggedQuestions.count > 0{
+                    performSegue(withIdentifier: "HomeSegue", sender: nil)
+                }else{
+                    showAlert(title: "", message: "There is no flagged questions here", vc: self, closure: nil)
+                }
+            }
+            
+        }catch let err {
+            showAlert(title: "Error", message: err.localizedDescription, vc: self, closure: nil)
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -50,7 +50,7 @@ class AboutAppViewController: ParentViewController , MFMailComposeViewController
  
     @IBAction func btnFbClicked(_ sender: UIButton) {
         
-        if let url = URL(string: "https://www.facebook.com/InsightAcademy" ){
+        if let url = URL(string: "https://www.facebook.com/InsightAcademy1/" ){
             
             let svc = SFSafariViewController(url: url)
             svc.preferredBarTintColor = ColorMainBlue

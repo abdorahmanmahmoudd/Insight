@@ -16,6 +16,7 @@ class PackageRootClass : NSObject, NSCoding{
     var price : Int!
     var promocode : Promocode!
     var expiredAt : Int!
+    var duration: PackagesDuration!
 
 
 	/**
@@ -46,6 +47,9 @@ class PackageRootClass : NSObject, NSCoding{
         }
         if let packageFieldData = dictionary["package"] as? [String:Any]{
             packageField = Package(fromDictionary: packageFieldData)
+        }
+        if let pkgDuration = dictionary["package_duration"] as? [String:Any]{
+            duration = PackagesDuration.init(fromDictionary: pkgDuration)
         }
 	}
 

@@ -10,7 +10,7 @@ class PackageUnlocked : NSObject, NSCoding{
 	var all : Bool!
 	var categoryId : Int!
 	var categoryName : String!
-	var unlockedSubCategory : [AnyObject]!
+	var unlockedSubCategory : [UnlockedSubCategory]!
 
 
 	/**
@@ -20,7 +20,13 @@ class PackageUnlocked : NSObject, NSCoding{
 		all = dictionary["all"] as? Bool
 		categoryId = dictionary["category_id"] as? Int
 		categoryName = dictionary["category_name"] as? String
-		unlockedSubCategory = dictionary["unlocked_sub_category"] as? [AnyObject]
+        unlockedSubCategory = [UnlockedSubCategory]()
+        if let unlockedSubCategoryArray = dictionary["unlocked_sub_category"] as? [[String:Any]]{
+            for dic in unlockedSubCategoryArray{
+                let value = UnlockedSubCategory(fromDictionary: dic)
+                unlockedSubCategory.append(value)
+            }
+        }
 	}
 
 	/**
@@ -38,9 +44,13 @@ class PackageUnlocked : NSObject, NSCoding{
 		if categoryName != nil{
 			dictionary["category_name"] = categoryName
 		}
-		if unlockedSubCategory != nil{
-			dictionary["unlocked_sub_category"] = unlockedSubCategory
-		}
+        if unlockedSubCategory != nil{
+            var dictionaryElements = [[String:Any]]()
+            for unlockedSubCategoryElement in unlockedSubCategory {
+                dictionaryElements.append(unlockedSubCategoryElement.toDictionary())
+            }
+            dictionary["unlocked_sub_category"] = dictionaryElements
+        }
 		return dictionary
 	}
 
@@ -53,7 +63,7 @@ class PackageUnlocked : NSObject, NSCoding{
          all = aDecoder.decodeObject(forKey: "all") as? Bool
          categoryId = aDecoder.decodeObject(forKey: "category_id") as? Int
          categoryName = aDecoder.decodeObject(forKey: "category_name") as? String
-         unlockedSubCategory = aDecoder.decodeObject(forKey: "unlocked_sub_category") as? [AnyObject]
+         unlockedSubCategory = aDecoder.decodeObject(forKey :"unlocked_sub_category") as? [UnlockedSubCategory]
 
 	}
 
@@ -72,9 +82,9 @@ class PackageUnlocked : NSObject, NSCoding{
 		if categoryName != nil{
 			aCoder.encode(categoryName, forKey: "category_name")
 		}
-		if unlockedSubCategory != nil{
-			aCoder.encode(unlockedSubCategory, forKey: "unlocked_sub_category")
-		}
+        if unlockedSubCategory != nil{
+            aCoder.encode(unlockedSubCategory, forKey: "unlocked_sub_category")
+        }
 
 	}
 

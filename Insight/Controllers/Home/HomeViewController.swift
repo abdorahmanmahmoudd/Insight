@@ -16,15 +16,14 @@ class HomeViewController: ParentViewController, URLSessionTaskDelegate, URLSessi
     var insightContent = [InsightContentRootClass]()
     var flagFilter: Flag?
     var homeTitle = "Home"
-//    var cameFromFlag = false
     var userPackages = [PackageRootClass]()
+    var realmOfflinePkgs = [UserPackageItem]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         configuration()
-        checkFileSize()
     }
 
     override func didReceiveMemoryWarning() {
@@ -35,11 +34,8 @@ class HomeViewController: ParentViewController, URLSessionTaskDelegate, URLSessi
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         selectedIndex = 0
-        
-//        if cameFromFlag {
-//
-//            selectedIndex = 3
-//        }
+        checkFileSize()
+
     }
     
     func configuration(){
@@ -107,6 +103,7 @@ class HomeViewController: ParentViewController, URLSessionTaskDelegate, URLSessi
         }) { (error, msg) in
             
             hideLoaderFor(view: self.view)
+            self.loadContentFile()
             print("Something went wrong, Please check your internet connection")
             
         }
@@ -297,7 +294,7 @@ class HomeViewController: ParentViewController, URLSessionTaskDelegate, URLSessi
     @IBAction func btnItemClicked(_ sender: UIButton) {
         
         print(sender.tag)
-        if userPackages.count > 0{
+        if realmOfflinePkgs.count > 0{
             performSegue(withIdentifier: "SubCategorySegue", sender: sender)
         }else{
             showYesNoAlert(title: "", message: "Please subscribe to open categories", vc: self, closure: { (yes) in
@@ -520,10 +517,11 @@ class HomeViewController: ParentViewController, URLSessionTaskDelegate, URLSessi
             
         }) { (error, msg) in
             
+            self.upsertUserPackages()
             self.enableViewsInteraction()
             hideLoaderFor(view: self.view)
             print("\(String(describing: msg))")
-            showAlert(title: "Error", message: "Cannot get user package\n Please check your internet connection", vc: self, closure: nil)
+            showAlert(title: "Error", message: "Cannot get user packages\n Please check your internet connection", vc: self, closure: nil)
         }
     }
     
@@ -532,49 +530,67 @@ class HomeViewController: ParentViewController, URLSessionTaskDelegate, URLSessi
         do{
             for package in userPackages{
                 
-                if package.packageField.all{
+                
+                let pkg = UserPackageItem()
+                pkg.id = package.id
+                pkg.price = package.price
+                pkg.expiryDate = package.expiredAt
+                pkg.package?.id = package.packageField.id
+                pkg.package?.all = package.packageField.all
+                pkg.package?.name = package.packageField.name
+                pkg.package_duration?.id = package.duration.id
+                pkg.package_duration?.discount = package.duration.discount
+                pkg.package_duration?.duration = package.duration.duration
+                pkg.package_duration?.price = package.duration.price
+                
+                if let unlocks = package.packageField.unlocked{
                     
-                    let pkg = UserPackageItem()
-                    pkg.PackageId = package.packageField.id
-                    pkg.all = package.packageField.all
-                    pkg.expiryDate = package.expiredAt
-                    
-                    try realm?.write {
-                        realm?.add(pkg, update: true)
-                    }
-                    
-                }else{
-                    
-                    for i in 0..<package.packageField.unlocked.count{
+                    for unlocked in unlocks{
+                        let unlockedItem = PackageUnlockRealm()
+                        unlockedItem.all = unlocked.all
+                        unlockedItem.categoryId = unlocked.categoryId
+                        unlockedItem.categoryName = unlocked.categoryName
                         
-                        let pkg = UserPackageItem()
-                        pkg.PackageId = package.packageField.id
-                        pkg.categoryId = package.packageField.unlocked[i].categoryId
-                        pkg.allSubCategories = package.packageField.unlocked[i].all
-                        pkg.expiryDate = package.expiredAt
-                        if !package.packageField.unlocked[i].all{
+                        for subUnlocked in unlocked.unlockedSubCategory{
+                            let unlockedSubItem = UnlockedSubCategoryRealm()
+                            unlockedSubItem.all = subUnlocked.all
+                            unlockedSubItem.subCategoryId = subUnlocked.subCategoryId
+                            unlockedSubItem.subCategoryName = subUnlocked.subCategoryName
                             
-//                            for subsubCategory in package.packageField.unlocked[i].unlockedSubCategory{
-//
-//                                //unlockedSubCategory is any object so backend needs to changes that if its required.
-//                            }
+                            for subsubUnlocked in subUnlocked.unlockedSubSubCategory{
+                                
+                                let unlockedSubSubItem = UnlockedSubSubCategoryRealm()
+                                unlockedSubSubItem.subSubCategoryId = subsubUnlocked.subSubCategoryId
+                                unlockedSubSubItem.subSubCategoryName = subsubUnlocked.subSubCategoryName
+                                unlockedSubItem.unlockedSubSubCategory.append(unlockedSubSubItem)
+                            }
+                            unlockedItem.unlockedSubCategory.append(unlockedSubItem)
                         }
                         
-                        try realm?.write {
-                            realm?.add(pkg, update: true)
-                        }
-                        
+                        pkg.package?.unlocked.append(unlockedItem)
                     }
                 }
+                
+                try realm?.write {
+                    realm?.add(pkg, update: true)
+                }
             }
+            userPackages.removeAll()
             //delete expired packages
             if let packages = realm?.objects(UserPackageItem.self){
                 for package in packages{
                     
-                    if TimeInterval(package.expiryDate)  >= Date().timeIntervalSince1970{
+                    if TimeInterval(package.expiryDate) <= Date().timeIntervalSince1970{
                         
                         try realm?.write {
                             realm?.delete(package)
+                        }
+                    }else{
+                        
+                        if let existPkgs = realm?.objects(UserPackageItem.self){
+                            for pkg in existPkgs{
+                                realmOfflinePkgs.append(pkg)
+                            }
                         }
                     }
                 }

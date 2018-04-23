@@ -300,19 +300,19 @@ class ComprehensionViewController: ParentViewController, UITableViewDelegate, UI
         }
         searchTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: false, block: { (timer) in
             showLoaderFor(view: self.view)
-            if let txt = textField.text?.trimmedText(){
+            if let txt = textField.text?.trimmedText(), textField.text!.trimmedText().count > 0{
                 
                 self.questions = self.tempQuestions.filter { (question) -> Bool in
                     return question.content.html2String.lowercased().contains(txt)
                 }
                 self.tableView.reloadData()
-                self.tableView.layoutIfNeeded()
+//                self.tableView.layoutIfNeeded()
                 
             }else{
                 
                 self.questions = self.tempQuestions
                 self.tableView.reloadData()
-                self.tableView.layoutIfNeeded()
+//                self.tableView.layoutIfNeeded()
             }
             hideLoaderFor(view: self.view)
         })

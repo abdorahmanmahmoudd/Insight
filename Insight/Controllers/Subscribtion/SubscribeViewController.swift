@@ -27,16 +27,11 @@ class SubscribeViewController: ParentViewController, UICollectionViewDelegate, U
         // Do any additional setup after loading the view.
         configuration()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
- 
         selectedIndex = 2
+        
     }
     
     func configuration(){
@@ -83,16 +78,16 @@ class SubscribeViewController: ParentViewController, UICollectionViewDelegate, U
             cell.lblPkgTitle.text = userPackages[indexPath.row].packageField.name
             if userPackages[indexPath.row].packageField.all {
                 
-                cell.lblPkgCategories.text = "All Categories"
-                cell.lblPkgUnits.text = "All Units"
-                cell.lblPkgSections.text = "All Sections"
+                cell.lblPkgCategories.text = "All Books"
+                cell.lblPkgUnits.text = "All Booklets"
+                cell.lblPkgSections.text = "All Sheets"
             }else{
                 
-                cell.lblPkgCategories.text = "\(userPackages[indexPath.row].unlocked.count) Units"
+                cell.lblPkgCategories.text = "\(userPackages[indexPath.row].unlocked.count) Booklets"
                 for unit in userPackages[indexPath.row].unlocked{
                     
                     if unit.all{
-                        cell.lblPkgSections.text = "All Units"
+                        cell.lblPkgSections.text = "All Booklets"
                     }
                 }
             }
@@ -105,17 +100,17 @@ class SubscribeViewController: ParentViewController, UICollectionViewDelegate, U
             cell.lblPkgTitle.text = ""
             if packages[indexPath.row].all {
                 
-                cell.lblPkgCategories.text = "All Categories"
-                cell.lblPkgUnits.text = "All Units"
-                cell.lblPkgSections.text = "All Sections"
+                cell.lblPkgCategories.text = "All Books"
+                cell.lblPkgUnits.text = "All Booklets"
+                cell.lblPkgSections.text = "All Sheets"
             }else{
                 
-                cell.lblPkgCategories.text = "\(packages[indexPath.row].unlocked.count) Categories"
+                cell.lblPkgCategories.text = "\(packages[indexPath.row].unlocked.count) Books"
                 for unit in packages[indexPath.row].unlocked{
                     
                     if unit.all{
-                        cell.lblPkgUnits.text = "All Units"
-                        cell.lblPkgSections.text = "All Sections"
+                        cell.lblPkgUnits.text = "All Booklets"
+                        cell.lblPkgSections.text = "All Sheets"
                         break
                     }
                 }

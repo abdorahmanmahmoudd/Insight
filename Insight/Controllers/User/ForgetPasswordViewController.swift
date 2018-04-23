@@ -40,6 +40,8 @@ class ForgetPasswordViewController: ParentViewController {
         
         if tfEmail.text != nil && tfEmail.text!.isValidEmail(){
             forgetPass(email: tfEmail.text!)
+        }else{
+            showAlert(title: "", message: "Please enter valid email", vc: self, closure: nil)
         }
     }
 

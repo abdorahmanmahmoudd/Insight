@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SafariServices
 
 enum subType: String{
     
@@ -45,6 +44,14 @@ class PackageViewController: ParentViewController, UICollectionViewDelegate, UIC
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        collectionViewDurtions.selectItem(at: IndexPath.init(item: 0, section: 0), animated: false, scrollPosition: .left)
+        lblPrice.text = "\(durations[0].price ?? 0)"
+        selectedDurationIndex = 0
+    }
+    
     @IBAction func btnSubscribeClicked(_ sender: UIButton) {
      
         
@@ -224,17 +231,17 @@ class PackageViewController: ParentViewController, UICollectionViewDelegate, UIC
                         showAlert(title: "", message: "Package created successfully", vc: self, closure: {
                             
                             if self.lblPrice.text != nil && self.lblPrice.text!.trimmedText() != "0" {
-                                let fawry = "\(fawryURL)?mobile=\(json.packageField.mobile!)&email=\(json.packageField.email!)&price=\(json.packageField.price!)&orderId=\(json.packageField.orderId!)&packageName=\(json.packageField.packageName!)"
+                                var fawry = ""
+                                
+                                if self.validPromoCode{
+                                    fawry = "\(fawryURL)?type=\(subType.promo.rawValue)&id=\(self.promoCodeId)&orderId=\(json.packageField.orderId!)"
+                                    
+                                }else{
+                                    fawry = "\(fawryURL)?type=\(subType.duration.rawValue)&id=\(self.package?.id ?? 0)&orderId=\(json.packageField.orderId!)"
+                                }
                                 
                                 if let url = URL(string: fawry ){
-                                    
-                                    let svc = SFSafariViewController(url: url)
-                                    svc.preferredBarTintColor = ColorMainBlue
-                                    svc.preferredControlTintColor = .white
-                                    if #available(iOS 11.0, *) {
-                                        svc.dismissButtonStyle = .close
-                                    }
-                                    self.present(svc, animated: true, completion: nil)
+                                    self.performSegue(withIdentifier: "webViewSegue", sender: url)
                                     
                                 }
                             }else{
@@ -263,6 +270,19 @@ class PackageViewController: ParentViewController, UICollectionViewDelegate, UIC
             showAlert(title: "", message: "Failed to subscribe\n Please check your internet connection", vc: self, closure: nil)
         }
         
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "webViewSegue"{
+            
+            if let des = segue.destination as? WebViewController{
+                
+                if let url = sender as? URL{
+                    
+                    des.url = url
+                }
+            }
+        }
     }
 
 }

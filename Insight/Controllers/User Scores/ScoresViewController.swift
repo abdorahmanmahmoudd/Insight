@@ -53,6 +53,19 @@ class ScoresViewController: ParentViewController, UITableViewDelegate, UITableVi
         cell.lblCategory.text = userScore[indexPath.row].category
         cell.lblUnit.text = userScore[indexPath.row].subCategory
         //handle subub category data
+        cell.lblSection.attributedText = NSMutableAttributedString()
+        var results = NSMutableAttributedString()
+        for section in userScore[indexPath.row].subSubCategory{
+            
+            results.append(NSMutableAttributedString(string: section.name + "\n", attributes: [NSAttributedStringKey.foregroundColor : UIColor.black]))
+            
+            for i in 0..<section.scores.count{
+                results.append(NSAttributedString(string:"   Your score \(i+1) : \(section.scores[i]) \n", attributes: [NSAttributedStringKey.foregroundColor : #colorLiteral(red: 0.4078193307, green: 0.4078193307, blue: 0.4078193307, alpha: 1)]))
+            }
+            
+            results.append(NSAttributedString(string: "   Avg.score : \(section.averageScore)", attributes: [NSAttributedStringKey.foregroundColor : #colorLiteral(red: 0.4078193307, green: 0.4078193307, blue: 0.4078193307, alpha: 1)]))
+        }
+        cell.lblSection.attributedText = results
         
         return cell
     }

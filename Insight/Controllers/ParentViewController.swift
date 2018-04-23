@@ -46,6 +46,7 @@ class ParentViewController: UIViewController {
         
         let btn = UIButton.init(type: .custom)
         btn.setImage(#imageLiteral(resourceName: "icDrawer"), for: .normal)
+        btn.setTitle("   ", for: .normal)
         btn.sizeToFit()
         btn.addTarget(self, action: #selector(self.openSideMenu), for: .touchUpInside)
         let barBtn = UIBarButtonItem.init(customView: btn)
@@ -61,19 +62,6 @@ class ParentViewController: UIViewController {
     func resetToHome(){
         SideMenuManager.shared.reset()
     }
-
-    //MARK: - progress hud
-//    func showLoading()
-//    {
-//        self.view.backgroundColor = UIColor.white
-//        self.hud = MBProgressHUD.showAdded(to: self.view, animated: true)
-//        hud.mode = .indeterminate;
-//    }
-//    
-//    func hideLoading()
-//    {
-//        self.hud?.hide(animated: true)
-//    }
     
     @objc func openEditFlagVC(_ sender: flagBtn){
         
