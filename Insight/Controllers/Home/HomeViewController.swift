@@ -331,26 +331,8 @@ class HomeViewController: ParentViewController, URLSessionTaskDelegate, URLSessi
         
         if realmOfflinePkgs.count > 0{
             
-            if allCategoriesUnlocked{
-                performSegue(withIdentifier: "SubCategorySegue", sender: sender)
-                
-            }else{
-                let selectedCatId = sender.tag - 1
-                if unlockedCategoriesIds.contains(selectedCatId){
-                    performSegue(withIdentifier: "SubCategorySegue", sender: sender)
-                    
-                }else{
-                    
-                    showYesNoAlert(title: "", message: "Please subscribe to open categories", vc: self, closure: { (yes) in
-                        if yes{
-                            
-                            let sb = UIStoryboard.init(name: "Subscribtion", bundle: Bundle.main)
-                            let viewController = sb.instantiateViewController(withIdentifier: "SubscribeVC")
-                            self.navigationController?.setViewControllers([viewController], animated: true)
-                        }
-                    })
-                }
-            }
+            performSegue(withIdentifier: "SubCategorySegue", sender: sender)
+           
         }else{
             showYesNoAlert(title: "", message: "Please subscribe to open categories", vc: self, closure: { (yes) in
                 if yes{
@@ -662,19 +644,19 @@ class HomeViewController: ParentViewController, URLSessionTaskDelegate, URLSessi
                         if let existPkgs = realm?.objects(UserPackageItem.self){
                             for pkg in existPkgs{
                                 realmOfflinePkgs.append(pkg)
-                                if let details = pkg.package{
-                                    if details.all {
-                                        allCategoriesUnlocked = true
-                                        break
-                                    }else{
-                                        allCategoriesUnlocked = false
-                                        for unlockedCategory in details.unlocked{
-                                            if !unlockedCategoriesIds.contains(unlockedCategory.categoryId){
-                                                unlockedCategoriesIds.append(unlockedCategory.categoryId)
-                                            }
-                                        }
-                                    }
-                                }
+//                                if let details = pkg.package{
+//                                    if details.all {
+//                                        allCategoriesUnlocked = true
+//                                        break
+//                                    }else{
+//                                        allCategoriesUnlocked = false
+//                                        for unlockedCategory in details.unlocked{
+//                                            if !unlockedCategoriesIds.contains(unlockedCategory.categoryId){
+//                                                unlockedCategoriesIds.append(unlockedCategory.categoryId)
+//                                            }
+//                                        }
+//                                    }
+//                                }
                             }
                         }
                     }
