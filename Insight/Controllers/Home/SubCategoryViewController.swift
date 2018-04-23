@@ -19,6 +19,11 @@ class SubCategoryViewController: ParentViewController, UITableViewDelegate, UITa
     var flagFilter : Flag?
     var selectedSubCategory = Int()
     
+    var allSubsUnlocked = false
+    var unlockedSubsIds = [Int]()
+    
+    var pkgs = [UserPackageItem]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -46,6 +51,15 @@ class SubCategoryViewController: ParentViewController, UITableViewDelegate, UITa
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SubCell", for: indexPath) as! SubCategoryTableViewCell
         
+        if allSubsUnlocked {
+            subCategory[indexPath.row].locked = false
+        }else{
+            if unlockedSubsIds.contains(subCategory[indexPath.row].id){
+                subCategory[indexPath.row].locked = false
+            }else{
+                subCategory[indexPath.row].locked = true
+            }
+        }
         cell.configureCell(data : subCategory[indexPath.row])
         
         return cell
@@ -58,6 +72,16 @@ class SubCategoryViewController: ParentViewController, UITableViewDelegate, UITa
             ParentViewController.currentQParentParentId = subCategory[indexPath.row].id
             selectedSubCategory = indexPath.row
             performSegue(withIdentifier: "SubSubCategorySegue", sender: nil)
+        }else{
+            
+            showYesNoAlert(title: "", message: "Please subscribe to open Sub categories", vc: self, closure: { (yes) in
+                if yes{
+                    
+                    let sb = UIStoryboard.init(name: "Subscribtion", bundle: Bundle.main)
+                    let viewController = sb.instantiateViewController(withIdentifier: "SubscribeVC")
+                    self.navigationController?.setViewControllers([viewController], animated: true)
+                }
+            })
         }
         
     }

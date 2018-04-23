@@ -94,6 +94,7 @@
                             <constraint firstItem="c2P-q4-9VV" firstAttribute="height" secondItem="Ujq-NN-DxM" secondAttribute="height" multiplier="0.25" id="OVy-bU-18y"/>
                             <constraint firstItem="FK0-o1-pU5" firstAttribute="centerX" secondItem="Ujq-NN-DxM" secondAttribute="centerX" id="QOm-sd-qnG"/>
                             <constraint firstItem="cCw-oU-STz" firstAttribute="top" secondItem="FK0-o1-pU5" secondAttribute="bottom" constant="8" id="Sm7-nO-Xvn"/>
+                            <constraint firstItem="thy-em-vj1" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="FK0-o1-pU5" secondAttribute="trailing" constant="8" id="VmZ-6h-ae1"/>
                             <constraint firstAttribute="trailing" secondItem="c2P-q4-9VV" secondAttribute="trailing" id="Wf3-MY-W17"/>
                             <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="hIQ-aG-9hN" secondAttribute="bottom" constant="2" id="eWu-aV-bpe"/>
                             <constraint firstItem="hIQ-aG-9hN" firstAttribute="top" secondItem="bow-8J-0bd" secondAttribute="bottom" constant="8" id="efa-ca-uD9"/>
@@ -101,6 +102,7 @@
                             <constraint firstItem="t2P-Ay-sOg" firstAttribute="leading" secondItem="thy-em-vj1" secondAttribute="leading" constant="8" id="gWX-jn-HJW"/>
                             <constraint firstItem="c2P-q4-9VV" firstAttribute="width" secondItem="Ujq-NN-DxM" secondAttribute="width" multiplier="0.5" id="jRp-QU-S9e"/>
                             <constraint firstItem="thy-em-vj1" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="cCw-oU-STz" secondAttribute="trailing" constant="8" id="k4N-F3-E4J"/>
+                            <constraint firstItem="FK0-o1-pU5" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="thy-em-vj1" secondAttribute="leading" constant="8" id="og5-cD-T8B"/>
                             <constraint firstItem="t2P-Ay-sOg" firstAttribute="top" secondItem="cCw-oU-STz" secondAttribute="bottom" constant="8" id="pxh-7V-5V0"/>
                             <constraint firstItem="c2P-q4-9VV" firstAttribute="bottom" secondItem="hIQ-aG-9hN" secondAttribute="bottom" id="sKx-b1-hV0"/>
                             <constraint firstItem="F90-2p-5y4" firstAttribute="centerX" secondItem="Ujq-NN-DxM" secondAttribute="centerX" multiplier="1.1" id="uMt-rG-Rl2"/>

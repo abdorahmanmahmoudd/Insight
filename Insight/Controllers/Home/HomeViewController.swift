@@ -18,6 +18,9 @@ class HomeViewController: ParentViewController, URLSessionTaskDelegate, URLSessi
     var homeTitle = "Home"
     var userPackages = [PackageRootClass]()
     var realmOfflinePkgs = [UserPackageItem]()
+    
+    var allCategoriesUnlocked = false
+    var unlockedCategoriesIds = [Int]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -92,7 +95,38 @@ class HomeViewController: ParentViewController, URLSessionTaskDelegate, URLSessi
                             }
                         }
                     }
+                }else if statusCode == 401{ //unauthorized
+                    
+                    if let obj = json as? [String: Any]{
+                        
+                        if let status = obj["status"] as? Int{
+                            
+                            if status == 3{ // token expired
+                                
+                                let um = UserModel()
+                                um.refreshToken(complation: { (code, json) in
+                                    
+                                    if let obj = json as? [String:Any]{
+                                        
+                                        if let token = obj["token"] as? String{
+                                            
+                                            let user = UserModel.getInstance.getUser()
+                                            user?.token = token
+                                            UserModel.getInstance.saveUser(user!)
+                                            
+                                            showAlert(title: "", message: "Token refresh successfully", vc: self, closure: nil)
+                                        }
+                                    }
+                                    
+                                }, errorHandler: { (error, msg) in
+                                    showAlert(title: "", message: "Error while refresh user token\n please try again.", vc: self, closure: nil)
+                                })
+                                
+                            }
+                        }
+                    }
                 }
+                
             }
             if !callSuccessed{
                 print("call not successeded: will try to fetch local file")
@@ -294,8 +328,29 @@ class HomeViewController: ParentViewController, URLSessionTaskDelegate, URLSessi
     @IBAction func btnItemClicked(_ sender: UIButton) {
         
         print(sender.tag)
+        
         if realmOfflinePkgs.count > 0{
-            performSegue(withIdentifier: "SubCategorySegue", sender: sender)
+            
+            if allCategoriesUnlocked{
+                performSegue(withIdentifier: "SubCategorySegue", sender: sender)
+                
+            }else{
+                let selectedCatId = sender.tag - 1
+                if unlockedCategoriesIds.contains(selectedCatId){
+                    performSegue(withIdentifier: "SubCategorySegue", sender: sender)
+                    
+                }else{
+                    
+                    showYesNoAlert(title: "", message: "Please subscribe to open categories", vc: self, closure: { (yes) in
+                        if yes{
+                            
+                            let sb = UIStoryboard.init(name: "Subscribtion", bundle: Bundle.main)
+                            let viewController = sb.instantiateViewController(withIdentifier: "SubscribeVC")
+                            self.navigationController?.setViewControllers([viewController], animated: true)
+                        }
+                    })
+                }
+            }
         }else{
             showYesNoAlert(title: "", message: "Please subscribe to open categories", vc: self, closure: { (yes) in
                 if yes{
@@ -319,6 +374,7 @@ class HomeViewController: ParentViewController, URLSessionTaskDelegate, URLSessi
                 let title = Categories(rawValue: ((sender as? UIButton)?.tag)!)?.desc ?? ""
                 des.titleText = title
                 des.homeItemId = insightContent[((sender as? UIButton)?.tag)! - 1 ].id
+                des.pkgs = realmOfflinePkgs
                 
                 if let flag = self.flagFilter{
                     
@@ -335,22 +391,25 @@ class HomeViewController: ParentViewController, URLSessionTaskDelegate, URLSessi
                         })
                     }
                 }
-//                else{
-//                    // handle unlocked sub categories of the selected category
-//
-//                    let categoryIds = userPackages.map ({ $0.packageField.id })
-//
-//                    if let catId = insightContent[view.tag - 1].id{
-//
-//                        if categoryIds.contains(where: { (id) -> Bool in
-//                            return id == catId
-//                        }){
-//
-//                            view.isUserInteractionEnabled = true // enable unlocked categories only
-//                        }
-//                    }
-//
-//                }
+                // unlock sub categories
+                var unlockedSubsIds = [Int]()
+                for pkg in realmOfflinePkgs{
+                 
+                    if let package = pkg.package{
+                        
+                        if package.all{
+                            des.allSubsUnlocked = true
+                            break
+                        }else{
+                            for unlockedSub in package.unlocked{
+                                if !unlockedSubsIds.contains(unlockedSub.categoryId){
+                                    unlockedSubsIds.append(unlockedSub.categoryId)
+                                }
+                            }
+                        }
+                    }
+                }
+                des.unlockedSubsIds = unlockedSubsIds
             }
         }
     }
@@ -535,13 +594,26 @@ class HomeViewController: ParentViewController, URLSessionTaskDelegate, URLSessi
                 pkg.id = package.id
                 pkg.price = package.price
                 pkg.expiryDate = package.expiredAt
-                pkg.package?.id = package.packageField.id
-                pkg.package?.all = package.packageField.all
-                pkg.package?.name = package.packageField.name
-                pkg.package_duration?.id = package.duration.id
-                pkg.package_duration?.discount = package.duration.discount
-                pkg.package_duration?.duration = package.duration.duration
-                pkg.package_duration?.price = package.duration.price
+                if package.packageField != nil{
+                    pkg.package = PackageDetail()
+                    pkg.package?.id = package.packageField.id
+                    pkg.package?.all = package.packageField.all
+                    pkg.package?.name = package.packageField.name
+                }
+                if package.duration != nil {
+                    pkg.package_duration = PackagesDurationRealm()
+                    pkg.package_duration?.id = package.duration.id
+                    pkg.package_duration?.discount = package.duration.discount
+                    pkg.package_duration?.duration = package.duration.duration
+                    pkg.package_duration?.price = package.duration.price
+                }
+                if package.promocode != nil {
+                    pkg.promocode = PromocodeRealm()
+                    pkg.promocode?.id = package.promocode.id
+                    pkg.promocode?.discount = package.promocode.discount
+                    pkg.promocode?.message = package.promocode.message
+//                    pkg.promocode?.code = package.promocode.code
+                }
                 
                 if let unlocks = package.packageField.unlocked{
                     
@@ -590,6 +662,19 @@ class HomeViewController: ParentViewController, URLSessionTaskDelegate, URLSessi
                         if let existPkgs = realm?.objects(UserPackageItem.self){
                             for pkg in existPkgs{
                                 realmOfflinePkgs.append(pkg)
+                                if let details = pkg.package{
+                                    if details.all {
+                                        allCategoriesUnlocked = true
+                                        break
+                                    }else{
+                                        allCategoriesUnlocked = false
+                                        for unlockedCategory in details.unlocked{
+                                            if !unlockedCategoriesIds.contains(unlockedCategory.categoryId){
+                                                unlockedCategoriesIds.append(unlockedCategory.categoryId)
+                                            }
+                                        }
+                                    }
+                                }
                             }
                         }
                     }

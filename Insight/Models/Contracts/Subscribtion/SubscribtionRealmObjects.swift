@@ -59,7 +59,7 @@ class PackagesDurationRealm : Object{
 class PromocodeRealm: Object {
     @objc dynamic var id = Int()
     @objc dynamic var code = String()
-    @objc dynamic var discount = Double()
+    @objc dynamic var discount = Int()
     @objc dynamic var message = String()
 }
 

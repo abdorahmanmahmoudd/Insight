@@ -107,29 +107,33 @@ class ServerManager: NSObject
                     let value = response.result.value
                     //print(value!)
                     let statusCode = response.response?.statusCode
-                    if statusCode == 452{  // token expired
-
-                        let um = UserModel()
-                        um.refreshToken(complation: { (code, data) in
-                            
-                            if let obj = data as? [String:Any]{
-                                
-                                if let token = obj["token"] as? String{
-                                    
-                                    UserModel.getInstance.getUser()?.token = token
-                                }
-                            }
-
-                        }, errorHandler: { (errorCode, msg) in
-                            errorHandler(errorCode,msg)
-                        })
-
-                    }else{
-                        DispatchQueue.main.async
-                            {
-                                complation(value, statusCode)
-                        }
+                    DispatchQueue.main.async
+                        {
+                            complation(value, statusCode)
                     }
+//                    if statusCode == 452{  // token expired
+//
+//                        let um = UserModel()
+//                        um.refreshToken(complation: { (code, data) in
+//
+//                            if let obj = data as? [String:Any]{
+//
+//                                if let token = obj["token"] as? String{
+//
+//                                    UserModel.getInstance.getUser()?.token = token
+//                                }
+//                            }
+//
+//                        }, errorHandler: { (errorCode, msg) in
+//                            errorHandler(errorCode,msg)
+//                        })
+//
+//                    }else{
+//                        DispatchQueue.main.async
+//                            {
+//                                complation(value, statusCode)
+//                        }
+//                    }
                 case .failure(let error):
                     //print(error._code)
                     print(error.localizedDescription)
