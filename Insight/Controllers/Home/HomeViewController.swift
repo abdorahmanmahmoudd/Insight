@@ -562,7 +562,7 @@ class HomeViewController: ParentViewController, URLSessionTaskDelegate, URLSessi
             self.enableViewsInteraction()
             hideLoaderFor(view: self.view)
             print("\(String(describing: msg))")
-            showAlert(title: "Error", message: "Cannot get user packages\n Please check your internet connection", vc: self, closure: nil)
+//            showAlert(title: "Error", message: "Cannot get user packages\n Please check your internet connection", vc: self, closure: nil)
         }
     }
     

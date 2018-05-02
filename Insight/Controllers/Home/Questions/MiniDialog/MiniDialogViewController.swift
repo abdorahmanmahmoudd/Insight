@@ -79,9 +79,13 @@ class MiniDialogViewController: ParentViewController , UITableViewDelegate, UITa
         return cell
     }
     
+    
     func textViewDidChange(_ textView: UITextView) {
-        tableView.beginUpdates()
-        tableView.endUpdates()
+        if textView.text.last == "\n"{
+            print("new line")
+            tableView.beginUpdates()
+            tableView.endUpdates()
+        }
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {

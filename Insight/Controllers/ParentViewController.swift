@@ -54,8 +54,6 @@ class ParentViewController: UIViewController {
     }
     
     @objc func openSideMenu(){
-        
-        IQKeyboardManager.sharedManager().resignFirstResponder()
         SideMenuManager.shared.show(from: self.navigationController!)
     }
     

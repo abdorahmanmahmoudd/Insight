@@ -99,8 +99,11 @@ class QuestionDictationViewController: ParentViewController, UITableViewDelegate
 
     
     func textViewDidChange(_ textView: UITextView) {
-//        tableView.beginUpdates()
-//        tableView.endUpdates()
+        if textView.text.last == "\n"{
+            print("new line")
+            tableView.beginUpdates()
+            tableView.endUpdates()
+        }
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {

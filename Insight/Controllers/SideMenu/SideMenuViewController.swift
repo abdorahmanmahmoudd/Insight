@@ -138,7 +138,9 @@ class SideMenuViewController: UIViewController ,UITableViewDelegate, UITableView
                     
                     viewController.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
                     viewController.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
-                    delegate.present(viewController, animated: true, completion: nil)
+                    delegate.present(viewController, animated: true, completion: {
+                        self.view.layoutIfNeeded()
+                    })
                     
                 }else{
                     delegate.setViewControllers([viewController], animated: true)

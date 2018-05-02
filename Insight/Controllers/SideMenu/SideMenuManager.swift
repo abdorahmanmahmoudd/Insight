@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import IQKeyboardManagerSwift
 
 class SideMenuManager: NSObject {
 	static let shared: SideMenuManager = SideMenuManager()
@@ -37,6 +38,7 @@ class SideMenuManager: NSObject {
 	}
 	
 	func show(from navigationController: UINavigationController) {
+        IQKeyboardManager.sharedManager().resignFirstResponder()
 		if navigationController !== self.navigationController {
 			unwire()
 			wire(to: navigationController)
