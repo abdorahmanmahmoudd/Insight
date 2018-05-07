@@ -60,6 +60,10 @@ enum QuestionTypes : String {
     case derivatives = "Derivatives"
     case vocabulary = "Vocabulary"
     case Characters = "Characters"
+    case CorrectedColoredWords = "CorrectColoredWords"
+    case Paragraph = "Paragraph"
+    case characters = "characters"
+    case postreading = "Postreading"
 }
 
 enum Flag : Int{

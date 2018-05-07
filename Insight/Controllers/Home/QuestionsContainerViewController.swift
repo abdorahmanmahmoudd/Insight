@@ -201,11 +201,19 @@ class QuestionsContainerViewController: ParentViewController, GradedQuestion {
                     self.initMCQQuestionView()
                     break
                     
+                case QuestionTypes.Paragraph.rawValue?:
+                    self.initMCQQuestionView()
+                    break
+                    
                 case QuestionTypes.MiniDialog.rawValue?:
                     self.initMiniDialogQuestionView()
                     break
                     
                 case QuestionTypes.Mistakes.rawValue?:
+                    self.initMistakesQuestionView()
+                    break
+                
+                case QuestionTypes.CorrectedColoredWords.rawValue?:
                     self.initMistakesQuestionView()
                     break
                     
@@ -226,6 +234,10 @@ class QuestionsContainerViewController: ParentViewController, GradedQuestion {
                     break
                     
                 case QuestionTypes.Prereading.rawValue?:
+                    self.initGeneralQuestionView()
+                    break
+                    
+                case QuestionTypes.postreading.rawValue?:
                     self.initGeneralQuestionView()
                     break
                     
@@ -250,6 +262,10 @@ class QuestionsContainerViewController: ParentViewController, GradedQuestion {
                     break
                     
                 case QuestionTypes.Characters.rawValue?:
+                    self.initWritingQuestionView()
+                    break
+                
+                case QuestionTypes.characters.rawValue?:
                     self.initWritingQuestionView()
                     break
                     

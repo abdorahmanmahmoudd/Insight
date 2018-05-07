@@ -181,11 +181,11 @@ class UserModel {
         
         let sm = ServerManager()
         
-        sm.httpConnect(with: RefreshTokenURL, method: .get, paramters: nil, authentication: UserModel.getInstance.getUser()?.token,AdditionalHeaders: ["version": appVersion], complation:
-            { (json, data) in
-                if let obj = json
+        sm.httpConnect(with: RefreshTokenURL, method: .put, paramters: nil, authentication: UserModel.getInstance.getUser()?.token,AdditionalHeaders: ["version": appVersion], complation:
+            { (data, code) in
+                if let obj = data
                 {
-                    complation(obj, data)
+                    complation(obj, code)
                 }
         })
         { (error, msg) in

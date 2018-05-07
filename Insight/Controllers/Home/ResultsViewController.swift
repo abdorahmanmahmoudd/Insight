@@ -117,7 +117,38 @@ class ResultsViewController: ParentViewController {
                     
                     showAlert(title: "", message: "Please update", vc: self, closure: nil)
                     
-                }else{
+                }else if statusCode == 401{ //token expired
+                    
+                    if let obj = json as? [String: Any]{
+                        
+                        if let status = obj["status"] as? Int{
+                            
+                            if status == 3{ // token expired
+                                
+                                let um = UserModel()
+                                um.refreshToken(complation: { (code, json) in
+                                    
+                                    if let obj = json as? [String:Any]{
+                                        
+                                        if let token = obj["token"] as? String{
+                                            
+                                            let user = UserModel.getInstance.getUser()
+                                            user?.token = token
+                                            UserModel.getInstance.saveUser(user!)
+                                            
+                                            print( "Token refresh successfully")
+                                        }
+                                    }
+                                    
+                                }, errorHandler: { (error, msg) in
+                                    showAlert(title: "", message: "Error while refresh user token\n please try again.", vc: self, closure: nil)
+                                })
+                                
+                            }
+                        }
+                    }
+                }
+                else{
                     
                     showAlert(title: "", message: "Error code \(statusCode)"  , vc: self, closure: nil)
                 }

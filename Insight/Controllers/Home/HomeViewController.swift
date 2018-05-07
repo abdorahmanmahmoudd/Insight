@@ -114,7 +114,7 @@ class HomeViewController: ParentViewController, URLSessionTaskDelegate, URLSessi
                                             user?.token = token
                                             UserModel.getInstance.saveUser(user!)
                                             
-                                            showAlert(title: "", message: "Token refresh successfully", vc: self, closure: nil)
+                                            print( "Token refresh successfully")
                                         }
                                     }
                                     

@@ -61,9 +61,47 @@ class ServerManager: NSObject
                     let parse = resource.parse
                     let result = value.flatMap(parse)
                     let statusCode = response.response?.statusCode
-                    DispatchQueue.main.async
-                        {
-                            complation(result, statusCode)
+                    if statusCode == 401{
+                        
+                        if let obj = value as? [String: Any]{
+                            
+                            if let status = obj["status"] as? Int{
+                                
+                                if status == 3{ // token expired
+                                    
+                                    let um = UserModel()
+                                    um.refreshToken(complation: { (code, json) in
+                                        
+                                        if let obj = json as? [String:Any]{
+                                            
+                                            if let token = obj["token"] as? String{
+                                                
+                                                let user = UserModel.getInstance.getUser()
+                                                user?.token = token
+                                                UserModel.getInstance.saveUser(user!)
+                                                print( "Token refresh successfully")
+                                            }
+                                        }
+                                        
+                                    }, errorHandler: { (error, msg) in
+                                        print( "Error while refresh user token\n please try again.")
+                                    })
+                                    
+                                }else{
+                                    
+                                    DispatchQueue.main.async
+                                        {
+                                            complation(result, statusCode)
+                                    }
+                                }
+                            }
+                        }
+                        
+                    }else{
+                        DispatchQueue.main.async
+                            {
+                                complation(result, statusCode)
+                        }
                     }
                 case .failure(let error):
                     //print(error._code)
@@ -107,33 +145,49 @@ class ServerManager: NSObject
                     let value = response.result.value
                     //print(value!)
                     let statusCode = response.response?.statusCode
-                    DispatchQueue.main.async
-                        {
-                            complation(value, statusCode)
+
+                    if statusCode == 401{  // token expired
+
+                        if let obj = value as? [String: Any]{
+                            
+                            if let status = obj["status"] as? Int{
+                                
+                                if status == 3{ // token expired
+                                    
+                                    let um = UserModel()
+                                    um.refreshToken(complation: { (code, json) in
+                                        
+                                        if let obj = json as? [String:Any]{
+                                            
+                                            if let token = obj["token"] as? String{
+                                                
+                                                let user = UserModel.getInstance.getUser()
+                                                user?.token = token
+                                                UserModel.getInstance.saveUser(user!)
+                                                print( "Token refresh successfully")
+                                            }
+                                        }
+                                        
+                                    }, errorHandler: { (error, msg) in
+                                        print( "Error while refresh user token\n please try again.")
+                                    })
+                                    
+                                }else{
+                                    
+                                    DispatchQueue.main.async
+                                        {
+                                            complation(value, statusCode)
+                                    }
+                                }
+                            }
+                        }
+
+                    }else{
+                        DispatchQueue.main.async
+                            {
+                                complation(value, statusCode)
+                        }
                     }
-//                    if statusCode == 452{  // token expired
-//
-//                        let um = UserModel()
-//                        um.refreshToken(complation: { (code, data) in
-//
-//                            if let obj = data as? [String:Any]{
-//
-//                                if let token = obj["token"] as? String{
-//
-//                                    UserModel.getInstance.getUser()?.token = token
-//                                }
-//                            }
-//
-//                        }, errorHandler: { (errorCode, msg) in
-//                            errorHandler(errorCode,msg)
-//                        })
-//
-//                    }else{
-//                        DispatchQueue.main.async
-//                            {
-//                                complation(value, statusCode)
-//                        }
-//                    }
                 case .failure(let error):
                     //print(error._code)
                     print(error.localizedDescription)
